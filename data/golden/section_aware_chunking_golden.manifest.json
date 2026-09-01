@@ -1,0 +1,50 @@
+{
+  "schema_version": "1.0.0",
+  "dataset": "section_aware_chunking_golden.jsonl",
+  "record_count": 100,
+  "random_seed": 20260831,
+  "source_directory": "data/raw",
+  "source_pdf_count": 22,
+  "source_page_count": 1177,
+  "documents": {
+    "2026BFCBBNAStressTest.pdf": 5,
+    "BMOInvestorPresentationEN.pdf": 6,
+    "Bail_In_TLAC_Disclosure.pdf": 1,
+    "CorporateFactSheet.pdf": 4,
+    "LCR_CY26Q1.pdf": 1,
+    "LCR_CY26Q2.pdf": 1,
+    "MainFeaturesTemplateQ326.pdf": 10,
+    "NSFRCY26Q2.pdf": 1,
+    "Q126_EarningsRelease.pdf": 1,
+    "Q126_ReportToShareholders.pdf": 5,
+    "Q226_EarningsRelease.pdf": 1,
+    "Q226_ReportToShareholders.pdf": 8,
+    "Q326_EarningsRelease.pdf": 1,
+    "Q326_ReportToShareholders.pdf": 5,
+    "RegSuppQ326.pdf": 6,
+    "SuppQ326.pdf": 4,
+    "Suppq126.pdf": 4,
+    "Suppq226.pdf": 7,
+    "bmo_AIF2025.pdf": 4,
+    "bmo_ar2025.pdf": 16,
+    "sustainability_and_climate_report_interactive.pdf": 8,
+    "transcript_2026BMOInvestoDayTranscript.pdf": 1
+  },
+  "annotation_methods": {
+    "pdf_outline": 98,
+    "visual_reviewed": 10
+  },
+  "corner_case_counts": {
+    "cross_page": 8,
+    "deep_ancestry": 13,
+    "list_or_bullets": 15,
+    "long_chunk": 69,
+    "multi_chunk_page": 84,
+    "multiple_sections": 8,
+    "page_closing": 38,
+    "page_opening": 37,
+    "short_chunk": 9,
+    "table_or_numeric_dense": 40
+  },
+  "generator": "scripts/generate_section_chunking_golden.py"
+}

@@ -9,9 +9,12 @@ description = "Baseline Python RAG project"
 readme = "README.md"
 requires-python = ">=3.11"
 dependencies = [
+    "beautifulsoup4>=4.12",
+    "docling>=2.30",
     "pydantic>=2.8",
     "pydantic-settings>=2.4",
     "python-dotenv>=1.0",
+    "requests>=2.32",
     "typer>=0.12",
 ]
 
@@ -34,3 +37,4 @@ target-version = "py311"
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
+addopts = "-p no:cacheprovider"
