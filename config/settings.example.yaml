@@ -1,0 +1,22 @@
+app:
+  name: bmo-rag
+  log_level: INFO
+
+llm:
+  provider: openai
+  model: gpt-4.1-mini
+
+embeddings:
+  provider: openai
+  model: text-embedding-3-small
+
+retrieval:
+  vector_store: local
+  top_k: 5
+  chunk_size: 1000
+  chunk_overlap: 150
+
+paths:
+  raw_data: data/raw
+  processed_data: data/processed
+  indexes: data/indexes
