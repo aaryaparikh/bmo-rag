@@ -11,7 +11,7 @@ from pathlib import Path
 from urllib.error import URLError
 from urllib.request import urlopen
 
-ROOT = Path(__file__).resolve().parents[1]
+ROOT = Path(__file__).resolve().parents[2]
 SRC = ROOT / "src"
 if str(SRC) not in sys.path:
     sys.path.insert(0, str(SRC))
@@ -135,7 +135,7 @@ def benchmark_command(args: argparse.Namespace, spec: ModelSpec) -> list[str]:
     effective_batch_size = args.batch_size or spec.recommended_batch_size
     command = [
         sys.executable,
-        str(ROOT / "scripts/benchmark_embeddings.py"),
+        str(ROOT / "scripts/evaluation/benchmark_embeddings.py"),
         "--models",
         spec.slug,
         "--base-url",
@@ -170,12 +170,15 @@ def main() -> None:
         help="Fraction of GPU memory reserved by vLLM (default: 0.80 for an 8 GB Windows GPU).",
     )
     parser.add_argument(
-        "--output", type=Path, default=ROOT / "outputs/embedding_benchmark/results.json"
+        "--output",
+        type=Path,
+        default=ROOT / "outputs/benchmarks/embedding_model_comparison/summary.json",
     )
     parser.add_argument("--reindex", action="store_true")
     parser.add_argument(
         "--details-output-dir",
         type=Path,
+        default=ROOT / "outputs/benchmarks/embedding_model_comparison/query_details",
         help="Write query-level JSONL audit datasets while evaluating each model.",
     )
     parser.add_argument(

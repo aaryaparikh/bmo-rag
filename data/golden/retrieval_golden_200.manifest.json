@@ -89,5 +89,5 @@
     "CorporateFactSheet in the supplied corpus is Q3 2026, not Q2 2026.",
     "The supplied Form 40-F chunks evidence the original December 4, 2025 filing; a December 17 amendment is not present."
   ],
-  "generator": "scripts/build_retrieval_gold_200.py"
+  "generator": "scripts/evaluation/build_retrieval_gold_200.py"
 }

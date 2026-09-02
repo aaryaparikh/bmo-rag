@@ -34,7 +34,7 @@ Regenerate with the bundled PDF runtime:
 
 ```powershell
 $env:PYTHONPATH='scripts'
-python scripts\build_docling_hierarchy_gold.py
+python scripts\evaluation\build_docling_hierarchy_gold.py
 ```
 
 The manifest is `docling_hierarchy_golden_100.manifest.json`.
@@ -68,7 +68,7 @@ labels and should not appear in a released strict-gold dataset.
 Regenerate from the repository root with:
 
 ```powershell
-python scripts/generate_section_chunking_golden.py
+python scripts/evaluation/generate_section_chunking_golden.py
 ```
 
 The fixed default seed is `20260831`. The manifest records corpus coverage, extraction
@@ -96,7 +96,7 @@ The relevance scale is `3 = direct answer`, `1 = supporting section context`, an
 Regenerate and evaluate from the repository root:
 
 ```powershell
-.\.uvenv\Scripts\python.exe scripts\build_retrieval_gold.py
+.\.uvenv\Scripts\python.exe scripts\evaluation\build_retrieval_gold.py
 .\.uvenv\Scripts\python.exe scripts\audit_docling_chunks.py
 .\.uvenv\Scripts\python.exe scripts\evaluate_retrieval_gold.py
 ```
@@ -128,7 +128,7 @@ the corpus fingerprint and known source-date caveats.
 Regenerate and run the lexical smoke baseline with:
 
 ```powershell
-.\.uvenv\Scripts\python.exe scripts\build_retrieval_gold_200.py
+.\.uvenv\Scripts\python.exe scripts\evaluation\build_retrieval_gold_200.py
 .\.uvenv\Scripts\python.exe scripts\evaluate_retrieval_gold_200.py
 ```
 

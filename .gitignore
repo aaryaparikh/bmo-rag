@@ -17,6 +17,7 @@ venv/
 data/raw/*
 data/processed/*
 data/indexes/*
+data/observability/
 !data/raw/.gitkeep
 !data/processed/.gitkeep
 !data/indexes/.gitkeep

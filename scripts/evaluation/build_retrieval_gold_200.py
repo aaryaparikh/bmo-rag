@@ -19,7 +19,7 @@ from typing import Any
 from build_retrieval_gold import SEEDS, chunk_id, load_corpus, norm, resolve
 
 
-ROOT = Path(__file__).resolve().parents[1]
+ROOT = Path(__file__).resolve().parents[2]
 OUT_DIR = ROOT / "data" / "golden"
 
 
@@ -359,7 +359,7 @@ def build() -> None:
             "CorporateFactSheet in the supplied corpus is Q3 2026, not Q2 2026.",
             "The supplied Form 40-F chunks evidence the original December 4, 2025 filing; a December 17 amendment is not present.",
         ],
-        "generator": "scripts/build_retrieval_gold_200.py",
+        "generator": "scripts/evaluation/build_retrieval_gold_200.py",
     }
     (OUT_DIR / "retrieval_golden_200.manifest.json").write_text(
         json.dumps(manifest, indent=2, ensure_ascii=False) + "\n", encoding="utf-8"

@@ -45,5 +45,5 @@
     "visual_leaf_accuracy": 0.9333,
     "visual_leaf_examples": 15
   },
-  "generator": "scripts/build_docling_hierarchy_gold.py"
+  "generator": "scripts/evaluation/build_docling_hierarchy_gold.py"
 }

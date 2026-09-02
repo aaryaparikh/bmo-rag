@@ -1,20 +1,50 @@
 import fs from "node:fs/promises";
 import path from "node:path";
+import { fileURLToPath } from "node:url";
 import { SpreadsheetFile, Workbook } from "@oai/artifact-tool";
 
-const root = path.resolve(process.cwd(), "..", "..", "..");
-const sourceDir = path.join(root, "outputs", "embedding_benchmark", "query_details");
-const reportPath = path.join(root, "outputs", "embedding_benchmark", "bge_nomic_qwen06_facets.json");
-const outputDir = path.join(root, "outputs", "01a05f98-30d0-7e21-9b3c-7c1b42566b61");
-const supportDir = path.join(outputDir, "support");
+const scriptDir = path.dirname(fileURLToPath(import.meta.url));
+
+async function findProjectRoot(start) {
+  let current = start;
+  while (true) {
+    try {
+      await fs.access(path.join(current, "pyproject.toml"));
+      return current;
+    } catch {
+      const parent = path.dirname(current);
+      if (parent === current) throw new Error("Could not find the project root");
+      current = parent;
+    }
+  }
+}
+
+const root = await findProjectRoot(scriptDir);
+const sourceDir = path.join(root, "outputs", "benchmarks", "embedding_model_comparison", "query_details");
+const reportPath = path.join(
+  root,
+  "outputs",
+  "benchmarks",
+  "embedding_model_comparison",
+  "comparison_snapshots",
+  "bge-m3_nomic_qwen3-0.6b.json",
+);
+const outputDir = path.join(root, "outputs", "audits", "three_model_retrieval_audit");
+const reportsDir = path.join(outputDir, "reports");
+const tablesDir = path.join(outputDir, "tables");
+const figuresDir = path.join(outputDir, "figures");
+const diagnosticsDir = path.join(outputDir, "diagnostics");
 const modelFiles = [
   ["bge-m3", "bge-m3.jsonl"],
   ["nomic-embed-v1.5", "nomic-embed-v1.5.jsonl"],
   ["qwen3-embedding-0.6b", "qwen3-embedding-0.6b.jsonl"],
 ];
 
-await fs.mkdir(outputDir, { recursive: true });
-await fs.mkdir(supportDir, { recursive: true });
+await Promise.all(
+  [reportsDir, tablesDir, figuresDir, diagnosticsDir].map((dir) =>
+    fs.mkdir(dir, { recursive: true }),
+  ),
+);
 
 function parseJsonl(text) {
   return text.split(/\r?\n/).filter(Boolean).map((line) => JSON.parse(line));
@@ -42,7 +72,7 @@ function csvCell(value) {
 
 async function writeCsv(filename, rows) {
   const text = rows.map((row) => row.map(csvCell).join(",")).join("\r\n") + "\r\n";
-  await fs.writeFile(path.join(outputDir, filename), text, "utf8");
+  await fs.writeFile(path.join(tablesDir, filename), text, "utf8");
 }
 
 const report = JSON.parse(await fs.readFile(reportPath, "utf8"));
@@ -53,7 +83,7 @@ for (const [model, filename] of modelFiles) {
 }
 
 await fs.writeFile(
-  path.join(outputDir, "retrieval_audit_3_models.jsonl"),
+  path.join(reportsDir, "retrieval_audit.jsonl"),
   records.map((record) => JSON.stringify(record)).join("\n") + "\n",
   "utf8",
 );
@@ -241,7 +271,7 @@ for (const [sheetName, range, filename] of [
   ["Facet Metrics", "A1:J18", "facet_metrics.png"],
 ]) {
   const preview = await workbook.render({ sheetName, range, scale: 0.8, format: "png" });
-  await fs.writeFile(path.join(supportDir, filename), new Uint8Array(await preview.arrayBuffer()));
+  await fs.writeFile(path.join(figuresDir, filename), new Uint8Array(await preview.arrayBuffer()));
 }
 
 const inspection = await workbook.inspect({
@@ -251,17 +281,17 @@ const inspection = await workbook.inspect({
   tableMaxCols: 8,
   tableMaxCellChars: 80,
 });
-await fs.writeFile(path.join(supportDir, "inspection.json"), inspection.ndjson ?? JSON.stringify(inspection, null, 2));
+await fs.writeFile(path.join(diagnosticsDir, "inspection.json"), inspection.ndjson ?? JSON.stringify(inspection, null, 2));
 const errors = await workbook.inspect({
   kind: "match",
   searchTerm: "#REF!|#DIV/0!|#VALUE!|#NAME\\?|#N/A",
   options: { useRegex: true, maxResults: 200 },
   summary: "final formula error scan",
 });
-await fs.writeFile(path.join(supportDir, "error_scan.json"), errors.ndjson ?? JSON.stringify(errors, null, 2));
+await fs.writeFile(path.join(diagnosticsDir, "error_scan.json"), errors.ndjson ?? JSON.stringify(errors, null, 2));
 
 const xlsx = await SpreadsheetFile.exportXlsx(workbook);
-await xlsx.save(path.join(outputDir, "bmo_retrieval_audit_3_models.xlsx"));
+await xlsx.save(path.join(reportsDir, "retrieval_audit.xlsx"));
 
 console.log(JSON.stringify({
   questions: questionRows.length,

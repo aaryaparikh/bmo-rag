@@ -24,7 +24,7 @@ from pypdf import PdfReader
 
 SEED = 20260901
 TARGET = 100
-ROOT = Path(__file__).resolve().parents[1]
+ROOT = Path(__file__).resolve().parents[2]
 RAW = ROOT / "data" / "raw"
 PROCESSED = ROOT / "data" / "processed" / "docling"
 OUTPUT = ROOT / "data" / "golden"
@@ -340,7 +340,7 @@ def write(rows: list[dict[str, Any]], output_dir: Path, seed: int) -> None:
             "visual_leaf_accuracy": round(visual_leaf_matches / len(visual_rows), 4),
             "visual_leaf_examples": len(visual_rows),
         },
-        "generator": "scripts/build_docling_hierarchy_gold.py",
+        "generator": "scripts/evaluation/build_docling_hierarchy_gold.py",
     }
     (output_dir / "docling_hierarchy_golden_100.manifest.json").write_text(json.dumps(manifest, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
 

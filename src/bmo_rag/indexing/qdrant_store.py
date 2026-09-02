@@ -222,6 +222,7 @@ class QdrantStore:
         top_k: int,
         candidate_k: int = 30,
         exact: bool = True,
+        source_ids: list[str] | None = None,
     ) -> list[dict[str, Any]]:
         """Fuse dense and native BM25 candidates with Qdrant RRF."""
         if candidate_k < top_k:
@@ -233,14 +234,23 @@ class QdrantStore:
         }
         if exact:
             dense_prefetch["params"] = {"exact": True}
+        source_filter = None
+        if source_ids:
+            source_filter = {
+                "must": [{"key": "source_id", "match": {"any": source_ids}}]
+            }
+            dense_prefetch["filter"] = source_filter
+        sparse_prefetch: dict[str, Any] = {
+            "query": {"text": query_text, "model": "qdrant/bm25"},
+            "using": "bm25",
+            "limit": candidate_k,
+        }
+        if source_filter:
+            sparse_prefetch["filter"] = source_filter
         body = {
             "prefetch": [
                 dense_prefetch,
-                {
-                    "query": {"text": query_text, "model": "qdrant/bm25"},
-                    "using": "bm25",
-                    "limit": candidate_k,
-                },
+                sparse_prefetch,
             ],
             "query": {"rrf": {}},
             "limit": top_k,
@@ -251,3 +261,59 @@ class QdrantStore:
             "POST", f"/collections/{quote(name, safe='')}/points/query", body=body
         )
         return response.json()["result"]["points"]
+
+    def source_catalog(self, name: str, *, page_size: int = 1000) -> dict[str, str | None]:
+        """Return distinct source IDs and filenames stored in a collection."""
+        sources: dict[str, str | None] = {}
+        offset: str | int | None = None
+        while True:
+            body: dict[str, Any] = {
+                "limit": page_size,
+                "with_payload": ["source_id", "origin_filename"],
+                "with_vector": False,
+            }
+            if offset is not None:
+                body["offset"] = offset
+            response = self._request(
+                "POST", f"/collections/{quote(name, safe='')}/points/scroll", body=body
+            )
+            result = response.json()["result"]
+            for point in result["points"]:
+                payload = point.get("payload") or {}
+                source_id = payload.get("source_id")
+                if isinstance(source_id, str):
+                    filename = payload.get("origin_filename")
+                    sources[source_id] = str(filename) if filename else sources.get(source_id)
+            offset = result.get("next_page_offset")
+            if offset is None:
+                return sources
+
+    def related_points(
+        self,
+        name: str,
+        *,
+        source_id: str,
+        chunk_indices: list[int] | None = None,
+        heading: str | None = None,
+        limit: int = 32,
+    ) -> list[dict[str, Any]]:
+        """Fetch ordered chunks from a source for neighbor or section expansion."""
+        must: list[dict[str, Any]] = [
+            {"key": "source_id", "match": {"value": source_id}}
+        ]
+        if chunk_indices:
+            must.append({"key": "chunk_index", "match": {"any": chunk_indices}})
+        if heading:
+            must.append({"key": "headings", "match": {"value": heading}})
+        response = self._request(
+            "POST",
+            f"/collections/{quote(name, safe='')}/points/scroll",
+            body={
+                "filter": {"must": must},
+                "limit": limit,
+                "with_payload": True,
+                "with_vector": False,
+            },
+        )
+        points = response.json()["result"]["points"]
+        return sorted(points, key=lambda point: int(point.get("payload", {}).get("chunk_index", 0)))

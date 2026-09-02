@@ -38,9 +38,11 @@ class VllmReranker:
         documents = []
         for point in points:
             payload = point.get("payload") or {}
+            source = payload.get("origin_filename") or payload.get("source_id") or ""
             headings = " > ".join(payload.get("headings") or [])
             text = str(payload.get("text") or "")
-            documents.append(f"{headings}\n\n{text}" if headings else text)
+            prefix = "\n".join(value for value in [str(source), headings] if value)
+            documents.append(f"{prefix}\n\n{text}" if prefix else text)
         body = {
             "model": self.model,
             "query": question,

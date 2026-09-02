@@ -46,5 +46,5 @@
     "short_chunk": 9,
     "table_or_numeric_dense": 40
   },
-  "generator": "scripts/generate_section_chunking_golden.py"
+  "generator": "scripts/evaluation/generate_section_chunking_golden.py"
 }

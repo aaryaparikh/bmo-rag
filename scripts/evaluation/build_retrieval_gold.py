@@ -16,7 +16,7 @@ from pathlib import Path
 from typing import Any
 
 
-ROOT = Path(__file__).resolve().parents[1]
+ROOT = Path(__file__).resolve().parents[2]
 CHUNK_DIR = ROOT / "data" / "processed" / "docling"
 OUT_DIR = ROOT / "data" / "golden"
 
@@ -255,7 +255,7 @@ def build() -> None:
         "split_distribution": dict(Counter(r["split"] for r in records)),
         "query_type_distribution": dict(Counter(r["query_type"] for r in records)),
         "relevance_scale": {"3": "direct answer evidence", "1": "same-section supporting context", "0": "not relevant"},
-        "generator": "scripts/build_retrieval_gold.py",
+        "generator": "scripts/evaluation/build_retrieval_gold.py",
     }
     (OUT_DIR / "retrieval_golden_100.manifest.json").write_text(
         json.dumps(manifest, indent=2, ensure_ascii=False) + "\n", encoding="utf-8"

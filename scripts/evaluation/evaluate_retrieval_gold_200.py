@@ -10,7 +10,7 @@ from build_retrieval_gold import load_corpus
 from evaluate_retrieval_gold import bm25_rank, build_index
 
 
-ROOT = Path(__file__).resolve().parents[1]
+ROOT = Path(__file__).resolve().parents[2]
 
 
 def evaluate(records: list[dict], corpus: list[dict], include_headings: bool) -> dict:

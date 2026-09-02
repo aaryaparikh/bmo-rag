@@ -12,7 +12,7 @@ from datetime import UTC, datetime
 from pathlib import Path
 from typing import Any
 
-ROOT = Path(__file__).resolve().parents[1]
+ROOT = Path(__file__).resolve().parents[2]
 SRC = ROOT / "src"
 if str(SRC) not in sys.path:
     sys.path.insert(0, str(SRC))
@@ -126,7 +126,9 @@ def main() -> None:
         "--dataset", type=Path, default=ROOT / "data/golden/retrieval_golden_200.jsonl"
     )
     parser.add_argument(
-        "--output", type=Path, default=ROOT / "outputs/embedding_benchmark/results.json"
+        "--output",
+        type=Path,
+        default=ROOT / "outputs/benchmarks/embedding_model_comparison/summary.json",
     )
     parser.add_argument("--qdrant-url", default=os.getenv("QDRANT_URL", "http://localhost:6333"))
     parser.add_argument("--qdrant-api-key", default=os.getenv("QDRANT_API_KEY"))
@@ -158,6 +160,7 @@ def main() -> None:
     parser.add_argument(
         "--details-output-dir",
         type=Path,
+        default=ROOT / "outputs/benchmarks/embedding_model_comparison/query_details",
         help="Write one query-level JSONL audit dataset per evaluated model.",
     )
     args = parser.parse_args()
@@ -167,7 +170,7 @@ def main() -> None:
     if args.models and len(args.models) != 1:
         parser.error(
             "One vLLM server hosts one model at a time. Pass one model, or run "
-            "scripts/run_local_embedding_benchmark.py to orchestrate all four."
+            "scripts/evaluation/run_local_embedding_benchmark.py to orchestrate all four."
         )
     if any(k <= 0 for k in args.k):
         parser.error("All k values must be positive")

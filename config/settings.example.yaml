@@ -4,7 +4,7 @@ app:
 
 llm:
   provider: openai
-  model: gpt-4.1-mini
+  model: gpt-5
 
 embeddings:
   provider: vllm
@@ -15,6 +15,10 @@ retrieval:
   top_k: 5
   chunk_size: 1000
   chunk_overlap: 150
+
+observability:
+  enabled: true
+  database: data/observability/rag_observability.sqlite3
 
 paths:
   raw_data: data/raw

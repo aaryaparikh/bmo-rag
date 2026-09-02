@@ -11,7 +11,7 @@ from importlib import import_module
 from pathlib import Path
 from typing import Any
 
-ROOT = Path(__file__).resolve().parents[1]
+ROOT = Path(__file__).resolve().parents[2]
 SRC = ROOT / "src"
 if str(SRC) not in sys.path:
     sys.path.insert(0, str(SRC))
@@ -85,17 +85,17 @@ def main() -> None:
     parser.add_argument(
         "--output",
         type=Path,
-        default=ROOT / "outputs/embedding_benchmark/bge_hybrid_reranker_200.json",
+        default=ROOT / "outputs/benchmarks/hybrid_retrieval_comparison/summary.json",
     )
     parser.add_argument(
         "--details-output",
         type=Path,
-        default=ROOT / "outputs/embedding_benchmark/query_details/bge_hybrid_reranker.jsonl",
+        default=ROOT / "outputs/benchmarks/hybrid_retrieval_comparison/query_details.jsonl",
     )
     parser.add_argument(
         "--dense-baseline-report",
         type=Path,
-        default=ROOT / "outputs/embedding_benchmark/bge_nomic_qwen06_facets.json",
+        default=ROOT / "outputs/benchmarks/embedding_model_comparison/summary.json",
     )
     parser.add_argument("--no-start-local", action="store_true")
     args = parser.parse_args()

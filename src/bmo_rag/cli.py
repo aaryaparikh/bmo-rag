@@ -1,3 +1,4 @@
+import json
 from datetime import UTC, datetime
 from pathlib import Path
 from typing import Annotated
@@ -5,6 +6,8 @@ from typing import Annotated
 import typer
 
 from bmo_rag.config import Settings
+from bmo_rag.generation.memory import ConversationMemory
+from bmo_rag.generation.openai_responses import OpenAIError, OpenAIResponsesClient
 from bmo_rag.indexing.embeddings import EmbeddingError, resolve_model
 from bmo_rag.indexing.local_vllm import (
     LocalVllmError,
@@ -13,6 +16,8 @@ from bmo_rag.indexing.local_vllm import (
 )
 from bmo_rag.indexing.qdrant_store import QdrantError
 from bmo_rag.ingestion.loaders import DoclingIngestionPipeline
+from bmo_rag.observability.store import SQLiteObservabilityStore
+from bmo_rag.pipeline.chat import ChatAnswer, RAGChatbot
 from bmo_rag.retrieval.reranker import DEFAULT_RERANKER_MODEL, RerankerError
 from bmo_rag.retrieval.semantic import citation, retrieve_chunks, retrieve_hybrid_chunks
 
@@ -104,10 +109,178 @@ def index() -> None:
     typer.echo("Indexing pipeline placeholder")
 
 
+def _print_chat_answer(result: ChatAnswer) -> None:
+    typer.echo(f"\n{result.answer}\n")
+    if result.requested_sources:
+        resolved = "; ".join(
+            f"{group.label} -> {', '.join(group.source_ids)}"
+            for group in result.requested_sources
+        )
+        typer.echo(f"Source constraints: {resolved}")
+    typer.echo("Sources:")
+    for source in result.sources:
+        section = " > ".join(source.headings)
+        suffix = f" — {section}" if section else ""
+        typer.echo(f"  [{source.label}] {source.citation}{suffix}")
+    if result.context_truncated:
+        typer.echo("  (Some lower-priority context was omitted to stay within the token budget.)")
+    if result.trace_id:
+        typer.echo(f"Trace: {result.trace_id}")
+
+
 @app.command()
-def ask(question: str) -> None:
-    """Ask a question against the indexed knowledge base."""
-    typer.echo(f"Question received: {question}")
+def ask(
+    question: Annotated[
+        str | None,
+        typer.Argument(help="Question to answer; omit it for a memory-enabled chat session."),
+    ] = None,
+    llm_model: Annotated[str, typer.Option(help="OpenAI answer model.")] = "gpt-5",
+    embedding_model: Annotated[
+        str, typer.Option(help="Local embedding model slug or Hugging Face ID.")
+    ] = "bge-m3",
+    candidate_k: Annotated[
+        int, typer.Option(help="Hybrid candidates passed to the reranker.", min=8, max=100)
+    ] = 30,
+    seed_k: Annotated[
+        int, typer.Option(help="Reranked seed chunks before expansion.", min=1, max=20)
+    ] = 8,
+    max_answer_tokens: Annotated[
+        int,
+        typer.Option(
+            help="Maximum GPT-5 output-token budget, including reasoning tokens.",
+            min=512,
+            max=32000,
+        ),
+    ] = 5000,
+    base_url: Annotated[str, typer.Option(help="OpenAI-compatible vLLM embedding URL.")] = (
+        "http://127.0.0.1:8000/v1"
+    ),
+    qdrant_url: Annotated[str, typer.Option(help="Qdrant HTTP URL.")] = (
+        "http://127.0.0.1:6333"
+    ),
+    reranker_url: Annotated[str, typer.Option(help="vLLM reranker URL.")] = (
+        "http://127.0.0.1:8001"
+    ),
+    start_local: Annotated[
+        bool,
+        typer.Option(
+            "--start-local/--no-start-local",
+            help="Start/reuse local Qdrant, BGE-M3, and reranker services.",
+        ),
+    ] = True,
+    observe: Annotated[
+        bool,
+        typer.Option(
+            "--observe/--no-observe",
+            help="Persist full local latency, token, retrieval, prompt, and response traces.",
+        ),
+    ] = True,
+    observability_db: Annotated[
+        Path | None,
+        typer.Option(help="SQLite path for local RAG observability traces."),
+    ] = None,
+) -> None:
+    """Answer questions with GPT-5 over hybrid, reranked, selectively expanded evidence."""
+    try:
+        settings = Settings()
+        spec = resolve_model(embedding_model)
+        if candidate_k < seed_k:
+            raise ValueError("--candidate-k must be greater than or equal to --seed-k")
+        if start_local:
+            ensure_local_embedding_services(
+                spec,
+                project_root=PROJECT_ROOT,
+                base_url=base_url,
+                gpu_memory_utilization=0.35,
+                progress=lambda message: typer.echo(message, err=True),
+            )
+            ensure_local_reranker(
+                model=DEFAULT_RERANKER_MODEL,
+                project_root=PROJECT_ROOT,
+                base_url=reranker_url,
+                progress=lambda message: typer.echo(message, err=True),
+            )
+        key = settings.openai_api_key.get_secret_value() if settings.openai_api_key else None
+        chatbot = RAGChatbot(
+            llm=OpenAIResponsesClient(model=llm_model, api_key=key),
+            memory=ConversationMemory(max_turns=6),
+            embedding_model=spec.slug,
+            embedding_url=base_url,
+            qdrant_url=qdrant_url,
+            reranker_url=reranker_url,
+            candidate_k=candidate_k,
+            seed_k=seed_k,
+            max_answer_tokens=max_answer_tokens,
+            observability_store=(
+                SQLiteObservabilityStore(observability_db or settings.observability_db)
+                if observe
+                else None
+            ),
+        )
+        if question is not None:
+            _print_chat_answer(chatbot.answer(question))
+            return
+        typer.echo("Memory-enabled BMO chat. Type 'exit' or 'quit' to stop.")
+        while True:
+            selected = typer.prompt("You").strip()
+            if selected.casefold() in {"exit", "quit"}:
+                return
+            _print_chat_answer(chatbot.answer(selected))
+    except (
+        EmbeddingError,
+        LocalVllmError,
+        OpenAIError,
+        QdrantError,
+        RerankerError,
+        ValueError,
+    ) as exc:
+        typer.echo(f"Chat failed: {exc}", err=True)
+        raise typer.Exit(code=1) from exc
+
+
+@app.command()
+def monitor(
+    trace_id: Annotated[
+        str | None, typer.Option(help="Show the complete record for one trace ID.")
+    ] = None,
+    limit: Annotated[
+        int, typer.Option(help="Number of recent traces to show.", min=1, max=500)
+    ] = 20,
+    observability_db: Annotated[
+        Path | None, typer.Option(help="SQLite observability database path.")
+    ] = None,
+) -> None:
+    """Inspect recent RAG latency/token summaries or one complete trace."""
+    database_path = observability_db or Settings().observability_db
+    store = SQLiteObservabilityStore(database_path)
+    if trace_id:
+        detail = store.trace_detail(trace_id)
+        if detail is None:
+            typer.echo(f"Trace not found: {trace_id}", err=True)
+            raise typer.Exit(code=1)
+        typer.echo(json.dumps(detail, indent=2, ensure_ascii=False))
+        return
+    rows = store.recent(limit=limit)
+    if not rows:
+        typer.echo(f"No traces in {database_path}")
+        return
+    summary = store.summary(limit=limit)
+    typer.echo(
+        f"Last {summary['trace_count']} traces | failures={summary['failure_count']} | "
+        f"latency avg/p50/p95/max={summary['average_latency_ms']:.2f}/"
+        f"{summary['p50_latency_ms']:.2f}/{summary['p95_latency_ms']:.2f}/"
+        f"{summary['max_latency_ms']:.2f} ms | tokens in/out/total="
+        f"{summary['input_tokens']}/{summary['output_tokens']}/{summary['total_tokens']}"
+    )
+    for row in rows:
+        query = str(row["original_query"]).replace("\n", " ")
+        if len(query) > 80:
+            query = f"{query[:77]}..."
+        typer.echo(
+            f"{row['started_at']}  {row['status']:<9}  {row['duration_ms']:>9.2f} ms  "
+            f"tokens={row['input_tokens']}/{row['output_tokens']}  "
+            f"evidence={row['evidence_tokens']}  {row['trace_id']}  {query}"
+        )
 
 
 @app.command("retrieve")
@@ -226,3 +399,7 @@ def retrieve_command(
         if headings:
             typer.echo(f"    section: {headings}")
         typer.echo(f"    text: {text}\n")
+
+
+if __name__ == "__main__":
+    app()

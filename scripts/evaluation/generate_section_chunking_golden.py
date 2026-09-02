@@ -390,7 +390,7 @@ def write_outputs(
         "documents": dict(sorted(documents.items())),
         "annotation_methods": dict(sorted(methods.items())),
         "corner_case_counts": dict(sorted(tags.items())),
-        "generator": "scripts/generate_section_chunking_golden.py",
+        "generator": "scripts/evaluation/generate_section_chunking_golden.py",
     }
     (output_dir / "section_aware_chunking_golden.manifest.json").write_text(
         json.dumps(manifest, indent=2, ensure_ascii=False) + "\n", encoding="utf-8"
