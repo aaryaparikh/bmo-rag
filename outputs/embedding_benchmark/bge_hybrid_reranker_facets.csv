@@ -1,0 +1,493 @@
+"Facet","Group","Method","Answerable","ExcludedEmptyGold","K","Precision","Recall","MRR","HitRate"
+"Overall","all","bge-m3-dense","189","11","5","0.102646","0.507937","0.36164","0.507937"
+"Overall","all","bge-m3-dense","189","11","10","0.05873","0.578483","0.372069","0.582011"
+"Overall","all","bge-m3-dense","189","11","20","0.032804","0.647266","0.376841","0.650794"
+"Overall","all","bge-m3-dense","189","11","30","0.023104","0.684303","0.378423","0.687831"
+"Query Type","ambiguous","bge-m3-dense","1","1","5","0","0","0","0"
+"Query Type","ambiguous","bge-m3-dense","1","1","10","0","0","0","0"
+"Query Type","ambiguous","bge-m3-dense","1","1","20","0","0","0","0"
+"Query Type","ambiguous","bge-m3-dense","1","1","30","0","0","0","0"
+"Query Type","factual","bge-m3-dense","22","0","5","0.109091","0.545455","0.319697","0.545455"
+"Query Type","factual","bge-m3-dense","22","0","10","0.054545","0.545455","0.319697","0.545455"
+"Query Type","factual","bge-m3-dense","22","0","20","0.031818","0.636364","0.32493","0.636364"
+"Query Type","factual","bge-m3-dense","22","0","30","0.022727","0.681818","0.326824","0.681818"
+"Query Type","list","bge-m3-dense","1","0","5","0","0","0","0"
+"Query Type","list","bge-m3-dense","1","0","10","0","0","0","0"
+"Query Type","list","bge-m3-dense","1","0","20","0","0","0","0"
+"Query Type","list","bge-m3-dense","1","0","30","0","0","0","0"
+"Query Type","multi_chunk_synthesis","bge-m3-dense","1","0","5","0","0","0","0"
+"Query Type","multi_chunk_synthesis","bge-m3-dense","1","0","10","0.1","0.333333","0.142857","1"
+"Query Type","multi_chunk_synthesis","bge-m3-dense","1","0","20","0.05","0.333333","0.142857","1"
+"Query Type","multi_chunk_synthesis","bge-m3-dense","1","0","30","0.033333","0.333333","0.142857","1"
+"Query Type","multi_document_comparison","bge-m3-dense","1","0","5","0","0","0","0"
+"Query Type","multi_document_comparison","bge-m3-dense","1","0","10","0","0","0","0"
+"Query Type","multi_document_comparison","bge-m3-dense","1","0","20","0","0","0","0"
+"Query Type","multi_document_comparison","bge-m3-dense","1","0","30","0","0","0","0"
+"Query Type","multi_document_reconciliation","bge-m3-dense","1","0","5","0.4","1","1","1"
+"Query Type","multi_document_reconciliation","bge-m3-dense","1","0","10","0.2","1","1","1"
+"Query Type","multi_document_reconciliation","bge-m3-dense","1","0","20","0.1","1","1","1"
+"Query Type","multi_document_reconciliation","bge-m3-dense","1","0","30","0.066667","1","1","1"
+"Query Type","paraphrase","bge-m3-dense","80","0","5","0.105","0.525","0.366042","0.525"
+"Query Type","paraphrase","bge-m3-dense","80","0","10","0.06125","0.6125","0.377907","0.6125"
+"Query Type","paraphrase","bge-m3-dense","80","0","20","0.033125","0.6625","0.381567","0.6625"
+"Query Type","paraphrase","bge-m3-dense","80","0","30","0.022917","0.6875","0.382758","0.6875"
+"Query Type","premise_check","bge-m3-dense","1","0","5","0","0","0","0"
+"Query Type","premise_check","bge-m3-dense","1","0","10","0","0","0","0"
+"Query Type","premise_check","bge-m3-dense","1","0","20","0","0","0","0"
+"Query Type","premise_check","bge-m3-dense","1","0","30","0","0","0","0"
+"Query Type","regulatory_filing","bge-m3-dense","1","0","5","0","0","0","0"
+"Query Type","regulatory_filing","bge-m3-dense","1","0","10","0","0","0","0"
+"Query Type","regulatory_filing","bge-m3-dense","1","0","20","0","0","0","0"
+"Query Type","regulatory_filing","bge-m3-dense","1","0","30","0","0","0","0"
+"Query Type","table_lookup","bge-m3-dense","79","0","5","0.103797","0.518987","0.392827","0.518987"
+"Query Type","table_lookup","bge-m3-dense","79","0","10","0.059494","0.594937","0.403953","0.594937"
+"Query Type","table_lookup","bge-m3-dense","79","0","20","0.034177","0.683544","0.410207","0.683544"
+"Query Type","table_lookup","bge-m3-dense","79","0","30","0.024473","0.734177","0.412258","0.734177"
+"Query Type","temporal_reconciliation","bge-m3-dense","1","0","5","0","0","0","0"
+"Query Type","temporal_reconciliation","bge-m3-dense","1","0","10","0","0","0","0"
+"Query Type","temporal_reconciliation","bge-m3-dense","1","0","20","0","0","0","0"
+"Query Type","temporal_reconciliation","bge-m3-dense","1","0","30","0","0","0","0"
+"Query Type","unanswerable","bge-m3-dense","0","10","5",,,,
+"Query Type","unanswerable","bge-m3-dense","0","10","10",,,,
+"Query Type","unanswerable","bge-m3-dense","0","10","20",,,,
+"Query Type","unanswerable","bge-m3-dense","0","10","30",,,,
+"Difficulty","easy","bge-m3-dense","2","8","5","0","0","0","0"
+"Difficulty","easy","bge-m3-dense","2","8","10","0","0","0","0"
+"Difficulty","easy","bge-m3-dense","2","8","20","0","0","0","0"
+"Difficulty","easy","bge-m3-dense","2","8","30","0","0","0","0"
+"Difficulty","hard","bge-m3-dense","5","1","5","0.08","0.2","0.2","0.2"
+"Difficulty","hard","bge-m3-dense","5","1","10","0.06","0.266667","0.228571","0.4"
+"Difficulty","hard","bge-m3-dense","5","1","20","0.03","0.266667","0.228571","0.4"
+"Difficulty","hard","bge-m3-dense","5","1","30","0.02","0.266667","0.228571","0.4"
+"Difficulty","medium","bge-m3-dense","182","2","5","0.104396","0.521978","0.370055","0.521978"
+"Difficulty","medium","bge-m3-dense","182","2","10","0.059341","0.593407","0.3801","0.593407"
+"Difficulty","medium","bge-m3-dense","182","2","20","0.033242","0.664835","0.385056","0.664835"
+"Difficulty","medium","bge-m3-dense","182","2","30","0.023443","0.703297","0.386698","0.703297"
+"Edge Case","arbitrary_selection_rule","bge-m3-dense","1","0","5","0","0","0","0"
+"Edge Case","arbitrary_selection_rule","bge-m3-dense","1","0","10","0","0","0","0"
+"Edge Case","arbitrary_selection_rule","bge-m3-dense","1","0","20","0","0","0","0"
+"Edge Case","arbitrary_selection_rule","bge-m3-dense","1","0","30","0","0","0","0"
+"Edge Case","citation_required","bge-m3-dense","16","0","5","0.125","0.625","0.546875","0.625"
+"Edge Case","citation_required","bge-m3-dense","16","0","10","0.06875","0.6875","0.557292","0.6875"
+"Edge Case","citation_required","bge-m3-dense","16","0","20","0.0375","0.75","0.561198","0.75"
+"Edge Case","citation_required","bge-m3-dense","16","0","30","0.027083","0.8125","0.564174","0.8125"
+"Edge Case","conflicting_dated_sources","bge-m3-dense","1","0","5","0.4","1","1","1"
+"Edge Case","conflicting_dated_sources","bge-m3-dense","1","0","10","0.2","1","1","1"
+"Edge Case","conflicting_dated_sources","bge-m3-dense","1","0","20","0.1","1","1","1"
+"Edge Case","conflicting_dated_sources","bge-m3-dense","1","0","30","0.066667","1","1","1"
+"Edge Case","corpus_qualified","bge-m3-dense","16","0","5","0.0875","0.4375","0.241667","0.4375"
+"Edge Case","corpus_qualified","bge-m3-dense","16","0","10","0.05","0.5","0.250595","0.5"
+"Edge Case","corpus_qualified","bge-m3-dense","16","0","20","0.028125","0.5625","0.255403","0.5625"
+"Edge Case","corpus_qualified","bge-m3-dense","16","0","30","0.020833","0.625","0.258379","0.625"
+"Edge Case","date_premise_mismatch","bge-m3-dense","1","0","5","0","0","0","0"
+"Edge Case","date_premise_mismatch","bge-m3-dense","1","0","10","0","0","0","0"
+"Edge Case","date_premise_mismatch","bge-m3-dense","1","0","20","0","0","0","0"
+"Edge Case","date_premise_mismatch","bge-m3-dense","1","0","30","0","0","0","0"
+"Edge Case","distributed_evidence","bge-m3-dense","1","0","5","0","0","0","0"
+"Edge Case","distributed_evidence","bge-m3-dense","1","0","10","0.1","0.333333","0.142857","1"
+"Edge Case","distributed_evidence","bge-m3-dense","1","0","20","0.05","0.333333","0.142857","1"
+"Edge Case","distributed_evidence","bge-m3-dense","1","0","30","0.033333","0.333333","0.142857","1"
+"Edge Case","fabrication_instruction","bge-m3-dense","0","1","5",,,,
+"Edge Case","fabrication_instruction","bge-m3-dense","0","1","10",,,,
+"Edge Case","fabrication_instruction","bge-m3-dense","0","1","20",,,,
+"Edge Case","fabrication_instruction","bge-m3-dense","0","1","30",,,,
+"Edge Case","false_premise","bge-m3-dense","1","0","5","0","0","0","0"
+"Edge Case","false_premise","bge-m3-dense","1","0","10","0","0","0","0"
+"Edge Case","false_premise","bge-m3-dense","1","0","20","0","0","0","0"
+"Edge Case","false_premise","bge-m3-dense","1","0","30","0","0","0","0"
+"Edge Case","future_period","bge-m3-dense","0","1","5",,,,
+"Edge Case","future_period","bge-m3-dense","0","1","10",,,,
+"Edge Case","future_period","bge-m3-dense","0","1","20",,,,
+"Edge Case","future_period","bge-m3-dense","0","1","30",,,,
+"Edge Case","future_prediction","bge-m3-dense","0","1","5",,,,
+"Edge Case","future_prediction","bge-m3-dense","0","1","10",,,,
+"Edge Case","future_prediction","bge-m3-dense","0","1","20",,,,
+"Edge Case","future_prediction","bge-m3-dense","0","1","30",,,,
+"Edge Case","interpretation_bounded_by_evidence","bge-m3-dense","1","0","5","0","0","0","0"
+"Edge Case","interpretation_bounded_by_evidence","bge-m3-dense","1","0","10","0","0","0","0"
+"Edge Case","interpretation_bounded_by_evidence","bge-m3-dense","1","0","20","0","0","0","0"
+"Edge Case","interpretation_bounded_by_evidence","bge-m3-dense","1","0","30","0","0","0","0"
+"Edge Case","missing_context","bge-m3-dense","0","1","5",,,,
+"Edge Case","missing_context","bge-m3-dense","0","1","10",,,,
+"Edge Case","missing_context","bge-m3-dense","0","1","20",,,,
+"Edge Case","missing_context","bge-m3-dense","0","1","30",,,,
+"Edge Case","original_vs_amendment","bge-m3-dense","1","0","5","0","0","0","0"
+"Edge Case","original_vs_amendment","bge-m3-dense","1","0","10","0","0","0","0"
+"Edge Case","original_vs_amendment","bge-m3-dense","1","0","20","0","0","0","0"
+"Edge Case","original_vs_amendment","bge-m3-dense","1","0","30","0","0","0","0"
+"Edge Case","out_of_domain_entity","bge-m3-dense","0","1","5",,,,
+"Edge Case","out_of_domain_entity","bge-m3-dense","0","1","10",,,,
+"Edge Case","out_of_domain_entity","bge-m3-dense","0","1","20",,,,
+"Edge Case","out_of_domain_entity","bge-m3-dense","0","1","30",,,,
+"Edge Case","partial_out_of_domain_comparison","bge-m3-dense","0","1","5",,,,
+"Edge Case","partial_out_of_domain_comparison","bge-m3-dense","0","1","10",,,,
+"Edge Case","partial_out_of_domain_comparison","bge-m3-dense","0","1","20",,,,
+"Edge Case","partial_out_of_domain_comparison","bge-m3-dense","0","1","30",,,,
+"Edge Case","pii_request","bge-m3-dense","0","1","5",,,,
+"Edge Case","pii_request","bge-m3-dense","0","1","10",,,,
+"Edge Case","pii_request","bge-m3-dense","0","1","20",,,,
+"Edge Case","pii_request","bge-m3-dense","0","1","30",,,,
+"Edge Case","precision_constraint","bge-m3-dense","16","0","5","0.075","0.375","0.239583","0.375"
+"Edge Case","precision_constraint","bge-m3-dense","16","0","10","0.04375","0.4375","0.248512","0.4375"
+"Edge Case","precision_constraint","bge-m3-dense","16","0","20","0.028125","0.5625","0.2581","0.5625"
+"Edge Case","precision_constraint","bge-m3-dense","16","0","30","0.01875","0.5625","0.2581","0.5625"
+"Edge Case","private_information","bge-m3-dense","0","1","5",,,,
+"Edge Case","private_information","bge-m3-dense","0","1","10",,,,
+"Edge Case","private_information","bge-m3-dense","0","1","20",,,,
+"Edge Case","private_information","bge-m3-dense","0","1","30",,,,
+"Edge Case","prompt_injection","bge-m3-dense","0","1","5",,,,
+"Edge Case","prompt_injection","bge-m3-dense","0","1","10",,,,
+"Edge Case","prompt_injection","bge-m3-dense","0","1","20",,,,
+"Edge Case","prompt_injection","bge-m3-dense","0","1","30",,,,
+"Edge Case","punctuation_noise","bge-m3-dense","16","0","5","0.1375","0.6875","0.4375","0.6875"
+"Edge Case","punctuation_noise","bge-m3-dense","16","0","10","0.08125","0.8125","0.450694","0.8125"
+"Edge Case","punctuation_noise","bge-m3-dense","16","0","20","0.040625","0.8125","0.450694","0.8125"
+"Edge Case","punctuation_noise","bge-m3-dense","16","0","30","0.027083","0.8125","0.450694","0.8125"
+"Edge Case","required_sample","bge-m3-dense","2","0","5","0","0","0","0"
+"Edge Case","required_sample","bge-m3-dense","2","0","10","0","0","0","0"
+"Edge Case","required_sample","bge-m3-dense","2","0","20","0","0","0","0"
+"Edge Case","required_sample","bge-m3-dense","2","0","30","0","0","0","0"
+"Edge Case","source_qualified","bge-m3-dense","16","0","5","0.1","0.5","0.364583","0.5"
+"Edge Case","source_qualified","bge-m3-dense","16","0","10","0.0625","0.625","0.38244","0.625"
+"Edge Case","source_qualified","bge-m3-dense","16","0","20","0.03125","0.625","0.38244","0.625"
+"Edge Case","source_qualified","bge-m3-dense","16","0","30","0.020833","0.625","0.38244","0.625"
+"Edge Case","standard","bge-m3-dense","100","0","5","0.106","0.53","0.380667","0.53"
+"Edge Case","standard","bge-m3-dense","100","0","10","0.059","0.59","0.389456","0.59"
+"Edge Case","standard","bge-m3-dense","100","0","20","0.034","0.68","0.395548","0.68"
+"Edge Case","standard","bge-m3-dense","100","0","30","0.024333","0.73","0.397585","0.73"
+"Edge Case","unsupported_external_fact","bge-m3-dense","0","1","5",,,,
+"Edge Case","unsupported_external_fact","bge-m3-dense","0","1","10",,,,
+"Edge Case","unsupported_external_fact","bge-m3-dense","0","1","20",,,,
+"Edge Case","unsupported_external_fact","bge-m3-dense","0","1","30",,,,
+"Edge Case","unsupported_personal_fact","bge-m3-dense","0","1","5",,,,
+"Edge Case","unsupported_personal_fact","bge-m3-dense","0","1","10",,,,
+"Edge Case","unsupported_personal_fact","bge-m3-dense","0","1","20",,,,
+"Edge Case","unsupported_personal_fact","bge-m3-dense","0","1","30",,,,
+"Overall","all","bge-m3-hybrid-rrf","189","11","5","0.120635","0.594356","0.428307","0.597884"
+"Overall","all","bge-m3-hybrid-rrf","189","11","10","0.067725","0.66843","0.437711","0.671958"
+"Overall","all","bge-m3-hybrid-rrf","189","11","20","0.03836","0.758377","0.444652","0.761905"
+"Overall","all","bge-m3-hybrid-rrf","189","11","30","0.02716","0.805996","0.446461","0.809524"
+"Query Type","ambiguous","bge-m3-hybrid-rrf","1","1","5","0","0","0","0"
+"Query Type","ambiguous","bge-m3-hybrid-rrf","1","1","10","0","0","0","0"
+"Query Type","ambiguous","bge-m3-hybrid-rrf","1","1","20","0","0","0","0"
+"Query Type","ambiguous","bge-m3-hybrid-rrf","1","1","30","0","0","0","0"
+"Query Type","factual","bge-m3-hybrid-rrf","22","0","5","0.118182","0.590909","0.372727","0.590909"
+"Query Type","factual","bge-m3-hybrid-rrf","22","0","10","0.077273","0.772727","0.393687","0.772727"
+"Query Type","factual","bge-m3-hybrid-rrf","22","0","20","0.040909","0.818182","0.396934","0.818182"
+"Query Type","factual","bge-m3-hybrid-rrf","22","0","30","0.028788","0.863636","0.398449","0.863636"
+"Query Type","list","bge-m3-hybrid-rrf","1","0","5","0","0","0","0"
+"Query Type","list","bge-m3-hybrid-rrf","1","0","10","0","0","0","0"
+"Query Type","list","bge-m3-hybrid-rrf","1","0","20","0","0","0","0"
+"Query Type","list","bge-m3-hybrid-rrf","1","0","30","0","0","0","0"
+"Query Type","multi_chunk_synthesis","bge-m3-hybrid-rrf","1","0","5","0.2","0.333333","0.333333","1"
+"Query Type","multi_chunk_synthesis","bge-m3-hybrid-rrf","1","0","10","0.1","0.333333","0.333333","1"
+"Query Type","multi_chunk_synthesis","bge-m3-hybrid-rrf","1","0","20","0.05","0.333333","0.333333","1"
+"Query Type","multi_chunk_synthesis","bge-m3-hybrid-rrf","1","0","30","0.033333","0.333333","0.333333","1"
+"Query Type","multi_document_comparison","bge-m3-hybrid-rrf","1","0","5","0","0","0","0"
+"Query Type","multi_document_comparison","bge-m3-hybrid-rrf","1","0","10","0","0","0","0"
+"Query Type","multi_document_comparison","bge-m3-hybrid-rrf","1","0","20","0","0","0","0"
+"Query Type","multi_document_comparison","bge-m3-hybrid-rrf","1","0","30","0","0","0","0"
+"Query Type","multi_document_reconciliation","bge-m3-hybrid-rrf","1","0","5","0.4","1","1","1"
+"Query Type","multi_document_reconciliation","bge-m3-hybrid-rrf","1","0","10","0.2","1","1","1"
+"Query Type","multi_document_reconciliation","bge-m3-hybrid-rrf","1","0","20","0.1","1","1","1"
+"Query Type","multi_document_reconciliation","bge-m3-hybrid-rrf","1","0","30","0.066667","1","1","1"
+"Query Type","paraphrase","bge-m3-hybrid-rrf","80","0","5","0.1275","0.6375","0.433542","0.6375"
+"Query Type","paraphrase","bge-m3-hybrid-rrf","80","0","10","0.0675","0.675","0.438502","0.675"
+"Query Type","paraphrase","bge-m3-hybrid-rrf","80","0","20","0.038125","0.7625","0.445432","0.7625"
+"Query Type","paraphrase","bge-m3-hybrid-rrf","80","0","30","0.0275","0.825","0.447919","0.825"
+"Query Type","premise_check","bge-m3-hybrid-rrf","1","0","5","0","0","0","0"
+"Query Type","premise_check","bge-m3-hybrid-rrf","1","0","10","0","0","0","0"
+"Query Type","premise_check","bge-m3-hybrid-rrf","1","0","20","0","0","0","0"
+"Query Type","premise_check","bge-m3-hybrid-rrf","1","0","30","0","0","0","0"
+"Query Type","regulatory_filing","bge-m3-hybrid-rrf","1","0","5","0","0","0","0"
+"Query Type","regulatory_filing","bge-m3-hybrid-rrf","1","0","10","0","0","0","0"
+"Query Type","regulatory_filing","bge-m3-hybrid-rrf","1","0","20","0","0","0","0"
+"Query Type","regulatory_filing","bge-m3-hybrid-rrf","1","0","30","0","0","0","0"
+"Query Type","table_lookup","bge-m3-hybrid-rrf","79","0","5","0.118987","0.594937","0.464979","0.594937"
+"Query Type","table_lookup","bge-m3-hybrid-rrf","79","0","10","0.068354","0.683544","0.476617","0.683544"
+"Query Type","table_lookup","bge-m3-hybrid-rrf","79","0","20","0.039873","0.797468","0.4853","0.797468"
+"Query Type","table_lookup","bge-m3-hybrid-rrf","79","0","30","0.027848","0.835443","0.48669","0.835443"
+"Query Type","temporal_reconciliation","bge-m3-hybrid-rrf","1","0","5","0","0","0","0"
+"Query Type","temporal_reconciliation","bge-m3-hybrid-rrf","1","0","10","0","0","0","0"
+"Query Type","temporal_reconciliation","bge-m3-hybrid-rrf","1","0","20","0","0","0","0"
+"Query Type","temporal_reconciliation","bge-m3-hybrid-rrf","1","0","30","0","0","0","0"
+"Query Type","unanswerable","bge-m3-hybrid-rrf","0","10","5",,,,
+"Query Type","unanswerable","bge-m3-hybrid-rrf","0","10","10",,,,
+"Query Type","unanswerable","bge-m3-hybrid-rrf","0","10","20",,,,
+"Query Type","unanswerable","bge-m3-hybrid-rrf","0","10","30",,,,
+"Difficulty","easy","bge-m3-hybrid-rrf","2","8","5","0","0","0","0"
+"Difficulty","easy","bge-m3-hybrid-rrf","2","8","10","0.05","0.5","0.055556","0.5"
+"Difficulty","easy","bge-m3-hybrid-rrf","2","8","20","0.025","0.5","0.055556","0.5"
+"Difficulty","easy","bge-m3-hybrid-rrf","2","8","30","0.016667","0.5","0.055556","0.5"
+"Difficulty","hard","bge-m3-hybrid-rrf","5","1","5","0.12","0.266667","0.266667","0.4"
+"Difficulty","hard","bge-m3-hybrid-rrf","5","1","10","0.06","0.266667","0.266667","0.4"
+"Difficulty","hard","bge-m3-hybrid-rrf","5","1","20","0.03","0.266667","0.266667","0.4"
+"Difficulty","hard","bge-m3-hybrid-rrf","5","1","30","0.02","0.266667","0.266667","0.4"
+"Difficulty","medium","bge-m3-hybrid-rrf","182","2","5","0.121978","0.60989","0.437454","0.60989"
+"Difficulty","medium","bge-m3-hybrid-rrf","182","2","10","0.068132","0.681319","0.44661","0.681319"
+"Difficulty","medium","bge-m3-hybrid-rrf","182","2","20","0.038736","0.774725","0.453817","0.774725"
+"Difficulty","medium","bge-m3-hybrid-rrf","182","2","30","0.027473","0.824176","0.455696","0.824176"
+"Edge Case","arbitrary_selection_rule","bge-m3-hybrid-rrf","1","0","5","0","0","0","0"
+"Edge Case","arbitrary_selection_rule","bge-m3-hybrid-rrf","1","0","10","0","0","0","0"
+"Edge Case","arbitrary_selection_rule","bge-m3-hybrid-rrf","1","0","20","0","0","0","0"
+"Edge Case","arbitrary_selection_rule","bge-m3-hybrid-rrf","1","0","30","0","0","0","0"
+"Edge Case","citation_required","bge-m3-hybrid-rrf","16","0","5","0.1625","0.8125","0.575","0.8125"
+"Edge Case","citation_required","bge-m3-hybrid-rrf","16","0","10","0.08125","0.8125","0.575","0.8125"
+"Edge Case","citation_required","bge-m3-hybrid-rrf","16","0","20","0.040625","0.8125","0.575","0.8125"
+"Edge Case","citation_required","bge-m3-hybrid-rrf","16","0","30","0.027083","0.8125","0.575","0.8125"
+"Edge Case","conflicting_dated_sources","bge-m3-hybrid-rrf","1","0","5","0.4","1","1","1"
+"Edge Case","conflicting_dated_sources","bge-m3-hybrid-rrf","1","0","10","0.2","1","1","1"
+"Edge Case","conflicting_dated_sources","bge-m3-hybrid-rrf","1","0","20","0.1","1","1","1"
+"Edge Case","conflicting_dated_sources","bge-m3-hybrid-rrf","1","0","30","0.066667","1","1","1"
+"Edge Case","corpus_qualified","bge-m3-hybrid-rrf","16","0","5","0.1125","0.5625","0.288542","0.5625"
+"Edge Case","corpus_qualified","bge-m3-hybrid-rrf","16","0","10","0.0625","0.625","0.29747","0.625"
+"Edge Case","corpus_qualified","bge-m3-hybrid-rrf","16","0","20","0.040625","0.8125","0.311085","0.8125"
+"Edge Case","corpus_qualified","bge-m3-hybrid-rrf","16","0","30","0.027083","0.8125","0.311085","0.8125"
+"Edge Case","date_premise_mismatch","bge-m3-hybrid-rrf","1","0","5","0","0","0","0"
+"Edge Case","date_premise_mismatch","bge-m3-hybrid-rrf","1","0","10","0","0","0","0"
+"Edge Case","date_premise_mismatch","bge-m3-hybrid-rrf","1","0","20","0","0","0","0"
+"Edge Case","date_premise_mismatch","bge-m3-hybrid-rrf","1","0","30","0","0","0","0"
+"Edge Case","distributed_evidence","bge-m3-hybrid-rrf","1","0","5","0.2","0.333333","0.333333","1"
+"Edge Case","distributed_evidence","bge-m3-hybrid-rrf","1","0","10","0.1","0.333333","0.333333","1"
+"Edge Case","distributed_evidence","bge-m3-hybrid-rrf","1","0","20","0.05","0.333333","0.333333","1"
+"Edge Case","distributed_evidence","bge-m3-hybrid-rrf","1","0","30","0.033333","0.333333","0.333333","1"
+"Edge Case","fabrication_instruction","bge-m3-hybrid-rrf","0","1","5",,,,
+"Edge Case","fabrication_instruction","bge-m3-hybrid-rrf","0","1","10",,,,
+"Edge Case","fabrication_instruction","bge-m3-hybrid-rrf","0","1","20",,,,
+"Edge Case","fabrication_instruction","bge-m3-hybrid-rrf","0","1","30",,,,
+"Edge Case","false_premise","bge-m3-hybrid-rrf","1","0","5","0","0","0","0"
+"Edge Case","false_premise","bge-m3-hybrid-rrf","1","0","10","0","0","0","0"
+"Edge Case","false_premise","bge-m3-hybrid-rrf","1","0","20","0","0","0","0"
+"Edge Case","false_premise","bge-m3-hybrid-rrf","1","0","30","0","0","0","0"
+"Edge Case","future_period","bge-m3-hybrid-rrf","0","1","5",,,,
+"Edge Case","future_period","bge-m3-hybrid-rrf","0","1","10",,,,
+"Edge Case","future_period","bge-m3-hybrid-rrf","0","1","20",,,,
+"Edge Case","future_period","bge-m3-hybrid-rrf","0","1","30",,,,
+"Edge Case","future_prediction","bge-m3-hybrid-rrf","0","1","5",,,,
+"Edge Case","future_prediction","bge-m3-hybrid-rrf","0","1","10",,,,
+"Edge Case","future_prediction","bge-m3-hybrid-rrf","0","1","20",,,,
+"Edge Case","future_prediction","bge-m3-hybrid-rrf","0","1","30",,,,
+"Edge Case","interpretation_bounded_by_evidence","bge-m3-hybrid-rrf","1","0","5","0","0","0","0"
+"Edge Case","interpretation_bounded_by_evidence","bge-m3-hybrid-rrf","1","0","10","0","0","0","0"
+"Edge Case","interpretation_bounded_by_evidence","bge-m3-hybrid-rrf","1","0","20","0","0","0","0"
+"Edge Case","interpretation_bounded_by_evidence","bge-m3-hybrid-rrf","1","0","30","0","0","0","0"
+"Edge Case","missing_context","bge-m3-hybrid-rrf","0","1","5",,,,
+"Edge Case","missing_context","bge-m3-hybrid-rrf","0","1","10",,,,
+"Edge Case","missing_context","bge-m3-hybrid-rrf","0","1","20",,,,
+"Edge Case","missing_context","bge-m3-hybrid-rrf","0","1","30",,,,
+"Edge Case","original_vs_amendment","bge-m3-hybrid-rrf","1","0","5","0","0","0","0"
+"Edge Case","original_vs_amendment","bge-m3-hybrid-rrf","1","0","10","0","0","0","0"
+"Edge Case","original_vs_amendment","bge-m3-hybrid-rrf","1","0","20","0","0","0","0"
+"Edge Case","original_vs_amendment","bge-m3-hybrid-rrf","1","0","30","0","0","0","0"
+"Edge Case","out_of_domain_entity","bge-m3-hybrid-rrf","0","1","5",,,,
+"Edge Case","out_of_domain_entity","bge-m3-hybrid-rrf","0","1","10",,,,
+"Edge Case","out_of_domain_entity","bge-m3-hybrid-rrf","0","1","20",,,,
+"Edge Case","out_of_domain_entity","bge-m3-hybrid-rrf","0","1","30",,,,
+"Edge Case","partial_out_of_domain_comparison","bge-m3-hybrid-rrf","0","1","5",,,,
+"Edge Case","partial_out_of_domain_comparison","bge-m3-hybrid-rrf","0","1","10",,,,
+"Edge Case","partial_out_of_domain_comparison","bge-m3-hybrid-rrf","0","1","20",,,,
+"Edge Case","partial_out_of_domain_comparison","bge-m3-hybrid-rrf","0","1","30",,,,
+"Edge Case","pii_request","bge-m3-hybrid-rrf","0","1","5",,,,
+"Edge Case","pii_request","bge-m3-hybrid-rrf","0","1","10",,,,
+"Edge Case","pii_request","bge-m3-hybrid-rrf","0","1","20",,,,
+"Edge Case","pii_request","bge-m3-hybrid-rrf","0","1","30",,,,
+"Edge Case","precision_constraint","bge-m3-hybrid-rrf","16","0","5","0.0875","0.4375","0.364583","0.4375"
+"Edge Case","precision_constraint","bge-m3-hybrid-rrf","16","0","10","0.04375","0.4375","0.364583","0.4375"
+"Edge Case","precision_constraint","bge-m3-hybrid-rrf","16","0","20","0.028125","0.5625","0.374256","0.5625"
+"Edge Case","precision_constraint","bge-m3-hybrid-rrf","16","0","30","0.027083","0.8125","0.383847","0.8125"
+"Edge Case","private_information","bge-m3-hybrid-rrf","0","1","5",,,,
+"Edge Case","private_information","bge-m3-hybrid-rrf","0","1","10",,,,
+"Edge Case","private_information","bge-m3-hybrid-rrf","0","1","20",,,,
+"Edge Case","private_information","bge-m3-hybrid-rrf","0","1","30",,,,
+"Edge Case","prompt_injection","bge-m3-hybrid-rrf","0","1","5",,,,
+"Edge Case","prompt_injection","bge-m3-hybrid-rrf","0","1","10",,,,
+"Edge Case","prompt_injection","bge-m3-hybrid-rrf","0","1","20",,,,
+"Edge Case","prompt_injection","bge-m3-hybrid-rrf","0","1","30",,,,
+"Edge Case","punctuation_noise","bge-m3-hybrid-rrf","16","0","5","0.15","0.75","0.515625","0.75"
+"Edge Case","punctuation_noise","bge-m3-hybrid-rrf","16","0","10","0.08125","0.8125","0.524554","0.8125"
+"Edge Case","punctuation_noise","bge-m3-hybrid-rrf","16","0","20","0.040625","0.8125","0.524554","0.8125"
+"Edge Case","punctuation_noise","bge-m3-hybrid-rrf","16","0","30","0.029167","0.875","0.527394","0.875"
+"Edge Case","required_sample","bge-m3-hybrid-rrf","2","0","5","0","0","0","0"
+"Edge Case","required_sample","bge-m3-hybrid-rrf","2","0","10","0.05","0.5","0.055556","0.5"
+"Edge Case","required_sample","bge-m3-hybrid-rrf","2","0","20","0.025","0.5","0.055556","0.5"
+"Edge Case","required_sample","bge-m3-hybrid-rrf","2","0","30","0.016667","0.5","0.055556","0.5"
+"Edge Case","source_qualified","bge-m3-hybrid-rrf","16","0","5","0.125","0.625","0.423958","0.625"
+"Edge Case","source_qualified","bge-m3-hybrid-rrf","16","0","10","0.06875","0.6875","0.430903","0.6875"
+"Edge Case","source_qualified","bge-m3-hybrid-rrf","16","0","20","0.040625","0.8125","0.442266","0.8125"
+"Edge Case","source_qualified","bge-m3-hybrid-rrf","16","0","30","0.027083","0.8125","0.442266","0.8125"
+"Edge Case","standard","bge-m3-hybrid-rrf","100","0","5","0.12","0.6","0.449333","0.6"
+"Edge Case","standard","bge-m3-hybrid-rrf","100","0","10","0.07","0.7","0.462028","0.7"
+"Edge Case","standard","bge-m3-hybrid-rrf","100","0","20","0.04","0.8","0.469601","0.8"
+"Edge Case","standard","bge-m3-hybrid-rrf","100","0","30","0.028","0.84","0.471033","0.84"
+"Edge Case","unsupported_external_fact","bge-m3-hybrid-rrf","0","1","5",,,,
+"Edge Case","unsupported_external_fact","bge-m3-hybrid-rrf","0","1","10",,,,
+"Edge Case","unsupported_external_fact","bge-m3-hybrid-rrf","0","1","20",,,,
+"Edge Case","unsupported_external_fact","bge-m3-hybrid-rrf","0","1","30",,,,
+"Edge Case","unsupported_personal_fact","bge-m3-hybrid-rrf","0","1","5",,,,
+"Edge Case","unsupported_personal_fact","bge-m3-hybrid-rrf","0","1","10",,,,
+"Edge Case","unsupported_personal_fact","bge-m3-hybrid-rrf","0","1","20",,,,
+"Edge Case","unsupported_personal_fact","bge-m3-hybrid-rrf","0","1","30",,,,
+"Overall","all","bge-m3-hybrid-rrf-reranked","189","11","5","0.122751","0.604938","0.478219","0.608466"
+"Overall","all","bge-m3-hybrid-rrf-reranked","189","11","10","0.070899","0.700176","0.490856","0.703704"
+"Overall","all","bge-m3-hybrid-rrf-reranked","189","11","20","0.040212","0.795414","0.497195","0.798942"
+"Overall","all","bge-m3-hybrid-rrf-reranked","189","11","30","0.02716","0.805996","0.497583","0.809524"
+"Query Type","ambiguous","bge-m3-hybrid-rrf-reranked","1","1","5","0","0","0","0"
+"Query Type","ambiguous","bge-m3-hybrid-rrf-reranked","1","1","10","0","0","0","0"
+"Query Type","ambiguous","bge-m3-hybrid-rrf-reranked","1","1","20","0","0","0","0"
+"Query Type","ambiguous","bge-m3-hybrid-rrf-reranked","1","1","30","0","0","0","0"
+"Query Type","factual","bge-m3-hybrid-rrf-reranked","22","0","5","0.136364","0.681818","0.54697","0.681818"
+"Query Type","factual","bge-m3-hybrid-rrf-reranked","22","0","10","0.072727","0.727273","0.554545","0.727273"
+"Query Type","factual","bge-m3-hybrid-rrf-reranked","22","0","20","0.038636","0.772727","0.556818","0.772727"
+"Query Type","factual","bge-m3-hybrid-rrf-reranked","22","0","30","0.028788","0.863636","0.560152","0.863636"
+"Query Type","list","bge-m3-hybrid-rrf-reranked","1","0","5","0","0","0","0"
+"Query Type","list","bge-m3-hybrid-rrf-reranked","1","0","10","0","0","0","0"
+"Query Type","list","bge-m3-hybrid-rrf-reranked","1","0","20","0","0","0","0"
+"Query Type","list","bge-m3-hybrid-rrf-reranked","1","0","30","0","0","0","0"
+"Query Type","multi_chunk_synthesis","bge-m3-hybrid-rrf-reranked","1","0","5","0.2","0.333333","0.5","1"
+"Query Type","multi_chunk_synthesis","bge-m3-hybrid-rrf-reranked","1","0","10","0.1","0.333333","0.5","1"
+"Query Type","multi_chunk_synthesis","bge-m3-hybrid-rrf-reranked","1","0","20","0.05","0.333333","0.5","1"
+"Query Type","multi_chunk_synthesis","bge-m3-hybrid-rrf-reranked","1","0","30","0.033333","0.333333","0.5","1"
+"Query Type","multi_document_comparison","bge-m3-hybrid-rrf-reranked","1","0","5","0","0","0","0"
+"Query Type","multi_document_comparison","bge-m3-hybrid-rrf-reranked","1","0","10","0","0","0","0"
+"Query Type","multi_document_comparison","bge-m3-hybrid-rrf-reranked","1","0","20","0","0","0","0"
+"Query Type","multi_document_comparison","bge-m3-hybrid-rrf-reranked","1","0","30","0","0","0","0"
+"Query Type","multi_document_reconciliation","bge-m3-hybrid-rrf-reranked","1","0","5","0.4","1","1","1"
+"Query Type","multi_document_reconciliation","bge-m3-hybrid-rrf-reranked","1","0","10","0.2","1","1","1"
+"Query Type","multi_document_reconciliation","bge-m3-hybrid-rrf-reranked","1","0","20","0.1","1","1","1"
+"Query Type","multi_document_reconciliation","bge-m3-hybrid-rrf-reranked","1","0","30","0.066667","1","1","1"
+"Query Type","paraphrase","bge-m3-hybrid-rrf-reranked","80","0","5","0.125","0.625","0.483958","0.625"
+"Query Type","paraphrase","bge-m3-hybrid-rrf-reranked","80","0","10","0.0725","0.725","0.49684","0.725"
+"Query Type","paraphrase","bge-m3-hybrid-rrf-reranked","80","0","20","0.04125","0.825","0.503957","0.825"
+"Query Type","paraphrase","bge-m3-hybrid-rrf-reranked","80","0","30","0.0275","0.825","0.503957","0.825"
+"Query Type","premise_check","bge-m3-hybrid-rrf-reranked","1","0","5","0","0","0","0"
+"Query Type","premise_check","bge-m3-hybrid-rrf-reranked","1","0","10","0","0","0","0"
+"Query Type","premise_check","bge-m3-hybrid-rrf-reranked","1","0","20","0","0","0","0"
+"Query Type","premise_check","bge-m3-hybrid-rrf-reranked","1","0","30","0","0","0","0"
+"Query Type","regulatory_filing","bge-m3-hybrid-rrf-reranked","1","0","5","0","0","0","0"
+"Query Type","regulatory_filing","bge-m3-hybrid-rrf-reranked","1","0","10","0","0","0","0"
+"Query Type","regulatory_filing","bge-m3-hybrid-rrf-reranked","1","0","20","0","0","0","0"
+"Query Type","regulatory_filing","bge-m3-hybrid-rrf-reranked","1","0","30","0","0","0","0"
+"Query Type","table_lookup","bge-m3-hybrid-rrf-reranked","79","0","5","0.121519","0.607595","0.4827","0.607595"
+"Query Type","table_lookup","bge-m3-hybrid-rrf-reranked","79","0","10","0.072152","0.721519","0.49778","0.721519"
+"Query Type","table_lookup","bge-m3-hybrid-rrf-reranked","79","0","20","0.041772","0.835443","0.505105","0.835443"
+"Query Type","table_lookup","bge-m3-hybrid-rrf-reranked","79","0","30","0.027848","0.835443","0.505105","0.835443"
+"Query Type","temporal_reconciliation","bge-m3-hybrid-rrf-reranked","1","0","5","0","0","0","0"
+"Query Type","temporal_reconciliation","bge-m3-hybrid-rrf-reranked","1","0","10","0","0","0","0"
+"Query Type","temporal_reconciliation","bge-m3-hybrid-rrf-reranked","1","0","20","0","0","0","0"
+"Query Type","temporal_reconciliation","bge-m3-hybrid-rrf-reranked","1","0","30","0","0","0","0"
+"Query Type","unanswerable","bge-m3-hybrid-rrf-reranked","0","10","5",,,,
+"Query Type","unanswerable","bge-m3-hybrid-rrf-reranked","0","10","10",,,,
+"Query Type","unanswerable","bge-m3-hybrid-rrf-reranked","0","10","20",,,,
+"Query Type","unanswerable","bge-m3-hybrid-rrf-reranked","0","10","30",,,,
+"Difficulty","easy","bge-m3-hybrid-rrf-reranked","2","8","5","0.1","0.5","0.1","0.5"
+"Difficulty","easy","bge-m3-hybrid-rrf-reranked","2","8","10","0.05","0.5","0.1","0.5"
+"Difficulty","easy","bge-m3-hybrid-rrf-reranked","2","8","20","0.025","0.5","0.1","0.5"
+"Difficulty","easy","bge-m3-hybrid-rrf-reranked","2","8","30","0.016667","0.5","0.1","0.5"
+"Difficulty","hard","bge-m3-hybrid-rrf-reranked","5","1","5","0.12","0.266667","0.3","0.4"
+"Difficulty","hard","bge-m3-hybrid-rrf-reranked","5","1","10","0.06","0.266667","0.3","0.4"
+"Difficulty","hard","bge-m3-hybrid-rrf-reranked","5","1","20","0.03","0.266667","0.3","0.4"
+"Difficulty","hard","bge-m3-hybrid-rrf-reranked","5","1","30","0.02","0.266667","0.3","0.4"
+"Difficulty","medium","bge-m3-hybrid-rrf-reranked","182","2","5","0.123077","0.615385","0.487271","0.615385"
+"Difficulty","medium","bge-m3-hybrid-rrf-reranked","182","2","10","0.071429","0.714286","0.500395","0.714286"
+"Difficulty","medium","bge-m3-hybrid-rrf-reranked","182","2","20","0.040659","0.813187","0.506977","0.813187"
+"Difficulty","medium","bge-m3-hybrid-rrf-reranked","182","2","30","0.027473","0.824176","0.50738","0.824176"
+"Edge Case","arbitrary_selection_rule","bge-m3-hybrid-rrf-reranked","1","0","5","0","0","0","0"
+"Edge Case","arbitrary_selection_rule","bge-m3-hybrid-rrf-reranked","1","0","10","0","0","0","0"
+"Edge Case","arbitrary_selection_rule","bge-m3-hybrid-rrf-reranked","1","0","20","0","0","0","0"
+"Edge Case","arbitrary_selection_rule","bge-m3-hybrid-rrf-reranked","1","0","30","0","0","0","0"
+"Edge Case","citation_required","bge-m3-hybrid-rrf-reranked","16","0","5","0.1375","0.6875","0.5625","0.6875"
+"Edge Case","citation_required","bge-m3-hybrid-rrf-reranked","16","0","10","0.075","0.75","0.572917","0.75"
+"Edge Case","citation_required","bge-m3-hybrid-rrf-reranked","16","0","20","0.040625","0.8125","0.578598","0.8125"
+"Edge Case","citation_required","bge-m3-hybrid-rrf-reranked","16","0","30","0.027083","0.8125","0.578598","0.8125"
+"Edge Case","conflicting_dated_sources","bge-m3-hybrid-rrf-reranked","1","0","5","0.4","1","1","1"
+"Edge Case","conflicting_dated_sources","bge-m3-hybrid-rrf-reranked","1","0","10","0.2","1","1","1"
+"Edge Case","conflicting_dated_sources","bge-m3-hybrid-rrf-reranked","1","0","20","0.1","1","1","1"
+"Edge Case","conflicting_dated_sources","bge-m3-hybrid-rrf-reranked","1","0","30","0.066667","1","1","1"
+"Edge Case","corpus_qualified","bge-m3-hybrid-rrf-reranked","16","0","5","0.1125","0.5625","0.45","0.5625"
+"Edge Case","corpus_qualified","bge-m3-hybrid-rrf-reranked","16","0","10","0.06875","0.6875","0.464062","0.6875"
+"Edge Case","corpus_qualified","bge-m3-hybrid-rrf-reranked","16","0","20","0.040625","0.8125","0.471354","0.8125"
+"Edge Case","corpus_qualified","bge-m3-hybrid-rrf-reranked","16","0","30","0.027083","0.8125","0.471354","0.8125"
+"Edge Case","date_premise_mismatch","bge-m3-hybrid-rrf-reranked","1","0","5","0","0","0","0"
+"Edge Case","date_premise_mismatch","bge-m3-hybrid-rrf-reranked","1","0","10","0","0","0","0"
+"Edge Case","date_premise_mismatch","bge-m3-hybrid-rrf-reranked","1","0","20","0","0","0","0"
+"Edge Case","date_premise_mismatch","bge-m3-hybrid-rrf-reranked","1","0","30","0","0","0","0"
+"Edge Case","distributed_evidence","bge-m3-hybrid-rrf-reranked","1","0","5","0.2","0.333333","0.5","1"
+"Edge Case","distributed_evidence","bge-m3-hybrid-rrf-reranked","1","0","10","0.1","0.333333","0.5","1"
+"Edge Case","distributed_evidence","bge-m3-hybrid-rrf-reranked","1","0","20","0.05","0.333333","0.5","1"
+"Edge Case","distributed_evidence","bge-m3-hybrid-rrf-reranked","1","0","30","0.033333","0.333333","0.5","1"
+"Edge Case","fabrication_instruction","bge-m3-hybrid-rrf-reranked","0","1","5",,,,
+"Edge Case","fabrication_instruction","bge-m3-hybrid-rrf-reranked","0","1","10",,,,
+"Edge Case","fabrication_instruction","bge-m3-hybrid-rrf-reranked","0","1","20",,,,
+"Edge Case","fabrication_instruction","bge-m3-hybrid-rrf-reranked","0","1","30",,,,
+"Edge Case","false_premise","bge-m3-hybrid-rrf-reranked","1","0","5","0","0","0","0"
+"Edge Case","false_premise","bge-m3-hybrid-rrf-reranked","1","0","10","0","0","0","0"
+"Edge Case","false_premise","bge-m3-hybrid-rrf-reranked","1","0","20","0","0","0","0"
+"Edge Case","false_premise","bge-m3-hybrid-rrf-reranked","1","0","30","0","0","0","0"
+"Edge Case","future_period","bge-m3-hybrid-rrf-reranked","0","1","5",,,,
+"Edge Case","future_period","bge-m3-hybrid-rrf-reranked","0","1","10",,,,
+"Edge Case","future_period","bge-m3-hybrid-rrf-reranked","0","1","20",,,,
+"Edge Case","future_period","bge-m3-hybrid-rrf-reranked","0","1","30",,,,
+"Edge Case","future_prediction","bge-m3-hybrid-rrf-reranked","0","1","5",,,,
+"Edge Case","future_prediction","bge-m3-hybrid-rrf-reranked","0","1","10",,,,
+"Edge Case","future_prediction","bge-m3-hybrid-rrf-reranked","0","1","20",,,,
+"Edge Case","future_prediction","bge-m3-hybrid-rrf-reranked","0","1","30",,,,
+"Edge Case","interpretation_bounded_by_evidence","bge-m3-hybrid-rrf-reranked","1","0","5","0","0","0","0"
+"Edge Case","interpretation_bounded_by_evidence","bge-m3-hybrid-rrf-reranked","1","0","10","0","0","0","0"
+"Edge Case","interpretation_bounded_by_evidence","bge-m3-hybrid-rrf-reranked","1","0","20","0","0","0","0"
+"Edge Case","interpretation_bounded_by_evidence","bge-m3-hybrid-rrf-reranked","1","0","30","0","0","0","0"
+"Edge Case","missing_context","bge-m3-hybrid-rrf-reranked","0","1","5",,,,
+"Edge Case","missing_context","bge-m3-hybrid-rrf-reranked","0","1","10",,,,
+"Edge Case","missing_context","bge-m3-hybrid-rrf-reranked","0","1","20",,,,
+"Edge Case","missing_context","bge-m3-hybrid-rrf-reranked","0","1","30",,,,
+"Edge Case","original_vs_amendment","bge-m3-hybrid-rrf-reranked","1","0","5","0","0","0","0"
+"Edge Case","original_vs_amendment","bge-m3-hybrid-rrf-reranked","1","0","10","0","0","0","0"
+"Edge Case","original_vs_amendment","bge-m3-hybrid-rrf-reranked","1","0","20","0","0","0","0"
+"Edge Case","original_vs_amendment","bge-m3-hybrid-rrf-reranked","1","0","30","0","0","0","0"
+"Edge Case","out_of_domain_entity","bge-m3-hybrid-rrf-reranked","0","1","5",,,,
+"Edge Case","out_of_domain_entity","bge-m3-hybrid-rrf-reranked","0","1","10",,,,
+"Edge Case","out_of_domain_entity","bge-m3-hybrid-rrf-reranked","0","1","20",,,,
+"Edge Case","out_of_domain_entity","bge-m3-hybrid-rrf-reranked","0","1","30",,,,
+"Edge Case","partial_out_of_domain_comparison","bge-m3-hybrid-rrf-reranked","0","1","5",,,,
+"Edge Case","partial_out_of_domain_comparison","bge-m3-hybrid-rrf-reranked","0","1","10",,,,
+"Edge Case","partial_out_of_domain_comparison","bge-m3-hybrid-rrf-reranked","0","1","20",,,,
+"Edge Case","partial_out_of_domain_comparison","bge-m3-hybrid-rrf-reranked","0","1","30",,,,
+"Edge Case","pii_request","bge-m3-hybrid-rrf-reranked","0","1","5",,,,
+"Edge Case","pii_request","bge-m3-hybrid-rrf-reranked","0","1","10",,,,
+"Edge Case","pii_request","bge-m3-hybrid-rrf-reranked","0","1","20",,,,
+"Edge Case","pii_request","bge-m3-hybrid-rrf-reranked","0","1","30",,,,
+"Edge Case","precision_constraint","bge-m3-hybrid-rrf-reranked","16","0","5","0.1","0.5","0.3375","0.5"
+"Edge Case","precision_constraint","bge-m3-hybrid-rrf-reranked","16","0","10","0.06875","0.6875","0.361806","0.6875"
+"Edge Case","precision_constraint","bge-m3-hybrid-rrf-reranked","16","0","20","0.040625","0.8125","0.371394","0.8125"
+"Edge Case","precision_constraint","bge-m3-hybrid-rrf-reranked","16","0","30","0.027083","0.8125","0.371394","0.8125"
+"Edge Case","private_information","bge-m3-hybrid-rrf-reranked","0","1","5",,,,
+"Edge Case","private_information","bge-m3-hybrid-rrf-reranked","0","1","10",,,,
+"Edge Case","private_information","bge-m3-hybrid-rrf-reranked","0","1","20",,,,
+"Edge Case","private_information","bge-m3-hybrid-rrf-reranked","0","1","30",,,,
+"Edge Case","prompt_injection","bge-m3-hybrid-rrf-reranked","0","1","5",,,,
+"Edge Case","prompt_injection","bge-m3-hybrid-rrf-reranked","0","1","10",,,,
+"Edge Case","prompt_injection","bge-m3-hybrid-rrf-reranked","0","1","20",,,,
+"Edge Case","prompt_injection","bge-m3-hybrid-rrf-reranked","0","1","30",,,,
+"Edge Case","punctuation_noise","bge-m3-hybrid-rrf-reranked","16","0","5","0.15","0.75","0.588542","0.75"
+"Edge Case","punctuation_noise","bge-m3-hybrid-rrf-reranked","16","0","10","0.08125","0.8125","0.596354","0.8125"
+"Edge Case","punctuation_noise","bge-m3-hybrid-rrf-reranked","16","0","20","0.04375","0.875","0.601562","0.875"
+"Edge Case","punctuation_noise","bge-m3-hybrid-rrf-reranked","16","0","30","0.029167","0.875","0.601562","0.875"
+"Edge Case","required_sample","bge-m3-hybrid-rrf-reranked","2","0","5","0.1","0.5","0.1","0.5"
+"Edge Case","required_sample","bge-m3-hybrid-rrf-reranked","2","0","10","0.05","0.5","0.1","0.5"
+"Edge Case","required_sample","bge-m3-hybrid-rrf-reranked","2","0","20","0.025","0.5","0.1","0.5"
+"Edge Case","required_sample","bge-m3-hybrid-rrf-reranked","2","0","30","0.016667","0.5","0.1","0.5"
+"Edge Case","source_qualified","bge-m3-hybrid-rrf-reranked","16","0","5","0.125","0.625","0.48125","0.625"
+"Edge Case","source_qualified","bge-m3-hybrid-rrf-reranked","16","0","10","0.06875","0.6875","0.489063","0.6875"
+"Edge Case","source_qualified","bge-m3-hybrid-rrf-reranked","16","0","20","0.040625","0.8125","0.496875","0.8125"
+"Edge Case","source_qualified","bge-m3-hybrid-rrf-reranked","16","0","30","0.027083","0.8125","0.496875","0.8125"
+"Edge Case","standard","bge-m3-hybrid-rrf-reranked","100","0","5","0.124","0.62","0.499667","0.62"
+"Edge Case","standard","bge-m3-hybrid-rrf-reranked","100","0","10","0.072","0.72","0.513246","0.72"
+"Edge Case","standard","bge-m3-hybrid-rrf-reranked","100","0","20","0.041","0.82","0.519533","0.82"
+"Edge Case","standard","bge-m3-hybrid-rrf-reranked","100","0","30","0.028","0.84","0.520266","0.84"
+"Edge Case","unsupported_external_fact","bge-m3-hybrid-rrf-reranked","0","1","5",,,,
+"Edge Case","unsupported_external_fact","bge-m3-hybrid-rrf-reranked","0","1","10",,,,
+"Edge Case","unsupported_external_fact","bge-m3-hybrid-rrf-reranked","0","1","20",,,,
+"Edge Case","unsupported_external_fact","bge-m3-hybrid-rrf-reranked","0","1","30",,,,
+"Edge Case","unsupported_personal_fact","bge-m3-hybrid-rrf-reranked","0","1","5",,,,
+"Edge Case","unsupported_personal_fact","bge-m3-hybrid-rrf-reranked","0","1","10",,,,
+"Edge Case","unsupported_personal_fact","bge-m3-hybrid-rrf-reranked","0","1","20",,,,
+"Edge Case","unsupported_personal_fact","bge-m3-hybrid-rrf-reranked","0","1","30",,,,

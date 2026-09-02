@@ -1,0 +1,3082 @@
+{
+  "created_at": "2026-09-02T14:22:48.877792+00:00",
+  "dataset": "C:\\Users\\aarya\\OneDrive\\Documents\\ChatGPT\\BMO App\\data\\golden\\retrieval_golden_200.jsonl",
+  "corpus_chunk_count": 6415,
+  "corpus_fingerprint_sha256": "7a9d928edc4fbcc1f368f531626b3b96aa32d695fce1f1dce758fddd6d8bb225",
+  "record_count": 200,
+  "distance": "cosine",
+  "qdrant_search": "exact",
+  "k_values": [
+    5,
+    10,
+    20,
+    30
+  ],
+  "empty_gold_policy": "Excluded from precision, recall and MRR because fixed top-k retrieval has no abstention threshold.",
+  "models": {
+    "qwen3-embedding-0.6b": {
+      "model_id": "Qwen/Qwen3-Embedding-0.6B",
+      "dimension": 1024,
+      "runtime": "vllm",
+      "weight_precision": "float16",
+      "max_model_len": 2048,
+      "collection": "bmo_chunks_qwen3-embedding-0_6b_d1024",
+      "index_seconds_this_run": 94.086,
+      "evaluation_seconds": 1.966,
+      "metrics": {
+        "all": {
+          "evaluated_answerable_count": 189,
+          "excluded_empty_gold_count": 11,
+          "cutoffs": {
+            "5": {
+              "precision": 0.088889,
+              "recall": 0.432981,
+              "mrr": 0.293386,
+              "hit_rate": 0.439153
+            },
+            "10": {
+              "precision": 0.053439,
+              "recall": 0.522928,
+              "mrr": 0.306146,
+              "hit_rate": 0.529101
+            },
+            "20": {
+              "precision": 0.030423,
+              "recall": 0.597002,
+              "mrr": 0.311005,
+              "hit_rate": 0.603175
+            },
+            "30": {
+              "precision": 0.022399,
+              "recall": 0.660494,
+              "mrr": 0.313447,
+              "hit_rate": 0.666667
+            }
+          }
+        },
+        "development": {
+          "evaluated_answerable_count": 152,
+          "excluded_empty_gold_count": 8,
+          "cutoffs": {
+            "5": {
+              "precision": 0.088158,
+              "recall": 0.430921,
+              "mrr": 0.290899,
+              "hit_rate": 0.434211
+            },
+            "10": {
+              "precision": 0.054605,
+              "recall": 0.536184,
+              "mrr": 0.305824,
+              "hit_rate": 0.539474
+            },
+            "20": {
+              "precision": 0.030263,
+              "recall": 0.595395,
+              "mrr": 0.309886,
+              "hit_rate": 0.598684
+            },
+            "30": {
+              "precision": 0.022149,
+              "recall": 0.654605,
+              "mrr": 0.312131,
+              "hit_rate": 0.657895
+            }
+          }
+        },
+        "test": {
+          "evaluated_answerable_count": 37,
+          "excluded_empty_gold_count": 3,
+          "cutoffs": {
+            "5": {
+              "precision": 0.091892,
+              "recall": 0.441441,
+              "mrr": 0.303604,
+              "hit_rate": 0.459459
+            },
+            "10": {
+              "precision": 0.048649,
+              "recall": 0.468468,
+              "mrr": 0.307465,
+              "hit_rate": 0.486486
+            },
+            "20": {
+              "precision": 0.031081,
+              "recall": 0.603604,
+              "mrr": 0.315602,
+              "hit_rate": 0.621622
+            },
+            "30": {
+              "precision": 0.023423,
+              "recall": 0.684685,
+              "mrr": 0.318853,
+              "hit_rate": 0.702703
+            }
+          }
+        },
+        "by_query_type": {
+          "ambiguous": {
+            "evaluated_answerable_count": 1,
+            "excluded_empty_gold_count": 1,
+            "cutoffs": {
+              "5": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "mrr": 0.0,
+                "hit_rate": 0.0
+              },
+              "10": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "mrr": 0.0,
+                "hit_rate": 0.0
+              },
+              "20": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "mrr": 0.0,
+                "hit_rate": 0.0
+              },
+              "30": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "mrr": 0.0,
+                "hit_rate": 0.0
+              }
+            }
+          },
+          "factual": {
+            "evaluated_answerable_count": 22,
+            "excluded_empty_gold_count": 0,
+            "cutoffs": {
+              "5": {
+                "precision": 0.090909,
+                "recall": 0.454545,
+                "mrr": 0.249242,
+                "hit_rate": 0.454545
+              },
+              "10": {
+                "precision": 0.059091,
+                "recall": 0.590909,
+                "mrr": 0.269805,
+                "hit_rate": 0.590909
+              },
+              "20": {
+                "precision": 0.029545,
+                "recall": 0.590909,
+                "mrr": 0.269805,
+                "hit_rate": 0.590909
+              },
+              "30": {
+                "precision": 0.022727,
+                "recall": 0.681818,
+                "mrr": 0.273349,
+                "hit_rate": 0.681818
+              }
+            }
+          },
+          "list": {
+            "evaluated_answerable_count": 1,
+            "excluded_empty_gold_count": 0,
+            "cutoffs": {
+              "5": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "mrr": 0.0,
+                "hit_rate": 0.0
+              },
+              "10": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "mrr": 0.0,
+                "hit_rate": 0.0
+              },
+              "20": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "mrr": 0.0,
+                "hit_rate": 0.0
+              },
+              "30": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "mrr": 0.0,
+                "hit_rate": 0.0
+              }
+            }
+          },
+          "multi_chunk_synthesis": {
+            "evaluated_answerable_count": 1,
+            "excluded_empty_gold_count": 0,
+            "cutoffs": {
+              "5": {
+                "precision": 0.2,
+                "recall": 0.333333,
+                "mrr": 0.5,
+                "hit_rate": 1.0
+              },
+              "10": {
+                "precision": 0.1,
+                "recall": 0.333333,
+                "mrr": 0.5,
+                "hit_rate": 1.0
+              },
+              "20": {
+                "precision": 0.05,
+                "recall": 0.333333,
+                "mrr": 0.5,
+                "hit_rate": 1.0
+              },
+              "30": {
+                "precision": 0.033333,
+                "recall": 0.333333,
+                "mrr": 0.5,
+                "hit_rate": 1.0
+              }
+            }
+          },
+          "multi_document_comparison": {
+            "evaluated_answerable_count": 1,
+            "excluded_empty_gold_count": 0,
+            "cutoffs": {
+              "5": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "mrr": 0.0,
+                "hit_rate": 0.0
+              },
+              "10": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "mrr": 0.0,
+                "hit_rate": 0.0
+              },
+              "20": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "mrr": 0.0,
+                "hit_rate": 0.0
+              },
+              "30": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "mrr": 0.0,
+                "hit_rate": 0.0
+              }
+            }
+          },
+          "multi_document_reconciliation": {
+            "evaluated_answerable_count": 1,
+            "excluded_empty_gold_count": 0,
+            "cutoffs": {
+              "5": {
+                "precision": 0.4,
+                "recall": 1.0,
+                "mrr": 1.0,
+                "hit_rate": 1.0
+              },
+              "10": {
+                "precision": 0.2,
+                "recall": 1.0,
+                "mrr": 1.0,
+                "hit_rate": 1.0
+              },
+              "20": {
+                "precision": 0.1,
+                "recall": 1.0,
+                "mrr": 1.0,
+                "hit_rate": 1.0
+              },
+              "30": {
+                "precision": 0.066667,
+                "recall": 1.0,
+                "mrr": 1.0,
+                "hit_rate": 1.0
+              }
+            }
+          },
+          "paraphrase": {
+            "evaluated_answerable_count": 80,
+            "excluded_empty_gold_count": 0,
+            "cutoffs": {
+              "5": {
+                "precision": 0.095,
+                "recall": 0.475,
+                "mrr": 0.312917,
+                "hit_rate": 0.475
+              },
+              "10": {
+                "precision": 0.055,
+                "recall": 0.55,
+                "mrr": 0.322688,
+                "hit_rate": 0.55
+              },
+              "20": {
+                "precision": 0.03125,
+                "recall": 0.625,
+                "mrr": 0.3275,
+                "hit_rate": 0.625
+              },
+              "30": {
+                "precision": 0.022917,
+                "recall": 0.6875,
+                "mrr": 0.329838,
+                "hit_rate": 0.6875
+              }
+            }
+          },
+          "premise_check": {
+            "evaluated_answerable_count": 1,
+            "excluded_empty_gold_count": 0,
+            "cutoffs": {
+              "5": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "mrr": 0.0,
+                "hit_rate": 0.0
+              },
+              "10": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "mrr": 0.0,
+                "hit_rate": 0.0
+              },
+              "20": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "mrr": 0.0,
+                "hit_rate": 0.0
+              },
+              "30": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "mrr": 0.0,
+                "hit_rate": 0.0
+              }
+            }
+          },
+          "regulatory_filing": {
+            "evaluated_answerable_count": 1,
+            "excluded_empty_gold_count": 0,
+            "cutoffs": {
+              "5": {
+                "precision": 0.2,
+                "recall": 0.5,
+                "mrr": 0.5,
+                "hit_rate": 1.0
+              },
+              "10": {
+                "precision": 0.1,
+                "recall": 0.5,
+                "mrr": 0.5,
+                "hit_rate": 1.0
+              },
+              "20": {
+                "precision": 0.05,
+                "recall": 0.5,
+                "mrr": 0.5,
+                "hit_rate": 1.0
+              },
+              "30": {
+                "precision": 0.033333,
+                "recall": 0.5,
+                "mrr": 0.5,
+                "hit_rate": 1.0
+              }
+            }
+          },
+          "table_lookup": {
+            "evaluated_answerable_count": 79,
+            "excluded_empty_gold_count": 0,
+            "cutoffs": {
+              "5": {
+                "precision": 0.081013,
+                "recall": 0.405063,
+                "mrr": 0.290295,
+                "hit_rate": 0.405063
+              },
+              "10": {
+                "precision": 0.050633,
+                "recall": 0.506329,
+                "mrr": 0.305199,
+                "hit_rate": 0.506329
+              },
+              "20": {
+                "precision": 0.03038,
+                "recall": 0.607595,
+                "mrr": 0.311952,
+                "hit_rate": 0.607595
+              },
+              "30": {
+                "precision": 0.022363,
+                "recall": 0.670886,
+                "mrr": 0.31444,
+                "hit_rate": 0.670886
+              }
+            }
+          },
+          "temporal_reconciliation": {
+            "evaluated_answerable_count": 1,
+            "excluded_empty_gold_count": 0,
+            "cutoffs": {
+              "5": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "mrr": 0.0,
+                "hit_rate": 0.0
+              },
+              "10": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "mrr": 0.0,
+                "hit_rate": 0.0
+              },
+              "20": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "mrr": 0.0,
+                "hit_rate": 0.0
+              },
+              "30": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "mrr": 0.0,
+                "hit_rate": 0.0
+              }
+            }
+          },
+          "unanswerable": {
+            "evaluated_answerable_count": 0,
+            "excluded_empty_gold_count": 10,
+            "cutoffs": {},
+            "not_evaluated_reason": "No records in this group have gold chunks; fixed top-k retrieval metrics are undefined."
+          }
+        },
+        "by_difficulty": {
+          "easy": {
+            "evaluated_answerable_count": 2,
+            "excluded_empty_gold_count": 8,
+            "cutoffs": {
+              "5": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "mrr": 0.0,
+                "hit_rate": 0.0
+              },
+              "10": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "mrr": 0.0,
+                "hit_rate": 0.0
+              },
+              "20": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "mrr": 0.0,
+                "hit_rate": 0.0
+              },
+              "30": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "mrr": 0.0,
+                "hit_rate": 0.0
+              }
+            }
+          },
+          "hard": {
+            "evaluated_answerable_count": 5,
+            "excluded_empty_gold_count": 1,
+            "cutoffs": {
+              "5": {
+                "precision": 0.12,
+                "recall": 0.266667,
+                "mrr": 0.3,
+                "hit_rate": 0.4
+              },
+              "10": {
+                "precision": 0.06,
+                "recall": 0.266667,
+                "mrr": 0.3,
+                "hit_rate": 0.4
+              },
+              "20": {
+                "precision": 0.03,
+                "recall": 0.266667,
+                "mrr": 0.3,
+                "hit_rate": 0.4
+              },
+              "30": {
+                "precision": 0.02,
+                "recall": 0.266667,
+                "mrr": 0.3,
+                "hit_rate": 0.4
+              }
+            }
+          },
+          "medium": {
+            "evaluated_answerable_count": 182,
+            "excluded_empty_gold_count": 2,
+            "cutoffs": {
+              "5": {
+                "precision": 0.089011,
+                "recall": 0.442308,
+                "mrr": 0.296429,
+                "hit_rate": 0.445055
+              },
+              "10": {
+                "precision": 0.053846,
+                "recall": 0.535714,
+                "mrr": 0.309679,
+                "hit_rate": 0.538462
+              },
+              "20": {
+                "precision": 0.030769,
+                "recall": 0.612637,
+                "mrr": 0.314725,
+                "hit_rate": 0.615385
+              },
+              "30": {
+                "precision": 0.022711,
+                "recall": 0.678571,
+                "mrr": 0.317261,
+                "hit_rate": 0.681319
+              }
+            }
+          }
+        },
+        "by_edge_case": {
+          "arbitrary_selection_rule": {
+            "evaluated_answerable_count": 1,
+            "excluded_empty_gold_count": 0,
+            "cutoffs": {
+              "5": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "mrr": 0.0,
+                "hit_rate": 0.0
+              },
+              "10": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "mrr": 0.0,
+                "hit_rate": 0.0
+              },
+              "20": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "mrr": 0.0,
+                "hit_rate": 0.0
+              },
+              "30": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "mrr": 0.0,
+                "hit_rate": 0.0
+              }
+            }
+          },
+          "citation_required": {
+            "evaluated_answerable_count": 16,
+            "excluded_empty_gold_count": 0,
+            "cutoffs": {
+              "5": {
+                "precision": 0.1125,
+                "recall": 0.5625,
+                "mrr": 0.453125,
+                "hit_rate": 0.5625
+              },
+              "10": {
+                "precision": 0.0625,
+                "recall": 0.625,
+                "mrr": 0.460938,
+                "hit_rate": 0.625
+              },
+              "20": {
+                "precision": 0.03125,
+                "recall": 0.625,
+                "mrr": 0.460938,
+                "hit_rate": 0.625
+              },
+              "30": {
+                "precision": 0.025,
+                "recall": 0.75,
+                "mrr": 0.465425,
+                "hit_rate": 0.75
+              }
+            }
+          },
+          "conflicting_dated_sources": {
+            "evaluated_answerable_count": 1,
+            "excluded_empty_gold_count": 0,
+            "cutoffs": {
+              "5": {
+                "precision": 0.4,
+                "recall": 1.0,
+                "mrr": 1.0,
+                "hit_rate": 1.0
+              },
+              "10": {
+                "precision": 0.2,
+                "recall": 1.0,
+                "mrr": 1.0,
+                "hit_rate": 1.0
+              },
+              "20": {
+                "precision": 0.1,
+                "recall": 1.0,
+                "mrr": 1.0,
+                "hit_rate": 1.0
+              },
+              "30": {
+                "precision": 0.066667,
+                "recall": 1.0,
+                "mrr": 1.0,
+                "hit_rate": 1.0
+              }
+            }
+          },
+          "corpus_qualified": {
+            "evaluated_answerable_count": 16,
+            "excluded_empty_gold_count": 0,
+            "cutoffs": {
+              "5": {
+                "precision": 0.0875,
+                "recall": 0.4375,
+                "mrr": 0.267708,
+                "hit_rate": 0.4375
+              },
+              "10": {
+                "precision": 0.04375,
+                "recall": 0.4375,
+                "mrr": 0.267708,
+                "hit_rate": 0.4375
+              },
+              "20": {
+                "precision": 0.028125,
+                "recall": 0.5625,
+                "mrr": 0.274904,
+                "hit_rate": 0.5625
+              },
+              "30": {
+                "precision": 0.022917,
+                "recall": 0.6875,
+                "mrr": 0.279705,
+                "hit_rate": 0.6875
+              }
+            }
+          },
+          "date_premise_mismatch": {
+            "evaluated_answerable_count": 1,
+            "excluded_empty_gold_count": 0,
+            "cutoffs": {
+              "5": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "mrr": 0.0,
+                "hit_rate": 0.0
+              },
+              "10": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "mrr": 0.0,
+                "hit_rate": 0.0
+              },
+              "20": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "mrr": 0.0,
+                "hit_rate": 0.0
+              },
+              "30": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "mrr": 0.0,
+                "hit_rate": 0.0
+              }
+            }
+          },
+          "distributed_evidence": {
+            "evaluated_answerable_count": 1,
+            "excluded_empty_gold_count": 0,
+            "cutoffs": {
+              "5": {
+                "precision": 0.2,
+                "recall": 0.333333,
+                "mrr": 0.5,
+                "hit_rate": 1.0
+              },
+              "10": {
+                "precision": 0.1,
+                "recall": 0.333333,
+                "mrr": 0.5,
+                "hit_rate": 1.0
+              },
+              "20": {
+                "precision": 0.05,
+                "recall": 0.333333,
+                "mrr": 0.5,
+                "hit_rate": 1.0
+              },
+              "30": {
+                "precision": 0.033333,
+                "recall": 0.333333,
+                "mrr": 0.5,
+                "hit_rate": 1.0
+              }
+            }
+          },
+          "fabrication_instruction": {
+            "evaluated_answerable_count": 0,
+            "excluded_empty_gold_count": 1,
+            "cutoffs": {},
+            "not_evaluated_reason": "No records in this group have gold chunks; fixed top-k retrieval metrics are undefined."
+          },
+          "false_premise": {
+            "evaluated_answerable_count": 1,
+            "excluded_empty_gold_count": 0,
+            "cutoffs": {
+              "5": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "mrr": 0.0,
+                "hit_rate": 0.0
+              },
+              "10": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "mrr": 0.0,
+                "hit_rate": 0.0
+              },
+              "20": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "mrr": 0.0,
+                "hit_rate": 0.0
+              },
+              "30": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "mrr": 0.0,
+                "hit_rate": 0.0
+              }
+            }
+          },
+          "future_period": {
+            "evaluated_answerable_count": 0,
+            "excluded_empty_gold_count": 1,
+            "cutoffs": {},
+            "not_evaluated_reason": "No records in this group have gold chunks; fixed top-k retrieval metrics are undefined."
+          },
+          "future_prediction": {
+            "evaluated_answerable_count": 0,
+            "excluded_empty_gold_count": 1,
+            "cutoffs": {},
+            "not_evaluated_reason": "No records in this group have gold chunks; fixed top-k retrieval metrics are undefined."
+          },
+          "interpretation_bounded_by_evidence": {
+            "evaluated_answerable_count": 1,
+            "excluded_empty_gold_count": 0,
+            "cutoffs": {
+              "5": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "mrr": 0.0,
+                "hit_rate": 0.0
+              },
+              "10": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "mrr": 0.0,
+                "hit_rate": 0.0
+              },
+              "20": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "mrr": 0.0,
+                "hit_rate": 0.0
+              },
+              "30": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "mrr": 0.0,
+                "hit_rate": 0.0
+              }
+            }
+          },
+          "missing_context": {
+            "evaluated_answerable_count": 0,
+            "excluded_empty_gold_count": 1,
+            "cutoffs": {},
+            "not_evaluated_reason": "No records in this group have gold chunks; fixed top-k retrieval metrics are undefined."
+          },
+          "original_vs_amendment": {
+            "evaluated_answerable_count": 1,
+            "excluded_empty_gold_count": 0,
+            "cutoffs": {
+              "5": {
+                "precision": 0.2,
+                "recall": 0.5,
+                "mrr": 0.5,
+                "hit_rate": 1.0
+              },
+              "10": {
+                "precision": 0.1,
+                "recall": 0.5,
+                "mrr": 0.5,
+                "hit_rate": 1.0
+              },
+              "20": {
+                "precision": 0.05,
+                "recall": 0.5,
+                "mrr": 0.5,
+                "hit_rate": 1.0
+              },
+              "30": {
+                "precision": 0.033333,
+                "recall": 0.5,
+                "mrr": 0.5,
+                "hit_rate": 1.0
+              }
+            }
+          },
+          "out_of_domain_entity": {
+            "evaluated_answerable_count": 0,
+            "excluded_empty_gold_count": 1,
+            "cutoffs": {},
+            "not_evaluated_reason": "No records in this group have gold chunks; fixed top-k retrieval metrics are undefined."
+          },
+          "partial_out_of_domain_comparison": {
+            "evaluated_answerable_count": 0,
+            "excluded_empty_gold_count": 1,
+            "cutoffs": {},
+            "not_evaluated_reason": "No records in this group have gold chunks; fixed top-k retrieval metrics are undefined."
+          },
+          "pii_request": {
+            "evaluated_answerable_count": 0,
+            "excluded_empty_gold_count": 1,
+            "cutoffs": {},
+            "not_evaluated_reason": "No records in this group have gold chunks; fixed top-k retrieval metrics are undefined."
+          },
+          "precision_constraint": {
+            "evaluated_answerable_count": 16,
+            "excluded_empty_gold_count": 0,
+            "cutoffs": {
+              "5": {
+                "precision": 0.075,
+                "recall": 0.375,
+                "mrr": 0.29375,
+                "hit_rate": 0.375
+              },
+              "10": {
+                "precision": 0.05,
+                "recall": 0.5,
+                "mrr": 0.309623,
+                "hit_rate": 0.5
+              },
+              "20": {
+                "precision": 0.028125,
+                "recall": 0.5625,
+                "mrr": 0.314431,
+                "hit_rate": 0.5625
+              },
+              "30": {
+                "precision": 0.01875,
+                "recall": 0.5625,
+                "mrr": 0.314431,
+                "hit_rate": 0.5625
+              }
+            }
+          },
+          "private_information": {
+            "evaluated_answerable_count": 0,
+            "excluded_empty_gold_count": 1,
+            "cutoffs": {},
+            "not_evaluated_reason": "No records in this group have gold chunks; fixed top-k retrieval metrics are undefined."
+          },
+          "prompt_injection": {
+            "evaluated_answerable_count": 0,
+            "excluded_empty_gold_count": 1,
+            "cutoffs": {},
+            "not_evaluated_reason": "No records in this group have gold chunks; fixed top-k retrieval metrics are undefined."
+          },
+          "punctuation_noise": {
+            "evaluated_answerable_count": 16,
+            "excluded_empty_gold_count": 0,
+            "cutoffs": {
+              "5": {
+                "precision": 0.1,
+                "recall": 0.5,
+                "mrr": 0.2125,
+                "hit_rate": 0.5
+              },
+              "10": {
+                "precision": 0.0625,
+                "recall": 0.625,
+                "mrr": 0.230729,
+                "hit_rate": 0.625
+              },
+              "20": {
+                "precision": 0.034375,
+                "recall": 0.6875,
+                "mrr": 0.235193,
+                "hit_rate": 0.6875
+              },
+              "30": {
+                "precision": 0.022917,
+                "recall": 0.6875,
+                "mrr": 0.235193,
+                "hit_rate": 0.6875
+              }
+            }
+          },
+          "required_sample": {
+            "evaluated_answerable_count": 2,
+            "excluded_empty_gold_count": 0,
+            "cutoffs": {
+              "5": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "mrr": 0.0,
+                "hit_rate": 0.0
+              },
+              "10": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "mrr": 0.0,
+                "hit_rate": 0.0
+              },
+              "20": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "mrr": 0.0,
+                "hit_rate": 0.0
+              },
+              "30": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "mrr": 0.0,
+                "hit_rate": 0.0
+              }
+            }
+          },
+          "source_qualified": {
+            "evaluated_answerable_count": 16,
+            "excluded_empty_gold_count": 0,
+            "cutoffs": {
+              "5": {
+                "precision": 0.1,
+                "recall": 0.5,
+                "mrr": 0.3375,
+                "hit_rate": 0.5
+              },
+              "10": {
+                "precision": 0.05625,
+                "recall": 0.5625,
+                "mrr": 0.344444,
+                "hit_rate": 0.5625
+              },
+              "20": {
+                "precision": 0.034375,
+                "recall": 0.6875,
+                "mrr": 0.352034,
+                "hit_rate": 0.6875
+              },
+              "30": {
+                "precision": 0.025,
+                "recall": 0.75,
+                "mrr": 0.354438,
+                "hit_rate": 0.75
+              }
+            }
+          },
+          "standard": {
+            "evaluated_answerable_count": 100,
+            "excluded_empty_gold_count": 0,
+            "cutoffs": {
+              "5": {
+                "precision": 0.084,
+                "recall": 0.42,
+                "mrr": 0.284167,
+                "hit_rate": 0.42
+              },
+              "10": {
+                "precision": 0.053,
+                "recall": 0.53,
+                "mrr": 0.300464,
+                "hit_rate": 0.53
+              },
+              "20": {
+                "precision": 0.0305,
+                "recall": 0.61,
+                "mrr": 0.305799,
+                "hit_rate": 0.61
+              },
+              "30": {
+                "precision": 0.022667,
+                "recall": 0.68,
+                "mrr": 0.308545,
+                "hit_rate": 0.68
+              }
+            }
+          },
+          "unsupported_external_fact": {
+            "evaluated_answerable_count": 0,
+            "excluded_empty_gold_count": 1,
+            "cutoffs": {},
+            "not_evaluated_reason": "No records in this group have gold chunks; fixed top-k retrieval metrics are undefined."
+          },
+          "unsupported_personal_fact": {
+            "evaluated_answerable_count": 0,
+            "excluded_empty_gold_count": 1,
+            "cutoffs": {},
+            "not_evaluated_reason": "No records in this group have gold chunks; fixed top-k retrieval metrics are undefined."
+          }
+        }
+      },
+      "query_details": "outputs\\embedding_benchmark\\query_details\\qwen3-embedding-0.6b.jsonl"
+    },
+    "bge-m3": {
+      "model_id": "BAAI/bge-m3",
+      "dimension": 1024,
+      "runtime": "vllm",
+      "weight_precision": "float16",
+      "max_model_len": 2048,
+      "collection": "bmo_chunks_bge-m3_d1024",
+      "index_seconds_this_run": 0.0,
+      "evaluation_seconds": 2.485,
+      "metrics": {
+        "all": {
+          "evaluated_answerable_count": 189,
+          "excluded_empty_gold_count": 11,
+          "cutoffs": {
+            "5": {
+              "precision": 0.102646,
+              "recall": 0.507937,
+              "mrr": 0.36164,
+              "hit_rate": 0.507937
+            },
+            "10": {
+              "precision": 0.05873,
+              "recall": 0.578483,
+              "mrr": 0.372069,
+              "hit_rate": 0.582011
+            },
+            "20": {
+              "precision": 0.032804,
+              "recall": 0.647266,
+              "mrr": 0.376841,
+              "hit_rate": 0.650794
+            },
+            "30": {
+              "precision": 0.023104,
+              "recall": 0.684303,
+              "mrr": 0.378423,
+              "hit_rate": 0.687831
+            }
+          }
+        },
+        "development": {
+          "evaluated_answerable_count": 152,
+          "excluded_empty_gold_count": 8,
+          "cutoffs": {
+            "5": {
+              "precision": 0.105263,
+              "recall": 0.519737,
+              "mrr": 0.375439,
+              "hit_rate": 0.519737
+            },
+            "10": {
+              "precision": 0.059868,
+              "recall": 0.592105,
+              "mrr": 0.38543,
+              "hit_rate": 0.592105
+            },
+            "20": {
+              "precision": 0.032895,
+              "recall": 0.651316,
+              "mrr": 0.389475,
+              "hit_rate": 0.651316
+            },
+            "30": {
+              "precision": 0.023246,
+              "recall": 0.690789,
+              "mrr": 0.391128,
+              "hit_rate": 0.690789
+            }
+          }
+        },
+        "test": {
+          "evaluated_answerable_count": 37,
+          "excluded_empty_gold_count": 3,
+          "cutoffs": {
+            "5": {
+              "precision": 0.091892,
+              "recall": 0.459459,
+              "mrr": 0.304955,
+              "hit_rate": 0.459459
+            },
+            "10": {
+              "precision": 0.054054,
+              "recall": 0.522523,
+              "mrr": 0.317181,
+              "hit_rate": 0.540541
+            },
+            "20": {
+              "precision": 0.032432,
+              "recall": 0.630631,
+              "mrr": 0.324942,
+              "hit_rate": 0.648649
+            },
+            "30": {
+              "precision": 0.022523,
+              "recall": 0.657658,
+              "mrr": 0.326229,
+              "hit_rate": 0.675676
+            }
+          }
+        },
+        "by_query_type": {
+          "ambiguous": {
+            "evaluated_answerable_count": 1,
+            "excluded_empty_gold_count": 1,
+            "cutoffs": {
+              "5": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "mrr": 0.0,
+                "hit_rate": 0.0
+              },
+              "10": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "mrr": 0.0,
+                "hit_rate": 0.0
+              },
+              "20": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "mrr": 0.0,
+                "hit_rate": 0.0
+              },
+              "30": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "mrr": 0.0,
+                "hit_rate": 0.0
+              }
+            }
+          },
+          "factual": {
+            "evaluated_answerable_count": 22,
+            "excluded_empty_gold_count": 0,
+            "cutoffs": {
+              "5": {
+                "precision": 0.109091,
+                "recall": 0.545455,
+                "mrr": 0.319697,
+                "hit_rate": 0.545455
+              },
+              "10": {
+                "precision": 0.054545,
+                "recall": 0.545455,
+                "mrr": 0.319697,
+                "hit_rate": 0.545455
+              },
+              "20": {
+                "precision": 0.031818,
+                "recall": 0.636364,
+                "mrr": 0.32493,
+                "hit_rate": 0.636364
+              },
+              "30": {
+                "precision": 0.022727,
+                "recall": 0.681818,
+                "mrr": 0.326824,
+                "hit_rate": 0.681818
+              }
+            }
+          },
+          "list": {
+            "evaluated_answerable_count": 1,
+            "excluded_empty_gold_count": 0,
+            "cutoffs": {
+              "5": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "mrr": 0.0,
+                "hit_rate": 0.0
+              },
+              "10": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "mrr": 0.0,
+                "hit_rate": 0.0
+              },
+              "20": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "mrr": 0.0,
+                "hit_rate": 0.0
+              },
+              "30": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "mrr": 0.0,
+                "hit_rate": 0.0
+              }
+            }
+          },
+          "multi_chunk_synthesis": {
+            "evaluated_answerable_count": 1,
+            "excluded_empty_gold_count": 0,
+            "cutoffs": {
+              "5": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "mrr": 0.0,
+                "hit_rate": 0.0
+              },
+              "10": {
+                "precision": 0.1,
+                "recall": 0.333333,
+                "mrr": 0.142857,
+                "hit_rate": 1.0
+              },
+              "20": {
+                "precision": 0.05,
+                "recall": 0.333333,
+                "mrr": 0.142857,
+                "hit_rate": 1.0
+              },
+              "30": {
+                "precision": 0.033333,
+                "recall": 0.333333,
+                "mrr": 0.142857,
+                "hit_rate": 1.0
+              }
+            }
+          },
+          "multi_document_comparison": {
+            "evaluated_answerable_count": 1,
+            "excluded_empty_gold_count": 0,
+            "cutoffs": {
+              "5": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "mrr": 0.0,
+                "hit_rate": 0.0
+              },
+              "10": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "mrr": 0.0,
+                "hit_rate": 0.0
+              },
+              "20": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "mrr": 0.0,
+                "hit_rate": 0.0
+              },
+              "30": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "mrr": 0.0,
+                "hit_rate": 0.0
+              }
+            }
+          },
+          "multi_document_reconciliation": {
+            "evaluated_answerable_count": 1,
+            "excluded_empty_gold_count": 0,
+            "cutoffs": {
+              "5": {
+                "precision": 0.4,
+                "recall": 1.0,
+                "mrr": 1.0,
+                "hit_rate": 1.0
+              },
+              "10": {
+                "precision": 0.2,
+                "recall": 1.0,
+                "mrr": 1.0,
+                "hit_rate": 1.0
+              },
+              "20": {
+                "precision": 0.1,
+                "recall": 1.0,
+                "mrr": 1.0,
+                "hit_rate": 1.0
+              },
+              "30": {
+                "precision": 0.066667,
+                "recall": 1.0,
+                "mrr": 1.0,
+                "hit_rate": 1.0
+              }
+            }
+          },
+          "paraphrase": {
+            "evaluated_answerable_count": 80,
+            "excluded_empty_gold_count": 0,
+            "cutoffs": {
+              "5": {
+                "precision": 0.105,
+                "recall": 0.525,
+                "mrr": 0.366042,
+                "hit_rate": 0.525
+              },
+              "10": {
+                "precision": 0.06125,
+                "recall": 0.6125,
+                "mrr": 0.377907,
+                "hit_rate": 0.6125
+              },
+              "20": {
+                "precision": 0.033125,
+                "recall": 0.6625,
+                "mrr": 0.381567,
+                "hit_rate": 0.6625
+              },
+              "30": {
+                "precision": 0.022917,
+                "recall": 0.6875,
+                "mrr": 0.382758,
+                "hit_rate": 0.6875
+              }
+            }
+          },
+          "premise_check": {
+            "evaluated_answerable_count": 1,
+            "excluded_empty_gold_count": 0,
+            "cutoffs": {
+              "5": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "mrr": 0.0,
+                "hit_rate": 0.0
+              },
+              "10": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "mrr": 0.0,
+                "hit_rate": 0.0
+              },
+              "20": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "mrr": 0.0,
+                "hit_rate": 0.0
+              },
+              "30": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "mrr": 0.0,
+                "hit_rate": 0.0
+              }
+            }
+          },
+          "regulatory_filing": {
+            "evaluated_answerable_count": 1,
+            "excluded_empty_gold_count": 0,
+            "cutoffs": {
+              "5": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "mrr": 0.0,
+                "hit_rate": 0.0
+              },
+              "10": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "mrr": 0.0,
+                "hit_rate": 0.0
+              },
+              "20": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "mrr": 0.0,
+                "hit_rate": 0.0
+              },
+              "30": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "mrr": 0.0,
+                "hit_rate": 0.0
+              }
+            }
+          },
+          "table_lookup": {
+            "evaluated_answerable_count": 79,
+            "excluded_empty_gold_count": 0,
+            "cutoffs": {
+              "5": {
+                "precision": 0.103797,
+                "recall": 0.518987,
+                "mrr": 0.392827,
+                "hit_rate": 0.518987
+              },
+              "10": {
+                "precision": 0.059494,
+                "recall": 0.594937,
+                "mrr": 0.403953,
+                "hit_rate": 0.594937
+              },
+              "20": {
+                "precision": 0.034177,
+                "recall": 0.683544,
+                "mrr": 0.410207,
+                "hit_rate": 0.683544
+              },
+              "30": {
+                "precision": 0.024473,
+                "recall": 0.734177,
+                "mrr": 0.412258,
+                "hit_rate": 0.734177
+              }
+            }
+          },
+          "temporal_reconciliation": {
+            "evaluated_answerable_count": 1,
+            "excluded_empty_gold_count": 0,
+            "cutoffs": {
+              "5": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "mrr": 0.0,
+                "hit_rate": 0.0
+              },
+              "10": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "mrr": 0.0,
+                "hit_rate": 0.0
+              },
+              "20": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "mrr": 0.0,
+                "hit_rate": 0.0
+              },
+              "30": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "mrr": 0.0,
+                "hit_rate": 0.0
+              }
+            }
+          },
+          "unanswerable": {
+            "evaluated_answerable_count": 0,
+            "excluded_empty_gold_count": 10,
+            "cutoffs": {},
+            "not_evaluated_reason": "No records in this group have gold chunks; fixed top-k retrieval metrics are undefined."
+          }
+        },
+        "by_difficulty": {
+          "easy": {
+            "evaluated_answerable_count": 2,
+            "excluded_empty_gold_count": 8,
+            "cutoffs": {
+              "5": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "mrr": 0.0,
+                "hit_rate": 0.0
+              },
+              "10": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "mrr": 0.0,
+                "hit_rate": 0.0
+              },
+              "20": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "mrr": 0.0,
+                "hit_rate": 0.0
+              },
+              "30": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "mrr": 0.0,
+                "hit_rate": 0.0
+              }
+            }
+          },
+          "hard": {
+            "evaluated_answerable_count": 5,
+            "excluded_empty_gold_count": 1,
+            "cutoffs": {
+              "5": {
+                "precision": 0.08,
+                "recall": 0.2,
+                "mrr": 0.2,
+                "hit_rate": 0.2
+              },
+              "10": {
+                "precision": 0.06,
+                "recall": 0.266667,
+                "mrr": 0.228571,
+                "hit_rate": 0.4
+              },
+              "20": {
+                "precision": 0.03,
+                "recall": 0.266667,
+                "mrr": 0.228571,
+                "hit_rate": 0.4
+              },
+              "30": {
+                "precision": 0.02,
+                "recall": 0.266667,
+                "mrr": 0.228571,
+                "hit_rate": 0.4
+              }
+            }
+          },
+          "medium": {
+            "evaluated_answerable_count": 182,
+            "excluded_empty_gold_count": 2,
+            "cutoffs": {
+              "5": {
+                "precision": 0.104396,
+                "recall": 0.521978,
+                "mrr": 0.370055,
+                "hit_rate": 0.521978
+              },
+              "10": {
+                "precision": 0.059341,
+                "recall": 0.593407,
+                "mrr": 0.3801,
+                "hit_rate": 0.593407
+              },
+              "20": {
+                "precision": 0.033242,
+                "recall": 0.664835,
+                "mrr": 0.385056,
+                "hit_rate": 0.664835
+              },
+              "30": {
+                "precision": 0.023443,
+                "recall": 0.703297,
+                "mrr": 0.386698,
+                "hit_rate": 0.703297
+              }
+            }
+          }
+        },
+        "by_edge_case": {
+          "arbitrary_selection_rule": {
+            "evaluated_answerable_count": 1,
+            "excluded_empty_gold_count": 0,
+            "cutoffs": {
+              "5": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "mrr": 0.0,
+                "hit_rate": 0.0
+              },
+              "10": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "mrr": 0.0,
+                "hit_rate": 0.0
+              },
+              "20": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "mrr": 0.0,
+                "hit_rate": 0.0
+              },
+              "30": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "mrr": 0.0,
+                "hit_rate": 0.0
+              }
+            }
+          },
+          "citation_required": {
+            "evaluated_answerable_count": 16,
+            "excluded_empty_gold_count": 0,
+            "cutoffs": {
+              "5": {
+                "precision": 0.125,
+                "recall": 0.625,
+                "mrr": 0.546875,
+                "hit_rate": 0.625
+              },
+              "10": {
+                "precision": 0.06875,
+                "recall": 0.6875,
+                "mrr": 0.557292,
+                "hit_rate": 0.6875
+              },
+              "20": {
+                "precision": 0.0375,
+                "recall": 0.75,
+                "mrr": 0.561198,
+                "hit_rate": 0.75
+              },
+              "30": {
+                "precision": 0.027083,
+                "recall": 0.8125,
+                "mrr": 0.564174,
+                "hit_rate": 0.8125
+              }
+            }
+          },
+          "conflicting_dated_sources": {
+            "evaluated_answerable_count": 1,
+            "excluded_empty_gold_count": 0,
+            "cutoffs": {
+              "5": {
+                "precision": 0.4,
+                "recall": 1.0,
+                "mrr": 1.0,
+                "hit_rate": 1.0
+              },
+              "10": {
+                "precision": 0.2,
+                "recall": 1.0,
+                "mrr": 1.0,
+                "hit_rate": 1.0
+              },
+              "20": {
+                "precision": 0.1,
+                "recall": 1.0,
+                "mrr": 1.0,
+                "hit_rate": 1.0
+              },
+              "30": {
+                "precision": 0.066667,
+                "recall": 1.0,
+                "mrr": 1.0,
+                "hit_rate": 1.0
+              }
+            }
+          },
+          "corpus_qualified": {
+            "evaluated_answerable_count": 16,
+            "excluded_empty_gold_count": 0,
+            "cutoffs": {
+              "5": {
+                "precision": 0.0875,
+                "recall": 0.4375,
+                "mrr": 0.241667,
+                "hit_rate": 0.4375
+              },
+              "10": {
+                "precision": 0.05,
+                "recall": 0.5,
+                "mrr": 0.250595,
+                "hit_rate": 0.5
+              },
+              "20": {
+                "precision": 0.028125,
+                "recall": 0.5625,
+                "mrr": 0.255403,
+                "hit_rate": 0.5625
+              },
+              "30": {
+                "precision": 0.020833,
+                "recall": 0.625,
+                "mrr": 0.258379,
+                "hit_rate": 0.625
+              }
+            }
+          },
+          "date_premise_mismatch": {
+            "evaluated_answerable_count": 1,
+            "excluded_empty_gold_count": 0,
+            "cutoffs": {
+              "5": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "mrr": 0.0,
+                "hit_rate": 0.0
+              },
+              "10": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "mrr": 0.0,
+                "hit_rate": 0.0
+              },
+              "20": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "mrr": 0.0,
+                "hit_rate": 0.0
+              },
+              "30": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "mrr": 0.0,
+                "hit_rate": 0.0
+              }
+            }
+          },
+          "distributed_evidence": {
+            "evaluated_answerable_count": 1,
+            "excluded_empty_gold_count": 0,
+            "cutoffs": {
+              "5": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "mrr": 0.0,
+                "hit_rate": 0.0
+              },
+              "10": {
+                "precision": 0.1,
+                "recall": 0.333333,
+                "mrr": 0.142857,
+                "hit_rate": 1.0
+              },
+              "20": {
+                "precision": 0.05,
+                "recall": 0.333333,
+                "mrr": 0.142857,
+                "hit_rate": 1.0
+              },
+              "30": {
+                "precision": 0.033333,
+                "recall": 0.333333,
+                "mrr": 0.142857,
+                "hit_rate": 1.0
+              }
+            }
+          },
+          "fabrication_instruction": {
+            "evaluated_answerable_count": 0,
+            "excluded_empty_gold_count": 1,
+            "cutoffs": {},
+            "not_evaluated_reason": "No records in this group have gold chunks; fixed top-k retrieval metrics are undefined."
+          },
+          "false_premise": {
+            "evaluated_answerable_count": 1,
+            "excluded_empty_gold_count": 0,
+            "cutoffs": {
+              "5": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "mrr": 0.0,
+                "hit_rate": 0.0
+              },
+              "10": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "mrr": 0.0,
+                "hit_rate": 0.0
+              },
+              "20": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "mrr": 0.0,
+                "hit_rate": 0.0
+              },
+              "30": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "mrr": 0.0,
+                "hit_rate": 0.0
+              }
+            }
+          },
+          "future_period": {
+            "evaluated_answerable_count": 0,
+            "excluded_empty_gold_count": 1,
+            "cutoffs": {},
+            "not_evaluated_reason": "No records in this group have gold chunks; fixed top-k retrieval metrics are undefined."
+          },
+          "future_prediction": {
+            "evaluated_answerable_count": 0,
+            "excluded_empty_gold_count": 1,
+            "cutoffs": {},
+            "not_evaluated_reason": "No records in this group have gold chunks; fixed top-k retrieval metrics are undefined."
+          },
+          "interpretation_bounded_by_evidence": {
+            "evaluated_answerable_count": 1,
+            "excluded_empty_gold_count": 0,
+            "cutoffs": {
+              "5": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "mrr": 0.0,
+                "hit_rate": 0.0
+              },
+              "10": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "mrr": 0.0,
+                "hit_rate": 0.0
+              },
+              "20": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "mrr": 0.0,
+                "hit_rate": 0.0
+              },
+              "30": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "mrr": 0.0,
+                "hit_rate": 0.0
+              }
+            }
+          },
+          "missing_context": {
+            "evaluated_answerable_count": 0,
+            "excluded_empty_gold_count": 1,
+            "cutoffs": {},
+            "not_evaluated_reason": "No records in this group have gold chunks; fixed top-k retrieval metrics are undefined."
+          },
+          "original_vs_amendment": {
+            "evaluated_answerable_count": 1,
+            "excluded_empty_gold_count": 0,
+            "cutoffs": {
+              "5": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "mrr": 0.0,
+                "hit_rate": 0.0
+              },
+              "10": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "mrr": 0.0,
+                "hit_rate": 0.0
+              },
+              "20": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "mrr": 0.0,
+                "hit_rate": 0.0
+              },
+              "30": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "mrr": 0.0,
+                "hit_rate": 0.0
+              }
+            }
+          },
+          "out_of_domain_entity": {
+            "evaluated_answerable_count": 0,
+            "excluded_empty_gold_count": 1,
+            "cutoffs": {},
+            "not_evaluated_reason": "No records in this group have gold chunks; fixed top-k retrieval metrics are undefined."
+          },
+          "partial_out_of_domain_comparison": {
+            "evaluated_answerable_count": 0,
+            "excluded_empty_gold_count": 1,
+            "cutoffs": {},
+            "not_evaluated_reason": "No records in this group have gold chunks; fixed top-k retrieval metrics are undefined."
+          },
+          "pii_request": {
+            "evaluated_answerable_count": 0,
+            "excluded_empty_gold_count": 1,
+            "cutoffs": {},
+            "not_evaluated_reason": "No records in this group have gold chunks; fixed top-k retrieval metrics are undefined."
+          },
+          "precision_constraint": {
+            "evaluated_answerable_count": 16,
+            "excluded_empty_gold_count": 0,
+            "cutoffs": {
+              "5": {
+                "precision": 0.075,
+                "recall": 0.375,
+                "mrr": 0.239583,
+                "hit_rate": 0.375
+              },
+              "10": {
+                "precision": 0.04375,
+                "recall": 0.4375,
+                "mrr": 0.248512,
+                "hit_rate": 0.4375
+              },
+              "20": {
+                "precision": 0.028125,
+                "recall": 0.5625,
+                "mrr": 0.2581,
+                "hit_rate": 0.5625
+              },
+              "30": {
+                "precision": 0.01875,
+                "recall": 0.5625,
+                "mrr": 0.2581,
+                "hit_rate": 0.5625
+              }
+            }
+          },
+          "private_information": {
+            "evaluated_answerable_count": 0,
+            "excluded_empty_gold_count": 1,
+            "cutoffs": {},
+            "not_evaluated_reason": "No records in this group have gold chunks; fixed top-k retrieval metrics are undefined."
+          },
+          "prompt_injection": {
+            "evaluated_answerable_count": 0,
+            "excluded_empty_gold_count": 1,
+            "cutoffs": {},
+            "not_evaluated_reason": "No records in this group have gold chunks; fixed top-k retrieval metrics are undefined."
+          },
+          "punctuation_noise": {
+            "evaluated_answerable_count": 16,
+            "excluded_empty_gold_count": 0,
+            "cutoffs": {
+              "5": {
+                "precision": 0.1375,
+                "recall": 0.6875,
+                "mrr": 0.4375,
+                "hit_rate": 0.6875
+              },
+              "10": {
+                "precision": 0.08125,
+                "recall": 0.8125,
+                "mrr": 0.450694,
+                "hit_rate": 0.8125
+              },
+              "20": {
+                "precision": 0.040625,
+                "recall": 0.8125,
+                "mrr": 0.450694,
+                "hit_rate": 0.8125
+              },
+              "30": {
+                "precision": 0.027083,
+                "recall": 0.8125,
+                "mrr": 0.450694,
+                "hit_rate": 0.8125
+              }
+            }
+          },
+          "required_sample": {
+            "evaluated_answerable_count": 2,
+            "excluded_empty_gold_count": 0,
+            "cutoffs": {
+              "5": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "mrr": 0.0,
+                "hit_rate": 0.0
+              },
+              "10": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "mrr": 0.0,
+                "hit_rate": 0.0
+              },
+              "20": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "mrr": 0.0,
+                "hit_rate": 0.0
+              },
+              "30": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "mrr": 0.0,
+                "hit_rate": 0.0
+              }
+            }
+          },
+          "source_qualified": {
+            "evaluated_answerable_count": 16,
+            "excluded_empty_gold_count": 0,
+            "cutoffs": {
+              "5": {
+                "precision": 0.1,
+                "recall": 0.5,
+                "mrr": 0.364583,
+                "hit_rate": 0.5
+              },
+              "10": {
+                "precision": 0.0625,
+                "recall": 0.625,
+                "mrr": 0.38244,
+                "hit_rate": 0.625
+              },
+              "20": {
+                "precision": 0.03125,
+                "recall": 0.625,
+                "mrr": 0.38244,
+                "hit_rate": 0.625
+              },
+              "30": {
+                "precision": 0.020833,
+                "recall": 0.625,
+                "mrr": 0.38244,
+                "hit_rate": 0.625
+              }
+            }
+          },
+          "standard": {
+            "evaluated_answerable_count": 100,
+            "excluded_empty_gold_count": 0,
+            "cutoffs": {
+              "5": {
+                "precision": 0.106,
+                "recall": 0.53,
+                "mrr": 0.380667,
+                "hit_rate": 0.53
+              },
+              "10": {
+                "precision": 0.059,
+                "recall": 0.59,
+                "mrr": 0.389456,
+                "hit_rate": 0.59
+              },
+              "20": {
+                "precision": 0.034,
+                "recall": 0.68,
+                "mrr": 0.395548,
+                "hit_rate": 0.68
+              },
+              "30": {
+                "precision": 0.024333,
+                "recall": 0.73,
+                "mrr": 0.397585,
+                "hit_rate": 0.73
+              }
+            }
+          },
+          "unsupported_external_fact": {
+            "evaluated_answerable_count": 0,
+            "excluded_empty_gold_count": 1,
+            "cutoffs": {},
+            "not_evaluated_reason": "No records in this group have gold chunks; fixed top-k retrieval metrics are undefined."
+          },
+          "unsupported_personal_fact": {
+            "evaluated_answerable_count": 0,
+            "excluded_empty_gold_count": 1,
+            "cutoffs": {},
+            "not_evaluated_reason": "No records in this group have gold chunks; fixed top-k retrieval metrics are undefined."
+          }
+        }
+      },
+      "query_details": "outputs\\embedding_benchmark\\query_details\\bge-m3.jsonl"
+    },
+    "nomic-embed-v1.5": {
+      "model_id": "nomic-ai/nomic-embed-text-v1.5",
+      "dimension": 768,
+      "runtime": "vllm",
+      "weight_precision": "float16",
+      "max_model_len": 2048,
+      "collection": "bmo_chunks_nomic-embed-v1_5_d768",
+      "index_seconds_this_run": 0.0,
+      "evaluation_seconds": 1.95,
+      "metrics": {
+        "all": {
+          "evaluated_answerable_count": 189,
+          "excluded_empty_gold_count": 11,
+          "cutoffs": {
+            "5": {
+              "precision": 0.099471,
+              "recall": 0.488536,
+              "mrr": 0.314286,
+              "hit_rate": 0.492063
+            },
+            "10": {
+              "precision": 0.057672,
+              "recall": 0.567901,
+              "mrr": 0.325187,
+              "hit_rate": 0.571429
+            },
+            "20": {
+              "precision": 0.03254,
+              "recall": 0.641975,
+              "mrr": 0.330348,
+              "hit_rate": 0.645503
+            },
+            "30": {
+              "precision": 0.022751,
+              "recall": 0.671076,
+              "mrr": 0.331588,
+              "hit_rate": 0.677249
+            }
+          }
+        },
+        "development": {
+          "evaluated_answerable_count": 152,
+          "excluded_empty_gold_count": 8,
+          "cutoffs": {
+            "5": {
+              "precision": 0.101316,
+              "recall": 0.5,
+              "mrr": 0.312171,
+              "hit_rate": 0.5
+            },
+            "10": {
+              "precision": 0.057237,
+              "recall": 0.565789,
+              "mrr": 0.321726,
+              "hit_rate": 0.565789
+            },
+            "20": {
+              "precision": 0.032895,
+              "recall": 0.651316,
+              "mrr": 0.327733,
+              "hit_rate": 0.651316
+            },
+            "30": {
+              "precision": 0.022807,
+              "recall": 0.674342,
+              "mrr": 0.328794,
+              "hit_rate": 0.677632
+            }
+          }
+        },
+        "test": {
+          "evaluated_answerable_count": 37,
+          "excluded_empty_gold_count": 3,
+          "cutoffs": {
+            "5": {
+              "precision": 0.091892,
+              "recall": 0.441441,
+              "mrr": 0.322973,
+              "hit_rate": 0.459459
+            },
+            "10": {
+              "precision": 0.059459,
+              "recall": 0.576577,
+              "mrr": 0.339404,
+              "hit_rate": 0.594595
+            },
+            "20": {
+              "precision": 0.031081,
+              "recall": 0.603604,
+              "mrr": 0.341093,
+              "hit_rate": 0.621622
+            },
+            "30": {
+              "precision": 0.022523,
+              "recall": 0.657658,
+              "mrr": 0.343064,
+              "hit_rate": 0.675676
+            }
+          }
+        },
+        "by_query_type": {
+          "ambiguous": {
+            "evaluated_answerable_count": 1,
+            "excluded_empty_gold_count": 1,
+            "cutoffs": {
+              "5": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "mrr": 0.0,
+                "hit_rate": 0.0
+              },
+              "10": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "mrr": 0.0,
+                "hit_rate": 0.0
+              },
+              "20": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "mrr": 0.0,
+                "hit_rate": 0.0
+              },
+              "30": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "mrr": 0.0,
+                "hit_rate": 0.0
+              }
+            }
+          },
+          "factual": {
+            "evaluated_answerable_count": 22,
+            "excluded_empty_gold_count": 0,
+            "cutoffs": {
+              "5": {
+                "precision": 0.109091,
+                "recall": 0.545455,
+                "mrr": 0.318182,
+                "hit_rate": 0.545455
+              },
+              "10": {
+                "precision": 0.054545,
+                "recall": 0.545455,
+                "mrr": 0.318182,
+                "hit_rate": 0.545455
+              },
+              "20": {
+                "precision": 0.031818,
+                "recall": 0.636364,
+                "mrr": 0.323821,
+                "hit_rate": 0.636364
+              },
+              "30": {
+                "precision": 0.024242,
+                "recall": 0.727273,
+                "mrr": 0.327072,
+                "hit_rate": 0.727273
+              }
+            }
+          },
+          "list": {
+            "evaluated_answerable_count": 1,
+            "excluded_empty_gold_count": 0,
+            "cutoffs": {
+              "5": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "mrr": 0.0,
+                "hit_rate": 0.0
+              },
+              "10": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "mrr": 0.0,
+                "hit_rate": 0.0
+              },
+              "20": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "mrr": 0.0,
+                "hit_rate": 0.0
+              },
+              "30": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "mrr": 0.0,
+                "hit_rate": 0.0
+              }
+            }
+          },
+          "multi_chunk_synthesis": {
+            "evaluated_answerable_count": 1,
+            "excluded_empty_gold_count": 0,
+            "cutoffs": {
+              "5": {
+                "precision": 0.2,
+                "recall": 0.333333,
+                "mrr": 0.25,
+                "hit_rate": 1.0
+              },
+              "10": {
+                "precision": 0.1,
+                "recall": 0.333333,
+                "mrr": 0.25,
+                "hit_rate": 1.0
+              },
+              "20": {
+                "precision": 0.05,
+                "recall": 0.333333,
+                "mrr": 0.25,
+                "hit_rate": 1.0
+              },
+              "30": {
+                "precision": 0.033333,
+                "recall": 0.333333,
+                "mrr": 0.25,
+                "hit_rate": 1.0
+              }
+            }
+          },
+          "multi_document_comparison": {
+            "evaluated_answerable_count": 1,
+            "excluded_empty_gold_count": 0,
+            "cutoffs": {
+              "5": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "mrr": 0.0,
+                "hit_rate": 0.0
+              },
+              "10": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "mrr": 0.0,
+                "hit_rate": 0.0
+              },
+              "20": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "mrr": 0.0,
+                "hit_rate": 0.0
+              },
+              "30": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "mrr": 0.0,
+                "hit_rate": 0.0
+              }
+            }
+          },
+          "multi_document_reconciliation": {
+            "evaluated_answerable_count": 1,
+            "excluded_empty_gold_count": 0,
+            "cutoffs": {
+              "5": {
+                "precision": 0.4,
+                "recall": 1.0,
+                "mrr": 1.0,
+                "hit_rate": 1.0
+              },
+              "10": {
+                "precision": 0.2,
+                "recall": 1.0,
+                "mrr": 1.0,
+                "hit_rate": 1.0
+              },
+              "20": {
+                "precision": 0.1,
+                "recall": 1.0,
+                "mrr": 1.0,
+                "hit_rate": 1.0
+              },
+              "30": {
+                "precision": 0.066667,
+                "recall": 1.0,
+                "mrr": 1.0,
+                "hit_rate": 1.0
+              }
+            }
+          },
+          "paraphrase": {
+            "evaluated_answerable_count": 80,
+            "excluded_empty_gold_count": 0,
+            "cutoffs": {
+              "5": {
+                "precision": 0.095,
+                "recall": 0.475,
+                "mrr": 0.309375,
+                "hit_rate": 0.475
+              },
+              "10": {
+                "precision": 0.0575,
+                "recall": 0.575,
+                "mrr": 0.323224,
+                "hit_rate": 0.575
+              },
+              "20": {
+                "precision": 0.033125,
+                "recall": 0.6625,
+                "mrr": 0.32924,
+                "hit_rate": 0.6625
+              },
+              "30": {
+                "precision": 0.022083,
+                "recall": 0.6625,
+                "mrr": 0.32924,
+                "hit_rate": 0.6625
+              }
+            }
+          },
+          "premise_check": {
+            "evaluated_answerable_count": 1,
+            "excluded_empty_gold_count": 0,
+            "cutoffs": {
+              "5": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "mrr": 0.0,
+                "hit_rate": 0.0
+              },
+              "10": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "mrr": 0.0,
+                "hit_rate": 0.0
+              },
+              "20": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "mrr": 0.0,
+                "hit_rate": 0.0
+              },
+              "30": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "mrr": 0.0,
+                "hit_rate": 0.0
+              }
+            }
+          },
+          "regulatory_filing": {
+            "evaluated_answerable_count": 1,
+            "excluded_empty_gold_count": 0,
+            "cutoffs": {
+              "5": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "mrr": 0.0,
+                "hit_rate": 0.0
+              },
+              "10": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "mrr": 0.0,
+                "hit_rate": 0.0
+              },
+              "20": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "mrr": 0.0,
+                "hit_rate": 0.0
+              },
+              "30": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "mrr": 0.0,
+                "hit_rate": 0.0
+              }
+            }
+          },
+          "table_lookup": {
+            "evaluated_answerable_count": 79,
+            "excluded_empty_gold_count": 0,
+            "cutoffs": {
+              "5": {
+                "precision": 0.103797,
+                "recall": 0.518987,
+                "mrr": 0.334177,
+                "hit_rate": 0.518987
+              },
+              "10": {
+                "precision": 0.060759,
+                "recall": 0.607595,
+                "mrr": 0.346233,
+                "hit_rate": 0.607595
+              },
+              "20": {
+                "precision": 0.033544,
+                "recall": 0.670886,
+                "mrr": 0.350919,
+                "hit_rate": 0.670886
+              },
+              "30": {
+                "precision": 0.023629,
+                "recall": 0.708861,
+                "mrr": 0.352403,
+                "hit_rate": 0.708861
+              }
+            }
+          },
+          "temporal_reconciliation": {
+            "evaluated_answerable_count": 1,
+            "excluded_empty_gold_count": 0,
+            "cutoffs": {
+              "5": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "mrr": 0.0,
+                "hit_rate": 0.0
+              },
+              "10": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "mrr": 0.0,
+                "hit_rate": 0.0
+              },
+              "20": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "mrr": 0.0,
+                "hit_rate": 0.0
+              },
+              "30": {
+                "precision": 0.033333,
+                "recall": 0.5,
+                "mrr": 0.045455,
+                "hit_rate": 1.0
+              }
+            }
+          },
+          "unanswerable": {
+            "evaluated_answerable_count": 0,
+            "excluded_empty_gold_count": 10,
+            "cutoffs": {},
+            "not_evaluated_reason": "No records in this group have gold chunks; fixed top-k retrieval metrics are undefined."
+          }
+        },
+        "by_difficulty": {
+          "easy": {
+            "evaluated_answerable_count": 2,
+            "excluded_empty_gold_count": 8,
+            "cutoffs": {
+              "5": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "mrr": 0.0,
+                "hit_rate": 0.0
+              },
+              "10": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "mrr": 0.0,
+                "hit_rate": 0.0
+              },
+              "20": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "mrr": 0.0,
+                "hit_rate": 0.0
+              },
+              "30": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "mrr": 0.0,
+                "hit_rate": 0.0
+              }
+            }
+          },
+          "hard": {
+            "evaluated_answerable_count": 5,
+            "excluded_empty_gold_count": 1,
+            "cutoffs": {
+              "5": {
+                "precision": 0.12,
+                "recall": 0.266667,
+                "mrr": 0.25,
+                "hit_rate": 0.4
+              },
+              "10": {
+                "precision": 0.06,
+                "recall": 0.266667,
+                "mrr": 0.25,
+                "hit_rate": 0.4
+              },
+              "20": {
+                "precision": 0.03,
+                "recall": 0.266667,
+                "mrr": 0.25,
+                "hit_rate": 0.4
+              },
+              "30": {
+                "precision": 0.026667,
+                "recall": 0.366667,
+                "mrr": 0.259091,
+                "hit_rate": 0.6
+              }
+            }
+          },
+          "medium": {
+            "evaluated_answerable_count": 182,
+            "excluded_empty_gold_count": 2,
+            "cutoffs": {
+              "5": {
+                "precision": 0.1,
+                "recall": 0.5,
+                "mrr": 0.319505,
+                "hit_rate": 0.5
+              },
+              "10": {
+                "precision": 0.058242,
+                "recall": 0.582418,
+                "mrr": 0.330826,
+                "hit_rate": 0.582418
+              },
+              "20": {
+                "precision": 0.032967,
+                "recall": 0.659341,
+                "mrr": 0.336186,
+                "hit_rate": 0.659341
+              },
+              "30": {
+                "precision": 0.022894,
+                "recall": 0.686813,
+                "mrr": 0.337223,
+                "hit_rate": 0.686813
+              }
+            }
+          }
+        },
+        "by_edge_case": {
+          "arbitrary_selection_rule": {
+            "evaluated_answerable_count": 1,
+            "excluded_empty_gold_count": 0,
+            "cutoffs": {
+              "5": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "mrr": 0.0,
+                "hit_rate": 0.0
+              },
+              "10": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "mrr": 0.0,
+                "hit_rate": 0.0
+              },
+              "20": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "mrr": 0.0,
+                "hit_rate": 0.0
+              },
+              "30": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "mrr": 0.0,
+                "hit_rate": 0.0
+              }
+            }
+          },
+          "citation_required": {
+            "evaluated_answerable_count": 16,
+            "excluded_empty_gold_count": 0,
+            "cutoffs": {
+              "5": {
+                "precision": 0.1125,
+                "recall": 0.5625,
+                "mrr": 0.447917,
+                "hit_rate": 0.5625
+              },
+              "10": {
+                "precision": 0.0625,
+                "recall": 0.625,
+                "mrr": 0.458333,
+                "hit_rate": 0.625
+              },
+              "20": {
+                "precision": 0.034375,
+                "recall": 0.6875,
+                "mrr": 0.4625,
+                "hit_rate": 0.6875
+              },
+              "30": {
+                "precision": 0.022917,
+                "recall": 0.6875,
+                "mrr": 0.4625,
+                "hit_rate": 0.6875
+              }
+            }
+          },
+          "conflicting_dated_sources": {
+            "evaluated_answerable_count": 1,
+            "excluded_empty_gold_count": 0,
+            "cutoffs": {
+              "5": {
+                "precision": 0.4,
+                "recall": 1.0,
+                "mrr": 1.0,
+                "hit_rate": 1.0
+              },
+              "10": {
+                "precision": 0.2,
+                "recall": 1.0,
+                "mrr": 1.0,
+                "hit_rate": 1.0
+              },
+              "20": {
+                "precision": 0.1,
+                "recall": 1.0,
+                "mrr": 1.0,
+                "hit_rate": 1.0
+              },
+              "30": {
+                "precision": 0.066667,
+                "recall": 1.0,
+                "mrr": 1.0,
+                "hit_rate": 1.0
+              }
+            }
+          },
+          "corpus_qualified": {
+            "evaluated_answerable_count": 16,
+            "excluded_empty_gold_count": 0,
+            "cutoffs": {
+              "5": {
+                "precision": 0.075,
+                "recall": 0.375,
+                "mrr": 0.241667,
+                "hit_rate": 0.375
+              },
+              "10": {
+                "precision": 0.05625,
+                "recall": 0.5625,
+                "mrr": 0.26379,
+                "hit_rate": 0.5625
+              },
+              "20": {
+                "precision": 0.03125,
+                "recall": 0.625,
+                "mrr": 0.267696,
+                "hit_rate": 0.625
+              },
+              "30": {
+                "precision": 0.020833,
+                "recall": 0.625,
+                "mrr": 0.267696,
+                "hit_rate": 0.625
+              }
+            }
+          },
+          "date_premise_mismatch": {
+            "evaluated_answerable_count": 1,
+            "excluded_empty_gold_count": 0,
+            "cutoffs": {
+              "5": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "mrr": 0.0,
+                "hit_rate": 0.0
+              },
+              "10": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "mrr": 0.0,
+                "hit_rate": 0.0
+              },
+              "20": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "mrr": 0.0,
+                "hit_rate": 0.0
+              },
+              "30": {
+                "precision": 0.033333,
+                "recall": 0.5,
+                "mrr": 0.045455,
+                "hit_rate": 1.0
+              }
+            }
+          },
+          "distributed_evidence": {
+            "evaluated_answerable_count": 1,
+            "excluded_empty_gold_count": 0,
+            "cutoffs": {
+              "5": {
+                "precision": 0.2,
+                "recall": 0.333333,
+                "mrr": 0.25,
+                "hit_rate": 1.0
+              },
+              "10": {
+                "precision": 0.1,
+                "recall": 0.333333,
+                "mrr": 0.25,
+                "hit_rate": 1.0
+              },
+              "20": {
+                "precision": 0.05,
+                "recall": 0.333333,
+                "mrr": 0.25,
+                "hit_rate": 1.0
+              },
+              "30": {
+                "precision": 0.033333,
+                "recall": 0.333333,
+                "mrr": 0.25,
+                "hit_rate": 1.0
+              }
+            }
+          },
+          "fabrication_instruction": {
+            "evaluated_answerable_count": 0,
+            "excluded_empty_gold_count": 1,
+            "cutoffs": {},
+            "not_evaluated_reason": "No records in this group have gold chunks; fixed top-k retrieval metrics are undefined."
+          },
+          "false_premise": {
+            "evaluated_answerable_count": 1,
+            "excluded_empty_gold_count": 0,
+            "cutoffs": {
+              "5": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "mrr": 0.0,
+                "hit_rate": 0.0
+              },
+              "10": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "mrr": 0.0,
+                "hit_rate": 0.0
+              },
+              "20": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "mrr": 0.0,
+                "hit_rate": 0.0
+              },
+              "30": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "mrr": 0.0,
+                "hit_rate": 0.0
+              }
+            }
+          },
+          "future_period": {
+            "evaluated_answerable_count": 0,
+            "excluded_empty_gold_count": 1,
+            "cutoffs": {},
+            "not_evaluated_reason": "No records in this group have gold chunks; fixed top-k retrieval metrics are undefined."
+          },
+          "future_prediction": {
+            "evaluated_answerable_count": 0,
+            "excluded_empty_gold_count": 1,
+            "cutoffs": {},
+            "not_evaluated_reason": "No records in this group have gold chunks; fixed top-k retrieval metrics are undefined."
+          },
+          "interpretation_bounded_by_evidence": {
+            "evaluated_answerable_count": 1,
+            "excluded_empty_gold_count": 0,
+            "cutoffs": {
+              "5": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "mrr": 0.0,
+                "hit_rate": 0.0
+              },
+              "10": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "mrr": 0.0,
+                "hit_rate": 0.0
+              },
+              "20": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "mrr": 0.0,
+                "hit_rate": 0.0
+              },
+              "30": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "mrr": 0.0,
+                "hit_rate": 0.0
+              }
+            }
+          },
+          "missing_context": {
+            "evaluated_answerable_count": 0,
+            "excluded_empty_gold_count": 1,
+            "cutoffs": {},
+            "not_evaluated_reason": "No records in this group have gold chunks; fixed top-k retrieval metrics are undefined."
+          },
+          "original_vs_amendment": {
+            "evaluated_answerable_count": 1,
+            "excluded_empty_gold_count": 0,
+            "cutoffs": {
+              "5": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "mrr": 0.0,
+                "hit_rate": 0.0
+              },
+              "10": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "mrr": 0.0,
+                "hit_rate": 0.0
+              },
+              "20": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "mrr": 0.0,
+                "hit_rate": 0.0
+              },
+              "30": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "mrr": 0.0,
+                "hit_rate": 0.0
+              }
+            }
+          },
+          "out_of_domain_entity": {
+            "evaluated_answerable_count": 0,
+            "excluded_empty_gold_count": 1,
+            "cutoffs": {},
+            "not_evaluated_reason": "No records in this group have gold chunks; fixed top-k retrieval metrics are undefined."
+          },
+          "partial_out_of_domain_comparison": {
+            "evaluated_answerable_count": 0,
+            "excluded_empty_gold_count": 1,
+            "cutoffs": {},
+            "not_evaluated_reason": "No records in this group have gold chunks; fixed top-k retrieval metrics are undefined."
+          },
+          "pii_request": {
+            "evaluated_answerable_count": 0,
+            "excluded_empty_gold_count": 1,
+            "cutoffs": {},
+            "not_evaluated_reason": "No records in this group have gold chunks; fixed top-k retrieval metrics are undefined."
+          },
+          "precision_constraint": {
+            "evaluated_answerable_count": 16,
+            "excluded_empty_gold_count": 0,
+            "cutoffs": {
+              "5": {
+                "precision": 0.075,
+                "recall": 0.375,
+                "mrr": 0.286458,
+                "hit_rate": 0.375
+              },
+              "10": {
+                "precision": 0.04375,
+                "recall": 0.4375,
+                "mrr": 0.296875,
+                "hit_rate": 0.4375
+              },
+              "20": {
+                "precision": 0.028125,
+                "recall": 0.5625,
+                "mrr": 0.306233,
+                "hit_rate": 0.5625
+              },
+              "30": {
+                "precision": 0.01875,
+                "recall": 0.5625,
+                "mrr": 0.306233,
+                "hit_rate": 0.5625
+              }
+            }
+          },
+          "private_information": {
+            "evaluated_answerable_count": 0,
+            "excluded_empty_gold_count": 1,
+            "cutoffs": {},
+            "not_evaluated_reason": "No records in this group have gold chunks; fixed top-k retrieval metrics are undefined."
+          },
+          "prompt_injection": {
+            "evaluated_answerable_count": 0,
+            "excluded_empty_gold_count": 1,
+            "cutoffs": {},
+            "not_evaluated_reason": "No records in this group have gold chunks; fixed top-k retrieval metrics are undefined."
+          },
+          "punctuation_noise": {
+            "evaluated_answerable_count": 16,
+            "excluded_empty_gold_count": 0,
+            "cutoffs": {
+              "5": {
+                "precision": 0.1375,
+                "recall": 0.6875,
+                "mrr": 0.386458,
+                "hit_rate": 0.6875
+              },
+              "10": {
+                "precision": 0.075,
+                "recall": 0.75,
+                "mrr": 0.396875,
+                "hit_rate": 0.75
+              },
+              "20": {
+                "precision": 0.04375,
+                "recall": 0.875,
+                "mrr": 0.403841,
+                "hit_rate": 0.875
+              },
+              "30": {
+                "precision": 0.029167,
+                "recall": 0.875,
+                "mrr": 0.403841,
+                "hit_rate": 0.875
+              }
+            }
+          },
+          "required_sample": {
+            "evaluated_answerable_count": 2,
+            "excluded_empty_gold_count": 0,
+            "cutoffs": {
+              "5": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "mrr": 0.0,
+                "hit_rate": 0.0
+              },
+              "10": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "mrr": 0.0,
+                "hit_rate": 0.0
+              },
+              "20": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "mrr": 0.0,
+                "hit_rate": 0.0
+              },
+              "30": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "mrr": 0.0,
+                "hit_rate": 0.0
+              }
+            }
+          },
+          "source_qualified": {
+            "evaluated_answerable_count": 16,
+            "excluded_empty_gold_count": 0,
+            "cutoffs": {
+              "5": {
+                "precision": 0.075,
+                "recall": 0.375,
+                "mrr": 0.184375,
+                "hit_rate": 0.375
+              },
+              "10": {
+                "precision": 0.05,
+                "recall": 0.5,
+                "mrr": 0.200248,
+                "hit_rate": 0.5
+              },
+              "20": {
+                "precision": 0.028125,
+                "recall": 0.5625,
+                "mrr": 0.20593,
+                "hit_rate": 0.5625
+              },
+              "30": {
+                "precision": 0.01875,
+                "recall": 0.5625,
+                "mrr": 0.20593,
+                "hit_rate": 0.5625
+              }
+            }
+          },
+          "standard": {
+            "evaluated_answerable_count": 100,
+            "excluded_empty_gold_count": 0,
+            "cutoffs": {
+              "5": {
+                "precision": 0.106,
+                "recall": 0.53,
+                "mrr": 0.334,
+                "hit_rate": 0.53
+              },
+              "10": {
+                "precision": 0.06,
+                "recall": 0.6,
+                "mrr": 0.343524,
+                "hit_rate": 0.6
+              },
+              "20": {
+                "precision": 0.0335,
+                "recall": 0.67,
+                "mrr": 0.348466,
+                "hit_rate": 0.67
+              },
+              "30": {
+                "precision": 0.024,
+                "recall": 0.72,
+                "mrr": 0.350354,
+                "hit_rate": 0.72
+              }
+            }
+          },
+          "unsupported_external_fact": {
+            "evaluated_answerable_count": 0,
+            "excluded_empty_gold_count": 1,
+            "cutoffs": {},
+            "not_evaluated_reason": "No records in this group have gold chunks; fixed top-k retrieval metrics are undefined."
+          },
+          "unsupported_personal_fact": {
+            "evaluated_answerable_count": 0,
+            "excluded_empty_gold_count": 1,
+            "cutoffs": {},
+            "not_evaluated_reason": "No records in this group have gold chunks; fixed top-k retrieval metrics are undefined."
+          }
+        }
+      },
+      "query_details": "outputs\\embedding_benchmark\\query_details\\nomic-embed-v1.5.jsonl"
+    }
+  },
+  "updated_at": "2026-09-02T14:27:00.016809+00:00"
+}

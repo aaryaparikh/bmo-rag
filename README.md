@@ -35,7 +35,8 @@ Baseline Python project layout for a retrieval-augmented generation system.
 
 The benchmark indexes the current Docling chunks into a separate Qdrant collection for
 each model and evaluates `retrieval_golden_200.jsonl` at k = 5, 10, 20, and 30.
-It compares Qwen3-Embedding-8B, Qwen3-Embedding-4B, BGE-M3, and Nomic Embed v1.5.
+It compares Qwen3-Embedding-0.6B, Qwen3-Embedding-4B, Qwen3-Embedding-8B,
+BGE-M3, and Nomic Embed v1.5.
 Each model uses its native dense dimension, cosine distance, identical chunk content
 (headings plus body), and exact Qdrant search. The report includes macro Precision@k,
 Recall@k, MRR@k, and HitRate@k for all/development/test records.
@@ -82,3 +83,50 @@ already-running vLLM server directly:
 
 The 11 empty-gold/abstention questions are counted in the report but excluded from the
 three requested metrics because fixed top-k retrieval always returns candidates.
+
+## Quick retrieval testing
+
+Build the BGE-M3 hybrid index once. It stores named dense vectors and Qdrant-native
+BM25 sparse vectors in a separate collection, preserving the dense benchmark index:
+
+```powershell
+.uvenv\Scripts\python.exe scripts\build_hybrid_index.py
+```
+
+Then inspect retrieval results directly. By default the command uses Qdrant's native
+dense + BM25 Reciprocal Rank Fusion and reranks 30 candidates with
+`BAAI/bge-reranker-v2-m3`. It starts or reuses local Qdrant and both vLLM services:
+
+```powershell
+.uvenv\Scripts\python.exe scripts\test_retrieval.py "What was BMO's CET1 ratio?"
+```
+
+Omit the question for an interactive prompt, or change the number of returned chunks:
+
+```powershell
+.uvenv\Scripts\python.exe scripts\test_retrieval.py -k 10
+```
+
+Use `--no-start-local` when Qdrant and a compatible vLLM endpoint are already running.
+If the project has been installed as a CLI, the equivalent command is
+`bmo-rag retrieve "your question"`.
+
+Useful comparison modes:
+
+```powershell
+# Native Qdrant hybrid fusion without the cross-encoder
+.uvenv\Scripts\python.exe scripts\test_retrieval.py "your question" --no-rerank
+
+# Original dense-only BGE retrieval
+.uvenv\Scripts\python.exe scripts\test_retrieval.py "your question" --dense
+```
+
+Run the 200-query comparison of dense BGE, native Qdrant hybrid RRF, and hybrid plus
+cross-encoder reranking with:
+
+```powershell
+.uvenv\Scripts\python.exe scripts\benchmark_hybrid_retrieval.py
+```
+
+The report is written to `outputs/embedding_benchmark/bge_hybrid_reranker_200.json`,
+with question-level retrieved and reranked chunks under `outputs/embedding_benchmark/query_details/`.

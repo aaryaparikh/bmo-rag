@@ -41,6 +41,13 @@ class ModelSpec:
 
 
 MODEL_SPECS: dict[str, ModelSpec] = {
+    "qwen3-embedding-0.6b": ModelSpec(
+        slug="qwen3-embedding-0.6b",
+        model_id="Qwen/Qwen3-Embedding-0.6B",
+        dimension=1024,
+        query_prefix=f"Instruct: {QWEN_RETRIEVAL_INSTRUCTION}\nQuery: ",
+        recommended_batch_size=32,
+    ),
     "qwen3-embedding-8b": ModelSpec(
         slug="qwen3-embedding-8b",
         model_id="Qwen/Qwen3-Embedding-8B",

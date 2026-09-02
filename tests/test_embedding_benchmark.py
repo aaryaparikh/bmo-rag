@@ -5,7 +5,7 @@ import json
 from bmo_rag.evaluation.retrieval import metrics_at_k, metrics_by_facets
 from bmo_rag.indexing.corpus import load_corpus, stable_chunk_id
 from bmo_rag.indexing.embeddings import MODEL_SPECS, VllmEmbeddingProvider, resolve_model
-from bmo_rag.indexing.qdrant_store import QdrantStore, collection_name
+from bmo_rag.indexing.qdrant_store import QdrantStore, collection_name, hybrid_collection_name
 
 
 def _record(record_id: str, gold: list[str], split: str = "test") -> dict:
@@ -76,11 +76,13 @@ def test_corpus_loader_matches_golden_chunk_id_algorithm(tmp_path) -> None:
 
 def test_open_model_registry_has_native_dimensions_and_task_prefixes() -> None:
     assert set(MODEL_SPECS) == {
+        "qwen3-embedding-0.6b",
         "qwen3-embedding-8b",
         "qwen3-embedding-4b",
         "bge-m3",
         "nomic-embed-v1.5",
     }
+    assert resolve_model("Qwen/Qwen3-Embedding-0.6B").dimension == 1024
     assert resolve_model("Qwen/Qwen3-Embedding-8B").dimension == 4096
     qwen = resolve_model("qwen3-embedding-4b")
     assert qwen.prepare("question", input_type="query").startswith("Instruct:")
@@ -109,3 +111,32 @@ def test_vllm_provider_sends_prepared_input_and_model(monkeypatch) -> None:
 def test_qdrant_ids_and_collection_names_are_stable() -> None:
     assert QdrantStore.point_id("bmo-abc") == QdrantStore.point_id("bmo-abc")
     assert collection_name("bge-m3", 1024) == "bmo_chunks_bge-m3_d1024"
+    assert hybrid_collection_name("bge-m3", 1024) == "bmo_chunks_hybrid_bge-m3_d1024"
+
+
+def test_qdrant_hybrid_query_uses_named_dense_bm25_and_rrf(monkeypatch) -> None:
+    store = QdrantStore()
+    captured: dict = {}
+
+    class Response:
+        @staticmethod
+        def json() -> dict:
+            return {"result": {"points": [{"id": 1, "score": 0.5, "payload": {}}]}}
+
+    def fake_request(method: str, path: str, *, body: dict, allowed=None) -> Response:
+        captured.update(method=method, path=path, body=body)
+        return Response()
+
+    monkeypatch.setattr(store, "_request", fake_request)
+    points = store.hybrid_search_points(
+        "hybrid", [0.1, 0.2], "CET1 ratio", top_k=5, candidate_k=30
+    )
+
+    assert len(points) == 1
+    assert captured["body"]["prefetch"][0]["using"] == "dense"
+    assert captured["body"]["prefetch"][1] == {
+        "query": {"text": "CET1 ratio", "model": "qdrant/bm25"},
+        "using": "bm25",
+        "limit": 30,
+    }
+    assert captured["body"]["query"] == {"rrf": {}}

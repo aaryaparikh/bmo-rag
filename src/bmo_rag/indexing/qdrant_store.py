@@ -21,6 +21,11 @@ def collection_name(model: str, dimension: int, prefix: str = "bmo_chunks") -> s
     return f"{prefix}_{safe_model}_d{dimension}"
 
 
+def hybrid_collection_name(model: str, dimension: int, prefix: str = "bmo_chunks") -> str:
+    """Return a separate collection name so dense benchmark indexes remain intact."""
+    return collection_name(model, dimension, prefix=f"{prefix}_hybrid")
+
+
 class QdrantStore:
     def __init__(
         self,
@@ -80,6 +85,34 @@ class QdrantStore:
                 f"Collection {name} has dimension {actual}, expected {dimension}; use --reindex"
             )
 
+    def ensure_hybrid_collection(
+        self, name: str, dimension: int, *, recreate: bool = False
+    ) -> None:
+        """Create a named dense + native BM25 sparse collection."""
+        encoded = quote(name, safe="")
+        response = self._request("GET", f"/collections/{encoded}", allowed={200, 404})
+        if response.status_code == 200 and recreate:
+            self._request("DELETE", f"/collections/{encoded}")
+            response = self._request("GET", f"/collections/{encoded}", allowed={200, 404})
+        if response.status_code == 404:
+            self._request(
+                "PUT",
+                f"/collections/{encoded}",
+                body={
+                    "vectors": {"dense": {"size": dimension, "distance": "Cosine"}},
+                    "sparse_vectors": {"bm25": {"modifier": "idf"}},
+                },
+            )
+            return
+        config = response.json()["result"]["config"]["params"]
+        dense = config.get("vectors", {}).get("dense", {})
+        sparse = config.get("sparse_vectors", {}).get("bm25", {})
+        if dense.get("size") != dimension or not sparse:
+            raise QdrantError(
+                f"Collection {name} is not a {dimension}-dimensional dense+BM25 collection; "
+                "rebuild it with --reindex"
+            )
+
     def count(self, name: str) -> int:
         response = self._request(
             "POST",
@@ -132,6 +165,25 @@ class QdrantStore:
             body={"points": points},
         )
 
+    def upsert_hybrid(self, name: str, embedded: EmbeddedBatch) -> None:
+        """Store dense vectors and let Qdrant generate native BM25 sparse vectors."""
+        points = [
+            {
+                "id": self.point_id(chunk.chunk_id),
+                "vector": {
+                    "dense": vector,
+                    "bm25": {"text": chunk.embedding_text, "model": "qdrant/bm25"},
+                },
+                "payload": chunk.payload(),
+            }
+            for chunk, vector in embedded
+        ]
+        self._request(
+            "PUT",
+            f"/collections/{quote(name, safe='')}/points?wait=true",
+            body={"points": points},
+        )
+
     def upsert_in_batches(
         self, name: str, embedded: EmbeddedBatch, *, batch_size: int = 128
     ) -> None:
@@ -139,10 +191,19 @@ class QdrantStore:
             self.upsert(name, embedded[offset : offset + batch_size])
 
     def search(self, name: str, vector: Vector, *, top_k: int, exact: bool = True) -> list[str]:
+        return [
+            point["payload"]["chunk_id"]
+            for point in self.search_points(name, vector, top_k=top_k, exact=exact)
+        ]
+
+    def search_points(
+        self, name: str, vector: Vector, *, top_k: int, exact: bool = True
+    ) -> list[dict[str, Any]]:
+        """Return scored points and full payloads for retrieval audits."""
         body: dict[str, Any] = {
             "query": vector,
             "limit": top_k,
-            "with_payload": ["chunk_id"],
+            "with_payload": True,
             "with_vector": False,
         }
         if exact:
@@ -150,5 +211,43 @@ class QdrantStore:
         response = self._request(
             "POST", f"/collections/{quote(name, safe='')}/points/query", body=body
         )
-        points = response.json()["result"]["points"]
-        return [point["payload"]["chunk_id"] for point in points]
+        return response.json()["result"]["points"]
+
+    def hybrid_search_points(
+        self,
+        name: str,
+        dense_vector: Vector,
+        query_text: str,
+        *,
+        top_k: int,
+        candidate_k: int = 30,
+        exact: bool = True,
+    ) -> list[dict[str, Any]]:
+        """Fuse dense and native BM25 candidates with Qdrant RRF."""
+        if candidate_k < top_k:
+            raise ValueError("candidate_k must be greater than or equal to top_k")
+        dense_prefetch: dict[str, Any] = {
+            "query": dense_vector,
+            "using": "dense",
+            "limit": candidate_k,
+        }
+        if exact:
+            dense_prefetch["params"] = {"exact": True}
+        body = {
+            "prefetch": [
+                dense_prefetch,
+                {
+                    "query": {"text": query_text, "model": "qdrant/bm25"},
+                    "using": "bm25",
+                    "limit": candidate_k,
+                },
+            ],
+            "query": {"rrf": {}},
+            "limit": top_k,
+            "with_payload": True,
+            "with_vector": False,
+        }
+        response = self._request(
+            "POST", f"/collections/{quote(name, safe='')}/points/query", body=body
+        )
+        return response.json()["result"]["points"]

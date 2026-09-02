@@ -35,6 +35,82 @@ def write_report(path: Path, report: dict[str, Any]) -> None:
     path.write_text(json.dumps(report, indent=2) + "\n", encoding="utf-8")
 
 
+def citation(payload: dict[str, Any]) -> str:
+    source = payload.get("source_url") or payload.get("origin_filename") or payload["source_id"]
+    pages = payload.get("pages") or []
+    if not pages:
+        return str(source)
+    label = "p." if len(pages) == 1 else "pp."
+    return f"{source}, {label} {', '.join(str(page) for page in pages)}"
+
+
+def expected_citation(chunk: dict[str, Any]) -> str:
+    source = chunk.get("source_locator") or chunk.get("source_id") or "unknown source"
+    pages = chunk.get("pages") or []
+    if not pages:
+        return str(source)
+    label = "p." if len(pages) == 1 else "pp."
+    return f"{source}, {label} {', '.join(str(page) for page in pages)}"
+
+
+def write_query_details(
+    output_dir: Path,
+    model_slug: str,
+    model_id: str,
+    records: list[dict[str, Any]],
+    retrieved_by_id: dict[str, list[dict[str, Any]]],
+) -> Path:
+    output_dir.mkdir(parents=True, exist_ok=True)
+    path = output_dir / f"{model_slug}.jsonl"
+    rows: list[dict[str, Any]] = []
+    for record in records:
+        expected_ids = {item["chunk_id"] for item in record["expected_chunks"]}
+        returned = []
+        for rank, point in enumerate(retrieved_by_id[record["id"]], start=1):
+            payload = point["payload"]
+            returned.append(
+                {
+                    "rank": rank,
+                    "score": round(float(point["score"]), 8),
+                    "is_expected": payload["chunk_id"] in expected_ids,
+                    **payload,
+                    "citation": citation(payload),
+                }
+            )
+        expected = [
+            {**item, "citation": expected_citation(item)} for item in record["expected_chunks"]
+        ]
+        first_relevant = next(
+            (item["rank"] for item in returned if item["is_expected"]), None
+        )
+        rows.append(
+            {
+                "model": model_slug,
+                "model_id": model_id,
+                "question_id": record["id"],
+                "question": record["question"],
+                "query_type": record.get("query_type"),
+                "difficulty": record.get("difficulty"),
+                "edge_case": record.get("edge_case"),
+                "split": record.get("split"),
+                "expected_behavior": record.get("expected_behavior"),
+                "expected_answer": record.get("expected_answer"),
+                "expected_chunks": expected,
+                "returned_chunks": returned,
+                "first_relevant_rank": first_relevant,
+                "hit_at_5": first_relevant is not None and first_relevant <= 5,
+                "hit_at_10": first_relevant is not None and first_relevant <= 10,
+                "hit_at_20": first_relevant is not None and first_relevant <= 20,
+                "hit_at_30": first_relevant is not None and first_relevant <= 30,
+            }
+        )
+    path.write_text(
+        "".join(json.dumps(row, ensure_ascii=False) + "\n" for row in rows),
+        encoding="utf-8",
+    )
+    return path
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument(
@@ -78,6 +154,11 @@ def main() -> None:
         "--append-report",
         action="store_true",
         help="Preserve compatible model results already present in the output report.",
+    )
+    parser.add_argument(
+        "--details-output-dir",
+        type=Path,
+        help="Write one query-level JSONL audit dataset per evaluated model.",
     )
     args = parser.parse_args()
 
@@ -212,15 +293,27 @@ def main() -> None:
         index_seconds = time.perf_counter() - index_started
 
         query_started = time.perf_counter()
-        queries = [record["question"] for record in answerable]
+        queries = [record["question"] for record in records]
         query_vectors = provider.embed_queries(queries)
         max_k = max(args.k)
         rankings: dict[str, list[str]] = {}
-        for index, (record, vector) in enumerate(zip(answerable, query_vectors, strict=True), 1):
-            rankings[record["id"]] = store.search(name, vector, top_k=max_k, exact=True)
-            if index % 25 == 0 or index == len(answerable):
-                log(f"{spec.slug}: evaluated {index}/{len(answerable)} answerable queries")
+        retrieved_by_id: dict[str, list[dict[str, Any]]] = {}
+        for index, (record, vector) in enumerate(zip(records, query_vectors, strict=True), 1):
+            points = store.search_points(name, vector, top_k=max_k, exact=True)
+            retrieved_by_id[record["id"]] = points
+            rankings[record["id"]] = [point["payload"]["chunk_id"] for point in points]
+            if index % 25 == 0 or index == len(records):
+                log(f"{spec.slug}: evaluated {index}/{len(records)} queries")
         evaluation_seconds = time.perf_counter() - query_started
+        details_path = None
+        if args.details_output_dir:
+            details_path = write_query_details(
+                args.details_output_dir,
+                spec.slug,
+                spec.model_id,
+                records,
+                retrieved_by_id,
+            )
         model_report = {
             "model_id": spec.model_id,
             "dimension": spec.dimension,
@@ -232,6 +325,8 @@ def main() -> None:
             "evaluation_seconds": round(evaluation_seconds, 3),
             "metrics": metrics_by_facets(records, rankings, args.k),
         }
+        if details_path:
+            model_report["query_details"] = str(details_path)
         report["models"][spec.slug] = model_report
         write_report(args.output, report)
         log(f"{spec.slug}: complete; checkpointed report to {args.output}")

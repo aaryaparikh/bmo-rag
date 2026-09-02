@@ -148,6 +148,8 @@ def benchmark_command(args: argparse.Namespace, spec: ModelSpec) -> list[str]:
     ]
     if args.reindex:
         command.append("--reindex")
+    if args.details_output_dir:
+        command.extend(["--details-output-dir", str(args.details_output_dir)])
     return command
 
 
@@ -171,6 +173,11 @@ def main() -> None:
         "--output", type=Path, default=ROOT / "outputs/embedding_benchmark/results.json"
     )
     parser.add_argument("--reindex", action="store_true")
+    parser.add_argument(
+        "--details-output-dir",
+        type=Path,
+        help="Write query-level JSONL audit datasets while evaluating each model.",
+    )
     parser.add_argument(
         "--dry-run", action="store_true", help="Print the Docker and benchmark commands only."
     )
