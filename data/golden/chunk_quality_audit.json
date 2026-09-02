@@ -1,0 +1,436 @@
+{
+  "corpus": {
+    "sources": 26,
+    "pdf_sources": 22,
+    "url_sources": 4,
+    "chunks": 6190
+  },
+  "global": {
+    "character_length": {
+      "minimum": 1,
+      "p05": 133,
+      "p50": 589,
+      "p95": 1419,
+      "maximum": 1500
+    },
+    "under_300_chars": 857,
+    "under_300_chars_rate": 0.1384,
+    "missing_headings": 4,
+    "pdf_chunks_missing_page_provenance": 0,
+    "web_navigation_or_footer_noise": 4,
+    "control_character_chunks": 60,
+    "normalized_exact_duplicate_instances": 522,
+    "normalized_exact_duplicate_rate": 0.0843
+  },
+  "quality_gates": {
+    "json_schema_parseable": true,
+    "non_empty_text": true,
+    "maximum_1500_chars": true,
+    "source_schema_contains_stable_chunk_id": false,
+    "stable_content_ids_derivable": true,
+    "all_chunks_have_hierarchy": false,
+    "all_pdf_chunks_have_page_provenance": true,
+    "web_boilerplate_removed": false,
+    "under_300_char_rate_at_most_10_percent": false,
+    "control_characters_removed": false
+  },
+  "vector_db_recommendation": "conditional_after_cleanup",
+  "per_source": {
+    "2026-05-27-BMO-Financial-Group-Reports-Second-Quarter-2026-Results-ed105dc24d": {
+      "source_type": "url",
+      "chunks": 42,
+      "characters": {
+        "minimum": 82,
+        "p50": 866,
+        "p95": 1499,
+        "maximum": 1500
+      },
+      "under_300_chars": 5,
+      "missing_headings": 0,
+      "missing_page_provenance": null,
+      "web_navigation_or_footer_noise": 0,
+      "control_character_chunks": 0
+    },
+    "2026BFCBBNAStressTest": {
+      "source_type": "pdf",
+      "chunks": 31,
+      "characters": {
+        "minimum": 70,
+        "p50": 566,
+        "p95": 1239,
+        "maximum": 1495
+      },
+      "under_300_chars": 2,
+      "missing_headings": 0,
+      "missing_page_provenance": 0,
+      "web_navigation_or_footer_noise": 0,
+      "control_character_chunks": 0
+    },
+    "BMOInvestorPresentationEN": {
+      "source_type": "pdf",
+      "chunks": 212,
+      "characters": {
+        "minimum": 13,
+        "p50": 319,
+        "p95": 1358,
+        "maximum": 1500
+      },
+      "under_300_chars": 98,
+      "missing_headings": 0,
+      "missing_page_provenance": 0,
+      "web_navigation_or_footer_noise": 0,
+      "control_character_chunks": 0
+    },
+    "Bail_In_TLAC_Disclosure": {
+      "source_type": "pdf",
+      "chunks": 38,
+      "characters": {
+        "minimum": 163,
+        "p50": 700,
+        "p95": 1489,
+        "maximum": 1498
+      },
+      "under_300_chars": 1,
+      "missing_headings": 0,
+      "missing_page_provenance": 0,
+      "web_navigation_or_footer_noise": 0,
+      "control_character_chunks": 0
+    },
+    "CorporateFactSheet": {
+      "source_type": "pdf",
+      "chunks": 7,
+      "characters": {
+        "minimum": 114,
+        "p50": 670,
+        "p95": 1428,
+        "maximum": 1428
+      },
+      "under_300_chars": 1,
+      "missing_headings": 0,
+      "missing_page_provenance": 0,
+      "web_navigation_or_footer_noise": 0,
+      "control_character_chunks": 0
+    },
+    "LCR_CY26Q1": {
+      "source_type": "pdf",
+      "chunks": 28,
+      "characters": {
+        "minimum": 97,
+        "p50": 469,
+        "p95": 1500,
+        "maximum": 1500
+      },
+      "under_300_chars": 5,
+      "missing_headings": 0,
+      "missing_page_provenance": 0,
+      "web_navigation_or_footer_noise": 0,
+      "control_character_chunks": 0
+    },
+    "LCR_CY26Q2": {
+      "source_type": "pdf",
+      "chunks": 27,
+      "characters": {
+        "minimum": 96,
+        "p50": 532,
+        "p95": 1500,
+        "maximum": 1500
+      },
+      "under_300_chars": 5,
+      "missing_headings": 0,
+      "missing_page_provenance": 0,
+      "web_navigation_or_footer_noise": 0,
+      "control_character_chunks": 0
+    },
+    "MainFeaturesTemplateQ326": {
+      "source_type": "pdf",
+      "chunks": 643,
+      "characters": {
+        "minimum": 61,
+        "p50": 1379,
+        "p95": 1421,
+        "maximum": 1451
+      },
+      "under_300_chars": 172,
+      "missing_headings": 2,
+      "missing_page_provenance": 0,
+      "web_navigation_or_footer_noise": 0,
+      "control_character_chunks": 0
+    },
+    "NSFRCY26Q2": {
+      "source_type": "pdf",
+      "chunks": 20,
+      "characters": {
+        "minimum": 288,
+        "p50": 728,
+        "p95": 1497,
+        "maximum": 1499
+      },
+      "under_300_chars": 1,
+      "missing_headings": 0,
+      "missing_page_provenance": 0,
+      "web_navigation_or_footer_noise": 0,
+      "control_character_chunks": 0
+    },
+    "Q126_EarningsRelease": {
+      "source_type": "pdf",
+      "chunks": 45,
+      "characters": {
+        "minimum": 70,
+        "p50": 610,
+        "p95": 1499,
+        "maximum": 1500
+      },
+      "under_300_chars": 9,
+      "missing_headings": 0,
+      "missing_page_provenance": 0,
+      "web_navigation_or_footer_noise": 0,
+      "control_character_chunks": 0
+    },
+    "Q126_ReportToShareholders": {
+      "source_type": "pdf",
+      "chunks": 441,
+      "characters": {
+        "minimum": 28,
+        "p50": 543,
+        "p95": 1387,
+        "maximum": 1500
+      },
+      "under_300_chars": 25,
+      "missing_headings": 0,
+      "missing_page_provenance": 0,
+      "web_navigation_or_footer_noise": 0,
+      "control_character_chunks": 0
+    },
+    "Q226_EarningsRelease": {
+      "source_type": "pdf",
+      "chunks": 54,
+      "characters": {
+        "minimum": 70,
+        "p50": 581,
+        "p95": 1386,
+        "maximum": 1500
+      },
+      "under_300_chars": 13,
+      "missing_headings": 0,
+      "missing_page_provenance": 0,
+      "web_navigation_or_footer_noise": 0,
+      "control_character_chunks": 0
+    },
+    "Q226_ReportToShareholders": {
+      "source_type": "pdf",
+      "chunks": 477,
+      "characters": {
+        "minimum": 26,
+        "p50": 559,
+        "p95": 1369,
+        "maximum": 1500
+      },
+      "under_300_chars": 26,
+      "missing_headings": 0,
+      "missing_page_provenance": 0,
+      "web_navigation_or_footer_noise": 0,
+      "control_character_chunks": 0
+    },
+    "Q326_EarningsRelease": {
+      "source_type": "pdf",
+      "chunks": 51,
+      "characters": {
+        "minimum": 70,
+        "p50": 575,
+        "p95": 1497,
+        "maximum": 1500
+      },
+      "under_300_chars": 10,
+      "missing_headings": 0,
+      "missing_page_provenance": 0,
+      "web_navigation_or_footer_noise": 0,
+      "control_character_chunks": 0
+    },
+    "Q326_ReportToShareholders": {
+      "source_type": "pdf",
+      "chunks": 487,
+      "characters": {
+        "minimum": 25,
+        "p50": 558,
+        "p95": 1368,
+        "maximum": 1500
+      },
+      "under_300_chars": 27,
+      "missing_headings": 0,
+      "missing_page_provenance": 0,
+      "web_navigation_or_footer_noise": 0,
+      "control_character_chunks": 0
+    },
+    "RegSuppQ326": {
+      "source_type": "pdf",
+      "chunks": 340,
+      "characters": {
+        "minimum": 71,
+        "p50": 1092,
+        "p95": 1377,
+        "maximum": 1453
+      },
+      "under_300_chars": 33,
+      "missing_headings": 0,
+      "missing_page_provenance": 0,
+      "web_navigation_or_footer_noise": 0,
+      "control_character_chunks": 0
+    },
+    "SuppQ326": {
+      "source_type": "pdf",
+      "chunks": 189,
+      "characters": {
+        "minimum": 10,
+        "p50": 1267,
+        "p95": 1347,
+        "maximum": 1420
+      },
+      "under_300_chars": 11,
+      "missing_headings": 2,
+      "missing_page_provenance": 0,
+      "web_navigation_or_footer_noise": 0,
+      "control_character_chunks": 0
+    },
+    "Suppq126": {
+      "source_type": "pdf",
+      "chunks": 189,
+      "characters": {
+        "minimum": 31,
+        "p50": 1265,
+        "p95": 1348,
+        "maximum": 1408
+      },
+      "under_300_chars": 11,
+      "missing_headings": 0,
+      "missing_page_provenance": 0,
+      "web_navigation_or_footer_noise": 0,
+      "control_character_chunks": 0
+    },
+    "Suppq226": {
+      "source_type": "pdf",
+      "chunks": 188,
+      "characters": {
+        "minimum": 21,
+        "p50": 1264,
+        "p95": 1350,
+        "maximum": 1408
+      },
+      "under_300_chars": 11,
+      "missing_headings": 0,
+      "missing_page_provenance": 0,
+      "web_navigation_or_footer_noise": 0,
+      "control_character_chunks": 0
+    },
+    "bmo_AIF2025": {
+      "source_type": "pdf",
+      "chunks": 180,
+      "characters": {
+        "minimum": 85,
+        "p50": 636,
+        "p95": 1493,
+        "maximum": 1500
+      },
+      "under_300_chars": 17,
+      "missing_headings": 0,
+      "missing_page_provenance": 0,
+      "web_navigation_or_footer_noise": 0,
+      "control_character_chunks": 0
+    },
+    "bmo_ar2025": {
+      "source_type": "pdf",
+      "chunks": 1435,
+      "characters": {
+        "minimum": 9,
+        "p50": 547,
+        "p95": 1363,
+        "maximum": 1500
+      },
+      "under_300_chars": 156,
+      "missing_headings": 0,
+      "missing_page_provenance": 0,
+      "web_navigation_or_footer_noise": 0,
+      "control_character_chunks": 5
+    },
+    "d938207d40f-e11c68d11f": {
+      "source_type": "url",
+      "chunks": 22,
+      "characters": {
+        "minimum": 1,
+        "p50": 439,
+        "p95": 1494,
+        "maximum": 1496
+      },
+      "under_300_chars": 3,
+      "missing_headings": 0,
+      "missing_page_provenance": null,
+      "web_navigation_or_footer_noise": 0,
+      "control_character_chunks": 0
+    },
+    "financial-information-c5dc87e0c5": {
+      "source_type": "url",
+      "chunks": 15,
+      "characters": {
+        "minimum": 37,
+        "p50": 1362,
+        "p95": 1405,
+        "maximum": 1489
+      },
+      "under_300_chars": 1,
+      "missing_headings": 0,
+      "missing_page_provenance": null,
+      "web_navigation_or_footer_noise": 2,
+      "control_character_chunks": 0
+    },
+    "investor-day-2026-609c901e12": {
+      "source_type": "url",
+      "chunks": 3,
+      "characters": {
+        "minimum": 69,
+        "p50": 960,
+        "p95": 1360,
+        "maximum": 1360
+      },
+      "under_300_chars": 1,
+      "missing_headings": 0,
+      "missing_page_provenance": null,
+      "web_navigation_or_footer_noise": 2,
+      "control_character_chunks": 0
+    },
+    "sustainability_and_climate_report_interactive": {
+      "source_type": "pdf",
+      "chunks": 645,
+      "characters": {
+        "minimum": 16,
+        "p50": 431,
+        "p95": 1383,
+        "maximum": 1499
+      },
+      "under_300_chars": 193,
+      "missing_headings": 0,
+      "missing_page_provenance": 0,
+      "web_navigation_or_footer_noise": 0,
+      "control_character_chunks": 55
+    },
+    "transcript_2026BMOInvestoDayTranscript": {
+      "source_type": "pdf",
+      "chunks": 381,
+      "characters": {
+        "minimum": 12,
+        "p50": 536,
+        "p95": 964,
+        "maximum": 1499
+      },
+      "under_300_chars": 20,
+      "missing_headings": 0,
+      "missing_page_provenance": 0,
+      "web_navigation_or_footer_noise": 0,
+      "control_character_chunks": 0
+    }
+  },
+  "notes": [
+    "Character count is a proxy; enforce the embedding model's token limit at indexing time.",
+    "Source JSONL records contain text and meta but no native chunk_id; the gold tooling derives a stable content hash.",
+    "Exact duplicates across separate quarterly filings may be intentional but should share a canonical-content hash.",
+    "The web-noise detector is conservative and only flags known navigation/footer markers."
+  ]
+}

@@ -62,6 +62,11 @@ def ingest(
     min_chunk_chars: int = typer.Option(300, help="Merge section-local chunks below this size."),
     max_chunk_chars: int = typer.Option(1500, help="Split chunks above this size."),
     chunk_overlap_chars: int = typer.Option(150, help="Character overlap when splitting large chunks."),
+    deduplicate: bool = typer.Option(
+        True,
+        "--deduplicate/--no-deduplicate",
+        help="Remove normalized exact duplicate chunks within each source.",
+    ),
 ) -> None:
     """Load raw documents and prepare them for indexing."""
     results = DoclingIngestionPipeline(
@@ -76,6 +81,7 @@ def ingest(
         min_chunk_chars=min_chunk_chars,
         max_chunk_chars=max_chunk_chars,
         chunk_overlap_chars=chunk_overlap_chars,
+        deduplicate=deduplicate,
         progress=_show_progress,
     ).run(limit=limit)
     succeeded = sum(result.status == "success" for result in results)

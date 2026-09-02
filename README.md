@@ -30,3 +30,55 @@ Baseline Python project layout for a retrieval-augmented generation system.
 3. Embed chunks and store them in a vector index.
 4. Retrieve relevant context for a user question.
 5. Generate an answer with citations or source references.
+
+## Embedding benchmark and Qdrant indexing
+
+The benchmark indexes the current Docling chunks into a separate Qdrant collection for
+each model and evaluates `retrieval_golden_200.jsonl` at k = 5, 10, 20, and 30.
+It compares Qwen3-Embedding-8B, Qwen3-Embedding-4B, BGE-M3, and Nomic Embed v1.5.
+Each model uses its native dense dimension, cosine distance, identical chunk content
+(headings plus body), and exact Qdrant search. The report includes macro Precision@k,
+Recall@k, MRR@k, and HitRate@k for all/development/test records.
+
+Start Docker Desktop, then run the sequential local orchestrator:
+
+```powershell
+.uvenv\Scripts\python.exe scripts\run_local_embedding_benchmark.py
+```
+
+The script starts Qdrant, then hosts exactly one model at a time with vLLM's pooling
+runner on port 8000. It waits for the model, indexes/evaluates it, stops that server,
+and moves to the next model. vLLM performs continuous batching behind its
+OpenAI-compatible embeddings endpoint. Model and compile caches persist in named
+Docker volumes, so later runs do not download everything again.
+
+The RTX 4060 has 8 GB VRAM. The two Qwen checkpoints are therefore loaded with vLLM's
+in-flight 4-bit BitsAndBytes quantization and a 2,048-token serving limit. This limit is
+well above the current chunk sizes. BGE-M3 and Nomic run in FP16. Native dimensions are
+4,096 (Qwen 8B), 2,560 (Qwen 4B), 1,024 (BGE-M3), and 768 (Nomic v1.5).
+
+To run or resume only selected models:
+
+```powershell
+.uvenv\Scripts\python.exe scripts\run_local_embedding_benchmark.py `
+  --models bge-m3 nomic-embed-v1.5
+```
+
+Interrupted indexes resume from the chunk IDs already stored in Qdrant. Use `--reindex`
+only to intentionally delete and rebuild the selected collections.
+
+Qdrant binds only to localhost and stores data in the persistent Docker volume
+`bmo-rag-qdrant-storage`. Confirm it at `http://localhost:6333/` or open its dashboard
+at `http://localhost:6333/dashboard`.
+
+The default report is `outputs/embedding_benchmark/results.json`. To benchmark one
+already-running vLLM server directly:
+
+```powershell
+.uvenv\Scripts\python.exe scripts\benchmark_embeddings.py `
+  --models bge-m3 `
+  --base-url http://127.0.0.1:8000/v1
+```
+
+The 11 empty-gold/abstention questions are counted in the report but excluded from the
+three requested metrics because fixed top-k retrieval always returns candidates.

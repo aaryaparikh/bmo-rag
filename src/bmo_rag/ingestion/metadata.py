@@ -62,6 +62,7 @@ def build_metadata(
     min_chunk_chars: int = 300,
     max_chunk_chars: int = 1500,
     chunk_overlap_chars: int = 150,
+    postprocessing: dict[str, Any] | None = None,
     error: str | None = None,
 ) -> dict[str, Any]:
     payload: dict[str, Any] = {
@@ -91,7 +92,8 @@ def build_metadata(
         },
         "confidence": confidence,
     }
+    if postprocessing is not None:
+        payload["postprocessing"] = postprocessing
     if error:
         payload["error"] = error
     return payload
-

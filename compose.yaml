@@ -1,0 +1,14 @@
+services:
+  qdrant:
+    image: qdrant/qdrant:v1.19.0
+    container_name: bmo-rag-qdrant
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:6333:6333"
+      - "127.0.0.1:6334:6334"
+    volumes:
+      - qdrant-storage:/qdrant/storage
+
+volumes:
+  qdrant-storage:
+    name: bmo-rag-qdrant-storage

@@ -1,0 +1,38 @@
+{
+  "dataset": "retrieval_golden_100.jsonl",
+  "record_count": 100,
+  "corpus_chunk_count": 6190,
+  "relevance_threshold": 3,
+  "baselines": {
+    "bm25_body_only": {
+      "hit@1": 0.26,
+      "hit@10": 0.61,
+      "hit@3": 0.46,
+      "hit@5": 0.49,
+      "mrr@10": 0.3717,
+      "ndcg@10": 0.3923,
+      "recall@1": 0.26,
+      "recall@10": 0.61,
+      "recall@3": 0.46,
+      "recall@5": 0.49
+    },
+    "bm25_hierarchy_enriched": {
+      "hit@1": 0.26,
+      "hit@10": 0.63,
+      "hit@3": 0.51,
+      "hit@5": 0.53,
+      "mrr@10": 0.3904,
+      "ndcg@10": 0.4193,
+      "recall@1": 0.26,
+      "recall@10": 0.63,
+      "recall@3": 0.51,
+      "recall@5": 0.53
+    }
+  },
+  "metric_definitions": {
+    "hit@k": "fraction of queries with direct-answer evidence in the top k",
+    "recall@k": "mean fraction of direct-answer chunks found in the top k",
+    "mrr@10": "mean reciprocal rank of the first direct-answer chunk, capped at 10",
+    "ndcg@10": "graded ranking quality using relevance 3 for direct and 1 for supporting chunks"
+  }
+}

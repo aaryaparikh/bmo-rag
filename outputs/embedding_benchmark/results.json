@@ -1,0 +1,427 @@
+{
+  "created_at": "2026-09-02T04:48:49.137447+00:00",
+  "dataset": "C:\\Users\\aarya\\OneDrive\\Documents\\ChatGPT\\BMO App\\data\\golden\\retrieval_golden_200.jsonl",
+  "corpus_chunk_count": 6415,
+  "corpus_fingerprint_sha256": "7a9d928edc4fbcc1f368f531626b3b96aa32d695fce1f1dce758fddd6d8bb225",
+  "record_count": 200,
+  "distance": "cosine",
+  "qdrant_search": "exact",
+  "k_values": [
+    5,
+    10,
+    20,
+    30
+  ],
+  "empty_gold_policy": "Excluded from precision, recall and MRR because fixed top-k retrieval has no abstention threshold.",
+  "models": {
+    "bge-m3": {
+      "model_id": "BAAI/bge-m3",
+      "dimension": 1024,
+      "runtime": "vllm",
+      "weight_precision": "float16",
+      "max_model_len": 2048,
+      "collection": "bmo_chunks_bge-m3_d1024",
+      "index_seconds_this_run": 63.333,
+      "evaluation_seconds": 1.453,
+      "metrics": {
+        "all": {
+          "evaluated_answerable_count": 189,
+          "excluded_empty_gold_count": 11,
+          "cutoffs": {
+            "5": {
+              "precision": 0.102646,
+              "recall": 0.507937,
+              "mrr": 0.370899,
+              "hit_rate": 0.507937
+            },
+            "10": {
+              "precision": 0.059259,
+              "recall": 0.583774,
+              "mrr": 0.381857,
+              "hit_rate": 0.587302
+            },
+            "20": {
+              "precision": 0.032804,
+              "recall": 0.647266,
+              "mrr": 0.386149,
+              "hit_rate": 0.650794
+            },
+            "30": {
+              "precision": 0.023104,
+              "recall": 0.684303,
+              "mrr": 0.387738,
+              "hit_rate": 0.687831
+            }
+          }
+        },
+        "development": {
+          "evaluated_answerable_count": 152,
+          "excluded_empty_gold_count": 8,
+          "cutoffs": {
+            "5": {
+              "precision": 0.105263,
+              "recall": 0.519737,
+              "mrr": 0.384759,
+              "hit_rate": 0.519737
+            },
+            "10": {
+              "precision": 0.060526,
+              "recall": 0.598684,
+              "mrr": 0.395408,
+              "hit_rate": 0.598684
+            },
+            "20": {
+              "precision": 0.032895,
+              "recall": 0.651316,
+              "mrr": 0.398855,
+              "hit_rate": 0.651316
+            },
+            "30": {
+              "precision": 0.023246,
+              "recall": 0.690789,
+              "mrr": 0.400518,
+              "hit_rate": 0.690789
+            }
+          }
+        },
+        "test": {
+          "evaluated_answerable_count": 37,
+          "excluded_empty_gold_count": 3,
+          "cutoffs": {
+            "5": {
+              "precision": 0.091892,
+              "recall": 0.459459,
+              "mrr": 0.313964,
+              "hit_rate": 0.459459
+            },
+            "10": {
+              "precision": 0.054054,
+              "recall": 0.522523,
+              "mrr": 0.32619,
+              "hit_rate": 0.540541
+            },
+            "20": {
+              "precision": 0.032432,
+              "recall": 0.630631,
+              "mrr": 0.333951,
+              "hit_rate": 0.648649
+            },
+            "30": {
+              "precision": 0.022523,
+              "recall": 0.657658,
+              "mrr": 0.335238,
+              "hit_rate": 0.675676
+            }
+          }
+        }
+      }
+    },
+    "nomic-embed-v1.5": {
+      "model_id": "nomic-ai/nomic-embed-text-v1.5",
+      "dimension": 768,
+      "runtime": "vllm",
+      "weight_precision": "float16",
+      "max_model_len": 2048,
+      "collection": "bmo_chunks_nomic-embed-v1_5_d768",
+      "index_seconds_this_run": 36.407,
+      "evaluation_seconds": 1.507,
+      "metrics": {
+        "all": {
+          "evaluated_answerable_count": 189,
+          "excluded_empty_gold_count": 11,
+          "cutoffs": {
+            "5": {
+              "precision": 0.098413,
+              "recall": 0.483245,
+              "mrr": 0.3194,
+              "hit_rate": 0.486772
+            },
+            "10": {
+              "precision": 0.057672,
+              "recall": 0.567901,
+              "mrr": 0.331057,
+              "hit_rate": 0.571429
+            },
+            "20": {
+              "precision": 0.03254,
+              "recall": 0.641975,
+              "mrr": 0.336219,
+              "hit_rate": 0.645503
+            },
+            "30": {
+              "precision": 0.022751,
+              "recall": 0.671076,
+              "mrr": 0.337458,
+              "hit_rate": 0.677249
+            }
+          }
+        },
+        "development": {
+          "evaluated_answerable_count": 152,
+          "excluded_empty_gold_count": 8,
+          "cutoffs": {
+            "5": {
+              "precision": 0.1,
+              "recall": 0.493421,
+              "mrr": 0.318531,
+              "hit_rate": 0.493421
+            },
+            "10": {
+              "precision": 0.057237,
+              "recall": 0.565789,
+              "mrr": 0.329026,
+              "hit_rate": 0.565789
+            },
+            "20": {
+              "precision": 0.032895,
+              "recall": 0.651316,
+              "mrr": 0.335032,
+              "hit_rate": 0.651316
+            },
+            "30": {
+              "precision": 0.022807,
+              "recall": 0.674342,
+              "mrr": 0.336093,
+              "hit_rate": 0.677632
+            }
+          }
+        },
+        "test": {
+          "evaluated_answerable_count": 37,
+          "excluded_empty_gold_count": 3,
+          "cutoffs": {
+            "5": {
+              "precision": 0.091892,
+              "recall": 0.441441,
+              "mrr": 0.322973,
+              "hit_rate": 0.459459
+            },
+            "10": {
+              "precision": 0.059459,
+              "recall": 0.576577,
+              "mrr": 0.339404,
+              "hit_rate": 0.594595
+            },
+            "20": {
+              "precision": 0.031081,
+              "recall": 0.603604,
+              "mrr": 0.341093,
+              "hit_rate": 0.621622
+            },
+            "30": {
+              "precision": 0.022523,
+              "recall": 0.657658,
+              "mrr": 0.343064,
+              "hit_rate": 0.675676
+            }
+          }
+        }
+      }
+    },
+    "qwen3-embedding-4b": {
+      "model_id": "Qwen/Qwen3-Embedding-4B",
+      "dimension": 2560,
+      "runtime": "vllm",
+      "weight_precision": "bitsandbytes-4bit",
+      "max_model_len": 2048,
+      "collection": "bmo_chunks_qwen3-embedding-4b_d2560",
+      "index_seconds_this_run": 422.974,
+      "evaluation_seconds": 6.249,
+      "metrics": {
+        "all": {
+          "evaluated_answerable_count": 189,
+          "excluded_empty_gold_count": 11,
+          "cutoffs": {
+            "5": {
+              "precision": 0.09418,
+              "recall": 0.462081,
+              "mrr": 0.328131,
+              "hit_rate": 0.465608
+            },
+            "10": {
+              "precision": 0.055026,
+              "recall": 0.541446,
+              "mrr": 0.33904,
+              "hit_rate": 0.544974
+            },
+            "20": {
+              "precision": 0.033333,
+              "recall": 0.655203,
+              "mrr": 0.347451,
+              "hit_rate": 0.661376
+            },
+            "30": {
+              "precision": 0.023457,
+              "recall": 0.69224,
+              "mrr": 0.348966,
+              "hit_rate": 0.698413
+            }
+          }
+        },
+        "development": {
+          "evaluated_answerable_count": 152,
+          "excluded_empty_gold_count": 8,
+          "cutoffs": {
+            "5": {
+              "precision": 0.093421,
+              "recall": 0.460526,
+              "mrr": 0.333991,
+              "hit_rate": 0.460526
+            },
+            "10": {
+              "precision": 0.055921,
+              "recall": 0.552632,
+              "mrr": 0.346734,
+              "hit_rate": 0.552632
+            },
+            "20": {
+              "precision": 0.032895,
+              "recall": 0.648026,
+              "mrr": 0.353636,
+              "hit_rate": 0.651316
+            },
+            "30": {
+              "precision": 0.023465,
+              "recall": 0.694079,
+              "mrr": 0.355521,
+              "hit_rate": 0.697368
+            }
+          }
+        },
+        "test": {
+          "evaluated_answerable_count": 37,
+          "excluded_empty_gold_count": 3,
+          "cutoffs": {
+            "5": {
+              "precision": 0.097297,
+              "recall": 0.468468,
+              "mrr": 0.304054,
+              "hit_rate": 0.486486
+            },
+            "10": {
+              "precision": 0.051351,
+              "recall": 0.495495,
+              "mrr": 0.307432,
+              "hit_rate": 0.513514
+            },
+            "20": {
+              "precision": 0.035135,
+              "recall": 0.684685,
+              "mrr": 0.32204,
+              "hit_rate": 0.702703
+            },
+            "30": {
+              "precision": 0.023423,
+              "recall": 0.684685,
+              "mrr": 0.32204,
+              "hit_rate": 0.702703
+            }
+          }
+        }
+      }
+    },
+    "qwen3-embedding-8b": {
+      "model_id": "Qwen/Qwen3-Embedding-8B",
+      "dimension": 4096,
+      "runtime": "vllm",
+      "weight_precision": "bitsandbytes-4bit",
+      "max_model_len": 2048,
+      "collection": "bmo_chunks_qwen3-embedding-8b_d4096",
+      "index_seconds_this_run": 1112.971,
+      "evaluation_seconds": 13.208,
+      "metrics": {
+        "all": {
+          "evaluated_answerable_count": 189,
+          "excluded_empty_gold_count": 11,
+          "cutoffs": {
+            "5": {
+              "precision": 0.114286,
+              "recall": 0.559965,
+              "mrr": 0.355467,
+              "hit_rate": 0.566138
+            },
+            "10": {
+              "precision": 0.068254,
+              "recall": 0.671076,
+              "mrr": 0.369417,
+              "hit_rate": 0.677249
+            },
+            "20": {
+              "precision": 0.037566,
+              "recall": 0.739859,
+              "mrr": 0.374092,
+              "hit_rate": 0.746032
+            },
+            "30": {
+              "precision": 0.025926,
+              "recall": 0.766314,
+              "mrr": 0.375242,
+              "hit_rate": 0.772487
+            }
+          }
+        },
+        "development": {
+          "evaluated_answerable_count": 152,
+          "excluded_empty_gold_count": 8,
+          "cutoffs": {
+            "5": {
+              "precision": 0.114474,
+              "recall": 0.5625,
+              "mrr": 0.364364,
+              "hit_rate": 0.565789
+            },
+            "10": {
+              "precision": 0.067763,
+              "recall": 0.667763,
+              "mrr": 0.377261,
+              "hit_rate": 0.671053
+            },
+            "20": {
+              "precision": 0.038158,
+              "recall": 0.753289,
+              "mrr": 0.383073,
+              "hit_rate": 0.756579
+            },
+            "30": {
+              "precision": 0.026535,
+              "recall": 0.786184,
+              "mrr": 0.384504,
+              "hit_rate": 0.789474
+            }
+          }
+        },
+        "test": {
+          "evaluated_answerable_count": 37,
+          "excluded_empty_gold_count": 3,
+          "cutoffs": {
+            "5": {
+              "precision": 0.113514,
+              "recall": 0.54955,
+              "mrr": 0.318919,
+              "hit_rate": 0.567568
+            },
+            "10": {
+              "precision": 0.07027,
+              "recall": 0.684685,
+              "mrr": 0.337194,
+              "hit_rate": 0.702703
+            },
+            "20": {
+              "precision": 0.035135,
+              "recall": 0.684685,
+              "mrr": 0.337194,
+              "hit_rate": 0.702703
+            },
+            "30": {
+              "precision": 0.023423,
+              "recall": 0.684685,
+              "mrr": 0.337194,
+              "hit_rate": 0.702703
+            }
+          }
+        }
+      }
+    }
+  },
+  "updated_at": "2026-09-02T05:27:06.749801+00:00"
+}

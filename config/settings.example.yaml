@@ -7,11 +7,11 @@ llm:
   model: gpt-4.1-mini
 
 embeddings:
-  provider: openai
-  model: text-embedding-3-small
+  provider: vllm
+  model: BAAI/bge-m3
 
 retrieval:
-  vector_store: local
+  vector_store: qdrant
   top_k: 5
   chunk_size: 1000
   chunk_overlap: 150

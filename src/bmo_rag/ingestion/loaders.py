@@ -24,6 +24,7 @@ from bmo_rag.ingestion.html_sections import (
     parse_markdown_sections,
 )
 from bmo_rag.ingestion.metadata import build_metadata, confidence_summary
+from bmo_rag.ingestion.postprocessing import add_native_chunk_ids, deduplicate_chunks
 from bmo_rag.ingestion.sources import RawSource, list_raw_documents, list_raw_sources
 
 __all__ = [
@@ -86,6 +87,7 @@ class DoclingIngestionPipeline:
         min_chunk_chars: int = 300,
         max_chunk_chars: int = 1500,
         chunk_overlap_chars: int = 150,
+        deduplicate: bool = True,
         converter: Any | None = None,
         chunker: Any | None = None,
         progress: Callable[[str], None] | None = None,
@@ -101,6 +103,7 @@ class DoclingIngestionPipeline:
         self.min_chunk_chars = min_chunk_chars
         self.max_chunk_chars = max_chunk_chars
         self.chunk_overlap_chars = chunk_overlap_chars
+        self.deduplicate = deduplicate
         self.converter = converter
         self._converter_cache: dict[bool, Any] = {}
         self.chunker = chunker
@@ -222,6 +225,10 @@ class DoclingIngestionPipeline:
             _write_json(document_path, document_dict)
             self._report(f"{label}: wrote {document_path}")
 
+            postprocessing: dict[str, Any] = {
+                "deduplication": {"enabled": self.deduplicate},
+                "preserve_sections": True,
+            }
             step_started = time.perf_counter()
             self._report(f"{label}: normalizing chunk sizes")
             chunks = normalize_chunk_sizes(
@@ -229,10 +236,34 @@ class DoclingIngestionPipeline:
                 min_chars=self.min_chunk_chars,
                 max_chars=self.max_chunk_chars,
                 overlap_chars=self.chunk_overlap_chars,
-                preserve_sections=preserve_sections,
+                preserve_sections=True,
             )
             self._report(
                 f"{label}: normalized to {len(chunks)} chunk(s) "
+                f"in {_elapsed_seconds(step_started):.1f}s"
+            )
+
+            if self.deduplicate:
+                step_started = time.perf_counter()
+                self._report(f"{label}: deduplicating normalized chunks")
+                chunks, deduplication_summary = deduplicate_chunks(chunks)
+                postprocessing["deduplication"] = deduplication_summary
+                self._report(
+                    f"{label}: removed "
+                    f"{deduplication_summary['duplicates_removed']} duplicate chunk(s) in "
+                    f"{_elapsed_seconds(step_started):.1f}s"
+                )
+
+            step_started = time.perf_counter()
+            self._report(f"{label}: assigning native chunk IDs")
+            chunks = add_native_chunk_ids(chunks, source_id=source.source_id)
+            postprocessing["chunk_ids"] = {
+                "strategy": "source_text_sha256",
+                "prefix": "bmo-",
+                "digest_chars": 20,
+            }
+            self._report(
+                f"{label}: assigned {len(chunks)} native chunk ID(s) "
                 f"in {_elapsed_seconds(step_started):.1f}s"
             )
 
@@ -260,6 +291,7 @@ class DoclingIngestionPipeline:
                 min_chunk_chars=self.min_chunk_chars,
                 max_chunk_chars=self.max_chunk_chars,
                 chunk_overlap_chars=self.chunk_overlap_chars,
+                postprocessing=postprocessing,
             )
             _write_json(metadata_path, metadata)
             self._report(

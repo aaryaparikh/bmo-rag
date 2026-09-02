@@ -1,0 +1,25 @@
+{
+  "dataset": "retrieval_golden_200.jsonl",
+  "record_count": 200,
+  "note": "Empty-gold abstention cases are excluded because an always-ranking BM25 retriever has no abstention threshold.",
+  "baselines": {
+    "bm25_body_only": {
+      "evaluated_answerable_count": 189,
+      "excluded_empty_gold_count": 11,
+      "hit@1": 0.2487,
+      "hit@3": 0.4392,
+      "hit@5": 0.4815,
+      "hit@10": 0.6138,
+      "mrr@10": 0.3589
+    },
+    "bm25_headings_plus_body": {
+      "evaluated_answerable_count": 189,
+      "excluded_empty_gold_count": 11,
+      "hit@1": 0.2222,
+      "hit@3": 0.4762,
+      "hit@5": 0.5026,
+      "hit@10": 0.6032,
+      "mrr@10": 0.3547
+    }
+  }
+}

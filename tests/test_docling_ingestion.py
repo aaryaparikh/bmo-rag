@@ -1,3 +1,4 @@
+import hashlib
 import json
 from pathlib import Path
 
@@ -126,6 +127,26 @@ def test_docling_ingestion_writes_native_document_metadata_and_chunks(tmp_path: 
         "max_chars": 1500,
         "overlap_chars": 150,
     }
+    assert metadata["postprocessing"]["preserve_sections"] is True
+    assert metadata["postprocessing"]["deduplication"] == {
+        "enabled": True,
+        "strategy": "normalized_exact",
+        "input_count": 1,
+        "output_count": 1,
+        "duplicates_removed": 0,
+    }
+    expected_chunk_id = "bmo-" + hashlib.sha256(
+        (
+            result.source.source_id
+            + "\0Management's Discussion and Analysis BMO reported strong capital levels."
+        ).encode("utf-8")
+    ).hexdigest()[:20]
+    assert metadata["postprocessing"]["chunk_ids"] == {
+        "strategy": "source_text_sha256",
+        "prefix": "bmo-",
+        "digest_chars": 20,
+    }
+    assert chunks[0]["chunk_id"] == expected_chunk_id
     assert chunks[0]["meta"]["headings"] == ["Management's Discussion and Analysis"]
 
 
