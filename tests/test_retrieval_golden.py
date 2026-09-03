@@ -38,6 +38,7 @@ def test_retrieval_gold_has_200_traceable_unique_records() -> None:
                     "normalized_exact",
                     "full_passage_containment",
                     "near_duplicate_4gram",
+                    "manually_verified_answer_equivalent",
                 }
 
 
@@ -45,12 +46,17 @@ def test_manifest_matches_dataset_bytes_and_source_coverage() -> None:
     rows = [json.loads(line) for line in DATASET.read_text(encoding="utf-8").splitlines()]
     manifest = json.loads(MANIFEST.read_text(encoding="utf-8"))
     counts: dict[str, int] = {}
+    acceptable_counts: dict[str, int] = {}
     for row in rows:
         for gold in row["expected_chunks"]:
             source = gold["source_id"]
             counts[source] = counts.get(source, 0) + 1
+            for item in [gold, *gold.get("equivalent_chunks", [])]:
+                source = item["source_id"]
+                acceptable_counts[source] = acceptable_counts.get(source, 0) + 1
 
     assert counts == manifest["source_distribution"]
+    assert acceptable_counts == manifest["acceptable_source_distribution"]
     corpus = load_corpus(Path("data/processed/docling"))
     fingerprint = validate_golden_alignment(
         rows, [chunk.chunk_id for chunk in corpus], manifest
@@ -65,3 +71,34 @@ def test_manifest_matches_dataset_bytes_and_source_coverage() -> None:
         manifest["csv_sha256"]
     )
     assert len(fingerprint) == hashlib.sha256().digest_size * 2
+
+
+def test_important_questions_use_verified_evidence_groups() -> None:
+    rows = [json.loads(line) for line in DATASET.read_text(encoding="utf-8").splitlines()]
+    important = {row["id"]: row for row in rows if row["id"] >= "bmo-retrieval-181"}
+
+    expected_group_sizes = {
+        "bmo-retrieval-181": [3],
+        "bmo-retrieval-182": [3],
+        "bmo-retrieval-183": [1, 3],
+        "bmo-retrieval-184": [2, 1],
+        "bmo-retrieval-185": [1, 1, 1],
+        "bmo-retrieval-186": [1, 2, 1],
+        "bmo-retrieval-187": [1, 1],
+    }
+    for record_id, group_sizes in expected_group_sizes.items():
+        record = important[record_id]
+        assert record["preferred_source_ids"]
+        actual_sizes = [
+            1 + len(group.get("equivalent_chunks", []))
+            for group in record["expected_chunks"]
+        ]
+        assert actual_sizes == group_sizes
+        assert all(group.get("requirement") for group in record["expected_chunks"])
+
+        labelled_ids = [
+            item["chunk_id"]
+            for group in record["expected_chunks"]
+            for item in [group, *group.get("equivalent_chunks", [])]
+        ]
+        assert len(labelled_ids) == len(set(labelled_ids))

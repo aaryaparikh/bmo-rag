@@ -1,14 +1,15 @@
 {
-  "schema_version": "3.0.0",
+  "schema_version": "4.0.0",
   "dataset": "retrieval_golden_200.jsonl",
-  "dataset_sha256": "e15a425827d7f15736c17d0a3684be1bbd569e677fa6c890ff5d8db1a08a9c46",
+  "dataset_sha256": "f94315a468c489a07b57b8b474de488d49e53e6103e618184c48689d36a1d61c",
   "csv_companion": "retrieval_golden_200.csv",
-  "csv_sha256": "5d7ce7f26522e4c972194a60ffce89ffa855574f13301c1567dd7fa0fdfe9e54",
+  "csv_sha256": "2b91f076268afa8e3e604ba9eef1c61cf7b8db21ed9b9bf91e198db43276bd5b",
   "record_count": 200,
   "answerable_count": 189,
   "empty_gold_count": 11,
   "multi_chunk_count": 5,
-  "equivalent_chunk_label_count": 138,
+  "equivalent_chunk_label_count": 145,
+  "manually_verified_equivalent_chunk_label_count": 6,
   "corpus_chunk_count": 6171,
   "corpus_source_count": 26,
   "corpus_fingerprint_sha256": "748856a502ae1d519bfd58d720a65b5a7dd0f98b51c18c131d9f7fd09c677ad8",
@@ -59,9 +60,9 @@
     "unsupported_personal_fact": 1
   },
   "source_distribution": {
-    "2026-05-27-BMO-Financial-Group-Reports-Second-Quarter-2026-Results-ed105dc24d": 3,
+    "2026-05-27-BMO-Financial-Group-Reports-Second-Quarter-2026-Results-ed105dc24d": 4,
     "2026BFCBBNAStressTest": 8,
-    "BMOInvestorPresentationEN": 9,
+    "BMOInvestorPresentationEN": 8,
     "Bail_In_TLAC_Disclosure": 8,
     "CorporateFactSheet": 11,
     "LCR_CY26Q1": 8,
@@ -70,7 +71,7 @@
     "NSFRCY26Q2": 8,
     "Q126_EarningsRelease": 8,
     "Q126_ReportToShareholders": 8,
-    "Q226_EarningsRelease": 9,
+    "Q226_EarningsRelease": 8,
     "Q226_ReportToShareholders": 8,
     "Q326_EarningsRelease": 8,
     "Q326_ReportToShareholders": 8,
@@ -84,19 +85,57 @@
     "financial-information-c5dc87e0c5": 5,
     "investor-day-2026-609c901e12": 4,
     "sustainability_and_climate_report_interactive": 4,
-    "transcript_2026BMOInvestoDayTranscript": 4
+    "transcript_2026BMOInvestoDayTranscript": 5
+  },
+  "acceptable_source_distribution": {
+    "2026-05-27-BMO-Financial-Group-Reports-Second-Quarter-2026-Results-ed105dc24d": 13,
+    "2026BFCBBNAStressTest": 8,
+    "BMOInvestorPresentationEN": 17,
+    "Bail_In_TLAC_Disclosure": 10,
+    "CorporateFactSheet": 11,
+    "LCR_CY26Q1": 14,
+    "LCR_CY26Q2": 13,
+    "MainFeaturesTemplateQ326": 8,
+    "NSFRCY26Q2": 15,
+    "Q126_EarningsRelease": 16,
+    "Q126_ReportToShareholders": 16,
+    "Q226_EarningsRelease": 23,
+    "Q226_ReportToShareholders": 21,
+    "Q326_EarningsRelease": 16,
+    "Q326_ReportToShareholders": 17,
+    "RegSuppQ326": 8,
+    "SuppQ326": 19,
+    "Suppq126": 20,
+    "Suppq226": 19,
+    "bmo_AIF2025": 8,
+    "bmo_ar2025": 22,
+    "d938207d40f-e11c68d11f": 5,
+    "financial-information-c5dc87e0c5": 5,
+    "investor-day-2026-609c901e12": 4,
+    "sustainability_and_climate_report_interactive": 8,
+    "transcript_2026BMOInvestoDayTranscript": 5
   },
   "verification": [
     "all positive chunk IDs re-derived from normalized source text",
-    "all positive text hashes matched current chunks",
+    "all canonical and equivalent source IDs, chunk indexes, and text hashes matched current chunks",
     "all automatically labelled equivalent chunks matched conservative text rules",
+    "all manually labelled answer-equivalent chunks were explicitly enumerated in evidence groups",
     "all special anchors resolved by source and chunk index",
     "all unanswerable questions have empty expected_chunks",
     "record IDs and normalized questions are unique"
   ],
   "known_corpus_notes": [
     "CorporateFactSheet in the supplied corpus is Q3 2026, not Q2 2026.",
-    "The supplied Form 40-F chunks evidence the original December 4, 2025 filing; a December 17 amendment is not present."
+    "The supplied Form 40-F chunks evidence the fiscal year and December 4, 2025 body date; SEC metadata identifies a December 17 amendment, but no amendment chunk is present."
+  ],
+  "important_question_ids": [
+    "bmo-retrieval-181",
+    "bmo-retrieval-182",
+    "bmo-retrieval-183",
+    "bmo-retrieval-184",
+    "bmo-retrieval-185",
+    "bmo-retrieval-186",
+    "bmo-retrieval-187"
   ],
   "generator": "scripts/evaluation/build_retrieval_gold_200.py"
 }

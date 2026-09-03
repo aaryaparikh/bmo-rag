@@ -1,7 +1,7 @@
 {
-  "created_at": "2026-09-03T02:29:15.829170+00:00",
+  "created_at": "2026-09-03T04:25:43.055845+00:00",
   "dataset": "C:\\Users\\aarya\\OneDrive\\Documents\\ChatGPT\\BMO App\\data\\golden\\retrieval_golden_200.jsonl",
-  "dataset_sha256": "e15a425827d7f15736c17d0a3684be1bbd569e677fa6c890ff5d8db1a08a9c46",
+  "dataset_sha256": "f94315a468c489a07b57b8b474de488d49e53e6103e618184c48689d36a1d61c",
   "record_count": 200,
   "answerable_count": 189,
   "corpus_chunk_count": 6171,
@@ -14,9 +14,9 @@
   ],
   "empty_gold_policy": "Excluded from precision, recall and MRR because fixed top-k retrieval has no abstention threshold.",
   "timings_seconds": {
-    "dense_query_embedding": 0.873,
-    "qdrant_hybrid_rrf": 1.264,
-    "cross_encoder_reranking": 74.889
+    "dense_query_embedding": 1.056,
+    "qdrant_hybrid_rrf": 1.515,
+    "cross_encoder_reranking": 45.45
   },
   "methods": {
     "bge-m3-dense": {
@@ -1294,36 +1294,36 @@
           "excluded_empty_gold_count": 11,
           "cutoffs": {
             "5": {
-              "precision": 0.185185,
-              "recall": 0.634039,
-              "mrr": 0.493739,
-              "hit_rate": 0.640212,
-              "exact_chunk_recall": 0.591711,
-              "relevant_result_redundancy": 0.096649
+              "precision": 0.186243,
+              "recall": 0.626102,
+              "mrr": 0.498236,
+              "hit_rate": 0.634921,
+              "exact_chunk_recall": 0.589065,
+              "relevant_result_redundancy": 0.101058
             },
             "10": {
-              "precision": 0.117989,
-              "recall": 0.694885,
-              "mrr": 0.501589,
-              "hit_rate": 0.698413,
-              "exact_chunk_recall": 0.689594,
-              "relevant_result_redundancy": 0.129212
+              "precision": 0.120635,
+              "recall": 0.697531,
+              "mrr": 0.50827,
+              "hit_rate": 0.703704,
+              "exact_chunk_recall": 0.69224,
+              "relevant_result_redundancy": 0.137148
             },
             "20": {
-              "precision": 0.068254,
-              "recall": 0.763668,
-              "mrr": 0.506774,
-              "hit_rate": 0.767196,
-              "exact_chunk_recall": 0.763668,
-              "relevant_result_redundancy": 0.151916
+              "precision": 0.069841,
+              "recall": 0.771605,
+              "mrr": 0.513741,
+              "hit_rate": 0.777778,
+              "exact_chunk_recall": 0.766314,
+              "relevant_result_redundancy": 0.159852
             },
             "30": {
-              "precision": 0.047266,
-              "recall": 0.805996,
-              "mrr": 0.508409,
-              "hit_rate": 0.809524,
-              "exact_chunk_recall": 0.805996,
-              "relevant_result_redundancy": 0.155443
+              "precision": 0.048325,
+              "recall": 0.813933,
+              "mrr": 0.515379,
+              "hit_rate": 0.820106,
+              "exact_chunk_recall": 0.808642,
+              "relevant_result_redundancy": 0.16338
             }
           }
         },
@@ -1332,36 +1332,36 @@
           "excluded_empty_gold_count": 8,
           "cutoffs": {
             "5": {
-              "precision": 0.177632,
-              "recall": 0.634868,
-              "mrr": 0.5,
-              "hit_rate": 0.638158,
-              "exact_chunk_recall": 0.601974,
-              "relevant_result_redundancy": 0.086404
+              "precision": 0.178947,
+              "recall": 0.625,
+              "mrr": 0.505592,
+              "hit_rate": 0.631579,
+              "exact_chunk_recall": 0.598684,
+              "relevant_result_redundancy": 0.091886
             },
             "10": {
-              "precision": 0.110526,
-              "recall": 0.697368,
-              "mrr": 0.507882,
-              "hit_rate": 0.697368,
-              "exact_chunk_recall": 0.690789,
-              "relevant_result_redundancy": 0.111824
+              "precision": 0.113816,
+              "recall": 0.700658,
+              "mrr": 0.516032,
+              "hit_rate": 0.703947,
+              "exact_chunk_recall": 0.694079,
+              "relevant_result_redundancy": 0.121692
             },
             "20": {
-              "precision": 0.0625,
-              "recall": 0.756579,
-              "mrr": 0.512575,
-              "hit_rate": 0.756579,
-              "exact_chunk_recall": 0.756579,
-              "relevant_result_redundancy": 0.130881
+              "precision": 0.064474,
+              "recall": 0.766447,
+              "mrr": 0.521072,
+              "hit_rate": 0.769737,
+              "exact_chunk_recall": 0.759868,
+              "relevant_result_redundancy": 0.14075
             },
             "30": {
-              "precision": 0.04364,
-              "recall": 0.802632,
-              "mrr": 0.514372,
-              "hit_rate": 0.802632,
-              "exact_chunk_recall": 0.802632,
-              "relevant_result_redundancy": 0.135267
+              "precision": 0.044956,
+              "recall": 0.8125,
+              "mrr": 0.522874,
+              "hit_rate": 0.815789,
+              "exact_chunk_recall": 0.805921,
+              "relevant_result_redundancy": 0.145136
             }
           }
         },
@@ -1380,7 +1380,7 @@
             "10": {
               "precision": 0.148649,
               "recall": 0.684685,
-              "mrr": 0.47574,
+              "mrr": 0.476384,
               "hit_rate": 0.702703,
               "exact_chunk_recall": 0.684685,
               "relevant_result_redundancy": 0.200644
@@ -1388,7 +1388,7 @@
             "20": {
               "precision": 0.091892,
               "recall": 0.792793,
-              "mrr": 0.482947,
+              "mrr": 0.483622,
               "hit_rate": 0.810811,
               "exact_chunk_recall": 0.792793,
               "relevant_result_redundancy": 0.238329
@@ -1396,7 +1396,7 @@
             "30": {
               "precision": 0.062162,
               "recall": 0.81982,
-              "mrr": 0.483912,
+              "mrr": 0.484587,
               "hit_rate": 0.837838,
               "exact_chunk_recall": 0.81982,
               "relevant_result_redundancy": 0.238329
@@ -1449,34 +1449,34 @@
               "5": {
                 "precision": 0.190909,
                 "recall": 0.545455,
-                "mrr": 0.469697,
+                "mrr": 0.492424,
                 "hit_rate": 0.545455,
                 "exact_chunk_recall": 0.545455,
                 "relevant_result_redundancy": 0.143939
               },
               "10": {
-                "precision": 0.127273,
+                "precision": 0.131818,
                 "recall": 0.772727,
-                "mrr": 0.499856,
+                "mrr": 0.52619,
                 "hit_rate": 0.772727,
                 "exact_chunk_recall": 0.772727,
-                "relevant_result_redundancy": 0.189394
+                "relevant_result_redundancy": 0.212121
               },
               "20": {
-                "precision": 0.072727,
+                "precision": 0.075,
                 "recall": 0.818182,
-                "mrr": 0.502886,
+                "mrr": 0.529437,
                 "hit_rate": 0.818182,
                 "exact_chunk_recall": 0.818182,
-                "relevant_result_redundancy": 0.227273
+                "relevant_result_redundancy": 0.25
               },
               "30": {
-                "precision": 0.048485,
+                "precision": 0.05,
                 "recall": 0.818182,
-                "mrr": 0.502886,
+                "mrr": 0.529437,
                 "hit_rate": 0.818182,
                 "exact_chunk_recall": 0.818182,
-                "relevant_result_redundancy": 0.227273
+                "relevant_result_redundancy": 0.25
               }
             }
           },
@@ -1501,18 +1501,18 @@
                 "relevant_result_redundancy": 0.0
               },
               "20": {
-                "precision": 0.0,
-                "recall": 0.0,
-                "mrr": 0.0,
-                "hit_rate": 0.0,
+                "precision": 0.05,
+                "recall": 1.0,
+                "mrr": 0.055556,
+                "hit_rate": 1.0,
                 "exact_chunk_recall": 0.0,
                 "relevant_result_redundancy": 0.0
               },
               "30": {
-                "precision": 0.0,
-                "recall": 0.0,
-                "mrr": 0.0,
-                "hit_rate": 0.0,
+                "precision": 0.033333,
+                "recall": 1.0,
+                "mrr": 0.055556,
+                "hit_rate": 1.0,
                 "exact_chunk_recall": 0.0,
                 "relevant_result_redundancy": 0.0
               }
@@ -1599,36 +1599,36 @@
             "excluded_empty_gold_count": 0,
             "cutoffs": {
               "5": {
-                "precision": 0.4,
+                "precision": 0.6,
                 "recall": 1.0,
                 "mrr": 1.0,
                 "hit_rate": 1.0,
                 "exact_chunk_recall": 1.0,
-                "relevant_result_redundancy": 0.0
+                "relevant_result_redundancy": 0.333333
               },
               "10": {
-                "precision": 0.2,
+                "precision": 0.3,
                 "recall": 1.0,
                 "mrr": 1.0,
                 "hit_rate": 1.0,
                 "exact_chunk_recall": 1.0,
-                "relevant_result_redundancy": 0.0
+                "relevant_result_redundancy": 0.333333
               },
               "20": {
+                "precision": 0.15,
+                "recall": 1.0,
+                "mrr": 1.0,
+                "hit_rate": 1.0,
+                "exact_chunk_recall": 1.0,
+                "relevant_result_redundancy": 0.333333
+              },
+              "30": {
                 "precision": 0.1,
                 "recall": 1.0,
                 "mrr": 1.0,
                 "hit_rate": 1.0,
                 "exact_chunk_recall": 1.0,
-                "relevant_result_redundancy": 0.0
-              },
-              "30": {
-                "precision": 0.066667,
-                "recall": 1.0,
-                "mrr": 1.0,
-                "hit_rate": 1.0,
-                "exact_chunk_recall": 1.0,
-                "relevant_result_redundancy": 0.0
+                "relevant_result_redundancy": 0.333333
               }
             }
           },
@@ -1637,17 +1637,17 @@
             "excluded_empty_gold_count": 0,
             "cutoffs": {
               "5": {
-                "precision": 0.1925,
-                "recall": 0.6875,
-                "mrr": 0.522083,
-                "hit_rate": 0.6875,
-                "exact_chunk_recall": 0.65,
+                "precision": 0.1875,
+                "recall": 0.6625,
+                "mrr": 0.50875,
+                "hit_rate": 0.6625,
+                "exact_chunk_recall": 0.6375,
                 "relevant_result_redundancy": 0.103125
               },
               "10": {
                 "precision": 0.11375,
                 "recall": 0.7,
-                "mrr": 0.523869,
+                "mrr": 0.514702,
                 "hit_rate": 0.7,
                 "exact_chunk_recall": 0.7,
                 "relevant_result_redundancy": 0.129985
@@ -1655,7 +1655,7 @@
               "20": {
                 "precision": 0.06625,
                 "recall": 0.7625,
-                "mrr": 0.528595,
+                "mrr": 0.519523,
                 "hit_rate": 0.7625,
                 "exact_chunk_recall": 0.7625,
                 "relevant_result_redundancy": 0.145644
@@ -1663,7 +1663,7 @@
               "30": {
                 "precision": 0.047083,
                 "recall": 0.825,
-                "mrr": 0.531085,
+                "mrr": 0.522038,
                 "hit_rate": 0.825,
                 "exact_chunk_recall": 0.825,
                 "relevant_result_redundancy": 0.153977
@@ -1753,7 +1753,7 @@
               "5": {
                 "precision": 0.18481,
                 "recall": 0.64557,
-                "mrr": 0.500211,
+                "mrr": 0.505485,
                 "hit_rate": 0.64557,
                 "exact_chunk_recall": 0.582278,
                 "relevant_result_redundancy": 0.086709
@@ -1761,7 +1761,7 @@
               "10": {
                 "precision": 0.125316,
                 "recall": 0.708861,
-                "mrr": 0.508785,
+                "mrr": 0.51406,
                 "hit_rate": 0.708861,
                 "exact_chunk_recall": 0.696203,
                 "relevant_result_redundancy": 0.124754
@@ -1769,7 +1769,7 @@
               "20": {
                 "precision": 0.072785,
                 "recall": 0.797468,
-                "mrr": 0.51556,
+                "mrr": 0.520658,
                 "hit_rate": 0.797468,
                 "exact_chunk_recall": 0.797468,
                 "relevant_result_redundancy": 0.152666
@@ -1777,7 +1777,7 @@
               "30": {
                 "precision": 0.049789,
                 "recall": 0.835443,
-                "mrr": 0.51695,
+                "mrr": 0.522031,
                 "hit_rate": 0.835443,
                 "exact_chunk_recall": 0.835443,
                 "relevant_result_redundancy": 0.152666
@@ -1789,36 +1789,36 @@
             "excluded_empty_gold_count": 0,
             "cutoffs": {
               "5": {
-                "precision": 0.0,
-                "recall": 0.0,
-                "mrr": 0.0,
-                "hit_rate": 0.0,
-                "exact_chunk_recall": 0.0,
-                "relevant_result_redundancy": 0.0
+                "precision": 0.4,
+                "recall": 0.5,
+                "mrr": 1.0,
+                "hit_rate": 1.0,
+                "exact_chunk_recall": 0.5,
+                "relevant_result_redundancy": 0.5
               },
               "10": {
-                "precision": 0.0,
-                "recall": 0.0,
-                "mrr": 0.0,
-                "hit_rate": 0.0,
-                "exact_chunk_recall": 0.0,
-                "relevant_result_redundancy": 0.0
+                "precision": 0.3,
+                "recall": 0.5,
+                "mrr": 1.0,
+                "hit_rate": 1.0,
+                "exact_chunk_recall": 0.5,
+                "relevant_result_redundancy": 0.666667
               },
               "20": {
-                "precision": 0.0,
-                "recall": 0.0,
-                "mrr": 0.0,
-                "hit_rate": 0.0,
-                "exact_chunk_recall": 0.0,
-                "relevant_result_redundancy": 0.0
+                "precision": 0.15,
+                "recall": 0.5,
+                "mrr": 1.0,
+                "hit_rate": 1.0,
+                "exact_chunk_recall": 0.5,
+                "relevant_result_redundancy": 0.666667
               },
               "30": {
-                "precision": 0.0,
-                "recall": 0.0,
-                "mrr": 0.0,
-                "hit_rate": 0.0,
-                "exact_chunk_recall": 0.0,
-                "relevant_result_redundancy": 0.0
+                "precision": 0.1,
+                "recall": 0.5,
+                "mrr": 1.0,
+                "hit_rate": 1.0,
+                "exact_chunk_recall": 0.5,
+                "relevant_result_redundancy": 0.666667
               }
             }
           },
@@ -1843,28 +1843,28 @@
                 "relevant_result_redundancy": 0.0
               },
               "10": {
-                "precision": 0.05,
+                "precision": 0.1,
                 "recall": 0.5,
-                "mrr": 0.055556,
+                "mrr": 0.083333,
                 "hit_rate": 0.5,
                 "exact_chunk_recall": 0.5,
-                "relevant_result_redundancy": 0.0
+                "relevant_result_redundancy": 0.25
               },
               "20": {
-                "precision": 0.025,
-                "recall": 0.5,
-                "mrr": 0.055556,
-                "hit_rate": 0.5,
+                "precision": 0.075,
+                "recall": 1.0,
+                "mrr": 0.111111,
+                "hit_rate": 1.0,
                 "exact_chunk_recall": 0.5,
-                "relevant_result_redundancy": 0.0
+                "relevant_result_redundancy": 0.25
               },
               "30": {
-                "precision": 0.016667,
-                "recall": 0.5,
-                "mrr": 0.055556,
-                "hit_rate": 0.5,
+                "precision": 0.05,
+                "recall": 1.0,
+                "mrr": 0.111111,
+                "hit_rate": 1.0,
                 "exact_chunk_recall": 0.5,
-                "relevant_result_redundancy": 0.0
+                "relevant_result_redundancy": 0.25
               }
             }
           },
@@ -1873,36 +1873,36 @@
             "excluded_empty_gold_count": 1,
             "cutoffs": {
               "5": {
-                "precision": 0.12,
-                "recall": 0.266667,
-                "mrr": 0.24,
-                "hit_rate": 0.4,
-                "exact_chunk_recall": 0.266667,
-                "relevant_result_redundancy": 0.0
+                "precision": 0.24,
+                "recall": 0.366667,
+                "mrr": 0.44,
+                "hit_rate": 0.6,
+                "exact_chunk_recall": 0.366667,
+                "relevant_result_redundancy": 0.166667
               },
               "10": {
-                "precision": 0.06,
-                "recall": 0.266667,
-                "mrr": 0.24,
-                "hit_rate": 0.4,
-                "exact_chunk_recall": 0.266667,
-                "relevant_result_redundancy": 0.0
+                "precision": 0.14,
+                "recall": 0.366667,
+                "mrr": 0.44,
+                "hit_rate": 0.6,
+                "exact_chunk_recall": 0.366667,
+                "relevant_result_redundancy": 0.2
               },
               "20": {
-                "precision": 0.03,
-                "recall": 0.266667,
-                "mrr": 0.24,
-                "hit_rate": 0.4,
-                "exact_chunk_recall": 0.266667,
-                "relevant_result_redundancy": 0.0
+                "precision": 0.07,
+                "recall": 0.366667,
+                "mrr": 0.44,
+                "hit_rate": 0.6,
+                "exact_chunk_recall": 0.366667,
+                "relevant_result_redundancy": 0.2
               },
               "30": {
-                "precision": 0.02,
-                "recall": 0.266667,
-                "mrr": 0.24,
-                "hit_rate": 0.4,
-                "exact_chunk_recall": 0.266667,
-                "relevant_result_redundancy": 0.0
+                "precision": 0.046667,
+                "recall": 0.366667,
+                "mrr": 0.44,
+                "hit_rate": 0.6,
+                "exact_chunk_recall": 0.366667,
+                "relevant_result_redundancy": 0.2
               }
             }
           },
@@ -1911,17 +1911,17 @@
             "excluded_empty_gold_count": 2,
             "cutoffs": {
               "5": {
-                "precision": 0.189011,
-                "recall": 0.651099,
-                "mrr": 0.506136,
-                "hit_rate": 0.653846,
-                "exact_chunk_recall": 0.607143,
+                "precision": 0.186813,
+                "recall": 0.64011,
+                "mrr": 0.505311,
+                "hit_rate": 0.642857,
+                "exact_chunk_recall": 0.601648,
                 "relevant_result_redundancy": 0.100366
               },
               "10": {
                 "precision": 0.12033,
                 "recall": 0.708791,
-                "mrr": 0.513677,
+                "mrr": 0.514816,
                 "hit_rate": 0.708791,
                 "exact_chunk_recall": 0.703297,
                 "relevant_result_redundancy": 0.134181
@@ -1929,7 +1929,7 @@
               "20": {
                 "precision": 0.06978,
                 "recall": 0.78022,
-                "mrr": 0.519062,
+                "mrr": 0.520191,
                 "hit_rate": 0.78022,
                 "exact_chunk_recall": 0.78022,
                 "relevant_result_redundancy": 0.157759
@@ -1937,7 +1937,7 @@
               "30": {
                 "precision": 0.048352,
                 "recall": 0.824176,
-                "mrr": 0.52076,
+                "mrr": 0.521892,
                 "hit_rate": 0.824176,
                 "exact_chunk_recall": 0.824176,
                 "relevant_result_redundancy": 0.161422
@@ -1989,17 +1989,17 @@
             "excluded_empty_gold_count": 0,
             "cutoffs": {
               "5": {
-                "precision": 0.2,
-                "recall": 0.8125,
-                "mrr": 0.627083,
-                "hit_rate": 0.8125,
+                "precision": 0.1875,
+                "recall": 0.75,
+                "mrr": 0.614583,
+                "hit_rate": 0.75,
                 "exact_chunk_recall": 0.75,
                 "relevant_result_redundancy": 0.09375
               },
               "10": {
                 "precision": 0.1125,
                 "recall": 0.8125,
-                "mrr": 0.627083,
+                "mrr": 0.625,
                 "hit_rate": 0.8125,
                 "exact_chunk_recall": 0.8125,
                 "relevant_result_redundancy": 0.135417
@@ -2007,7 +2007,7 @@
               "20": {
                 "precision": 0.05625,
                 "recall": 0.8125,
-                "mrr": 0.627083,
+                "mrr": 0.625,
                 "hit_rate": 0.8125,
                 "exact_chunk_recall": 0.8125,
                 "relevant_result_redundancy": 0.135417
@@ -2015,7 +2015,7 @@
               "30": {
                 "precision": 0.0375,
                 "recall": 0.8125,
-                "mrr": 0.627083,
+                "mrr": 0.625,
                 "hit_rate": 0.8125,
                 "exact_chunk_recall": 0.8125,
                 "relevant_result_redundancy": 0.135417
@@ -2027,36 +2027,36 @@
             "excluded_empty_gold_count": 0,
             "cutoffs": {
               "5": {
-                "precision": 0.4,
+                "precision": 0.6,
                 "recall": 1.0,
                 "mrr": 1.0,
                 "hit_rate": 1.0,
                 "exact_chunk_recall": 1.0,
-                "relevant_result_redundancy": 0.0
+                "relevant_result_redundancy": 0.333333
               },
               "10": {
-                "precision": 0.2,
+                "precision": 0.3,
                 "recall": 1.0,
                 "mrr": 1.0,
                 "hit_rate": 1.0,
                 "exact_chunk_recall": 1.0,
-                "relevant_result_redundancy": 0.0
+                "relevant_result_redundancy": 0.333333
               },
               "20": {
+                "precision": 0.15,
+                "recall": 1.0,
+                "mrr": 1.0,
+                "hit_rate": 1.0,
+                "exact_chunk_recall": 1.0,
+                "relevant_result_redundancy": 0.333333
+              },
+              "30": {
                 "precision": 0.1,
                 "recall": 1.0,
                 "mrr": 1.0,
                 "hit_rate": 1.0,
                 "exact_chunk_recall": 1.0,
-                "relevant_result_redundancy": 0.0
-              },
-              "30": {
-                "precision": 0.066667,
-                "recall": 1.0,
-                "mrr": 1.0,
-                "hit_rate": 1.0,
-                "exact_chunk_recall": 1.0,
-                "relevant_result_redundancy": 0.0
+                "relevant_result_redundancy": 0.333333
               }
             }
           },
@@ -2067,7 +2067,7 @@
               "5": {
                 "precision": 0.2125,
                 "recall": 0.625,
-                "mrr": 0.427083,
+                "mrr": 0.416667,
                 "hit_rate": 0.625,
                 "exact_chunk_recall": 0.5625,
                 "relevant_result_redundancy": 0.15625
@@ -2075,7 +2075,7 @@
               "10": {
                 "precision": 0.15,
                 "recall": 0.6875,
-                "mrr": 0.436012,
+                "mrr": 0.425595,
                 "hit_rate": 0.6875,
                 "exact_chunk_recall": 0.6875,
                 "relevant_result_redundancy": 0.230655
@@ -2083,7 +2083,7 @@
               "20": {
                 "precision": 0.1,
                 "recall": 0.8125,
-                "mrr": 0.444345,
+                "mrr": 0.434402,
                 "hit_rate": 0.8125,
                 "exact_chunk_recall": 0.8125,
                 "relevant_result_redundancy": 0.275568
@@ -2091,7 +2091,7 @@
               "30": {
                 "precision": 0.066667,
                 "recall": 0.8125,
-                "mrr": 0.444345,
+                "mrr": 0.434402,
                 "hit_rate": 0.8125,
                 "exact_chunk_recall": 0.8125,
                 "relevant_result_redundancy": 0.275568
@@ -2103,36 +2103,36 @@
             "excluded_empty_gold_count": 0,
             "cutoffs": {
               "5": {
-                "precision": 0.0,
-                "recall": 0.0,
-                "mrr": 0.0,
-                "hit_rate": 0.0,
-                "exact_chunk_recall": 0.0,
-                "relevant_result_redundancy": 0.0
+                "precision": 0.4,
+                "recall": 0.5,
+                "mrr": 1.0,
+                "hit_rate": 1.0,
+                "exact_chunk_recall": 0.5,
+                "relevant_result_redundancy": 0.5
               },
               "10": {
-                "precision": 0.0,
-                "recall": 0.0,
-                "mrr": 0.0,
-                "hit_rate": 0.0,
-                "exact_chunk_recall": 0.0,
-                "relevant_result_redundancy": 0.0
+                "precision": 0.3,
+                "recall": 0.5,
+                "mrr": 1.0,
+                "hit_rate": 1.0,
+                "exact_chunk_recall": 0.5,
+                "relevant_result_redundancy": 0.666667
               },
               "20": {
-                "precision": 0.0,
-                "recall": 0.0,
-                "mrr": 0.0,
-                "hit_rate": 0.0,
-                "exact_chunk_recall": 0.0,
-                "relevant_result_redundancy": 0.0
+                "precision": 0.15,
+                "recall": 0.5,
+                "mrr": 1.0,
+                "hit_rate": 1.0,
+                "exact_chunk_recall": 0.5,
+                "relevant_result_redundancy": 0.666667
               },
               "30": {
-                "precision": 0.0,
-                "recall": 0.0,
-                "mrr": 0.0,
-                "hit_rate": 0.0,
-                "exact_chunk_recall": 0.0,
-                "relevant_result_redundancy": 0.0
+                "precision": 0.1,
+                "recall": 0.5,
+                "mrr": 1.0,
+                "hit_rate": 1.0,
+                "exact_chunk_recall": 0.5,
+                "relevant_result_redundancy": 0.666667
               }
             }
           },
@@ -2337,7 +2337,7 @@
               "5": {
                 "precision": 0.1625,
                 "recall": 0.5,
-                "mrr": 0.427083,
+                "mrr": 0.395833,
                 "hit_rate": 0.5,
                 "exact_chunk_recall": 0.5,
                 "relevant_result_redundancy": 0.088542
@@ -2345,7 +2345,7 @@
               "10": {
                 "precision": 0.10625,
                 "recall": 0.5,
-                "mrr": 0.427083,
+                "mrr": 0.395833,
                 "hit_rate": 0.5,
                 "exact_chunk_recall": 0.5,
                 "relevant_result_redundancy": 0.096354
@@ -2353,7 +2353,7 @@
               "20": {
                 "precision": 0.06875,
                 "recall": 0.5625,
-                "mrr": 0.431891,
+                "mrr": 0.400641,
                 "hit_rate": 0.5625,
                 "exact_chunk_recall": 0.5625,
                 "relevant_result_redundancy": 0.129735
@@ -2361,7 +2361,7 @@
               "30": {
                 "precision": 0.058333,
                 "recall": 0.8125,
-                "mrr": 0.441499,
+                "mrr": 0.410373,
                 "hit_rate": 0.8125,
                 "exact_chunk_recall": 0.8125,
                 "relevant_result_redundancy": 0.171402
@@ -2431,28 +2431,28 @@
                 "relevant_result_redundancy": 0.0
               },
               "10": {
-                "precision": 0.05,
+                "precision": 0.1,
                 "recall": 0.5,
-                "mrr": 0.055556,
+                "mrr": 0.083333,
                 "hit_rate": 0.5,
                 "exact_chunk_recall": 0.5,
-                "relevant_result_redundancy": 0.0
+                "relevant_result_redundancy": 0.25
               },
               "20": {
-                "precision": 0.025,
-                "recall": 0.5,
-                "mrr": 0.055556,
-                "hit_rate": 0.5,
+                "precision": 0.075,
+                "recall": 1.0,
+                "mrr": 0.111111,
+                "hit_rate": 1.0,
                 "exact_chunk_recall": 0.5,
-                "relevant_result_redundancy": 0.0
+                "relevant_result_redundancy": 0.25
               },
               "30": {
-                "precision": 0.016667,
-                "recall": 0.5,
-                "mrr": 0.055556,
-                "hit_rate": 0.5,
+                "precision": 0.05,
+                "recall": 1.0,
+                "mrr": 0.111111,
+                "hit_rate": 1.0,
                 "exact_chunk_recall": 0.5,
-                "relevant_result_redundancy": 0.0
+                "relevant_result_redundancy": 0.25
               }
             }
           },
@@ -2461,17 +2461,17 @@
             "excluded_empty_gold_count": 0,
             "cutoffs": {
               "5": {
-                "precision": 0.15,
-                "recall": 0.6875,
-                "mrr": 0.467708,
-                "hit_rate": 0.6875,
-                "exact_chunk_recall": 0.6875,
+                "precision": 0.1375,
+                "recall": 0.625,
+                "mrr": 0.455208,
+                "hit_rate": 0.625,
+                "exact_chunk_recall": 0.625,
                 "relevant_result_redundancy": 0.03125
               },
               "10": {
                 "precision": 0.075,
                 "recall": 0.6875,
-                "mrr": 0.467708,
+                "mrr": 0.465625,
                 "hit_rate": 0.6875,
                 "exact_chunk_recall": 0.6875,
                 "relevant_result_redundancy": 0.03125
@@ -2479,7 +2479,7 @@
               "20": {
                 "precision": 0.04375,
                 "recall": 0.8125,
-                "mrr": 0.478198,
+                "mrr": 0.476115,
                 "hit_rate": 0.8125,
                 "exact_chunk_recall": 0.8125,
                 "relevant_result_redundancy": 0.03125
@@ -2487,7 +2487,7 @@
               "30": {
                 "precision": 0.029167,
                 "recall": 0.8125,
-                "mrr": 0.478198,
+                "mrr": 0.476115,
                 "hit_rate": 0.8125,
                 "exact_chunk_recall": 0.8125,
                 "relevant_result_redundancy": 0.03125
@@ -2501,7 +2501,7 @@
               "5": {
                 "precision": 0.188,
                 "recall": 0.63,
-                "mrr": 0.4985,
+                "mrr": 0.507667,
                 "hit_rate": 0.63,
                 "exact_chunk_recall": 0.58,
                 "relevant_result_redundancy": 0.100167
@@ -2509,7 +2509,7 @@
               "10": {
                 "precision": 0.126,
                 "recall": 0.72,
-                "mrr": 0.510798,
+                "mrr": 0.520202,
                 "hit_rate": 0.72,
                 "exact_chunk_recall": 0.71,
                 "relevant_result_redundancy": 0.140222
@@ -2517,7 +2517,7 @@
               "20": {
                 "precision": 0.073,
                 "recall": 0.8,
-                "mrr": 0.516817,
+                "mrr": 0.526129,
                 "hit_rate": 0.8,
                 "exact_chunk_recall": 0.8,
                 "relevant_result_redundancy": 0.170606
@@ -2525,7 +2525,7 @@
               "30": {
                 "precision": 0.049667,
                 "recall": 0.83,
-                "mrr": 0.517914,
+                "mrr": 0.527214,
                 "hit_rate": 0.83,
                 "exact_chunk_recall": 0.83,
                 "relevant_result_redundancy": 0.170606
@@ -2559,36 +2559,36 @@
           "excluded_empty_gold_count": 11,
           "cutoffs": {
             "5": {
-              "precision": 0.195767,
-              "recall": 0.657848,
-              "mrr": 0.566138,
-              "hit_rate": 0.661376,
-              "exact_chunk_recall": 0.652557,
-              "relevant_result_redundancy": 0.100529
+              "precision": 0.202116,
+              "recall": 0.671076,
+              "mrr": 0.571605,
+              "hit_rate": 0.677249,
+              "exact_chunk_recall": 0.655203,
+              "relevant_result_redundancy": 0.10582
             },
             "10": {
-              "precision": 0.127513,
-              "recall": 0.737213,
-              "mrr": 0.577133,
-              "hit_rate": 0.740741,
-              "exact_chunk_recall": 0.737213,
-              "relevant_result_redundancy": 0.133157
+              "precision": 0.130688,
+              "recall": 0.74515,
+              "mrr": 0.582071,
+              "hit_rate": 0.751323,
+              "exact_chunk_recall": 0.739859,
+              "relevant_result_redundancy": 0.141093
             },
             "20": {
-              "precision": 0.070106,
-              "recall": 0.795414,
-              "mrr": 0.581024,
-              "hit_rate": 0.798942,
-              "exact_chunk_recall": 0.790123,
-              "relevant_result_redundancy": 0.152798
+              "precision": 0.071693,
+              "recall": 0.803351,
+              "mrr": 0.585945,
+              "hit_rate": 0.809524,
+              "exact_chunk_recall": 0.792769,
+              "relevant_result_redundancy": 0.160734
             },
             "30": {
-              "precision": 0.047266,
-              "recall": 0.805996,
-              "mrr": 0.581528,
-              "hit_rate": 0.809524,
-              "exact_chunk_recall": 0.805996,
-              "relevant_result_redundancy": 0.155443
+              "precision": 0.048325,
+              "recall": 0.813933,
+              "mrr": 0.586437,
+              "hit_rate": 0.820106,
+              "exact_chunk_recall": 0.808642,
+              "relevant_result_redundancy": 0.16338
             }
           }
         },
@@ -2597,36 +2597,36 @@
           "excluded_empty_gold_count": 8,
           "cutoffs": {
             "5": {
-              "precision": 0.181579,
-              "recall": 0.657895,
-              "mrr": 0.559868,
-              "hit_rate": 0.657895,
-              "exact_chunk_recall": 0.651316,
-              "relevant_result_redundancy": 0.081579
+              "precision": 0.189474,
+              "recall": 0.674342,
+              "mrr": 0.566667,
+              "hit_rate": 0.677632,
+              "exact_chunk_recall": 0.654605,
+              "relevant_result_redundancy": 0.088158
             },
             "10": {
-              "precision": 0.119737,
-              "recall": 0.743421,
-              "mrr": 0.571896,
-              "hit_rate": 0.743421,
-              "exact_chunk_recall": 0.743421,
-              "relevant_result_redundancy": 0.120833
+              "precision": 0.123684,
+              "recall": 0.753289,
+              "mrr": 0.578036,
+              "hit_rate": 0.756579,
+              "exact_chunk_recall": 0.746711,
+              "relevant_result_redundancy": 0.130702
             },
             "20": {
-              "precision": 0.064803,
-              "recall": 0.789474,
-              "mrr": 0.575219,
-              "hit_rate": 0.789474,
-              "exact_chunk_recall": 0.789474,
-              "relevant_result_redundancy": 0.135267
+              "precision": 0.066776,
+              "recall": 0.799342,
+              "mrr": 0.581338,
+              "hit_rate": 0.802632,
+              "exact_chunk_recall": 0.792763,
+              "relevant_result_redundancy": 0.145136
             },
             "30": {
-              "precision": 0.04364,
-              "recall": 0.802632,
-              "mrr": 0.575845,
-              "hit_rate": 0.802632,
-              "exact_chunk_recall": 0.802632,
-              "relevant_result_redundancy": 0.135267
+              "precision": 0.044956,
+              "recall": 0.8125,
+              "mrr": 0.58195,
+              "hit_rate": 0.815789,
+              "exact_chunk_recall": 0.805921,
+              "relevant_result_redundancy": 0.145136
             }
           }
         },
@@ -2712,36 +2712,36 @@
             "excluded_empty_gold_count": 0,
             "cutoffs": {
               "5": {
-                "precision": 0.272727,
-                "recall": 0.727273,
-                "mrr": 0.651515,
-                "hit_rate": 0.727273,
+                "precision": 0.281818,
+                "recall": 0.772727,
+                "mrr": 0.674242,
+                "hit_rate": 0.772727,
                 "exact_chunk_recall": 0.727273,
                 "relevant_result_redundancy": 0.227273
               },
               "10": {
-                "precision": 0.140909,
+                "precision": 0.145455,
                 "recall": 0.772727,
-                "mrr": 0.656061,
+                "mrr": 0.674242,
                 "hit_rate": 0.772727,
                 "exact_chunk_recall": 0.772727,
-                "relevant_result_redundancy": 0.227273
+                "relevant_result_redundancy": 0.25
               },
               "20": {
-                "precision": 0.072727,
+                "precision": 0.075,
                 "recall": 0.818182,
-                "mrr": 0.659848,
+                "mrr": 0.67803,
                 "hit_rate": 0.818182,
                 "exact_chunk_recall": 0.818182,
-                "relevant_result_redundancy": 0.227273
+                "relevant_result_redundancy": 0.25
               },
               "30": {
-                "precision": 0.048485,
+                "precision": 0.05,
                 "recall": 0.818182,
-                "mrr": 0.659848,
+                "mrr": 0.67803,
                 "hit_rate": 0.818182,
                 "exact_chunk_recall": 0.818182,
-                "relevant_result_redundancy": 0.227273
+                "relevant_result_redundancy": 0.25
               }
             }
           },
@@ -2750,34 +2750,34 @@
             "excluded_empty_gold_count": 0,
             "cutoffs": {
               "5": {
-                "precision": 0.0,
-                "recall": 0.0,
-                "mrr": 0.0,
-                "hit_rate": 0.0,
+                "precision": 0.2,
+                "recall": 1.0,
+                "mrr": 0.2,
+                "hit_rate": 1.0,
                 "exact_chunk_recall": 0.0,
                 "relevant_result_redundancy": 0.0
               },
               "10": {
-                "precision": 0.0,
-                "recall": 0.0,
-                "mrr": 0.0,
-                "hit_rate": 0.0,
+                "precision": 0.1,
+                "recall": 1.0,
+                "mrr": 0.2,
+                "hit_rate": 1.0,
                 "exact_chunk_recall": 0.0,
                 "relevant_result_redundancy": 0.0
               },
               "20": {
-                "precision": 0.0,
-                "recall": 0.0,
-                "mrr": 0.0,
-                "hit_rate": 0.0,
+                "precision": 0.05,
+                "recall": 1.0,
+                "mrr": 0.2,
+                "hit_rate": 1.0,
                 "exact_chunk_recall": 0.0,
                 "relevant_result_redundancy": 0.0
               },
               "30": {
-                "precision": 0.0,
-                "recall": 0.0,
-                "mrr": 0.0,
-                "hit_rate": 0.0,
+                "precision": 0.033333,
+                "recall": 1.0,
+                "mrr": 0.2,
+                "hit_rate": 1.0,
                 "exact_chunk_recall": 0.0,
                 "relevant_result_redundancy": 0.0
               }
@@ -2864,36 +2864,36 @@
             "excluded_empty_gold_count": 0,
             "cutoffs": {
               "5": {
-                "precision": 0.4,
+                "precision": 0.6,
                 "recall": 1.0,
                 "mrr": 1.0,
                 "hit_rate": 1.0,
                 "exact_chunk_recall": 1.0,
-                "relevant_result_redundancy": 0.0
+                "relevant_result_redundancy": 0.333333
               },
               "10": {
-                "precision": 0.2,
+                "precision": 0.3,
                 "recall": 1.0,
                 "mrr": 1.0,
                 "hit_rate": 1.0,
                 "exact_chunk_recall": 1.0,
-                "relevant_result_redundancy": 0.0
+                "relevant_result_redundancy": 0.333333
               },
               "20": {
+                "precision": 0.15,
+                "recall": 1.0,
+                "mrr": 1.0,
+                "hit_rate": 1.0,
+                "exact_chunk_recall": 1.0,
+                "relevant_result_redundancy": 0.333333
+              },
+              "30": {
                 "precision": 0.1,
                 "recall": 1.0,
                 "mrr": 1.0,
                 "hit_rate": 1.0,
                 "exact_chunk_recall": 1.0,
-                "relevant_result_redundancy": 0.0
-              },
-              "30": {
-                "precision": 0.066667,
-                "recall": 1.0,
-                "mrr": 1.0,
-                "hit_rate": 1.0,
-                "exact_chunk_recall": 1.0,
-                "relevant_result_redundancy": 0.0
+                "relevant_result_redundancy": 0.333333
               }
             }
           },
@@ -3034,7 +3034,7 @@
               "20": {
                 "precision": 0.074051,
                 "recall": 0.822785,
-                "mrr": 0.560357,
+                "mrr": 0.560316,
                 "hit_rate": 0.822785,
                 "exact_chunk_recall": 0.822785,
                 "relevant_result_redundancy": 0.152666
@@ -3042,7 +3042,7 @@
               "30": {
                 "precision": 0.049789,
                 "recall": 0.835443,
-                "mrr": 0.56096,
+                "mrr": 0.560891,
                 "hit_rate": 0.835443,
                 "exact_chunk_recall": 0.835443,
                 "relevant_result_redundancy": 0.152666
@@ -3054,36 +3054,36 @@
             "excluded_empty_gold_count": 0,
             "cutoffs": {
               "5": {
-                "precision": 0.0,
-                "recall": 0.0,
-                "mrr": 0.0,
-                "hit_rate": 0.0,
-                "exact_chunk_recall": 0.0,
-                "relevant_result_redundancy": 0.0
+                "precision": 0.6,
+                "recall": 0.5,
+                "mrr": 0.333333,
+                "hit_rate": 1.0,
+                "exact_chunk_recall": 0.5,
+                "relevant_result_redundancy": 0.666667
               },
               "10": {
-                "precision": 0.0,
-                "recall": 0.0,
-                "mrr": 0.0,
-                "hit_rate": 0.0,
-                "exact_chunk_recall": 0.0,
-                "relevant_result_redundancy": 0.0
+                "precision": 0.3,
+                "recall": 0.5,
+                "mrr": 0.333333,
+                "hit_rate": 1.0,
+                "exact_chunk_recall": 0.5,
+                "relevant_result_redundancy": 0.666667
               },
               "20": {
-                "precision": 0.0,
-                "recall": 0.0,
-                "mrr": 0.0,
-                "hit_rate": 0.0,
-                "exact_chunk_recall": 0.0,
-                "relevant_result_redundancy": 0.0
+                "precision": 0.15,
+                "recall": 0.5,
+                "mrr": 0.333333,
+                "hit_rate": 1.0,
+                "exact_chunk_recall": 0.5,
+                "relevant_result_redundancy": 0.666667
               },
               "30": {
-                "precision": 0.0,
-                "recall": 0.0,
-                "mrr": 0.0,
-                "hit_rate": 0.0,
-                "exact_chunk_recall": 0.0,
-                "relevant_result_redundancy": 0.0
+                "precision": 0.1,
+                "recall": 0.5,
+                "mrr": 0.333333,
+                "hit_rate": 1.0,
+                "exact_chunk_recall": 0.5,
+                "relevant_result_redundancy": 0.666667
               }
             }
           },
@@ -3100,36 +3100,36 @@
             "excluded_empty_gold_count": 8,
             "cutoffs": {
               "5": {
-                "precision": 0.0,
-                "recall": 0.0,
-                "mrr": 0.0,
-                "hit_rate": 0.0,
+                "precision": 0.2,
+                "recall": 1.0,
+                "mrr": 0.35,
+                "hit_rate": 1.0,
                 "exact_chunk_recall": 0.0,
                 "relevant_result_redundancy": 0.0
               },
               "10": {
-                "precision": 0.05,
-                "recall": 0.5,
-                "mrr": 0.05,
-                "hit_rate": 0.5,
+                "precision": 0.15,
+                "recall": 1.0,
+                "mrr": 0.35,
+                "hit_rate": 1.0,
                 "exact_chunk_recall": 0.5,
-                "relevant_result_redundancy": 0.0
+                "relevant_result_redundancy": 0.25
               },
               "20": {
-                "precision": 0.025,
-                "recall": 0.5,
-                "mrr": 0.05,
-                "hit_rate": 0.5,
+                "precision": 0.075,
+                "recall": 1.0,
+                "mrr": 0.35,
+                "hit_rate": 1.0,
                 "exact_chunk_recall": 0.5,
-                "relevant_result_redundancy": 0.0
+                "relevant_result_redundancy": 0.25
               },
               "30": {
-                "precision": 0.016667,
-                "recall": 0.5,
-                "mrr": 0.05,
-                "hit_rate": 0.5,
+                "precision": 0.05,
+                "recall": 1.0,
+                "mrr": 0.35,
+                "hit_rate": 1.0,
                 "exact_chunk_recall": 0.5,
-                "relevant_result_redundancy": 0.0
+                "relevant_result_redundancy": 0.25
               }
             }
           },
@@ -3138,36 +3138,36 @@
             "excluded_empty_gold_count": 1,
             "cutoffs": {
               "5": {
-                "precision": 0.12,
-                "recall": 0.266667,
-                "mrr": 0.3,
-                "hit_rate": 0.4,
-                "exact_chunk_recall": 0.266667,
-                "relevant_result_redundancy": 0.0
+                "precision": 0.28,
+                "recall": 0.366667,
+                "mrr": 0.366667,
+                "hit_rate": 0.6,
+                "exact_chunk_recall": 0.366667,
+                "relevant_result_redundancy": 0.2
               },
               "10": {
-                "precision": 0.06,
-                "recall": 0.266667,
-                "mrr": 0.3,
-                "hit_rate": 0.4,
-                "exact_chunk_recall": 0.266667,
-                "relevant_result_redundancy": 0.0
+                "precision": 0.14,
+                "recall": 0.366667,
+                "mrr": 0.366667,
+                "hit_rate": 0.6,
+                "exact_chunk_recall": 0.366667,
+                "relevant_result_redundancy": 0.2
               },
               "20": {
-                "precision": 0.03,
-                "recall": 0.266667,
-                "mrr": 0.3,
-                "hit_rate": 0.4,
-                "exact_chunk_recall": 0.266667,
-                "relevant_result_redundancy": 0.0
+                "precision": 0.07,
+                "recall": 0.366667,
+                "mrr": 0.366667,
+                "hit_rate": 0.6,
+                "exact_chunk_recall": 0.366667,
+                "relevant_result_redundancy": 0.2
               },
               "30": {
-                "precision": 0.02,
-                "recall": 0.266667,
-                "mrr": 0.3,
-                "hit_rate": 0.4,
-                "exact_chunk_recall": 0.266667,
-                "relevant_result_redundancy": 0.0
+                "precision": 0.046667,
+                "recall": 0.366667,
+                "mrr": 0.366667,
+                "hit_rate": 0.6,
+                "exact_chunk_recall": 0.366667,
+                "relevant_result_redundancy": 0.2
               }
             }
           },
@@ -3194,7 +3194,7 @@
               "20": {
                 "precision": 0.071703,
                 "recall": 0.813187,
-                "mrr": 0.59458,
+                "mrr": 0.594562,
                 "hit_rate": 0.813187,
                 "exact_chunk_recall": 0.807692,
                 "relevant_result_redundancy": 0.158675
@@ -3202,7 +3202,7 @@
               "30": {
                 "precision": 0.048352,
                 "recall": 0.824176,
-                "mrr": 0.595103,
+                "mrr": 0.595073,
                 "hit_rate": 0.824176,
                 "exact_chunk_recall": 0.824176,
                 "relevant_result_redundancy": 0.161422
@@ -3292,36 +3292,36 @@
             "excluded_empty_gold_count": 0,
             "cutoffs": {
               "5": {
-                "precision": 0.4,
+                "precision": 0.6,
                 "recall": 1.0,
                 "mrr": 1.0,
                 "hit_rate": 1.0,
                 "exact_chunk_recall": 1.0,
-                "relevant_result_redundancy": 0.0
+                "relevant_result_redundancy": 0.333333
               },
               "10": {
-                "precision": 0.2,
+                "precision": 0.3,
                 "recall": 1.0,
                 "mrr": 1.0,
                 "hit_rate": 1.0,
                 "exact_chunk_recall": 1.0,
-                "relevant_result_redundancy": 0.0
+                "relevant_result_redundancy": 0.333333
               },
               "20": {
+                "precision": 0.15,
+                "recall": 1.0,
+                "mrr": 1.0,
+                "hit_rate": 1.0,
+                "exact_chunk_recall": 1.0,
+                "relevant_result_redundancy": 0.333333
+              },
+              "30": {
                 "precision": 0.1,
                 "recall": 1.0,
                 "mrr": 1.0,
                 "hit_rate": 1.0,
                 "exact_chunk_recall": 1.0,
-                "relevant_result_redundancy": 0.0
-              },
-              "30": {
-                "precision": 0.066667,
-                "recall": 1.0,
-                "mrr": 1.0,
-                "hit_rate": 1.0,
-                "exact_chunk_recall": 1.0,
-                "relevant_result_redundancy": 0.0
+                "relevant_result_redundancy": 0.333333
               }
             }
           },
@@ -3368,36 +3368,36 @@
             "excluded_empty_gold_count": 0,
             "cutoffs": {
               "5": {
-                "precision": 0.0,
-                "recall": 0.0,
-                "mrr": 0.0,
-                "hit_rate": 0.0,
-                "exact_chunk_recall": 0.0,
-                "relevant_result_redundancy": 0.0
+                "precision": 0.6,
+                "recall": 0.5,
+                "mrr": 0.333333,
+                "hit_rate": 1.0,
+                "exact_chunk_recall": 0.5,
+                "relevant_result_redundancy": 0.666667
               },
               "10": {
-                "precision": 0.0,
-                "recall": 0.0,
-                "mrr": 0.0,
-                "hit_rate": 0.0,
-                "exact_chunk_recall": 0.0,
-                "relevant_result_redundancy": 0.0
+                "precision": 0.3,
+                "recall": 0.5,
+                "mrr": 0.333333,
+                "hit_rate": 1.0,
+                "exact_chunk_recall": 0.5,
+                "relevant_result_redundancy": 0.666667
               },
               "20": {
-                "precision": 0.0,
-                "recall": 0.0,
-                "mrr": 0.0,
-                "hit_rate": 0.0,
-                "exact_chunk_recall": 0.0,
-                "relevant_result_redundancy": 0.0
+                "precision": 0.15,
+                "recall": 0.5,
+                "mrr": 0.333333,
+                "hit_rate": 1.0,
+                "exact_chunk_recall": 0.5,
+                "relevant_result_redundancy": 0.666667
               },
               "30": {
-                "precision": 0.0,
-                "recall": 0.0,
-                "mrr": 0.0,
-                "hit_rate": 0.0,
-                "exact_chunk_recall": 0.0,
-                "relevant_result_redundancy": 0.0
+                "precision": 0.1,
+                "recall": 0.5,
+                "mrr": 0.333333,
+                "hit_rate": 1.0,
+                "exact_chunk_recall": 0.5,
+                "relevant_result_redundancy": 0.666667
               }
             }
           },
@@ -3688,36 +3688,36 @@
             "excluded_empty_gold_count": 0,
             "cutoffs": {
               "5": {
-                "precision": 0.0,
-                "recall": 0.0,
-                "mrr": 0.0,
-                "hit_rate": 0.0,
+                "precision": 0.2,
+                "recall": 1.0,
+                "mrr": 0.35,
+                "hit_rate": 1.0,
                 "exact_chunk_recall": 0.0,
                 "relevant_result_redundancy": 0.0
               },
               "10": {
-                "precision": 0.05,
-                "recall": 0.5,
-                "mrr": 0.05,
-                "hit_rate": 0.5,
+                "precision": 0.15,
+                "recall": 1.0,
+                "mrr": 0.35,
+                "hit_rate": 1.0,
                 "exact_chunk_recall": 0.5,
-                "relevant_result_redundancy": 0.0
+                "relevant_result_redundancy": 0.25
               },
               "20": {
-                "precision": 0.025,
-                "recall": 0.5,
-                "mrr": 0.05,
-                "hit_rate": 0.5,
+                "precision": 0.075,
+                "recall": 1.0,
+                "mrr": 0.35,
+                "hit_rate": 1.0,
                 "exact_chunk_recall": 0.5,
-                "relevant_result_redundancy": 0.0
+                "relevant_result_redundancy": 0.25
               },
               "30": {
-                "precision": 0.016667,
-                "recall": 0.5,
-                "mrr": 0.05,
-                "hit_rate": 0.5,
+                "precision": 0.05,
+                "recall": 1.0,
+                "mrr": 0.35,
+                "hit_rate": 1.0,
                 "exact_chunk_recall": 0.5,
-                "relevant_result_redundancy": 0.0
+                "relevant_result_redundancy": 0.25
               }
             }
           },
@@ -3782,7 +3782,7 @@
               "20": {
                 "precision": 0.074,
                 "recall": 0.82,
-                "mrr": 0.586849,
+                "mrr": 0.586816,
                 "hit_rate": 0.82,
                 "exact_chunk_recall": 0.82,
                 "relevant_result_redundancy": 0.170606
@@ -3790,7 +3790,7 @@
               "30": {
                 "precision": 0.049667,
                 "recall": 0.83,
-                "mrr": 0.587325,
+                "mrr": 0.587271,
                 "hit_rate": 0.83,
                 "exact_chunk_recall": 0.83,
                 "relevant_result_redundancy": 0.170606
@@ -3824,36 +3824,36 @@
           "excluded_empty_gold_count": 11,
           "cutoffs": {
             "5": {
-              "precision": 0.157672,
-              "recall": 0.700176,
-              "mrr": 0.576984,
-              "hit_rate": 0.703704,
+              "precision": 0.162963,
+              "recall": 0.713404,
+              "mrr": 0.583157,
+              "hit_rate": 0.719577,
               "exact_chunk_recall": 0.647266,
-              "relevant_result_redundancy": 0.037037
+              "relevant_result_redundancy": 0.041446
             },
             "10": {
-              "precision": 0.08254,
-              "recall": 0.737213,
-              "mrr": 0.58208,
-              "hit_rate": 0.740741,
+              "precision": 0.085185,
+              "recall": 0.74515,
+              "mrr": 0.587724,
+              "hit_rate": 0.751323,
               "exact_chunk_recall": 0.684303,
-              "relevant_result_redundancy": 0.037037
+              "relevant_result_redundancy": 0.044092
             },
             "20": {
-              "precision": 0.043915,
-              "recall": 0.790123,
-              "mrr": 0.586327,
-              "hit_rate": 0.793651,
+              "precision": 0.045238,
+              "recall": 0.79806,
+              "mrr": 0.591949,
+              "hit_rate": 0.804233,
               "exact_chunk_recall": 0.716049,
-              "relevant_result_redundancy": 0.037037
+              "relevant_result_redundancy": 0.044092
             },
             "30": {
-              "precision": 0.02963,
-              "recall": 0.800705,
-              "mrr": 0.586831,
-              "hit_rate": 0.804233,
+              "precision": 0.030511,
+              "recall": 0.808642,
+              "mrr": 0.592441,
+              "hit_rate": 0.814815,
               "exact_chunk_recall": 0.726631,
-              "relevant_result_redundancy": 0.037037
+              "relevant_result_redundancy": 0.044092
             }
           }
         },
@@ -3862,36 +3862,36 @@
           "excluded_empty_gold_count": 8,
           "cutoffs": {
             "5": {
-              "precision": 0.157895,
-              "recall": 0.710526,
-              "mrr": 0.571601,
-              "hit_rate": 0.710526,
+              "precision": 0.164474,
+              "recall": 0.726974,
+              "mrr": 0.579276,
+              "hit_rate": 0.730263,
               "exact_chunk_recall": 0.651316,
-              "relevant_result_redundancy": 0.032895
+              "relevant_result_redundancy": 0.038377
             },
             "10": {
-              "precision": 0.082237,
-              "recall": 0.743421,
-              "mrr": 0.576057,
-              "hit_rate": 0.743421,
+              "precision": 0.085526,
+              "recall": 0.753289,
+              "mrr": 0.583075,
+              "hit_rate": 0.756579,
               "exact_chunk_recall": 0.684211,
-              "relevant_result_redundancy": 0.032895
+              "relevant_result_redundancy": 0.041667
             },
             "20": {
-              "precision": 0.043092,
-              "recall": 0.782895,
-              "mrr": 0.579387,
-              "hit_rate": 0.782895,
+              "precision": 0.044737,
+              "recall": 0.792763,
+              "mrr": 0.586377,
+              "hit_rate": 0.796053,
               "exact_chunk_recall": 0.710526,
-              "relevant_result_redundancy": 0.032895
+              "relevant_result_redundancy": 0.041667
             },
             "30": {
-              "precision": 0.029167,
-              "recall": 0.796053,
-              "mrr": 0.580013,
-              "hit_rate": 0.796053,
+              "precision": 0.030263,
+              "recall": 0.805921,
+              "mrr": 0.586989,
+              "hit_rate": 0.809211,
               "exact_chunk_recall": 0.723684,
-              "relevant_result_redundancy": 0.032895
+              "relevant_result_redundancy": 0.041667
             }
           }
         },
@@ -3977,36 +3977,36 @@
             "excluded_empty_gold_count": 0,
             "cutoffs": {
               "5": {
-                "precision": 0.2,
-                "recall": 0.727273,
-                "mrr": 0.651515,
-                "hit_rate": 0.727273,
+                "precision": 0.209091,
+                "recall": 0.772727,
+                "mrr": 0.674242,
+                "hit_rate": 0.772727,
                 "exact_chunk_recall": 0.727273,
                 "relevant_result_redundancy": 0.136364
               },
               "10": {
-                "precision": 0.104545,
+                "precision": 0.109091,
                 "recall": 0.772727,
-                "mrr": 0.656061,
+                "mrr": 0.674242,
                 "hit_rate": 0.772727,
                 "exact_chunk_recall": 0.772727,
-                "relevant_result_redundancy": 0.136364
+                "relevant_result_redundancy": 0.159091
               },
               "20": {
-                "precision": 0.054545,
+                "precision": 0.056818,
                 "recall": 0.818182,
-                "mrr": 0.659848,
+                "mrr": 0.67803,
                 "hit_rate": 0.818182,
                 "exact_chunk_recall": 0.818182,
-                "relevant_result_redundancy": 0.136364
+                "relevant_result_redundancy": 0.159091
               },
               "30": {
-                "precision": 0.036364,
+                "precision": 0.037879,
                 "recall": 0.818182,
-                "mrr": 0.659848,
+                "mrr": 0.67803,
                 "hit_rate": 0.818182,
                 "exact_chunk_recall": 0.818182,
-                "relevant_result_redundancy": 0.136364
+                "relevant_result_redundancy": 0.159091
               }
             }
           },
@@ -4015,34 +4015,34 @@
             "excluded_empty_gold_count": 0,
             "cutoffs": {
               "5": {
-                "precision": 0.0,
-                "recall": 0.0,
-                "mrr": 0.0,
-                "hit_rate": 0.0,
+                "precision": 0.2,
+                "recall": 1.0,
+                "mrr": 0.333333,
+                "hit_rate": 1.0,
                 "exact_chunk_recall": 0.0,
                 "relevant_result_redundancy": 0.0
               },
               "10": {
-                "precision": 0.0,
-                "recall": 0.0,
-                "mrr": 0.0,
-                "hit_rate": 0.0,
+                "precision": 0.1,
+                "recall": 1.0,
+                "mrr": 0.333333,
+                "hit_rate": 1.0,
                 "exact_chunk_recall": 0.0,
                 "relevant_result_redundancy": 0.0
               },
               "20": {
-                "precision": 0.0,
-                "recall": 0.0,
-                "mrr": 0.0,
-                "hit_rate": 0.0,
+                "precision": 0.05,
+                "recall": 1.0,
+                "mrr": 0.333333,
+                "hit_rate": 1.0,
                 "exact_chunk_recall": 0.0,
                 "relevant_result_redundancy": 0.0
               },
               "30": {
-                "precision": 0.0,
-                "recall": 0.0,
-                "mrr": 0.0,
-                "hit_rate": 0.0,
+                "precision": 0.033333,
+                "recall": 1.0,
+                "mrr": 0.333333,
+                "hit_rate": 1.0,
                 "exact_chunk_recall": 0.0,
                 "relevant_result_redundancy": 0.0
               }
@@ -4129,36 +4129,36 @@
             "excluded_empty_gold_count": 0,
             "cutoffs": {
               "5": {
-                "precision": 0.4,
+                "precision": 0.6,
                 "recall": 1.0,
                 "mrr": 1.0,
                 "hit_rate": 1.0,
                 "exact_chunk_recall": 1.0,
-                "relevant_result_redundancy": 0.0
+                "relevant_result_redundancy": 0.333333
               },
               "10": {
-                "precision": 0.2,
+                "precision": 0.3,
                 "recall": 1.0,
                 "mrr": 1.0,
                 "hit_rate": 1.0,
                 "exact_chunk_recall": 1.0,
-                "relevant_result_redundancy": 0.0
+                "relevant_result_redundancy": 0.333333
               },
               "20": {
+                "precision": 0.15,
+                "recall": 1.0,
+                "mrr": 1.0,
+                "hit_rate": 1.0,
+                "exact_chunk_recall": 1.0,
+                "relevant_result_redundancy": 0.333333
+              },
+              "30": {
                 "precision": 0.1,
                 "recall": 1.0,
                 "mrr": 1.0,
                 "hit_rate": 1.0,
                 "exact_chunk_recall": 1.0,
-                "relevant_result_redundancy": 0.0
-              },
-              "30": {
-                "precision": 0.066667,
-                "recall": 1.0,
-                "mrr": 1.0,
-                "hit_rate": 1.0,
-                "exact_chunk_recall": 1.0,
-                "relevant_result_redundancy": 0.0
+                "relevant_result_redundancy": 0.333333
               }
             }
           },
@@ -4299,7 +4299,7 @@
               "20": {
                 "precision": 0.042405,
                 "recall": 0.822785,
-                "mrr": 0.570023,
+                "mrr": 0.56997,
                 "hit_rate": 0.822785,
                 "exact_chunk_recall": 0.708861,
                 "relevant_result_redundancy": 0.012658
@@ -4307,7 +4307,7 @@
               "30": {
                 "precision": 0.028692,
                 "recall": 0.835443,
-                "mrr": 0.570625,
+                "mrr": 0.570545,
                 "hit_rate": 0.835443,
                 "exact_chunk_recall": 0.721519,
                 "relevant_result_redundancy": 0.012658
@@ -4319,36 +4319,36 @@
             "excluded_empty_gold_count": 0,
             "cutoffs": {
               "5": {
-                "precision": 0.0,
-                "recall": 0.0,
-                "mrr": 0.0,
-                "hit_rate": 0.0,
+                "precision": 0.4,
+                "recall": 0.5,
+                "mrr": 0.333333,
+                "hit_rate": 1.0,
                 "exact_chunk_recall": 0.0,
-                "relevant_result_redundancy": 0.0
+                "relevant_result_redundancy": 0.5
               },
               "10": {
-                "precision": 0.0,
-                "recall": 0.0,
-                "mrr": 0.0,
-                "hit_rate": 0.0,
+                "precision": 0.2,
+                "recall": 0.5,
+                "mrr": 0.333333,
+                "hit_rate": 1.0,
                 "exact_chunk_recall": 0.0,
-                "relevant_result_redundancy": 0.0
+                "relevant_result_redundancy": 0.5
               },
               "20": {
-                "precision": 0.0,
-                "recall": 0.0,
-                "mrr": 0.0,
-                "hit_rate": 0.0,
+                "precision": 0.1,
+                "recall": 0.5,
+                "mrr": 0.333333,
+                "hit_rate": 1.0,
                 "exact_chunk_recall": 0.0,
-                "relevant_result_redundancy": 0.0
+                "relevant_result_redundancy": 0.5
               },
               "30": {
-                "precision": 0.0,
-                "recall": 0.0,
-                "mrr": 0.0,
-                "hit_rate": 0.0,
+                "precision": 0.066667,
+                "recall": 0.5,
+                "mrr": 0.333333,
+                "hit_rate": 1.0,
                 "exact_chunk_recall": 0.0,
-                "relevant_result_redundancy": 0.0
+                "relevant_result_redundancy": 0.5
               }
             }
           },
@@ -4365,36 +4365,36 @@
             "excluded_empty_gold_count": 8,
             "cutoffs": {
               "5": {
-                "precision": 0.0,
-                "recall": 0.0,
-                "mrr": 0.0,
-                "hit_rate": 0.0,
+                "precision": 0.2,
+                "recall": 1.0,
+                "mrr": 0.416667,
+                "hit_rate": 1.0,
                 "exact_chunk_recall": 0.0,
                 "relevant_result_redundancy": 0.0
               },
               "10": {
-                "precision": 0.05,
-                "recall": 0.5,
-                "mrr": 0.05,
-                "hit_rate": 0.5,
+                "precision": 0.15,
+                "recall": 1.0,
+                "mrr": 0.416667,
+                "hit_rate": 1.0,
                 "exact_chunk_recall": 0.5,
-                "relevant_result_redundancy": 0.0
+                "relevant_result_redundancy": 0.25
               },
               "20": {
-                "precision": 0.025,
-                "recall": 0.5,
-                "mrr": 0.05,
-                "hit_rate": 0.5,
+                "precision": 0.075,
+                "recall": 1.0,
+                "mrr": 0.416667,
+                "hit_rate": 1.0,
                 "exact_chunk_recall": 0.5,
-                "relevant_result_redundancy": 0.0
+                "relevant_result_redundancy": 0.25
               },
               "30": {
-                "precision": 0.016667,
-                "recall": 0.5,
-                "mrr": 0.05,
-                "hit_rate": 0.5,
+                "precision": 0.05,
+                "recall": 1.0,
+                "mrr": 0.416667,
+                "hit_rate": 1.0,
                 "exact_chunk_recall": 0.5,
-                "relevant_result_redundancy": 0.0
+                "relevant_result_redundancy": 0.25
               }
             }
           },
@@ -4403,36 +4403,36 @@
             "excluded_empty_gold_count": 1,
             "cutoffs": {
               "5": {
-                "precision": 0.12,
-                "recall": 0.266667,
-                "mrr": 0.3,
-                "hit_rate": 0.4,
+                "precision": 0.24,
+                "recall": 0.366667,
+                "mrr": 0.366667,
+                "hit_rate": 0.6,
                 "exact_chunk_recall": 0.266667,
-                "relevant_result_redundancy": 0.0
+                "relevant_result_redundancy": 0.166667
               },
               "10": {
-                "precision": 0.06,
-                "recall": 0.266667,
-                "mrr": 0.3,
-                "hit_rate": 0.4,
+                "precision": 0.12,
+                "recall": 0.366667,
+                "mrr": 0.366667,
+                "hit_rate": 0.6,
                 "exact_chunk_recall": 0.266667,
-                "relevant_result_redundancy": 0.0
+                "relevant_result_redundancy": 0.166667
               },
               "20": {
-                "precision": 0.03,
-                "recall": 0.266667,
-                "mrr": 0.3,
-                "hit_rate": 0.4,
+                "precision": 0.06,
+                "recall": 0.366667,
+                "mrr": 0.366667,
+                "hit_rate": 0.6,
                 "exact_chunk_recall": 0.266667,
-                "relevant_result_redundancy": 0.0
+                "relevant_result_redundancy": 0.166667
               },
               "30": {
-                "precision": 0.02,
-                "recall": 0.266667,
-                "mrr": 0.3,
-                "hit_rate": 0.4,
+                "precision": 0.04,
+                "recall": 0.366667,
+                "mrr": 0.366667,
+                "hit_rate": 0.6,
                 "exact_chunk_recall": 0.266667,
-                "relevant_result_redundancy": 0.0
+                "relevant_result_redundancy": 0.166667
               }
             }
           },
@@ -4459,7 +4459,7 @@
               "20": {
                 "precision": 0.044505,
                 "recall": 0.807692,
-                "mrr": 0.600087,
+                "mrr": 0.600064,
                 "hit_rate": 0.807692,
                 "exact_chunk_recall": 0.730769,
                 "relevant_result_redundancy": 0.038462
@@ -4467,7 +4467,7 @@
               "30": {
                 "precision": 0.030037,
                 "recall": 0.818681,
-                "mrr": 0.60061,
+                "mrr": 0.600576,
                 "hit_rate": 0.818681,
                 "exact_chunk_recall": 0.741758,
                 "relevant_result_redundancy": 0.038462
@@ -4557,36 +4557,36 @@
             "excluded_empty_gold_count": 0,
             "cutoffs": {
               "5": {
-                "precision": 0.4,
+                "precision": 0.6,
                 "recall": 1.0,
                 "mrr": 1.0,
                 "hit_rate": 1.0,
                 "exact_chunk_recall": 1.0,
-                "relevant_result_redundancy": 0.0
+                "relevant_result_redundancy": 0.333333
               },
               "10": {
-                "precision": 0.2,
+                "precision": 0.3,
                 "recall": 1.0,
                 "mrr": 1.0,
                 "hit_rate": 1.0,
                 "exact_chunk_recall": 1.0,
-                "relevant_result_redundancy": 0.0
+                "relevant_result_redundancy": 0.333333
               },
               "20": {
+                "precision": 0.15,
+                "recall": 1.0,
+                "mrr": 1.0,
+                "hit_rate": 1.0,
+                "exact_chunk_recall": 1.0,
+                "relevant_result_redundancy": 0.333333
+              },
+              "30": {
                 "precision": 0.1,
                 "recall": 1.0,
                 "mrr": 1.0,
                 "hit_rate": 1.0,
                 "exact_chunk_recall": 1.0,
-                "relevant_result_redundancy": 0.0
-              },
-              "30": {
-                "precision": 0.066667,
-                "recall": 1.0,
-                "mrr": 1.0,
-                "hit_rate": 1.0,
-                "exact_chunk_recall": 1.0,
-                "relevant_result_redundancy": 0.0
+                "relevant_result_redundancy": 0.333333
               }
             }
           },
@@ -4633,36 +4633,36 @@
             "excluded_empty_gold_count": 0,
             "cutoffs": {
               "5": {
-                "precision": 0.0,
-                "recall": 0.0,
-                "mrr": 0.0,
-                "hit_rate": 0.0,
+                "precision": 0.4,
+                "recall": 0.5,
+                "mrr": 0.333333,
+                "hit_rate": 1.0,
                 "exact_chunk_recall": 0.0,
-                "relevant_result_redundancy": 0.0
+                "relevant_result_redundancy": 0.5
               },
               "10": {
-                "precision": 0.0,
-                "recall": 0.0,
-                "mrr": 0.0,
-                "hit_rate": 0.0,
+                "precision": 0.2,
+                "recall": 0.5,
+                "mrr": 0.333333,
+                "hit_rate": 1.0,
                 "exact_chunk_recall": 0.0,
-                "relevant_result_redundancy": 0.0
+                "relevant_result_redundancy": 0.5
               },
               "20": {
-                "precision": 0.0,
-                "recall": 0.0,
-                "mrr": 0.0,
-                "hit_rate": 0.0,
+                "precision": 0.1,
+                "recall": 0.5,
+                "mrr": 0.333333,
+                "hit_rate": 1.0,
                 "exact_chunk_recall": 0.0,
-                "relevant_result_redundancy": 0.0
+                "relevant_result_redundancy": 0.5
               },
               "30": {
-                "precision": 0.0,
-                "recall": 0.0,
-                "mrr": 0.0,
-                "hit_rate": 0.0,
+                "precision": 0.066667,
+                "recall": 0.5,
+                "mrr": 0.333333,
+                "hit_rate": 1.0,
                 "exact_chunk_recall": 0.0,
-                "relevant_result_redundancy": 0.0
+                "relevant_result_redundancy": 0.5
               }
             }
           },
@@ -4953,36 +4953,36 @@
             "excluded_empty_gold_count": 0,
             "cutoffs": {
               "5": {
-                "precision": 0.0,
-                "recall": 0.0,
-                "mrr": 0.0,
-                "hit_rate": 0.0,
+                "precision": 0.2,
+                "recall": 1.0,
+                "mrr": 0.416667,
+                "hit_rate": 1.0,
                 "exact_chunk_recall": 0.0,
                 "relevant_result_redundancy": 0.0
               },
               "10": {
-                "precision": 0.05,
-                "recall": 0.5,
-                "mrr": 0.05,
-                "hit_rate": 0.5,
+                "precision": 0.15,
+                "recall": 1.0,
+                "mrr": 0.416667,
+                "hit_rate": 1.0,
                 "exact_chunk_recall": 0.5,
-                "relevant_result_redundancy": 0.0
+                "relevant_result_redundancy": 0.25
               },
               "20": {
-                "precision": 0.025,
-                "recall": 0.5,
-                "mrr": 0.05,
-                "hit_rate": 0.5,
+                "precision": 0.075,
+                "recall": 1.0,
+                "mrr": 0.416667,
+                "hit_rate": 1.0,
                 "exact_chunk_recall": 0.5,
-                "relevant_result_redundancy": 0.0
+                "relevant_result_redundancy": 0.25
               },
               "30": {
-                "precision": 0.016667,
-                "recall": 0.5,
-                "mrr": 0.05,
-                "hit_rate": 0.5,
+                "precision": 0.05,
+                "recall": 1.0,
+                "mrr": 0.416667,
+                "hit_rate": 1.0,
                 "exact_chunk_recall": 0.5,
-                "relevant_result_redundancy": 0.0
+                "relevant_result_redundancy": 0.25
               }
             }
           },
@@ -5047,7 +5047,7 @@
               "20": {
                 "precision": 0.045,
                 "recall": 0.82,
-                "mrr": 0.594485,
+                "mrr": 0.594443,
                 "hit_rate": 0.82,
                 "exact_chunk_recall": 0.73,
                 "relevant_result_redundancy": 0.04
@@ -5055,7 +5055,7 @@
               "30": {
                 "precision": 0.030333,
                 "recall": 0.83,
-                "mrr": 0.594961,
+                "mrr": 0.594897,
                 "hit_rate": 0.83,
                 "exact_chunk_recall": 0.74,
                 "relevant_result_redundancy": 0.04

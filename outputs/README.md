@@ -15,9 +15,11 @@ Use this to compare embedding models before hybrid retrieval or reranking.
 
 Use this to compare retrieval strategies for BGE-M3.
 
-- `summary.json`: aggregate dense vs. hybrid RRF vs. hybrid-plus-reranker metrics using evidence
-  equivalence groups rather than only one canonical chunk ID.
-- `query_details.jsonl`: question-level candidates before and after reranking.
+- `summary.json`: aggregate dense vs. hybrid RRF vs. hybrid-plus-reranker and diversified metrics
+  using evidence equivalence groups rather than only one canonical chunk ID.
+- `query_details.jsonl`: question-level candidates before and after reranking/diversification,
+  including each evidence requirement, canonical label, accepted cross-document alternatives,
+  and preferred sources for explicitly source-qualified important questions.
 - `facet_metrics.csv`: metrics broken down by query type, difficulty, and edge case.
 
 ## `audits/three_model_retrieval_audit/`

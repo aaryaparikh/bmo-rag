@@ -128,12 +128,31 @@ chunk's numeric tokens. Source-qualified robustness questions restrict equivalen
 source. This prevents alternate copies of a valid answer from being scored as false positives
 without turning ten duplicate passages into ten separate recall requirements.
 
+Schema v4 also supports manually verified answer-equivalent chunks for disclosures whose wording
+or chunk boundaries differ too much for conservative text matching. These alternatives use
+`match_method: manually_verified_answer_equivalent`. Each group may include a human-readable
+`requirement`, while `preferred_source_ids` records sources explicitly requested by the question.
+The CSV exposes canonical IDs, every acceptable alternative ID/source, evidence requirements, and
+preferred sources rather than hiding alternatives inside JSON.
+
+Records `bmo-retrieval-181` through `bmo-retrieval-187` are the explicitly tracked important
+questions covering medium-term ROE, Annual Report operating segments, the Q2/fact-sheet CET1
+premise, seventh-versus-eighth-largest reconciliation, responsible AI, Annual Report versus
+Investor Day strategy, and Form 40-F provenance. Multi-fact questions use separate evidence groups;
+alternate documents that independently satisfy one fact remain alternatives inside that group.
+
 The benchmark reports equivalent-aware precision, evidence-group recall, MRR and hit rate. It
 also reports strict `exact_chunk_recall` for comparison with the old metric and
 `relevant_result_redundancy` to expose top-k slots spent repeating an already covered evidence
 group. An empty `expected_chunks` array remains the gold label for abstention. The manifest records
 the exact corpus fingerprint, equivalent-label count, duplicate-content statistics, and known
 source-date caveats.
+
+Two source limitations are intentional and recorded in the manifest: the mutable fact-sheet file
+currently in the corpus is Q3 2026 rather than a historical Q2 snapshot, and the supplied Form 40-F
+body contains the December 4, 2025 date while the December 17 Form 40-F/A identified by SEC filing
+metadata is not itself a corpus chunk. Facts without a current chunk are never assigned invented
+positive IDs.
 
 Exact duplicates are removed within each source during ingestion. Identical passages across
 different reports remain indexed because their provenance and reporting period can matter; they

@@ -152,6 +152,44 @@ def label(
     return result
 
 
+def label_group(
+    rows: list[dict[str, Any]],
+    corpus: list[dict[str, Any]],
+    *,
+    requirement: str | None = None,
+    equivalent_source_ids: set[str] | None = None,
+) -> dict[str, Any]:
+    """Build one evidence requirement with manually verified answer-equivalent chunks."""
+    if not rows:
+        raise ValueError("Evidence groups must contain at least one corpus chunk")
+    result = label(rows[0], corpus, equivalent_source_ids=equivalent_source_ids)
+    existing_ids = {
+        result["chunk_id"],
+        *(item["chunk_id"] for item in result["equivalent_chunks"]),
+    }
+    for row in rows[1:]:
+        if equivalent_source_ids is not None and row["source_id"] not in equivalent_source_ids:
+            raise ValueError(
+                f"Manual equivalent {row['source_id']} is outside the allowed source scope"
+            )
+        if row["chunk_id"] in existing_ids:
+            continue
+        result["equivalent_chunks"].append(
+            {
+                **_base_label(row),
+                "match_method": "manually_verified_answer_equivalent",
+                "match_score": 1.0,
+            }
+        )
+        existing_ids.add(row["chunk_id"])
+    result["equivalent_chunks"].sort(
+        key=lambda item: (item["source_id"], item["chunk_index"])
+    )
+    if requirement:
+        result["requirement"] = requirement
+    return result
+
+
 def hard_negatives(
     chosen: list[dict[str, Any]],
     expected: list[dict[str, Any]],
@@ -183,14 +221,24 @@ def make_record(
     expected_behavior: str,
     expected_answer: str,
     provenance: str,
+    evidence_group_rows: list[list[dict[str, Any]]] | None = None,
+    evidence_requirements: list[str] | None = None,
+    preferred_source_ids: list[str] | None = None,
 ) -> dict[str, Any]:
+    groups = evidence_group_rows or [[row] for row in chosen]
+    requirements = evidence_requirements or [""] * len(groups)
+    if len(requirements) != len(groups):
+        raise ValueError("Each evidence group must have exactly one requirement description")
     expected = [
-        label(
-            row,
+        label_group(
+            group,
             corpus,
-            equivalent_source_ids={row["source_id"]} if edge_case == "source_qualified" else None,
+            requirement=requirement,
+            equivalent_source_ids=(
+                {group[0]["source_id"]} if edge_case == "source_qualified" else None
+            ),
         )
-        for row in chosen
+        for group, requirement in zip(groups, requirements, strict=True)
     ]
     return {
         "id": f"bmo-retrieval-{number:03d}",
@@ -202,6 +250,7 @@ def make_record(
         "expected_behavior": expected_behavior,
         "expected_answer": expected_answer,
         "expected_chunks": expected,
+        "preferred_source_ids": preferred_source_ids or [],
         "hard_negative_chunk_ids": hard_negatives(chosen, expected, corpus) if chosen else [],
         "annotation": {
             "status": "gold",
@@ -227,52 +276,117 @@ def robustness_question(question: str, source: str, mode: int) -> tuple[str, str
 SPECIALS: list[dict[str, Any]] = [
     {
         "question": "What medium-term adjusted return-on-equity objective does BMO state? Cite the source.",
-        "anchors": [("financial-information-c5dc87e0c5", 13)],
+        "evidence_groups": [[
+            ("financial-information-c5dc87e0c5", 13),
+            ("bmo_ar2025", 123),
+            ("BMOInvestorPresentationEN", 23),
+        ]],
+        "evidence_requirements": ["The medium-term adjusted ROE objective of 15% or more."],
+        "preferred_source_ids": ["financial-information-c5dc87e0c5"],
         "query_type": "factual", "difficulty": "easy", "edge_case": "required_sample",
-        "expected_behavior": "Return the current financial-information objective with provenance.",
-        "expected_answer": "BMO states average annual adjusted ROE of 15% or more.",
+        "expected_behavior": "Return the objective and cite the current BMO financial-information source; equivalent official disclosures are accepted as answer evidence but are not the preferred citation.",
+        "expected_answer": "The current BMO financial-information page states a medium-term objective to earn average annual adjusted ROE of 15% or more.",
     },
     {
         "question": "According to the 2025 Annual Report, what operating segments does BMO report? Cite the relevant page or section.",
-        "anchors": [("bmo_ar2025", 109)],
+        "evidence_groups": [[
+            ("bmo_ar2025", 109),
+            ("bmo_ar2025", 4),
+            ("bmo_ar2025", 208),
+        ]],
+        "evidence_requirements": ["The four FY2025 Annual Report operating segments."],
+        "preferred_source_ids": ["bmo_ar2025"],
         "query_type": "list", "difficulty": "easy", "edge_case": "required_sample",
-        "expected_behavior": "List the four segments faithfully and cite the Annual Report page/section.",
+        "expected_behavior": "Retrieve the Annual Report itself, list the four segments faithfully, and preserve page/section provenance.",
         "expected_answer": "Canadian Personal and Commercial Banking, U.S. Banking, Wealth Management, and Capital Markets.",
     },
     {
         "question": "As of Q2 2026, what CET1 ratio is shown in BMO's Corporate Fact Sheet? Give the reporting date and source.",
-        "anchors": [("CorporateFactSheet", 2), ("Q226_EarningsRelease", 2)],
+        "evidence_groups": [
+            [("CorporateFactSheet", 2)],
+            [
+                ("2026-05-27-BMO-Financial-Group-Reports-Second-Quarter-2026-Results-ed105dc24d", 14),
+                ("Q226_EarningsRelease", 18),
+                ("Q226_ReportToShareholders", 111),
+            ],
+        ],
+        "evidence_requirements": [
+            "The available fact sheet's actual quarter and CET1 value.",
+            "The Q2 2026 CET1 value and April 30, 2026 reporting date.",
+        ],
+        "preferred_source_ids": ["CorporateFactSheet"],
         "query_type": "temporal_reconciliation", "difficulty": "hard", "edge_case": "date_premise_mismatch",
-        "expected_behavior": "Challenge the quarter mismatch: the supplied fact sheet is Q3 2026; use the Q2 release for the Q2 figure.",
-        "expected_answer": "The supplied Corporate Fact Sheet is headed Q3 2026 and shows 13.0%. The Q2 2026 Earnings Release also reports CET1 of 13.0%; do not mislabel the Q3 fact sheet as Q2.",
+        "expected_behavior": "Do not infer Q2 from an older annual report or mislabel the available Q3 fact sheet. Reconcile the fact-sheet mismatch with current Q2 evidence and preserve the date and percent unit.",
+        "expected_answer": "The available Corporate Fact Sheet is Q3 2026 and shows CET1 of 13.0%. For Q2, BMO's current results sources report CET1 of 13.0% as at April 30, 2026; the corpus does not contain a Q2-labelled fact-sheet snapshot.",
     },
     {
         "question": "Is BMO the seventh- or eighth largest bank in North America by assets? Reconcile the public BMO sources rather than choosing one.",
-        "anchors": [("bmo_ar2025", 109), ("CorporateFactSheet", 0)],
+        "evidence_groups": [
+            [("bmo_ar2025", 109), ("bmo_ar2025", 4)],
+            [("CorporateFactSheet", 0)],
+        ],
+        "evidence_requirements": [
+            "The FY2025 Annual Report's seventh-largest statement.",
+            "The later fact sheet's eighth-largest statement.",
+        ],
+        "preferred_source_ids": ["bmo_ar2025", "CorporateFactSheet"],
         "query_type": "multi_document_reconciliation", "difficulty": "hard", "edge_case": "conflicting_dated_sources",
         "expected_behavior": "Retrieve both sources and explain the claims as differently dated statements.",
-        "expected_answer": "The FY2025 Annual Report calls BMO seventh largest; the later Q3 2026 Corporate Fact Sheet calls it eighth largest. Preserve the dates rather than asserting a timeless rank.",
+        "expected_answer": "The FY2025 Annual Report calls BMO the seventh largest bank in North America by assets; the later Q3 2026 Corporate Fact Sheet calls it eighth largest. These are differently dated statements, not one timeless rank.",
     },
     {
         "question": "How does the 2025 Annual Report characterize BMO's use of AI, and what responsible-AI controls or principles are mentioned?",
-        "anchors": [("bmo_ar2025", 34), ("bmo_ar2025", 36), ("bmo_ar2025", 665)],
+        "evidence_groups": [
+            [("bmo_ar2025", 34)],
+            [("bmo_ar2025", 36)],
+            [("bmo_ar2025", 665)],
+        ],
+        "evidence_requirements": [
+            "The Annual Report's AI strategy and responsible-deployment characterization.",
+            "The stated values, regulatory, privacy, security, and confidentiality principles.",
+            "The AI governance, review, testing, monitoring, and change-management controls.",
+        ],
+        "preferred_source_ids": ["bmo_ar2025"],
         "query_type": "multi_chunk_synthesis", "difficulty": "hard", "edge_case": "distributed_evidence",
         "expected_behavior": "Synthesize strategy and governance language without inventing policies outside the corpus.",
         "expected_answer": "BMO describes responsible AI deployment to improve client/employee experiences and value. It cites values and regulatory compliance; privacy, security and confidentiality; a three-lines-of-defence risk framework; an AI risk directive; and lifecycle assessment, documentation, testing, monitoring and change management.",
     },
     {
         "question": "Compare the strategic priorities expressed in the 2025 Annual Report with those emphasized at BMO Investor Day 2026. Identify only differences that are supported by both sources.",
-        "anchors": [("bmo_ar2025", 111), ("BMOInvestorPresentationEN", 13), ("investor-day-2026-609c901e12", 0)],
+        "evidence_groups": [
+            [("bmo_ar2025", 111)],
+            [("transcript_2026BMOInvestoDayTranscript", 49), ("BMOInvestorPresentationEN", 13)],
+            [("investor-day-2026-609c901e12", 0)],
+        ],
+        "evidence_requirements": [
+            "The Annual Report's four enterprise strategic priorities.",
+            "Investor Day's emphasis on relationship growth, innovation, and performance optimization.",
+            "Official event-page provenance and the March 26, 2026 date.",
+        ],
+        "preferred_source_ids": [
+            "bmo_ar2025",
+            "transcript_2026BMOInvestoDayTranscript",
+            "BMOInvestorPresentationEN",
+            "investor-day-2026-609c901e12",
+        ],
         "query_type": "multi_document_comparison", "difficulty": "hard", "edge_case": "interpretation_bounded_by_evidence",
         "expected_behavior": "Use both documents, identify supported differences, and distinguish source facts from interpretation.",
-        "expected_answer": "The Annual Report's enterprise list emphasizes client experience, winning culture, digital/AI and risk. The Investor Day presentation retains those themes and explicitly adds sustainable future and stronger communities. The official event page dates Investor Day to March 26, 2026.",
+        "expected_answer": "The Annual Report lists client experience, winning culture, a digital-first AI-powered business, and superior risk management. At Investor Day on March 26, 2026, BMO reframed the action agenda around growing and deepening client relationships, innovating for business value, and optimizing performance through disciplined resource, risk, and capital management. Digital/AI, clients, and risk are continuities; the three-part action framing is the supported difference.",
     },
     {
         "question": "Which fiscal year is covered by BMO's latest Form 40-F in the supplied corpus, and when was it filed?",
-        "anchors": [("d938207d40f-e11c68d11f", 0), ("d938207d40f-e11c68d11f", 2)],
+        "evidence_groups": [
+            [("d938207d40f-e11c68d11f", 0)],
+            [("d938207d40f-e11c68d11f", 2)],
+        ],
+        "evidence_requirements": [
+            "The Form 40-F fiscal year ended October 31, 2025.",
+            "The December 4, 2025 date evidenced in the supplied filing body.",
+        ],
+        "preferred_source_ids": ["d938207d40f-e11c68d11f"],
         "query_type": "regulatory_filing", "difficulty": "medium", "edge_case": "original_vs_amendment",
-        "expected_behavior": "Distinguish what the supplied SEC filing proves from amendment information absent from these chunks.",
-        "expected_answer": "The supplied Form 40-F covers the fiscal year ended October 31, 2025 and is signed December 4, 2025. No December 17 amendment is present in the supplied chunks, so the dataset must not label that absent fact as retrievable evidence.",
+        "expected_behavior": "Locate SEC evidence and distinguish the original filing from amendment information not represented by a current corpus chunk.",
+        "expected_answer": "The supplied Form 40-F covers the fiscal year ended October 31, 2025 and its body is dated December 4, 2025. The corpus does not contain a Form 40-F/A chunk, so a December 17 amendment date cannot be established by retrieval from this corpus.",
     },
     {
         "question": "BMO's Q2 2026 fact sheet says the bank has 60,000 employees. Confirm this and explain the implication for operating expenses",
@@ -391,17 +505,27 @@ def build() -> None:
 
     # 20 explicit hard/negative cases, including all user-supplied questions verbatim.
     for special in SPECIALS:
-        chosen = []
-        for key in special["anchors"]:
-            if key not in by_key:
-                raise ValueError(f"Missing special anchor: {key}")
-            chosen.append(by_key[key])
+        group_keys = special.get("evidence_groups")
+        if group_keys is None:
+            group_keys = [[key] for key in special["anchors"]]
+        evidence_group_rows: list[list[dict[str, Any]]] = []
+        for keys in group_keys:
+            group = []
+            for key in keys:
+                if key not in by_key:
+                    raise ValueError(f"Missing special anchor: {key}")
+                group.append(by_key[key])
+            evidence_group_rows.append(group)
+        chosen = [row for group in evidence_group_rows for row in group]
         records.append(make_record(
             len(records) + 1, special["question"], chosen, corpus,
             query_type=special["query_type"], difficulty=special["difficulty"],
             edge_case=special["edge_case"], expected_behavior=special["expected_behavior"],
             expected_answer=special["expected_answer"],
             provenance="manual_special_case_reverified" if chosen else "manual_no_answer_case",
+            evidence_group_rows=evidence_group_rows,
+            evidence_requirements=special.get("evidence_requirements"),
+            preferred_source_ids=special.get("preferred_source_ids"),
         ))
 
     if len(records) != 200:
@@ -413,16 +537,32 @@ def build() -> None:
         dupes = [q for q, count in Counter(normalized_questions).items() if count > 1]
         raise ValueError(f"Duplicate questions: {dupes}")
     corpus_ids = {row["chunk_id"] for row in corpus}
+    by_chunk_id = {row["chunk_id"]: row for row in corpus}
+    corpus_source_ids = set(by_source)
     for record in records:
+        unknown_preferred_sources = set(record["preferred_source_ids"]) - corpus_source_ids
+        if unknown_preferred_sources:
+            raise ValueError(
+                f"Unknown preferred source in {record['id']}: {unknown_preferred_sources}"
+            )
+        record_label_ids: list[str] = []
         for expected in record["expected_chunks"]:
             labelled = [expected, *expected["equivalent_chunks"]]
+            record_label_ids.extend(item["chunk_id"] for item in labelled)
             if any(item["chunk_id"] not in corpus_ids for item in labelled):
                 raise ValueError(f"Unknown canonical/equivalent chunk label in {record['id']}")
-            current = by_key[(expected["source_id"], expected["chunk_index"])]
-            if chunk_id(current["source_id"], current["text"]) != expected["chunk_id"]:
-                raise ValueError(f"Chunk ID drift in {record['id']}")
-            if hashlib.sha256(current["text"].encode()).hexdigest() != expected["text_sha256"]:
-                raise ValueError(f"Text hash drift in {record['id']}")
+            for item in labelled:
+                current = by_chunk_id[item["chunk_id"]]
+                if current["source_id"] != item["source_id"]:
+                    raise ValueError(f"Source drift in {record['id']}")
+                if current["chunk_index"] != item["chunk_index"]:
+                    raise ValueError(f"Chunk-index drift in {record['id']}")
+                if chunk_id(current["source_id"], current["text"]) != item["chunk_id"]:
+                    raise ValueError(f"Chunk ID drift in {record['id']}")
+                if hashlib.sha256(current["text"].encode()).hexdigest() != item["text_sha256"]:
+                    raise ValueError(f"Text hash drift in {record['id']}")
+        if len(record_label_ids) != len(set(record_label_ids)):
+            raise ValueError(f"A chunk appears in multiple evidence groups in {record['id']}")
         if record["query_type"] == "unanswerable" and record["expected_chunks"]:
             raise ValueError(f"Unanswerable record has positive chunks: {record['id']}")
 
@@ -438,7 +578,9 @@ def build() -> None:
         writer = csv.DictWriter(handle, fieldnames=[
             "id", "question", "query_type", "difficulty", "edge_case", "split",
             "expected_behavior", "expected_answer", "expected_chunk_ids",
-            "expected_sources", "expected_pages", "expected_headings",
+            "evidence_requirements", "acceptable_chunk_ids", "expected_sources",
+            "acceptable_sources", "preferred_source_ids", "expected_pages",
+            "expected_headings",
         ])
         writer.writeheader()
         for row in records:
@@ -446,7 +588,25 @@ def build() -> None:
             writer.writerow({
                 **{key: row[key] for key in writer.fieldnames[:8]},
                 "expected_chunk_ids": " | ".join(item["chunk_id"] for item in chunks),
+                "evidence_requirements": " | ".join(
+                    item.get("requirement", "") for item in chunks
+                ),
+                "acceptable_chunk_ids": " | ".join(
+                    ",".join(
+                        candidate["chunk_id"]
+                        for candidate in [item, *item["equivalent_chunks"]]
+                    )
+                    for item in chunks
+                ),
                 "expected_sources": " | ".join(item["source_id"] for item in chunks),
+                "acceptable_sources": " | ".join(
+                    ",".join(sorted({
+                        candidate["source_id"]
+                        for candidate in [item, *item["equivalent_chunks"]]
+                    }))
+                    for item in chunks
+                ),
+                "preferred_source_ids": " | ".join(row["preferred_source_ids"]),
                 "expected_pages": " | ".join(",".join(map(str, item["pages"])) for item in chunks),
                 "expected_headings": " | ".join(" > ".join(item["headings"]) for item in chunks),
             })
@@ -455,7 +615,7 @@ def build() -> None:
     normalized_counts = Counter(_comparison_text(row["text"]) for row in corpus)
     duplicate_groups = [count for count in normalized_counts.values() if count > 1]
     manifest = {
-        "schema_version": "3.0.0",
+        "schema_version": "4.0.0",
         "dataset": jsonl_path.name,
         "dataset_sha256": hashlib.sha256(jsonl_path.read_bytes()).hexdigest(),
         "csv_companion": csv_path.name,
@@ -468,6 +628,12 @@ def build() -> None:
             len(chunk["equivalent_chunks"])
             for row in records
             for chunk in row["expected_chunks"]
+        ),
+        "manually_verified_equivalent_chunk_label_count": sum(
+            item.get("match_method") == "manually_verified_answer_equivalent"
+            for row in records
+            for chunk in row["expected_chunks"]
+            for item in chunk["equivalent_chunks"]
         ),
         "corpus_chunk_count": len(corpus),
         "corpus_source_count": len(by_source),
@@ -486,18 +652,26 @@ def build() -> None:
         "source_distribution": dict(sorted(Counter(
             chunk["source_id"] for row in records for chunk in row["expected_chunks"]
         ).items())),
+        "acceptable_source_distribution": dict(sorted(Counter(
+            item["source_id"]
+            for row in records
+            for chunk in row["expected_chunks"]
+            for item in [chunk, *chunk["equivalent_chunks"]]
+        ).items())),
         "verification": [
             "all positive chunk IDs re-derived from normalized source text",
-            "all positive text hashes matched current chunks",
+            "all canonical and equivalent source IDs, chunk indexes, and text hashes matched current chunks",
             "all automatically labelled equivalent chunks matched conservative text rules",
+            "all manually labelled answer-equivalent chunks were explicitly enumerated in evidence groups",
             "all special anchors resolved by source and chunk index",
             "all unanswerable questions have empty expected_chunks",
             "record IDs and normalized questions are unique",
         ],
         "known_corpus_notes": [
             "CorporateFactSheet in the supplied corpus is Q3 2026, not Q2 2026.",
-            "The supplied Form 40-F chunks evidence the original December 4, 2025 filing; a December 17 amendment is not present.",
+            "The supplied Form 40-F chunks evidence the fiscal year and December 4, 2025 body date; SEC metadata identifies a December 17 amendment, but no amendment chunk is present.",
         ],
+        "important_question_ids": [f"bmo-retrieval-{number:03d}" for number in range(181, 188)],
         "generator": "scripts/evaluation/build_retrieval_gold_200.py",
     }
     (OUT_DIR / "retrieval_golden_200.manifest.json").write_text(
