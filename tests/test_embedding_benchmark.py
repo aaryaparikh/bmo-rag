@@ -2,7 +2,11 @@ from __future__ import annotations
 
 import json
 
-from bmo_rag.evaluation.retrieval import metrics_at_k, metrics_by_facets
+from bmo_rag.evaluation.retrieval import (
+    metrics_at_k,
+    metrics_by_facets,
+    validate_golden_alignment,
+)
 from bmo_rag.indexing.corpus import load_corpus, stable_chunk_id
 from bmo_rag.indexing.embeddings import MODEL_SPECS, VllmEmbeddingProvider, resolve_model
 from bmo_rag.indexing.qdrant_store import QdrantStore, collection_name, hybrid_collection_name
@@ -33,7 +37,41 @@ def test_metrics_compute_macro_precision_recall_and_mrr() -> None:
         "recall": 0.75,
         "mrr": 0.75,
         "hit_rate": 1.0,
+        "exact_chunk_recall": 0.75,
+        "relevant_result_redundancy": 0.0,
     }
+
+
+def test_metrics_accept_equivalent_chunks_but_measure_distinct_evidence_coverage() -> None:
+    record = _record("one", ["canonical"])
+    record["expected_chunks"][0]["equivalent_chunks"] = [
+        {"chunk_id": "copy-a"},
+        {"chunk_id": "copy-b"},
+    ]
+    result = metrics_at_k([record], {"one": ["copy-a", "copy-b"]}, (2,))
+
+    assert result["cutoffs"]["2"] == {
+        "precision": 1.0,
+        "recall": 1.0,
+        "mrr": 1.0,
+        "hit_rate": 1.0,
+        "exact_chunk_recall": 0.0,
+        "relevant_result_redundancy": 0.5,
+    }
+
+
+def test_golden_alignment_validates_equivalent_ids_and_manifest() -> None:
+    record = _record("one", ["canonical"])
+    record["expected_chunks"][0]["equivalent_chunks"] = [{"chunk_id": "copy"}]
+    fingerprint = validate_golden_alignment([record], ["canonical", "copy"])
+
+    assert len(fingerprint) == 64
+    try:
+        validate_golden_alignment([record], ["canonical"])
+    except RuntimeError as exc:
+        assert "missing canonical/equivalent" in str(exc)
+    else:
+        raise AssertionError("missing equivalent label was not rejected")
 
 
 def test_metrics_include_query_difficulty_and_edge_case_facets() -> None:

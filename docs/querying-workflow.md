@@ -26,6 +26,7 @@ Question
   -> Qdrant dense search ----+
   -> Qdrant BM25 search -----+-> Reciprocal Rank Fusion (30 candidates)
                                -> BGE cross-encoder reranker
+                               -> exact/contained-passage diversification
                                -> top-k chunks with citations
 ```
 
@@ -41,7 +42,10 @@ Question
 5. The BGE reranker scores each candidate as a question–passage pair. Unlike independent embedding
    similarity, this cross-encoder reads the question and chunk together, giving a more precise final
    ordering.
-6. The command returns the requested `top_k` chunks and prints the rerank score, fusion score,
+6. Exact copies and chunks that fully contain an already higher-ranked passage are collapsed so
+   repeated disclosures do not consume the evidence budget. Copies from explicitly requested
+   sources remain available to preserve source-qualified provenance.
+7. The command returns the requested `top_k` chunks and prints the rerank score, fusion score,
    stable chunk ID, source/page citation, section path, and text excerpt.
 
 ## Run a query
@@ -84,29 +88,34 @@ Set the API key locally (do not commit it):
 $env:OPENAI_API_KEY="your-key"
 ```
 
-Ask a single question:
+Start a chat with an initial question:
 
 ```powershell
 .uvenv\Scripts\python.exe scripts\querying\chat.py "What was BMO's CET1 ratio?"
 ```
 
-GPT-5 receives a 5,000-token answer budget by default. For unusually broad comparisons that need
-many cited figures, increase it explicitly:
+The launcher stays open after answering so you can ask follow-up questions in the same
+memory-enabled session. Type `exit` or `quit` to stop. GPT-5 receives a 5,000-token answer budget by
+default. For unusually broad comparisons that need many cited figures, increase it explicitly:
 
 ```powershell
 .uvenv\Scripts\python.exe scripts\querying\chat.py --max-answer-tokens 8000 "Compare ..."
 ```
 
-When the package is installed, use `bmo-rag ask` instead. Omit the question for an interactive
-session whose recent turns are used to resolve follow-ups:
+Answer text streams to the terminal by default while it is generated. Token usage, the completed
+answer, conversation memory, and observability traces are still recorded from the final Responses
+API event. Use `--no-stream` when buffered output is preferable.
+
+When the package is installed, use `bmo-rag ask --loop` to get the same behavior. You can also omit
+the question to start the interactive session with an empty history:
 
 ```powershell
 .uvenv\Scripts\python.exe scripts\querying\chat.py
 ```
 
-For each turn, the pipeline retrieves 30 hybrid candidates, reranks to eight seeds, and selectively
-adds same-source, same-section neighbors for broad or boundary-limited evidence. All seed chunks are
-preserved before expansion. Context is deduplicated and capped at 32,000 characters, and every block
+For each turn, the pipeline retrieves 30 hybrid candidates, reranks and diversifies them to eight
+seeds, and selectively adds same-source, same-section neighbors for broad or boundary-limited
+evidence. All seed chunks are preserved before expansion. Context is capped at 32,000 characters, and every block
 includes its document, pages, and heading path. GPT-5 receives the evidence through the Responses API
 with remote response storage disabled.
 

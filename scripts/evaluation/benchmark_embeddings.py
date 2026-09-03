@@ -3,7 +3,6 @@
 from __future__ import annotations
 
 import argparse
-import hashlib
 import json
 import os
 import sys
@@ -17,7 +16,14 @@ SRC = ROOT / "src"
 if str(SRC) not in sys.path:
     sys.path.insert(0, str(SRC))
 
-from bmo_rag.evaluation.retrieval import load_golden, metrics_by_facets
+from bmo_rag.evaluation.retrieval import (
+    load_golden,
+    matched_evidence_group_indexes,
+    metrics_by_facets,
+    relevant_chunk_ids,
+    validate_golden_alignment,
+    validate_golden_dataset_hash,
+)
 from bmo_rag.indexing.corpus import load_corpus
 from bmo_rag.indexing.embeddings import EmbeddingError, create_provider, resolve_model
 from bmo_rag.indexing.qdrant_store import QdrantError, QdrantStore, collection_name
@@ -64,7 +70,8 @@ def write_query_details(
     path = output_dir / f"{model_slug}.jsonl"
     rows: list[dict[str, Any]] = []
     for record in records:
-        expected_ids = {item["chunk_id"] for item in record["expected_chunks"]}
+        expected_ids = relevant_chunk_ids(record)
+        canonical_ids = {item["chunk_id"] for item in record["expected_chunks"]}
         returned = []
         for rank, point in enumerate(retrieved_by_id[record["id"]], start=1):
             payload = point["payload"]
@@ -73,6 +80,10 @@ def write_query_details(
                     "rank": rank,
                     "score": round(float(point["score"]), 8),
                     "is_expected": payload["chunk_id"] in expected_ids,
+                    "is_canonical_expected": payload["chunk_id"] in canonical_ids,
+                    "matched_evidence_groups": matched_evidence_group_indexes(
+                        record, payload["chunk_id"]
+                    ),
                     **payload,
                     "citation": citation(payload),
                 }
@@ -177,36 +188,20 @@ def main() -> None:
 
     chunks = load_corpus(args.chunk_dir)
     records = load_golden(args.dataset)
-    corpus_ids = {chunk.chunk_id for chunk in chunks}
-    if len(corpus_ids) != len(chunks):
-        raise RuntimeError("The corpus contains duplicate chunk IDs")
-    gold_ids = {
-        item["chunk_id"] for record in records for item in record["expected_chunks"]
-    }
-    missing_gold = sorted(gold_ids - corpus_ids)
-    if missing_gold:
-        raise RuntimeError(
-            f"Golden dataset references {len(missing_gold)} missing chunk IDs; rebuild it "
-            f"against the completed corpus. First missing ID: {missing_gold[0]}"
-        )
-    fingerprint = hashlib.sha256(
-        "\n".join(chunk.chunk_id for chunk in chunks).encode()
-    ).hexdigest()
     manifest_path = args.dataset.with_name(f"{args.dataset.stem}.manifest.json")
+    manifest = None
     if manifest_path.exists():
         manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
-        if manifest.get("corpus_chunk_count") != len(chunks):
-            raise RuntimeError(
-                f"Golden manifest corpus count is {manifest.get('corpus_chunk_count')}, "
-                f"but the current corpus has {len(chunks)} chunks"
-            )
-        if manifest.get("corpus_fingerprint_sha256") != fingerprint:
-            raise RuntimeError("Golden manifest fingerprint does not match the current corpus")
+    dataset_hash = validate_golden_dataset_hash(args.dataset, manifest)
+    fingerprint = validate_golden_alignment(
+        records, [chunk.chunk_id for chunk in chunks], manifest
+    )
     answerable = [record for record in records if record["expected_chunks"]]
     store = QdrantStore(args.qdrant_url, api_key=args.qdrant_api_key)
     new_report: dict[str, Any] = {
         "created_at": datetime.now(UTC).isoformat(),
         "dataset": str(args.dataset),
+        "dataset_sha256": dataset_hash,
         "corpus_chunk_count": len(chunks),
         "corpus_fingerprint_sha256": fingerprint,
         "record_count": len(records),

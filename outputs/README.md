@@ -6,7 +6,8 @@ This directory contains generated results, grouped by what question the result a
 
 Use this to compare embedding models before hybrid retrieval or reranking.
 
-- `summary.json`: aggregate Precision, Recall, MRR, and Hit Rate by model and cutoff.
+- `summary.json`: aggregate equivalent-aware Precision, evidence-group Recall, MRR, Hit Rate,
+  strict exact-chunk recall, and relevant-result redundancy by model and cutoff.
 - `query_details/*.jsonl`: one record per question, including expected and retrieved chunks.
 - `comparison_snapshots/*.json`: saved partial/model-subset runs kept for comparison.
 
@@ -14,7 +15,8 @@ Use this to compare embedding models before hybrid retrieval or reranking.
 
 Use this to compare retrieval strategies for BGE-M3.
 
-- `summary.json`: aggregate dense vs. hybrid RRF vs. hybrid-plus-reranker metrics.
+- `summary.json`: aggregate dense vs. hybrid RRF vs. hybrid-plus-reranker metrics using evidence
+  equivalence groups rather than only one canonical chunk ID.
 - `query_details.jsonl`: question-level candidates before and after reranking.
 - `facet_metrics.csv`: metrics broken down by query type, difficulty, and edge case.
 

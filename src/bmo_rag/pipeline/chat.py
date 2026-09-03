@@ -8,7 +8,7 @@ import warnings
 from dataclasses import dataclass
 
 from bmo_rag.generation.memory import ConversationMemory
-from bmo_rag.generation.openai_responses import OpenAIResponsesClient
+from bmo_rag.generation.openai_responses import OpenAIResponsesClient, TextDeltaCallback
 from bmo_rag.generation.prompts import ANSWER_INSTRUCTIONS, ANSWER_PROMPT
 from bmo_rag.indexing.embeddings import resolve_model
 from bmo_rag.indexing.qdrant_store import QdrantStore, hybrid_collection_name
@@ -65,17 +65,28 @@ class RAGChatbot:
         self.session_id = session_id or str(uuid.uuid4())
         self._source_catalog: dict[str, str | None] | None = None
 
-    def answer(self, question: str) -> ChatAnswer:
+    def answer(
+        self,
+        question: str,
+        *,
+        on_text_delta: TextDeltaCallback | None = None,
+    ) -> ChatAnswer:
         trace = self._new_trace(question)
         try:
-            return self._answer(question, trace)
+            return self._answer(question, trace, on_text_delta=on_text_delta)
         except Exception as exc:
             if trace and self.observability_store:
                 trace.fail(exc)
                 self._save_trace(trace)
             raise
 
-    def _answer(self, question: str, trace: Trace | None) -> ChatAnswer:
+    def _answer(
+        self,
+        question: str,
+        trace: Trace | None,
+        *,
+        on_text_delta: TextDeltaCallback | None,
+    ) -> ChatAnswer:
         if trace:
             with trace.stage("query_normalization"):
                 original = question.strip()
@@ -183,6 +194,7 @@ class RAGChatbot:
                         reasoning_effort="low",
                         telemetry=trace.record_llm_call,
                         operation="answer_generation",
+                        on_text_delta=on_text_delta,
                     )
             else:
                 answer = self.llm.text(
@@ -190,6 +202,7 @@ class RAGChatbot:
                     input_text=llm_input,
                     max_output_tokens=self.max_answer_tokens,
                     reasoning_effort="low",
+                    on_text_delta=on_text_delta,
                 )
         if trace:
             with trace.stage("conversation_memory_update"):

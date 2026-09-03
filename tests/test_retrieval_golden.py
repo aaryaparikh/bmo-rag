@@ -2,6 +2,12 @@ import hashlib
 import json
 from pathlib import Path
 
+from bmo_rag.evaluation.retrieval import (
+    validate_golden_alignment,
+    validate_golden_dataset_hash,
+)
+from bmo_rag.indexing.corpus import load_corpus
+
 DATASET = Path("data/golden/retrieval_golden_200.jsonl")
 MANIFEST = Path("data/golden/retrieval_golden_200.manifest.json")
 
@@ -25,6 +31,14 @@ def test_retrieval_gold_has_200_traceable_unique_records() -> None:
             assert gold["source_locator"]
             assert gold["evidence"]
             assert len(gold["text_sha256"]) == 64
+            for equivalent in gold.get("equivalent_chunks", []):
+                assert equivalent["chunk_id"].startswith("bmo-")
+                assert equivalent["chunk_id"] != gold["chunk_id"]
+                assert equivalent["match_method"] in {
+                    "normalized_exact",
+                    "full_passage_containment",
+                    "near_duplicate_4gram",
+                }
 
 
 def test_manifest_matches_dataset_bytes_and_source_coverage() -> None:
@@ -37,6 +51,17 @@ def test_manifest_matches_dataset_bytes_and_source_coverage() -> None:
             counts[source] = counts.get(source, 0) + 1
 
     assert counts == manifest["source_distribution"]
-    assert manifest["corpus_source_count"] == 26
-    assert manifest["corpus_chunk_count"] > 6_000
-    assert len(manifest["corpus_fingerprint_sha256"]) == hashlib.sha256().digest_size * 2
+    corpus = load_corpus(Path("data/processed/docling"))
+    fingerprint = validate_golden_alignment(
+        rows, [chunk.chunk_id for chunk in corpus], manifest
+    )
+    dataset_hash = validate_golden_dataset_hash(DATASET, manifest)
+
+    assert manifest["corpus_source_count"] == len({chunk.source_id for chunk in corpus}) == 26
+    assert manifest["corpus_chunk_count"] == len(corpus)
+    assert fingerprint == manifest["corpus_fingerprint_sha256"]
+    assert dataset_hash == manifest["dataset_sha256"]
+    assert hashlib.sha256(Path("data/golden/retrieval_golden_200.csv").read_bytes()).hexdigest() == (
+        manifest["csv_sha256"]
+    )
+    assert len(fingerprint) == hashlib.sha256().digest_size * 2

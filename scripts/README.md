@@ -17,7 +17,7 @@ Run scripts from the project root. They are grouped by the pipeline stage they s
 ## `querying/`
 
 - `test_retrieval.py` is the normal interactive or one-question retrieval command.
-- `chat.py` runs the GPT-5 grounded answer pipeline; omit the question for a memory-enabled session.
+- `chat.py` runs the GPT-5 grounded answer pipeline in a persistent, memory-enabled session.
 - `corpus_search.py` searches the processed JSONL chunks directly with a regular expression;
   it is mainly useful when curating or debugging evaluation data.
 

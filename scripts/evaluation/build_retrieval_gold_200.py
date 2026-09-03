@@ -12,12 +12,13 @@ import csv
 import hashlib
 import json
 import re
+import unicodedata
 from collections import Counter
+from functools import cache
 from pathlib import Path
 from typing import Any
 
 from build_retrieval_gold import SEEDS, chunk_id, load_corpus, norm, resolve
-
 
 ROOT = Path(__file__).resolve().parents[2]
 OUT_DIR = ROOT / "data" / "golden"
@@ -35,7 +36,7 @@ def locator(row: dict[str, Any]) -> str:
     return row["source_url"] or f"data/raw/{row['origin_filename']}"
 
 
-def label(row: dict[str, Any]) -> dict[str, Any]:
+def _base_label(row: dict[str, Any]) -> dict[str, Any]:
     return {
         "chunk_id": row["chunk_id"],
         "relevance": 3,
@@ -49,8 +50,118 @@ def label(row: dict[str, Any]) -> dict[str, Any]:
     }
 
 
-def hard_negatives(chosen: list[dict[str, Any]], corpus: list[dict[str, Any]]) -> list[str]:
-    chosen_ids = {row["chunk_id"] for row in chosen}
+@cache
+def _comparison_text(value: str) -> str:
+    value = unicodedata.normalize("NFKC", value).casefold()
+    return re.sub(r"\s+", " ", value).strip()
+
+
+@cache
+def _word_shingles(value: str, size: int = 4) -> frozenset[tuple[str, ...]]:
+    words = re.findall(r"[a-z0-9]+(?:[.,'-][a-z0-9]+)?", _comparison_text(value))
+    if len(words) < size:
+        return frozenset({tuple(words)}) if words else frozenset()
+    return frozenset(
+        tuple(words[index : index + size]) for index in range(len(words) - size + 1)
+    )
+
+
+@cache
+def _period_markers(value: str) -> tuple[frozenset[str], frozenset[str], frozenset[str]]:
+    text = _comparison_text(value)
+    quarter_words = {"first": "q1", "second": "q2", "third": "q3", "fourth": "q4"}
+    quarters = set(re.findall(r"\bq\s*([1-4])\b", text))
+    quarters.update(
+        quarter_words[word]
+        for word in re.findall(r"\b(first|second|third|fourth)\s+quarter\b", text)
+    )
+    quarters = {value if value.startswith("q") else f"q{value}" for value in quarters}
+    years = set(re.findall(r"\b20\d{2}\b", text))
+    month_days = set(
+        re.findall(
+            r"\b(?:january|february|march|april|may|june|july|august|september|"
+            r"october|november|december)\s+\d{1,2}\b",
+            text,
+        )
+    )
+    return frozenset(quarters), frozenset(years), frozenset(month_days)
+
+
+def _equivalence(row: dict[str, Any], candidate: dict[str, Any]) -> tuple[str, float] | None:
+    """Conservatively identify chunks carrying the same complete evidence passage."""
+    left = _comparison_text(row["text"])
+    right = _comparison_text(candidate["text"])
+    if left == right:
+        return "normalized_exact", 1.0
+
+    shorter, longer = sorted((left, right), key=len)
+    length_ratio = len(shorter) / len(longer) if longer else 0.0
+    if len(shorter) >= 120 and length_ratio >= 0.35 and shorter in longer:
+        return "full_passage_containment", round(length_ratio, 6)
+
+    if length_ratio < 0.72:
+        return None
+    for left_markers, right_markers in zip(
+        _period_markers(left), _period_markers(right), strict=True
+    ):
+        if left_markers and right_markers and left_markers != right_markers:
+            return None
+    left_numbers = set(re.findall(r"\b\d[\d,.%$-]*", left))
+    right_numbers = set(re.findall(r"\b\d[\d,.%$-]*", right))
+    if left_numbers and not left_numbers.issubset(right_numbers):
+        return None
+    left_shingles = _word_shingles(left)
+    right_shingles = _word_shingles(right)
+    union = left_shingles | right_shingles
+    similarity = len(left_shingles & right_shingles) / len(union) if union else 0.0
+    if similarity >= 0.82:
+        return "near_duplicate_4gram", round(similarity, 6)
+    return None
+
+
+def label(
+    row: dict[str, Any],
+    corpus: list[dict[str, Any]],
+    *,
+    equivalent_source_ids: set[str] | None = None,
+) -> dict[str, Any]:
+    result = _base_label(row)
+    equivalents = []
+    for candidate in corpus:
+        if candidate["chunk_id"] == row["chunk_id"]:
+            continue
+        if equivalent_source_ids is not None and candidate["source_id"] not in equivalent_source_ids:
+            continue
+        match = _equivalence(row, candidate)
+        if match is None:
+            continue
+        method, similarity = match
+        equivalents.append(
+            {
+                **_base_label(candidate),
+                "match_method": method,
+                "match_score": similarity,
+            }
+        )
+    result["equivalent_chunks"] = sorted(
+        equivalents, key=lambda item: (item["source_id"], item["chunk_index"])
+    )
+    result["equivalence_source_scope"] = (
+        "restricted_to_canonical_source" if equivalent_source_ids is not None else "any_source"
+    )
+    return result
+
+
+def hard_negatives(
+    chosen: list[dict[str, Any]],
+    expected: list[dict[str, Any]],
+    corpus: list[dict[str, Any]],
+) -> list[str]:
+    chosen_ids = {
+        chunk_id
+        for item in expected
+        for chunk_id in [item["chunk_id"], *(row["chunk_id"] for row in item["equivalent_chunks"])]
+    }
     chosen_sources = {row["source_id"] for row in chosen}
     candidates = [
         row for row in corpus
@@ -73,6 +184,14 @@ def make_record(
     expected_answer: str,
     provenance: str,
 ) -> dict[str, Any]:
+    expected = [
+        label(
+            row,
+            corpus,
+            equivalent_source_ids={row["source_id"]} if edge_case == "source_qualified" else None,
+        )
+        for row in chosen
+    ]
     return {
         "id": f"bmo-retrieval-{number:03d}",
         "question": question,
@@ -82,8 +201,8 @@ def make_record(
         "split": "test" if number % 5 == 0 else "development",
         "expected_behavior": expected_behavior,
         "expected_answer": expected_answer,
-        "expected_chunks": [label(row) for row in chosen],
-        "hard_negative_chunk_ids": hard_negatives(chosen, corpus) if chosen else [],
+        "expected_chunks": expected,
+        "hard_negative_chunk_ids": hard_negatives(chosen, expected, corpus) if chosen else [],
         "annotation": {
             "status": "gold",
             "method": provenance,
@@ -150,7 +269,7 @@ SPECIALS: list[dict[str, Any]] = [
     },
     {
         "question": "Which fiscal year is covered by BMO's latest Form 40-F in the supplied corpus, and when was it filed?",
-        "anchors": [("d938207d40f-e11c68d11f", 0), ("d938207d40f-e11c68d11f", 21)],
+        "anchors": [("d938207d40f-e11c68d11f", 0), ("d938207d40f-e11c68d11f", 2)],
         "query_type": "regulatory_filing", "difficulty": "medium", "edge_case": "original_vs_amendment",
         "expected_behavior": "Distinguish what the supplied SEC filing proves from amendment information absent from these chunks.",
         "expected_answer": "The supplied Form 40-F covers the fiscal year ended October 31, 2025 and is signed December 4, 2025. No December 17 amendment is present in the supplied chunks, so the dataset must not label that absent fact as retrievable evidence.",
@@ -296,8 +415,9 @@ def build() -> None:
     corpus_ids = {row["chunk_id"] for row in corpus}
     for record in records:
         for expected in record["expected_chunks"]:
-            if expected["chunk_id"] not in corpus_ids:
-                raise ValueError(f"Unknown chunk label in {record['id']}")
+            labelled = [expected, *expected["equivalent_chunks"]]
+            if any(item["chunk_id"] not in corpus_ids for item in labelled):
+                raise ValueError(f"Unknown canonical/equivalent chunk label in {record['id']}")
             current = by_key[(expected["source_id"], expected["chunk_index"])]
             if chunk_id(current["source_id"], current["text"]) != expected["chunk_id"]:
                 raise ValueError(f"Chunk ID drift in {record['id']}")
@@ -332,17 +452,35 @@ def build() -> None:
             })
 
     fingerprint = hashlib.sha256("\n".join(row["chunk_id"] for row in corpus).encode()).hexdigest()
+    normalized_counts = Counter(_comparison_text(row["text"]) for row in corpus)
+    duplicate_groups = [count for count in normalized_counts.values() if count > 1]
     manifest = {
-        "schema_version": "2.0.0",
+        "schema_version": "3.0.0",
         "dataset": jsonl_path.name,
+        "dataset_sha256": hashlib.sha256(jsonl_path.read_bytes()).hexdigest(),
         "csv_companion": csv_path.name,
+        "csv_sha256": hashlib.sha256(csv_path.read_bytes()).hexdigest(),
         "record_count": len(records),
         "answerable_count": sum(bool(row["expected_chunks"]) for row in records),
         "empty_gold_count": sum(not row["expected_chunks"] for row in records),
         "multi_chunk_count": sum(len(row["expected_chunks"]) > 1 for row in records),
+        "equivalent_chunk_label_count": sum(
+            len(chunk["equivalent_chunks"])
+            for row in records
+            for chunk in row["expected_chunks"]
+        ),
         "corpus_chunk_count": len(corpus),
         "corpus_source_count": len(by_source),
         "corpus_fingerprint_sha256": fingerprint,
+        "corpus_exact_duplicates": {
+            "groups": len(duplicate_groups),
+            "instances_beyond_canonical": sum(count - 1 for count in duplicate_groups),
+            "policy": (
+                "Retain cross-source copies for provenance and source-filtered retrieval; "
+                "score them as equivalent evidence. Exact duplicates within each source are "
+                "removed during ingestion."
+            ),
+        },
         "query_type_distribution": dict(sorted(Counter(row["query_type"] for row in records).items())),
         "edge_case_distribution": dict(sorted(Counter(row["edge_case"] for row in records).items())),
         "source_distribution": dict(sorted(Counter(
@@ -351,6 +489,7 @@ def build() -> None:
         "verification": [
             "all positive chunk IDs re-derived from normalized source text",
             "all positive text hashes matched current chunks",
+            "all automatically labelled equivalent chunks matched conservative text rules",
             "all special anchors resolved by source and chunk index",
             "all unanswerable questions have empty expected_chunks",
             "record IDs and normalized questions are unique",

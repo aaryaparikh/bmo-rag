@@ -1,14 +1,22 @@
 {
-  "schema_version": "2.0.0",
+  "schema_version": "3.0.0",
   "dataset": "retrieval_golden_200.jsonl",
+  "dataset_sha256": "e15a425827d7f15736c17d0a3684be1bbd569e677fa6c890ff5d8db1a08a9c46",
   "csv_companion": "retrieval_golden_200.csv",
+  "csv_sha256": "5d7ce7f26522e4c972194a60ffce89ffa855574f13301c1567dd7fa0fdfe9e54",
   "record_count": 200,
   "answerable_count": 189,
   "empty_gold_count": 11,
   "multi_chunk_count": 5,
-  "corpus_chunk_count": 6415,
+  "equivalent_chunk_label_count": 138,
+  "corpus_chunk_count": 6171,
   "corpus_source_count": 26,
-  "corpus_fingerprint_sha256": "7a9d928edc4fbcc1f368f531626b3b96aa32d695fce1f1dce758fddd6d8bb225",
+  "corpus_fingerprint_sha256": "748856a502ae1d519bfd58d720a65b5a7dd0f98b51c18c131d9f7fd09c677ad8",
+  "corpus_exact_duplicates": {
+    "groups": 270,
+    "instances_beyond_canonical": 522,
+    "policy": "Retain cross-source copies for provenance and source-filtered retrieval; score them as equivalent evidence. Exact duplicates within each source are removed during ingestion."
+  },
   "query_type_distribution": {
     "ambiguous": 2,
     "factual": 22,
@@ -81,6 +89,7 @@
   "verification": [
     "all positive chunk IDs re-derived from normalized source text",
     "all positive text hashes matched current chunks",
+    "all automatically labelled equivalent chunks matched conservative text rules",
     "all special anchors resolved by source and chunk index",
     "all unanswerable questions have empty expected_chunks",
     "record IDs and normalized questions are unique"

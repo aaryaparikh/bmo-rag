@@ -16,4 +16,5 @@ app = import_module("bmo_rag.cli").app
 
 if __name__ == "__main__":
     sys.argv.insert(1, "ask")
+    sys.argv.insert(2, "--loop")
     app()

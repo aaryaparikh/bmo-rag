@@ -109,8 +109,11 @@ def index() -> None:
     typer.echo("Indexing pipeline placeholder")
 
 
-def _print_chat_answer(result: ChatAnswer) -> None:
-    typer.echo(f"\n{result.answer}\n")
+def _print_chat_answer(result: ChatAnswer, *, include_answer: bool = True) -> None:
+    if include_answer:
+        typer.echo(f"\n{result.answer}\n")
+    else:
+        typer.echo("\n")
     if result.requested_sources:
         resolved = "; ".join(
             f"{group.label} -> {', '.join(group.source_ids)}"
@@ -126,6 +129,49 @@ def _print_chat_answer(result: ChatAnswer) -> None:
         typer.echo("  (Some lower-priority context was omitted to stay within the token budget.)")
     if result.trace_id:
         typer.echo(f"Trace: {result.trace_id}")
+
+
+def _run_chat_session(
+    chatbot: RAGChatbot,
+    initial_question: str | None,
+    *,
+    loop: bool,
+    stream: bool,
+) -> None:
+    """Answer an optional first question, then keep prompting when requested."""
+    def answer(question: str) -> None:
+        if not stream:
+            _print_chat_answer(chatbot.answer(question))
+            return
+        typer.echo("\nAssistant: ", nl=False)
+        emitted = False
+
+        def print_delta(delta: str) -> None:
+            nonlocal emitted
+            emitted = True
+            typer.echo(delta, nl=False)
+
+        result = chatbot.answer(
+            question,
+            on_text_delta=print_delta,
+        )
+        if not emitted:
+            typer.echo(result.answer, nl=False)
+        _print_chat_answer(result, include_answer=False)
+
+    if initial_question is not None:
+        answer(initial_question)
+        if not loop:
+            return
+
+    typer.echo("Memory-enabled BMO chat. Type 'exit' or 'quit' to stop.")
+    while True:
+        selected = typer.prompt("You").strip()
+        if selected.casefold() in {"exit", "quit"}:
+            return
+        if not selected:
+            continue
+        answer(selected)
 
 
 @app.command()
@@ -179,6 +225,20 @@ def ask(
         Path | None,
         typer.Option(help="SQLite path for local RAG observability traces."),
     ] = None,
+    loop: Annotated[
+        bool,
+        typer.Option(
+            "--loop/--no-loop",
+            help="Keep prompting after an optional initial question.",
+        ),
+    ] = False,
+    stream: Annotated[
+        bool,
+        typer.Option(
+            "--stream/--no-stream",
+            help="Print answer text as OpenAI generates it.",
+        ),
+    ] = True,
 ) -> None:
     """Answer questions with GPT-5 over hybrid, reranked, selectively expanded evidence."""
     try:
@@ -217,15 +277,7 @@ def ask(
                 else None
             ),
         )
-        if question is not None:
-            _print_chat_answer(chatbot.answer(question))
-            return
-        typer.echo("Memory-enabled BMO chat. Type 'exit' or 'quit' to stop.")
-        while True:
-            selected = typer.prompt("You").strip()
-            if selected.casefold() in {"exit", "quit"}:
-                return
-            _print_chat_answer(chatbot.answer(selected))
+        _run_chat_session(chatbot, question, loop=loop or question is None, stream=stream)
     except (
         EmbeddingError,
         LocalVllmError,

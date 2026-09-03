@@ -120,10 +120,24 @@ variants, and 20 manually adjudicated reconciliation, false-premise, ambiguous,
 prompt-injection, privacy, future-period, and no-answer cases. A flat
 `retrieval_golden_200.csv` companion is provided for review.
 
-Positive labels live in `expected_chunks` and include a content-derived `chunk_id`, the
-current JSONL `chunk_index`, pages/headings, an evidence excerpt, and a full-text SHA-256.
-An empty `expected_chunks` array is the gold label for abstention. The manifest records
-the corpus fingerprint and known source-date caveats.
+Positive labels live in `expected_chunks`. Each item is one independently required evidence
+group with a canonical, human-reviewed `chunk_id` plus `equivalent_chunks` that contain the same
+complete evidence passage. Equivalents are generated only by normalized exact matching, complete
+passage containment, or a conservative four-word-shingle rule that preserves the canonical
+chunk's numeric tokens. Source-qualified robustness questions restrict equivalents to the named
+source. This prevents alternate copies of a valid answer from being scored as false positives
+without turning ten duplicate passages into ten separate recall requirements.
+
+The benchmark reports equivalent-aware precision, evidence-group recall, MRR and hit rate. It
+also reports strict `exact_chunk_recall` for comparison with the old metric and
+`relevant_result_redundancy` to expose top-k slots spent repeating an already covered evidence
+group. An empty `expected_chunks` array remains the gold label for abstention. The manifest records
+the exact corpus fingerprint, equivalent-label count, duplicate-content statistics, and known
+source-date caveats.
+
+Exact duplicates are removed within each source during ingestion. Identical passages across
+different reports remain indexed because their provenance and reporting period can matter; they
+share an evidence group when they are valid alternatives for a question.
 
 Regenerate and run the lexical smoke baseline with:
 

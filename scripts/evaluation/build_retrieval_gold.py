@@ -15,7 +15,6 @@ from collections import Counter, defaultdict
 from pathlib import Path
 from typing import Any
 
-
 ROOT = Path(__file__).resolve().parents[2]
 CHUNK_DIR = ROOT / "data" / "processed" / "docling"
 OUT_DIR = ROOT / "data" / "golden"
@@ -121,8 +120,8 @@ SEEDS: list[tuple[str, str, str | None, str | None]] = [
     ("investor-day-2026-609c901e12", "Who presented the U.S. Banking session at BMO Investor Day 2026?", "Agenda", "Aron Levine"),
     ("investor-day-2026-609c901e12", "Who presented the Risk and Financial Overview at BMO Investor Day 2026?", "Agenda", "Piyush Agrawal"),
     ("d938207d40f-e11c68d11f", "What fiscal year and SEC commission file number are shown on BMO's 2025 Form 40-F?", "40-F", "001-13354"),
-    ("d938207d40f-e11c68d11f", "What is Bank of Montreal's U.S. agent-for-service address?", "BANK OF MONTREAL", "320 S. Canal"),
-    ("d938207d40f-e11c68d11f", "How many BMO common shares were outstanding at the end of the Form 40-F period?", "BANK OF MONTREAL", "708,905,679"),
+    ("d938207d40f-e11c68d11f", "On which exchange are BMO common shares registered in the supplied Form 40-F?", "40-F", "New York Stock Exchange"),
+    ("d938207d40f-e11c68d11f", "How many BMO common shares were outstanding at the end of the Form 40-F period?", "40-F", "708,905,679"),
 ]
 
 
@@ -171,7 +170,7 @@ def resolve(seed: tuple[str, str, str | None, str | None], rows: list[dict[str, 
     source, query, heading_pattern, text_pattern = seed
     candidates = rows
     if heading_pattern:
-        rx = re.compile(heading_pattern, re.I)
+        rx = re.compile(heading_pattern, re.IGNORECASE)
         candidates = [row for row in candidates if rx.search(" > ".join(row["headings"]))]
     if text_pattern:
         candidates = [
@@ -215,7 +214,7 @@ def build() -> None:
         records.append({
             "id": f"bmo-retrieval-{number:03d}",
             "query": query,
-            "query_type": "table_lookup" if re.search(r"what (?:were|was|is)|how many|how large|which quarters", query, re.I) and re.search(r"\d", chosen["text"]) else "factual",
+            "query_type": "table_lookup" if re.search(r"what (?:were|was|is)|how many|how large|which quarters", query, re.IGNORECASE) and re.search(r"\d", chosen["text"]) else "factual",
             "difficulty": "hard" if same_heading else "medium",
             "split": split,
             "gold": [{

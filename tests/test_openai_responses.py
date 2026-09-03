@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+import json
+
 from bmo_rag.generation.openai_responses import OpenAIResponsesClient
 
 
@@ -79,3 +81,62 @@ def test_responses_client_parses_structured_output(monkeypatch) -> None:
         schema={"type": "object"},
     )
     assert result == {"query": "BMO Q2"}
+
+
+def test_responses_client_streams_text_and_records_telemetry(monkeypatch) -> None:
+    client = OpenAIResponsesClient(api_key="test-key")
+    captured: dict = {}
+    completed = {
+        "id": "resp-stream",
+        "model": "gpt-5",
+        "status": "completed",
+        "usage": {
+            "input_tokens": 10,
+            "output_tokens": 4,
+            "total_tokens": 14,
+            "output_tokens_details": {"reasoning_tokens": 2},
+        },
+        "output": [
+            {
+                "type": "message",
+                "content": [{"type": "output_text", "text": "Hello world"}],
+            }
+        ],
+    }
+
+    class Response:
+        status_code = 200
+
+        def iter_lines(self, **kwargs: object) -> list[str]:
+            return [
+                'data: {"type":"response.output_text.delta","delta":"Hello "}',
+                "",
+                'data: {"type":"response.output_text.delta","delta":"world"}',
+                "",
+                f'data: {json.dumps({"type": "response.completed", "response": completed})}',
+                "",
+            ]
+
+        def close(self) -> None:
+            pass
+
+    def fake_post(url: str, **kwargs: object) -> Response:
+        captured.update(url=url, **kwargs)
+        return Response()
+
+    monkeypatch.setattr(client.session, "post", fake_post)
+    deltas: list[str] = []
+    telemetry = []
+
+    result = client.text(
+        instructions="Answer",
+        input_text="Question",
+        on_text_delta=deltas.append,
+        telemetry=telemetry.append,
+    )
+
+    assert result == "Hello world"
+    assert deltas == ["Hello ", "world"]
+    assert captured["json"]["stream"] is True
+    assert captured["stream"] is True
+    assert telemetry[0].total_tokens == 14

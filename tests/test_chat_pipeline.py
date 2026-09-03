@@ -16,6 +16,9 @@ class FakeLLM:
         self.input_text = input_text
         self.max_output_tokens = int(kwargs.get("max_output_tokens") or 0)
         output = "The ratio was 13.6% [S1]."
+        on_text_delta = kwargs.get("on_text_delta")
+        if callable(on_text_delta):
+            on_text_delta(output)
         callback = kwargs.get("telemetry")
         if callable(callback):
             callback(

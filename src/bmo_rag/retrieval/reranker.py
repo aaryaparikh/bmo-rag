@@ -43,7 +43,7 @@ class VllmReranker:
             text = str(payload.get("text") or "")
             prefix = "\n".join(value for value in [str(source), headings] if value)
             documents.append(f"{prefix}\n\n{text}" if prefix else text)
-        body = {
+        body: dict[str, Any] = {
             "model": self.model,
             "query": question,
             "documents": documents,

@@ -5,7 +5,7 @@ from __future__ import annotations
 import json
 import os
 import time
-from collections.abc import Callable
+from collections.abc import Callable, Iterator
 from dataclasses import dataclass
 from typing import Any
 
@@ -32,6 +32,7 @@ class ResponseTelemetry:
 
 
 TelemetryCallback = Callable[[ResponseTelemetry], None]
+TextDeltaCallback = Callable[[str], None]
 
 
 class OpenAIResponsesClient:
@@ -64,13 +65,23 @@ class OpenAIResponsesClient:
         reasoning_effort: str = "low",
         telemetry: TelemetryCallback | None = None,
         operation: str = "generation",
+        on_text_delta: TextDeltaCallback | None = None,
     ) -> str:
-        body = self._create(
-            instructions=instructions,
-            input_text=input_text,
-            max_output_tokens=max_output_tokens,
-            reasoning_effort=reasoning_effort,
-        )
+        if on_text_delta is None:
+            body = self._create(
+                instructions=instructions,
+                input_text=input_text,
+                max_output_tokens=max_output_tokens,
+                reasoning_effort=reasoning_effort,
+            )
+        else:
+            body = self._create_stream(
+                instructions=instructions,
+                input_text=input_text,
+                max_output_tokens=max_output_tokens,
+                reasoning_effort=reasoning_effort,
+                on_text_delta=on_text_delta,
+            )
         output = self._output_text(body)
         if telemetry:
             telemetry(
@@ -136,6 +147,70 @@ class OpenAIResponsesClient:
         reasoning_effort: str,
         text_format: dict[str, Any] | None = None,
     ) -> dict[str, Any]:
+        payload = self._payload(
+            instructions=instructions,
+            input_text=input_text,
+            max_output_tokens=max_output_tokens,
+            reasoning_effort=reasoning_effort,
+            text_format=text_format,
+        )
+        return self._validate_response(self._post(payload).json())
+
+    def _create_stream(
+        self,
+        *,
+        instructions: str,
+        input_text: str,
+        max_output_tokens: int,
+        reasoning_effort: str,
+        on_text_delta: TextDeltaCallback,
+    ) -> dict[str, Any]:
+        payload = self._payload(
+            instructions=instructions,
+            input_text=input_text,
+            max_output_tokens=max_output_tokens,
+            reasoning_effort=reasoning_effort,
+        )
+        payload["stream"] = True
+        response = self._post(payload, stream=True)
+        completed: dict[str, Any] | None = None
+        try:
+            for event in self._iter_sse_events(response):
+                event_type = event.get("type")
+                if event_type == "response.output_text.delta":
+                    delta = str(event.get("delta") or "")
+                    if delta:
+                        on_text_delta(delta)
+                elif event_type == "response.completed":
+                    value = event.get("response")
+                    if isinstance(value, dict):
+                        completed = value
+                elif event_type in {"response.failed", "response.incomplete"}:
+                    value = event.get("response")
+                    if isinstance(value, dict):
+                        self._validate_response(value)
+                    raise OpenAIError(f"OpenAI stream ended with {event_type}")
+                elif event_type == "error":
+                    raise OpenAIError(
+                        f"OpenAI stream failed: {event.get('message') or 'unknown error'}"
+                    )
+        except requests.RequestException as exc:
+            raise OpenAIError(f"OpenAI stream was interrupted: {exc}") from exc
+        finally:
+            response.close()
+        if completed is None:
+            raise OpenAIError("OpenAI stream ended without a completed response")
+        return self._validate_response(completed)
+
+    def _payload(
+        self,
+        *,
+        instructions: str,
+        input_text: str,
+        max_output_tokens: int,
+        reasoning_effort: str,
+        text_format: dict[str, Any] | None = None,
+    ) -> dict[str, Any]:
         payload: dict[str, Any] = {
             "model": self.model,
             "instructions": instructions,
@@ -146,7 +221,9 @@ class OpenAIResponsesClient:
         }
         if text_format is not None:
             payload["text"] = {"format": text_format}
+        return payload
 
+    def _post(self, payload: dict[str, Any], *, stream: bool = False) -> requests.Response:
         response: requests.Response | None = None
         for attempt in range(self.max_retries + 1):
             try:
@@ -157,6 +234,7 @@ class OpenAIResponsesClient:
                         "Content-Type": "application/json",
                     },
                     json=payload,
+                    stream=stream,
                     timeout=self.timeout,
                 )
             except requests.RequestException as exc:
@@ -165,14 +243,7 @@ class OpenAIResponsesClient:
                 time.sleep(min(2**attempt, 10))
                 continue
             if response.status_code < 400:
-                result = response.json()
-                if result.get("status") == "incomplete":
-                    reason = (result.get("incomplete_details") or {}).get("reason", "unknown")
-                    raise OpenAIError(f"OpenAI response was incomplete: {reason}")
-                if result.get("status") == "failed":
-                    message = (result.get("error") or {}).get("message", "unknown error")
-                    raise OpenAIError(f"OpenAI response failed: {message}")
-                return result
+                return response
             retryable = response.status_code in {408, 409, 429} or response.status_code >= 500
             if not retryable or attempt == self.max_retries:
                 raise OpenAIError(
@@ -180,6 +251,37 @@ class OpenAIResponsesClient:
                 )
             time.sleep(min(2**attempt, 10))
         raise AssertionError("unreachable")
+
+    @staticmethod
+    def _iter_sse_events(response: requests.Response) -> Iterator[dict[str, Any]]:
+        data_lines: list[str] = []
+        for raw_line in response.iter_lines(chunk_size=1, decode_unicode=True):
+            line = raw_line.decode("utf-8") if isinstance(raw_line, bytes) else raw_line
+            if line == "":
+                if data_lines:
+                    data = "\n".join(data_lines)
+                    data_lines.clear()
+                    if data != "[DONE]":
+                        value = json.loads(data)
+                        if isinstance(value, dict):
+                            yield value
+                continue
+            if line.startswith("data:"):
+                data_lines.append(line[5:].lstrip())
+        if data_lines:
+            value = json.loads("\n".join(data_lines))
+            if isinstance(value, dict):
+                yield value
+
+    @staticmethod
+    def _validate_response(result: dict[str, Any]) -> dict[str, Any]:
+        if result.get("status") == "incomplete":
+            reason = (result.get("incomplete_details") or {}).get("reason", "unknown")
+            raise OpenAIError(f"OpenAI response was incomplete: {reason}")
+        if result.get("status") == "failed":
+            message = (result.get("error") or {}).get("message", "unknown error")
+            raise OpenAIError(f"OpenAI response failed: {message}")
+        return result
 
     @staticmethod
     def _output_text(response: dict[str, Any]) -> str:

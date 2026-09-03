@@ -1,493 +1,497 @@
-"Facet","Group","Method","Answerable","ExcludedEmptyGold","K","Precision","Recall","MRR","HitRate"
-"Overall","all","bge-m3-dense","189","11","5","0.102646","0.507937","0.36164","0.507937"
-"Overall","all","bge-m3-dense","189","11","10","0.05873","0.578483","0.372069","0.582011"
-"Overall","all","bge-m3-dense","189","11","20","0.032804","0.647266","0.376841","0.650794"
-"Overall","all","bge-m3-dense","189","11","30","0.023104","0.684303","0.378423","0.687831"
-"Query Type","ambiguous","bge-m3-dense","1","1","5","0","0","0","0"
-"Query Type","ambiguous","bge-m3-dense","1","1","10","0","0","0","0"
-"Query Type","ambiguous","bge-m3-dense","1","1","20","0","0","0","0"
-"Query Type","ambiguous","bge-m3-dense","1","1","30","0","0","0","0"
-"Query Type","factual","bge-m3-dense","22","0","5","0.109091","0.545455","0.319697","0.545455"
-"Query Type","factual","bge-m3-dense","22","0","10","0.054545","0.545455","0.319697","0.545455"
-"Query Type","factual","bge-m3-dense","22","0","20","0.031818","0.636364","0.32493","0.636364"
-"Query Type","factual","bge-m3-dense","22","0","30","0.022727","0.681818","0.326824","0.681818"
-"Query Type","list","bge-m3-dense","1","0","5","0","0","0","0"
-"Query Type","list","bge-m3-dense","1","0","10","0","0","0","0"
-"Query Type","list","bge-m3-dense","1","0","20","0","0","0","0"
-"Query Type","list","bge-m3-dense","1","0","30","0","0","0","0"
-"Query Type","multi_chunk_synthesis","bge-m3-dense","1","0","5","0","0","0","0"
-"Query Type","multi_chunk_synthesis","bge-m3-dense","1","0","10","0.1","0.333333","0.142857","1"
-"Query Type","multi_chunk_synthesis","bge-m3-dense","1","0","20","0.05","0.333333","0.142857","1"
-"Query Type","multi_chunk_synthesis","bge-m3-dense","1","0","30","0.033333","0.333333","0.142857","1"
-"Query Type","multi_document_comparison","bge-m3-dense","1","0","5","0","0","0","0"
-"Query Type","multi_document_comparison","bge-m3-dense","1","0","10","0","0","0","0"
-"Query Type","multi_document_comparison","bge-m3-dense","1","0","20","0","0","0","0"
-"Query Type","multi_document_comparison","bge-m3-dense","1","0","30","0","0","0","0"
-"Query Type","multi_document_reconciliation","bge-m3-dense","1","0","5","0.4","1","1","1"
-"Query Type","multi_document_reconciliation","bge-m3-dense","1","0","10","0.2","1","1","1"
-"Query Type","multi_document_reconciliation","bge-m3-dense","1","0","20","0.1","1","1","1"
-"Query Type","multi_document_reconciliation","bge-m3-dense","1","0","30","0.066667","1","1","1"
-"Query Type","paraphrase","bge-m3-dense","80","0","5","0.105","0.525","0.366042","0.525"
-"Query Type","paraphrase","bge-m3-dense","80","0","10","0.06125","0.6125","0.377907","0.6125"
-"Query Type","paraphrase","bge-m3-dense","80","0","20","0.033125","0.6625","0.381567","0.6625"
-"Query Type","paraphrase","bge-m3-dense","80","0","30","0.022917","0.6875","0.382758","0.6875"
-"Query Type","premise_check","bge-m3-dense","1","0","5","0","0","0","0"
-"Query Type","premise_check","bge-m3-dense","1","0","10","0","0","0","0"
-"Query Type","premise_check","bge-m3-dense","1","0","20","0","0","0","0"
-"Query Type","premise_check","bge-m3-dense","1","0","30","0","0","0","0"
-"Query Type","regulatory_filing","bge-m3-dense","1","0","5","0","0","0","0"
-"Query Type","regulatory_filing","bge-m3-dense","1","0","10","0","0","0","0"
-"Query Type","regulatory_filing","bge-m3-dense","1","0","20","0","0","0","0"
-"Query Type","regulatory_filing","bge-m3-dense","1","0","30","0","0","0","0"
-"Query Type","table_lookup","bge-m3-dense","79","0","5","0.103797","0.518987","0.392827","0.518987"
-"Query Type","table_lookup","bge-m3-dense","79","0","10","0.059494","0.594937","0.403953","0.594937"
-"Query Type","table_lookup","bge-m3-dense","79","0","20","0.034177","0.683544","0.410207","0.683544"
-"Query Type","table_lookup","bge-m3-dense","79","0","30","0.024473","0.734177","0.412258","0.734177"
-"Query Type","temporal_reconciliation","bge-m3-dense","1","0","5","0","0","0","0"
-"Query Type","temporal_reconciliation","bge-m3-dense","1","0","10","0","0","0","0"
-"Query Type","temporal_reconciliation","bge-m3-dense","1","0","20","0","0","0","0"
-"Query Type","temporal_reconciliation","bge-m3-dense","1","0","30","0","0","0","0"
-"Query Type","unanswerable","bge-m3-dense","0","10","5",,,,
-"Query Type","unanswerable","bge-m3-dense","0","10","10",,,,
-"Query Type","unanswerable","bge-m3-dense","0","10","20",,,,
-"Query Type","unanswerable","bge-m3-dense","0","10","30",,,,
-"Difficulty","easy","bge-m3-dense","2","8","5","0","0","0","0"
-"Difficulty","easy","bge-m3-dense","2","8","10","0","0","0","0"
-"Difficulty","easy","bge-m3-dense","2","8","20","0","0","0","0"
-"Difficulty","easy","bge-m3-dense","2","8","30","0","0","0","0"
-"Difficulty","hard","bge-m3-dense","5","1","5","0.08","0.2","0.2","0.2"
-"Difficulty","hard","bge-m3-dense","5","1","10","0.06","0.266667","0.228571","0.4"
-"Difficulty","hard","bge-m3-dense","5","1","20","0.03","0.266667","0.228571","0.4"
-"Difficulty","hard","bge-m3-dense","5","1","30","0.02","0.266667","0.228571","0.4"
-"Difficulty","medium","bge-m3-dense","182","2","5","0.104396","0.521978","0.370055","0.521978"
-"Difficulty","medium","bge-m3-dense","182","2","10","0.059341","0.593407","0.3801","0.593407"
-"Difficulty","medium","bge-m3-dense","182","2","20","0.033242","0.664835","0.385056","0.664835"
-"Difficulty","medium","bge-m3-dense","182","2","30","0.023443","0.703297","0.386698","0.703297"
-"Edge Case","arbitrary_selection_rule","bge-m3-dense","1","0","5","0","0","0","0"
-"Edge Case","arbitrary_selection_rule","bge-m3-dense","1","0","10","0","0","0","0"
-"Edge Case","arbitrary_selection_rule","bge-m3-dense","1","0","20","0","0","0","0"
-"Edge Case","arbitrary_selection_rule","bge-m3-dense","1","0","30","0","0","0","0"
-"Edge Case","citation_required","bge-m3-dense","16","0","5","0.125","0.625","0.546875","0.625"
-"Edge Case","citation_required","bge-m3-dense","16","0","10","0.06875","0.6875","0.557292","0.6875"
-"Edge Case","citation_required","bge-m3-dense","16","0","20","0.0375","0.75","0.561198","0.75"
-"Edge Case","citation_required","bge-m3-dense","16","0","30","0.027083","0.8125","0.564174","0.8125"
-"Edge Case","conflicting_dated_sources","bge-m3-dense","1","0","5","0.4","1","1","1"
-"Edge Case","conflicting_dated_sources","bge-m3-dense","1","0","10","0.2","1","1","1"
-"Edge Case","conflicting_dated_sources","bge-m3-dense","1","0","20","0.1","1","1","1"
-"Edge Case","conflicting_dated_sources","bge-m3-dense","1","0","30","0.066667","1","1","1"
-"Edge Case","corpus_qualified","bge-m3-dense","16","0","5","0.0875","0.4375","0.241667","0.4375"
-"Edge Case","corpus_qualified","bge-m3-dense","16","0","10","0.05","0.5","0.250595","0.5"
-"Edge Case","corpus_qualified","bge-m3-dense","16","0","20","0.028125","0.5625","0.255403","0.5625"
-"Edge Case","corpus_qualified","bge-m3-dense","16","0","30","0.020833","0.625","0.258379","0.625"
-"Edge Case","date_premise_mismatch","bge-m3-dense","1","0","5","0","0","0","0"
-"Edge Case","date_premise_mismatch","bge-m3-dense","1","0","10","0","0","0","0"
-"Edge Case","date_premise_mismatch","bge-m3-dense","1","0","20","0","0","0","0"
-"Edge Case","date_premise_mismatch","bge-m3-dense","1","0","30","0","0","0","0"
-"Edge Case","distributed_evidence","bge-m3-dense","1","0","5","0","0","0","0"
-"Edge Case","distributed_evidence","bge-m3-dense","1","0","10","0.1","0.333333","0.142857","1"
-"Edge Case","distributed_evidence","bge-m3-dense","1","0","20","0.05","0.333333","0.142857","1"
-"Edge Case","distributed_evidence","bge-m3-dense","1","0","30","0.033333","0.333333","0.142857","1"
-"Edge Case","fabrication_instruction","bge-m3-dense","0","1","5",,,,
-"Edge Case","fabrication_instruction","bge-m3-dense","0","1","10",,,,
-"Edge Case","fabrication_instruction","bge-m3-dense","0","1","20",,,,
-"Edge Case","fabrication_instruction","bge-m3-dense","0","1","30",,,,
-"Edge Case","false_premise","bge-m3-dense","1","0","5","0","0","0","0"
-"Edge Case","false_premise","bge-m3-dense","1","0","10","0","0","0","0"
-"Edge Case","false_premise","bge-m3-dense","1","0","20","0","0","0","0"
-"Edge Case","false_premise","bge-m3-dense","1","0","30","0","0","0","0"
-"Edge Case","future_period","bge-m3-dense","0","1","5",,,,
-"Edge Case","future_period","bge-m3-dense","0","1","10",,,,
-"Edge Case","future_period","bge-m3-dense","0","1","20",,,,
-"Edge Case","future_period","bge-m3-dense","0","1","30",,,,
-"Edge Case","future_prediction","bge-m3-dense","0","1","5",,,,
-"Edge Case","future_prediction","bge-m3-dense","0","1","10",,,,
-"Edge Case","future_prediction","bge-m3-dense","0","1","20",,,,
-"Edge Case","future_prediction","bge-m3-dense","0","1","30",,,,
-"Edge Case","interpretation_bounded_by_evidence","bge-m3-dense","1","0","5","0","0","0","0"
-"Edge Case","interpretation_bounded_by_evidence","bge-m3-dense","1","0","10","0","0","0","0"
-"Edge Case","interpretation_bounded_by_evidence","bge-m3-dense","1","0","20","0","0","0","0"
-"Edge Case","interpretation_bounded_by_evidence","bge-m3-dense","1","0","30","0","0","0","0"
-"Edge Case","missing_context","bge-m3-dense","0","1","5",,,,
-"Edge Case","missing_context","bge-m3-dense","0","1","10",,,,
-"Edge Case","missing_context","bge-m3-dense","0","1","20",,,,
-"Edge Case","missing_context","bge-m3-dense","0","1","30",,,,
-"Edge Case","original_vs_amendment","bge-m3-dense","1","0","5","0","0","0","0"
-"Edge Case","original_vs_amendment","bge-m3-dense","1","0","10","0","0","0","0"
-"Edge Case","original_vs_amendment","bge-m3-dense","1","0","20","0","0","0","0"
-"Edge Case","original_vs_amendment","bge-m3-dense","1","0","30","0","0","0","0"
-"Edge Case","out_of_domain_entity","bge-m3-dense","0","1","5",,,,
-"Edge Case","out_of_domain_entity","bge-m3-dense","0","1","10",,,,
-"Edge Case","out_of_domain_entity","bge-m3-dense","0","1","20",,,,
-"Edge Case","out_of_domain_entity","bge-m3-dense","0","1","30",,,,
-"Edge Case","partial_out_of_domain_comparison","bge-m3-dense","0","1","5",,,,
-"Edge Case","partial_out_of_domain_comparison","bge-m3-dense","0","1","10",,,,
-"Edge Case","partial_out_of_domain_comparison","bge-m3-dense","0","1","20",,,,
-"Edge Case","partial_out_of_domain_comparison","bge-m3-dense","0","1","30",,,,
-"Edge Case","pii_request","bge-m3-dense","0","1","5",,,,
-"Edge Case","pii_request","bge-m3-dense","0","1","10",,,,
-"Edge Case","pii_request","bge-m3-dense","0","1","20",,,,
-"Edge Case","pii_request","bge-m3-dense","0","1","30",,,,
-"Edge Case","precision_constraint","bge-m3-dense","16","0","5","0.075","0.375","0.239583","0.375"
-"Edge Case","precision_constraint","bge-m3-dense","16","0","10","0.04375","0.4375","0.248512","0.4375"
-"Edge Case","precision_constraint","bge-m3-dense","16","0","20","0.028125","0.5625","0.2581","0.5625"
-"Edge Case","precision_constraint","bge-m3-dense","16","0","30","0.01875","0.5625","0.2581","0.5625"
-"Edge Case","private_information","bge-m3-dense","0","1","5",,,,
-"Edge Case","private_information","bge-m3-dense","0","1","10",,,,
-"Edge Case","private_information","bge-m3-dense","0","1","20",,,,
-"Edge Case","private_information","bge-m3-dense","0","1","30",,,,
-"Edge Case","prompt_injection","bge-m3-dense","0","1","5",,,,
-"Edge Case","prompt_injection","bge-m3-dense","0","1","10",,,,
-"Edge Case","prompt_injection","bge-m3-dense","0","1","20",,,,
-"Edge Case","prompt_injection","bge-m3-dense","0","1","30",,,,
-"Edge Case","punctuation_noise","bge-m3-dense","16","0","5","0.1375","0.6875","0.4375","0.6875"
-"Edge Case","punctuation_noise","bge-m3-dense","16","0","10","0.08125","0.8125","0.450694","0.8125"
-"Edge Case","punctuation_noise","bge-m3-dense","16","0","20","0.040625","0.8125","0.450694","0.8125"
-"Edge Case","punctuation_noise","bge-m3-dense","16","0","30","0.027083","0.8125","0.450694","0.8125"
-"Edge Case","required_sample","bge-m3-dense","2","0","5","0","0","0","0"
-"Edge Case","required_sample","bge-m3-dense","2","0","10","0","0","0","0"
-"Edge Case","required_sample","bge-m3-dense","2","0","20","0","0","0","0"
-"Edge Case","required_sample","bge-m3-dense","2","0","30","0","0","0","0"
-"Edge Case","source_qualified","bge-m3-dense","16","0","5","0.1","0.5","0.364583","0.5"
-"Edge Case","source_qualified","bge-m3-dense","16","0","10","0.0625","0.625","0.38244","0.625"
-"Edge Case","source_qualified","bge-m3-dense","16","0","20","0.03125","0.625","0.38244","0.625"
-"Edge Case","source_qualified","bge-m3-dense","16","0","30","0.020833","0.625","0.38244","0.625"
-"Edge Case","standard","bge-m3-dense","100","0","5","0.106","0.53","0.380667","0.53"
-"Edge Case","standard","bge-m3-dense","100","0","10","0.059","0.59","0.389456","0.59"
-"Edge Case","standard","bge-m3-dense","100","0","20","0.034","0.68","0.395548","0.68"
-"Edge Case","standard","bge-m3-dense","100","0","30","0.024333","0.73","0.397585","0.73"
-"Edge Case","unsupported_external_fact","bge-m3-dense","0","1","5",,,,
-"Edge Case","unsupported_external_fact","bge-m3-dense","0","1","10",,,,
-"Edge Case","unsupported_external_fact","bge-m3-dense","0","1","20",,,,
-"Edge Case","unsupported_external_fact","bge-m3-dense","0","1","30",,,,
-"Edge Case","unsupported_personal_fact","bge-m3-dense","0","1","5",,,,
-"Edge Case","unsupported_personal_fact","bge-m3-dense","0","1","10",,,,
-"Edge Case","unsupported_personal_fact","bge-m3-dense","0","1","20",,,,
-"Edge Case","unsupported_personal_fact","bge-m3-dense","0","1","30",,,,
-"Overall","all","bge-m3-hybrid-rrf","189","11","5","0.120635","0.594356","0.428307","0.597884"
-"Overall","all","bge-m3-hybrid-rrf","189","11","10","0.067725","0.66843","0.437711","0.671958"
-"Overall","all","bge-m3-hybrid-rrf","189","11","20","0.03836","0.758377","0.444652","0.761905"
-"Overall","all","bge-m3-hybrid-rrf","189","11","30","0.02716","0.805996","0.446461","0.809524"
-"Query Type","ambiguous","bge-m3-hybrid-rrf","1","1","5","0","0","0","0"
-"Query Type","ambiguous","bge-m3-hybrid-rrf","1","1","10","0","0","0","0"
-"Query Type","ambiguous","bge-m3-hybrid-rrf","1","1","20","0","0","0","0"
-"Query Type","ambiguous","bge-m3-hybrid-rrf","1","1","30","0","0","0","0"
-"Query Type","factual","bge-m3-hybrid-rrf","22","0","5","0.118182","0.590909","0.372727","0.590909"
-"Query Type","factual","bge-m3-hybrid-rrf","22","0","10","0.077273","0.772727","0.393687","0.772727"
-"Query Type","factual","bge-m3-hybrid-rrf","22","0","20","0.040909","0.818182","0.396934","0.818182"
-"Query Type","factual","bge-m3-hybrid-rrf","22","0","30","0.028788","0.863636","0.398449","0.863636"
-"Query Type","list","bge-m3-hybrid-rrf","1","0","5","0","0","0","0"
-"Query Type","list","bge-m3-hybrid-rrf","1","0","10","0","0","0","0"
-"Query Type","list","bge-m3-hybrid-rrf","1","0","20","0","0","0","0"
-"Query Type","list","bge-m3-hybrid-rrf","1","0","30","0","0","0","0"
-"Query Type","multi_chunk_synthesis","bge-m3-hybrid-rrf","1","0","5","0.2","0.333333","0.333333","1"
-"Query Type","multi_chunk_synthesis","bge-m3-hybrid-rrf","1","0","10","0.1","0.333333","0.333333","1"
-"Query Type","multi_chunk_synthesis","bge-m3-hybrid-rrf","1","0","20","0.05","0.333333","0.333333","1"
-"Query Type","multi_chunk_synthesis","bge-m3-hybrid-rrf","1","0","30","0.033333","0.333333","0.333333","1"
-"Query Type","multi_document_comparison","bge-m3-hybrid-rrf","1","0","5","0","0","0","0"
-"Query Type","multi_document_comparison","bge-m3-hybrid-rrf","1","0","10","0","0","0","0"
-"Query Type","multi_document_comparison","bge-m3-hybrid-rrf","1","0","20","0","0","0","0"
-"Query Type","multi_document_comparison","bge-m3-hybrid-rrf","1","0","30","0","0","0","0"
-"Query Type","multi_document_reconciliation","bge-m3-hybrid-rrf","1","0","5","0.4","1","1","1"
-"Query Type","multi_document_reconciliation","bge-m3-hybrid-rrf","1","0","10","0.2","1","1","1"
-"Query Type","multi_document_reconciliation","bge-m3-hybrid-rrf","1","0","20","0.1","1","1","1"
-"Query Type","multi_document_reconciliation","bge-m3-hybrid-rrf","1","0","30","0.066667","1","1","1"
-"Query Type","paraphrase","bge-m3-hybrid-rrf","80","0","5","0.1275","0.6375","0.433542","0.6375"
-"Query Type","paraphrase","bge-m3-hybrid-rrf","80","0","10","0.0675","0.675","0.438502","0.675"
-"Query Type","paraphrase","bge-m3-hybrid-rrf","80","0","20","0.038125","0.7625","0.445432","0.7625"
-"Query Type","paraphrase","bge-m3-hybrid-rrf","80","0","30","0.0275","0.825","0.447919","0.825"
-"Query Type","premise_check","bge-m3-hybrid-rrf","1","0","5","0","0","0","0"
-"Query Type","premise_check","bge-m3-hybrid-rrf","1","0","10","0","0","0","0"
-"Query Type","premise_check","bge-m3-hybrid-rrf","1","0","20","0","0","0","0"
-"Query Type","premise_check","bge-m3-hybrid-rrf","1","0","30","0","0","0","0"
-"Query Type","regulatory_filing","bge-m3-hybrid-rrf","1","0","5","0","0","0","0"
-"Query Type","regulatory_filing","bge-m3-hybrid-rrf","1","0","10","0","0","0","0"
-"Query Type","regulatory_filing","bge-m3-hybrid-rrf","1","0","20","0","0","0","0"
-"Query Type","regulatory_filing","bge-m3-hybrid-rrf","1","0","30","0","0","0","0"
-"Query Type","table_lookup","bge-m3-hybrid-rrf","79","0","5","0.118987","0.594937","0.464979","0.594937"
-"Query Type","table_lookup","bge-m3-hybrid-rrf","79","0","10","0.068354","0.683544","0.476617","0.683544"
-"Query Type","table_lookup","bge-m3-hybrid-rrf","79","0","20","0.039873","0.797468","0.4853","0.797468"
-"Query Type","table_lookup","bge-m3-hybrid-rrf","79","0","30","0.027848","0.835443","0.48669","0.835443"
-"Query Type","temporal_reconciliation","bge-m3-hybrid-rrf","1","0","5","0","0","0","0"
-"Query Type","temporal_reconciliation","bge-m3-hybrid-rrf","1","0","10","0","0","0","0"
-"Query Type","temporal_reconciliation","bge-m3-hybrid-rrf","1","0","20","0","0","0","0"
-"Query Type","temporal_reconciliation","bge-m3-hybrid-rrf","1","0","30","0","0","0","0"
-"Query Type","unanswerable","bge-m3-hybrid-rrf","0","10","5",,,,
-"Query Type","unanswerable","bge-m3-hybrid-rrf","0","10","10",,,,
-"Query Type","unanswerable","bge-m3-hybrid-rrf","0","10","20",,,,
-"Query Type","unanswerable","bge-m3-hybrid-rrf","0","10","30",,,,
-"Difficulty","easy","bge-m3-hybrid-rrf","2","8","5","0","0","0","0"
-"Difficulty","easy","bge-m3-hybrid-rrf","2","8","10","0.05","0.5","0.055556","0.5"
-"Difficulty","easy","bge-m3-hybrid-rrf","2","8","20","0.025","0.5","0.055556","0.5"
-"Difficulty","easy","bge-m3-hybrid-rrf","2","8","30","0.016667","0.5","0.055556","0.5"
-"Difficulty","hard","bge-m3-hybrid-rrf","5","1","5","0.12","0.266667","0.266667","0.4"
-"Difficulty","hard","bge-m3-hybrid-rrf","5","1","10","0.06","0.266667","0.266667","0.4"
-"Difficulty","hard","bge-m3-hybrid-rrf","5","1","20","0.03","0.266667","0.266667","0.4"
-"Difficulty","hard","bge-m3-hybrid-rrf","5","1","30","0.02","0.266667","0.266667","0.4"
-"Difficulty","medium","bge-m3-hybrid-rrf","182","2","5","0.121978","0.60989","0.437454","0.60989"
-"Difficulty","medium","bge-m3-hybrid-rrf","182","2","10","0.068132","0.681319","0.44661","0.681319"
-"Difficulty","medium","bge-m3-hybrid-rrf","182","2","20","0.038736","0.774725","0.453817","0.774725"
-"Difficulty","medium","bge-m3-hybrid-rrf","182","2","30","0.027473","0.824176","0.455696","0.824176"
-"Edge Case","arbitrary_selection_rule","bge-m3-hybrid-rrf","1","0","5","0","0","0","0"
-"Edge Case","arbitrary_selection_rule","bge-m3-hybrid-rrf","1","0","10","0","0","0","0"
-"Edge Case","arbitrary_selection_rule","bge-m3-hybrid-rrf","1","0","20","0","0","0","0"
-"Edge Case","arbitrary_selection_rule","bge-m3-hybrid-rrf","1","0","30","0","0","0","0"
-"Edge Case","citation_required","bge-m3-hybrid-rrf","16","0","5","0.1625","0.8125","0.575","0.8125"
-"Edge Case","citation_required","bge-m3-hybrid-rrf","16","0","10","0.08125","0.8125","0.575","0.8125"
-"Edge Case","citation_required","bge-m3-hybrid-rrf","16","0","20","0.040625","0.8125","0.575","0.8125"
-"Edge Case","citation_required","bge-m3-hybrid-rrf","16","0","30","0.027083","0.8125","0.575","0.8125"
-"Edge Case","conflicting_dated_sources","bge-m3-hybrid-rrf","1","0","5","0.4","1","1","1"
-"Edge Case","conflicting_dated_sources","bge-m3-hybrid-rrf","1","0","10","0.2","1","1","1"
-"Edge Case","conflicting_dated_sources","bge-m3-hybrid-rrf","1","0","20","0.1","1","1","1"
-"Edge Case","conflicting_dated_sources","bge-m3-hybrid-rrf","1","0","30","0.066667","1","1","1"
-"Edge Case","corpus_qualified","bge-m3-hybrid-rrf","16","0","5","0.1125","0.5625","0.288542","0.5625"
-"Edge Case","corpus_qualified","bge-m3-hybrid-rrf","16","0","10","0.0625","0.625","0.29747","0.625"
-"Edge Case","corpus_qualified","bge-m3-hybrid-rrf","16","0","20","0.040625","0.8125","0.311085","0.8125"
-"Edge Case","corpus_qualified","bge-m3-hybrid-rrf","16","0","30","0.027083","0.8125","0.311085","0.8125"
-"Edge Case","date_premise_mismatch","bge-m3-hybrid-rrf","1","0","5","0","0","0","0"
-"Edge Case","date_premise_mismatch","bge-m3-hybrid-rrf","1","0","10","0","0","0","0"
-"Edge Case","date_premise_mismatch","bge-m3-hybrid-rrf","1","0","20","0","0","0","0"
-"Edge Case","date_premise_mismatch","bge-m3-hybrid-rrf","1","0","30","0","0","0","0"
-"Edge Case","distributed_evidence","bge-m3-hybrid-rrf","1","0","5","0.2","0.333333","0.333333","1"
-"Edge Case","distributed_evidence","bge-m3-hybrid-rrf","1","0","10","0.1","0.333333","0.333333","1"
-"Edge Case","distributed_evidence","bge-m3-hybrid-rrf","1","0","20","0.05","0.333333","0.333333","1"
-"Edge Case","distributed_evidence","bge-m3-hybrid-rrf","1","0","30","0.033333","0.333333","0.333333","1"
-"Edge Case","fabrication_instruction","bge-m3-hybrid-rrf","0","1","5",,,,
-"Edge Case","fabrication_instruction","bge-m3-hybrid-rrf","0","1","10",,,,
-"Edge Case","fabrication_instruction","bge-m3-hybrid-rrf","0","1","20",,,,
-"Edge Case","fabrication_instruction","bge-m3-hybrid-rrf","0","1","30",,,,
-"Edge Case","false_premise","bge-m3-hybrid-rrf","1","0","5","0","0","0","0"
-"Edge Case","false_premise","bge-m3-hybrid-rrf","1","0","10","0","0","0","0"
-"Edge Case","false_premise","bge-m3-hybrid-rrf","1","0","20","0","0","0","0"
-"Edge Case","false_premise","bge-m3-hybrid-rrf","1","0","30","0","0","0","0"
-"Edge Case","future_period","bge-m3-hybrid-rrf","0","1","5",,,,
-"Edge Case","future_period","bge-m3-hybrid-rrf","0","1","10",,,,
-"Edge Case","future_period","bge-m3-hybrid-rrf","0","1","20",,,,
-"Edge Case","future_period","bge-m3-hybrid-rrf","0","1","30",,,,
-"Edge Case","future_prediction","bge-m3-hybrid-rrf","0","1","5",,,,
-"Edge Case","future_prediction","bge-m3-hybrid-rrf","0","1","10",,,,
-"Edge Case","future_prediction","bge-m3-hybrid-rrf","0","1","20",,,,
-"Edge Case","future_prediction","bge-m3-hybrid-rrf","0","1","30",,,,
-"Edge Case","interpretation_bounded_by_evidence","bge-m3-hybrid-rrf","1","0","5","0","0","0","0"
-"Edge Case","interpretation_bounded_by_evidence","bge-m3-hybrid-rrf","1","0","10","0","0","0","0"
-"Edge Case","interpretation_bounded_by_evidence","bge-m3-hybrid-rrf","1","0","20","0","0","0","0"
-"Edge Case","interpretation_bounded_by_evidence","bge-m3-hybrid-rrf","1","0","30","0","0","0","0"
-"Edge Case","missing_context","bge-m3-hybrid-rrf","0","1","5",,,,
-"Edge Case","missing_context","bge-m3-hybrid-rrf","0","1","10",,,,
-"Edge Case","missing_context","bge-m3-hybrid-rrf","0","1","20",,,,
-"Edge Case","missing_context","bge-m3-hybrid-rrf","0","1","30",,,,
-"Edge Case","original_vs_amendment","bge-m3-hybrid-rrf","1","0","5","0","0","0","0"
-"Edge Case","original_vs_amendment","bge-m3-hybrid-rrf","1","0","10","0","0","0","0"
-"Edge Case","original_vs_amendment","bge-m3-hybrid-rrf","1","0","20","0","0","0","0"
-"Edge Case","original_vs_amendment","bge-m3-hybrid-rrf","1","0","30","0","0","0","0"
-"Edge Case","out_of_domain_entity","bge-m3-hybrid-rrf","0","1","5",,,,
-"Edge Case","out_of_domain_entity","bge-m3-hybrid-rrf","0","1","10",,,,
-"Edge Case","out_of_domain_entity","bge-m3-hybrid-rrf","0","1","20",,,,
-"Edge Case","out_of_domain_entity","bge-m3-hybrid-rrf","0","1","30",,,,
-"Edge Case","partial_out_of_domain_comparison","bge-m3-hybrid-rrf","0","1","5",,,,
-"Edge Case","partial_out_of_domain_comparison","bge-m3-hybrid-rrf","0","1","10",,,,
-"Edge Case","partial_out_of_domain_comparison","bge-m3-hybrid-rrf","0","1","20",,,,
-"Edge Case","partial_out_of_domain_comparison","bge-m3-hybrid-rrf","0","1","30",,,,
-"Edge Case","pii_request","bge-m3-hybrid-rrf","0","1","5",,,,
-"Edge Case","pii_request","bge-m3-hybrid-rrf","0","1","10",,,,
-"Edge Case","pii_request","bge-m3-hybrid-rrf","0","1","20",,,,
-"Edge Case","pii_request","bge-m3-hybrid-rrf","0","1","30",,,,
-"Edge Case","precision_constraint","bge-m3-hybrid-rrf","16","0","5","0.0875","0.4375","0.364583","0.4375"
-"Edge Case","precision_constraint","bge-m3-hybrid-rrf","16","0","10","0.04375","0.4375","0.364583","0.4375"
-"Edge Case","precision_constraint","bge-m3-hybrid-rrf","16","0","20","0.028125","0.5625","0.374256","0.5625"
-"Edge Case","precision_constraint","bge-m3-hybrid-rrf","16","0","30","0.027083","0.8125","0.383847","0.8125"
-"Edge Case","private_information","bge-m3-hybrid-rrf","0","1","5",,,,
-"Edge Case","private_information","bge-m3-hybrid-rrf","0","1","10",,,,
-"Edge Case","private_information","bge-m3-hybrid-rrf","0","1","20",,,,
-"Edge Case","private_information","bge-m3-hybrid-rrf","0","1","30",,,,
-"Edge Case","prompt_injection","bge-m3-hybrid-rrf","0","1","5",,,,
-"Edge Case","prompt_injection","bge-m3-hybrid-rrf","0","1","10",,,,
-"Edge Case","prompt_injection","bge-m3-hybrid-rrf","0","1","20",,,,
-"Edge Case","prompt_injection","bge-m3-hybrid-rrf","0","1","30",,,,
-"Edge Case","punctuation_noise","bge-m3-hybrid-rrf","16","0","5","0.15","0.75","0.515625","0.75"
-"Edge Case","punctuation_noise","bge-m3-hybrid-rrf","16","0","10","0.08125","0.8125","0.524554","0.8125"
-"Edge Case","punctuation_noise","bge-m3-hybrid-rrf","16","0","20","0.040625","0.8125","0.524554","0.8125"
-"Edge Case","punctuation_noise","bge-m3-hybrid-rrf","16","0","30","0.029167","0.875","0.527394","0.875"
-"Edge Case","required_sample","bge-m3-hybrid-rrf","2","0","5","0","0","0","0"
-"Edge Case","required_sample","bge-m3-hybrid-rrf","2","0","10","0.05","0.5","0.055556","0.5"
-"Edge Case","required_sample","bge-m3-hybrid-rrf","2","0","20","0.025","0.5","0.055556","0.5"
-"Edge Case","required_sample","bge-m3-hybrid-rrf","2","0","30","0.016667","0.5","0.055556","0.5"
-"Edge Case","source_qualified","bge-m3-hybrid-rrf","16","0","5","0.125","0.625","0.423958","0.625"
-"Edge Case","source_qualified","bge-m3-hybrid-rrf","16","0","10","0.06875","0.6875","0.430903","0.6875"
-"Edge Case","source_qualified","bge-m3-hybrid-rrf","16","0","20","0.040625","0.8125","0.442266","0.8125"
-"Edge Case","source_qualified","bge-m3-hybrid-rrf","16","0","30","0.027083","0.8125","0.442266","0.8125"
-"Edge Case","standard","bge-m3-hybrid-rrf","100","0","5","0.12","0.6","0.449333","0.6"
-"Edge Case","standard","bge-m3-hybrid-rrf","100","0","10","0.07","0.7","0.462028","0.7"
-"Edge Case","standard","bge-m3-hybrid-rrf","100","0","20","0.04","0.8","0.469601","0.8"
-"Edge Case","standard","bge-m3-hybrid-rrf","100","0","30","0.028","0.84","0.471033","0.84"
-"Edge Case","unsupported_external_fact","bge-m3-hybrid-rrf","0","1","5",,,,
-"Edge Case","unsupported_external_fact","bge-m3-hybrid-rrf","0","1","10",,,,
-"Edge Case","unsupported_external_fact","bge-m3-hybrid-rrf","0","1","20",,,,
-"Edge Case","unsupported_external_fact","bge-m3-hybrid-rrf","0","1","30",,,,
-"Edge Case","unsupported_personal_fact","bge-m3-hybrid-rrf","0","1","5",,,,
-"Edge Case","unsupported_personal_fact","bge-m3-hybrid-rrf","0","1","10",,,,
-"Edge Case","unsupported_personal_fact","bge-m3-hybrid-rrf","0","1","20",,,,
-"Edge Case","unsupported_personal_fact","bge-m3-hybrid-rrf","0","1","30",,,,
-"Overall","all","bge-m3-hybrid-rrf-reranked","189","11","5","0.122751","0.604938","0.478219","0.608466"
-"Overall","all","bge-m3-hybrid-rrf-reranked","189","11","10","0.070899","0.700176","0.490856","0.703704"
-"Overall","all","bge-m3-hybrid-rrf-reranked","189","11","20","0.040212","0.795414","0.497195","0.798942"
-"Overall","all","bge-m3-hybrid-rrf-reranked","189","11","30","0.02716","0.805996","0.497583","0.809524"
-"Query Type","ambiguous","bge-m3-hybrid-rrf-reranked","1","1","5","0","0","0","0"
-"Query Type","ambiguous","bge-m3-hybrid-rrf-reranked","1","1","10","0","0","0","0"
-"Query Type","ambiguous","bge-m3-hybrid-rrf-reranked","1","1","20","0","0","0","0"
-"Query Type","ambiguous","bge-m3-hybrid-rrf-reranked","1","1","30","0","0","0","0"
-"Query Type","factual","bge-m3-hybrid-rrf-reranked","22","0","5","0.136364","0.681818","0.54697","0.681818"
-"Query Type","factual","bge-m3-hybrid-rrf-reranked","22","0","10","0.072727","0.727273","0.554545","0.727273"
-"Query Type","factual","bge-m3-hybrid-rrf-reranked","22","0","20","0.038636","0.772727","0.556818","0.772727"
-"Query Type","factual","bge-m3-hybrid-rrf-reranked","22","0","30","0.028788","0.863636","0.560152","0.863636"
-"Query Type","list","bge-m3-hybrid-rrf-reranked","1","0","5","0","0","0","0"
-"Query Type","list","bge-m3-hybrid-rrf-reranked","1","0","10","0","0","0","0"
-"Query Type","list","bge-m3-hybrid-rrf-reranked","1","0","20","0","0","0","0"
-"Query Type","list","bge-m3-hybrid-rrf-reranked","1","0","30","0","0","0","0"
-"Query Type","multi_chunk_synthesis","bge-m3-hybrid-rrf-reranked","1","0","5","0.2","0.333333","0.5","1"
-"Query Type","multi_chunk_synthesis","bge-m3-hybrid-rrf-reranked","1","0","10","0.1","0.333333","0.5","1"
-"Query Type","multi_chunk_synthesis","bge-m3-hybrid-rrf-reranked","1","0","20","0.05","0.333333","0.5","1"
-"Query Type","multi_chunk_synthesis","bge-m3-hybrid-rrf-reranked","1","0","30","0.033333","0.333333","0.5","1"
-"Query Type","multi_document_comparison","bge-m3-hybrid-rrf-reranked","1","0","5","0","0","0","0"
-"Query Type","multi_document_comparison","bge-m3-hybrid-rrf-reranked","1","0","10","0","0","0","0"
-"Query Type","multi_document_comparison","bge-m3-hybrid-rrf-reranked","1","0","20","0","0","0","0"
-"Query Type","multi_document_comparison","bge-m3-hybrid-rrf-reranked","1","0","30","0","0","0","0"
-"Query Type","multi_document_reconciliation","bge-m3-hybrid-rrf-reranked","1","0","5","0.4","1","1","1"
-"Query Type","multi_document_reconciliation","bge-m3-hybrid-rrf-reranked","1","0","10","0.2","1","1","1"
-"Query Type","multi_document_reconciliation","bge-m3-hybrid-rrf-reranked","1","0","20","0.1","1","1","1"
-"Query Type","multi_document_reconciliation","bge-m3-hybrid-rrf-reranked","1","0","30","0.066667","1","1","1"
-"Query Type","paraphrase","bge-m3-hybrid-rrf-reranked","80","0","5","0.125","0.625","0.483958","0.625"
-"Query Type","paraphrase","bge-m3-hybrid-rrf-reranked","80","0","10","0.0725","0.725","0.49684","0.725"
-"Query Type","paraphrase","bge-m3-hybrid-rrf-reranked","80","0","20","0.04125","0.825","0.503957","0.825"
-"Query Type","paraphrase","bge-m3-hybrid-rrf-reranked","80","0","30","0.0275","0.825","0.503957","0.825"
-"Query Type","premise_check","bge-m3-hybrid-rrf-reranked","1","0","5","0","0","0","0"
-"Query Type","premise_check","bge-m3-hybrid-rrf-reranked","1","0","10","0","0","0","0"
-"Query Type","premise_check","bge-m3-hybrid-rrf-reranked","1","0","20","0","0","0","0"
-"Query Type","premise_check","bge-m3-hybrid-rrf-reranked","1","0","30","0","0","0","0"
-"Query Type","regulatory_filing","bge-m3-hybrid-rrf-reranked","1","0","5","0","0","0","0"
-"Query Type","regulatory_filing","bge-m3-hybrid-rrf-reranked","1","0","10","0","0","0","0"
-"Query Type","regulatory_filing","bge-m3-hybrid-rrf-reranked","1","0","20","0","0","0","0"
-"Query Type","regulatory_filing","bge-m3-hybrid-rrf-reranked","1","0","30","0","0","0","0"
-"Query Type","table_lookup","bge-m3-hybrid-rrf-reranked","79","0","5","0.121519","0.607595","0.4827","0.607595"
-"Query Type","table_lookup","bge-m3-hybrid-rrf-reranked","79","0","10","0.072152","0.721519","0.49778","0.721519"
-"Query Type","table_lookup","bge-m3-hybrid-rrf-reranked","79","0","20","0.041772","0.835443","0.505105","0.835443"
-"Query Type","table_lookup","bge-m3-hybrid-rrf-reranked","79","0","30","0.027848","0.835443","0.505105","0.835443"
-"Query Type","temporal_reconciliation","bge-m3-hybrid-rrf-reranked","1","0","5","0","0","0","0"
-"Query Type","temporal_reconciliation","bge-m3-hybrid-rrf-reranked","1","0","10","0","0","0","0"
-"Query Type","temporal_reconciliation","bge-m3-hybrid-rrf-reranked","1","0","20","0","0","0","0"
-"Query Type","temporal_reconciliation","bge-m3-hybrid-rrf-reranked","1","0","30","0","0","0","0"
-"Query Type","unanswerable","bge-m3-hybrid-rrf-reranked","0","10","5",,,,
-"Query Type","unanswerable","bge-m3-hybrid-rrf-reranked","0","10","10",,,,
-"Query Type","unanswerable","bge-m3-hybrid-rrf-reranked","0","10","20",,,,
-"Query Type","unanswerable","bge-m3-hybrid-rrf-reranked","0","10","30",,,,
-"Difficulty","easy","bge-m3-hybrid-rrf-reranked","2","8","5","0.1","0.5","0.1","0.5"
-"Difficulty","easy","bge-m3-hybrid-rrf-reranked","2","8","10","0.05","0.5","0.1","0.5"
-"Difficulty","easy","bge-m3-hybrid-rrf-reranked","2","8","20","0.025","0.5","0.1","0.5"
-"Difficulty","easy","bge-m3-hybrid-rrf-reranked","2","8","30","0.016667","0.5","0.1","0.5"
-"Difficulty","hard","bge-m3-hybrid-rrf-reranked","5","1","5","0.12","0.266667","0.3","0.4"
-"Difficulty","hard","bge-m3-hybrid-rrf-reranked","5","1","10","0.06","0.266667","0.3","0.4"
-"Difficulty","hard","bge-m3-hybrid-rrf-reranked","5","1","20","0.03","0.266667","0.3","0.4"
-"Difficulty","hard","bge-m3-hybrid-rrf-reranked","5","1","30","0.02","0.266667","0.3","0.4"
-"Difficulty","medium","bge-m3-hybrid-rrf-reranked","182","2","5","0.123077","0.615385","0.487271","0.615385"
-"Difficulty","medium","bge-m3-hybrid-rrf-reranked","182","2","10","0.071429","0.714286","0.500395","0.714286"
-"Difficulty","medium","bge-m3-hybrid-rrf-reranked","182","2","20","0.040659","0.813187","0.506977","0.813187"
-"Difficulty","medium","bge-m3-hybrid-rrf-reranked","182","2","30","0.027473","0.824176","0.50738","0.824176"
-"Edge Case","arbitrary_selection_rule","bge-m3-hybrid-rrf-reranked","1","0","5","0","0","0","0"
-"Edge Case","arbitrary_selection_rule","bge-m3-hybrid-rrf-reranked","1","0","10","0","0","0","0"
-"Edge Case","arbitrary_selection_rule","bge-m3-hybrid-rrf-reranked","1","0","20","0","0","0","0"
-"Edge Case","arbitrary_selection_rule","bge-m3-hybrid-rrf-reranked","1","0","30","0","0","0","0"
-"Edge Case","citation_required","bge-m3-hybrid-rrf-reranked","16","0","5","0.1375","0.6875","0.5625","0.6875"
-"Edge Case","citation_required","bge-m3-hybrid-rrf-reranked","16","0","10","0.075","0.75","0.572917","0.75"
-"Edge Case","citation_required","bge-m3-hybrid-rrf-reranked","16","0","20","0.040625","0.8125","0.578598","0.8125"
-"Edge Case","citation_required","bge-m3-hybrid-rrf-reranked","16","0","30","0.027083","0.8125","0.578598","0.8125"
-"Edge Case","conflicting_dated_sources","bge-m3-hybrid-rrf-reranked","1","0","5","0.4","1","1","1"
-"Edge Case","conflicting_dated_sources","bge-m3-hybrid-rrf-reranked","1","0","10","0.2","1","1","1"
-"Edge Case","conflicting_dated_sources","bge-m3-hybrid-rrf-reranked","1","0","20","0.1","1","1","1"
-"Edge Case","conflicting_dated_sources","bge-m3-hybrid-rrf-reranked","1","0","30","0.066667","1","1","1"
-"Edge Case","corpus_qualified","bge-m3-hybrid-rrf-reranked","16","0","5","0.1125","0.5625","0.45","0.5625"
-"Edge Case","corpus_qualified","bge-m3-hybrid-rrf-reranked","16","0","10","0.06875","0.6875","0.464062","0.6875"
-"Edge Case","corpus_qualified","bge-m3-hybrid-rrf-reranked","16","0","20","0.040625","0.8125","0.471354","0.8125"
-"Edge Case","corpus_qualified","bge-m3-hybrid-rrf-reranked","16","0","30","0.027083","0.8125","0.471354","0.8125"
-"Edge Case","date_premise_mismatch","bge-m3-hybrid-rrf-reranked","1","0","5","0","0","0","0"
-"Edge Case","date_premise_mismatch","bge-m3-hybrid-rrf-reranked","1","0","10","0","0","0","0"
-"Edge Case","date_premise_mismatch","bge-m3-hybrid-rrf-reranked","1","0","20","0","0","0","0"
-"Edge Case","date_premise_mismatch","bge-m3-hybrid-rrf-reranked","1","0","30","0","0","0","0"
-"Edge Case","distributed_evidence","bge-m3-hybrid-rrf-reranked","1","0","5","0.2","0.333333","0.5","1"
-"Edge Case","distributed_evidence","bge-m3-hybrid-rrf-reranked","1","0","10","0.1","0.333333","0.5","1"
-"Edge Case","distributed_evidence","bge-m3-hybrid-rrf-reranked","1","0","20","0.05","0.333333","0.5","1"
-"Edge Case","distributed_evidence","bge-m3-hybrid-rrf-reranked","1","0","30","0.033333","0.333333","0.5","1"
-"Edge Case","fabrication_instruction","bge-m3-hybrid-rrf-reranked","0","1","5",,,,
-"Edge Case","fabrication_instruction","bge-m3-hybrid-rrf-reranked","0","1","10",,,,
-"Edge Case","fabrication_instruction","bge-m3-hybrid-rrf-reranked","0","1","20",,,,
-"Edge Case","fabrication_instruction","bge-m3-hybrid-rrf-reranked","0","1","30",,,,
-"Edge Case","false_premise","bge-m3-hybrid-rrf-reranked","1","0","5","0","0","0","0"
-"Edge Case","false_premise","bge-m3-hybrid-rrf-reranked","1","0","10","0","0","0","0"
-"Edge Case","false_premise","bge-m3-hybrid-rrf-reranked","1","0","20","0","0","0","0"
-"Edge Case","false_premise","bge-m3-hybrid-rrf-reranked","1","0","30","0","0","0","0"
-"Edge Case","future_period","bge-m3-hybrid-rrf-reranked","0","1","5",,,,
-"Edge Case","future_period","bge-m3-hybrid-rrf-reranked","0","1","10",,,,
-"Edge Case","future_period","bge-m3-hybrid-rrf-reranked","0","1","20",,,,
-"Edge Case","future_period","bge-m3-hybrid-rrf-reranked","0","1","30",,,,
-"Edge Case","future_prediction","bge-m3-hybrid-rrf-reranked","0","1","5",,,,
-"Edge Case","future_prediction","bge-m3-hybrid-rrf-reranked","0","1","10",,,,
-"Edge Case","future_prediction","bge-m3-hybrid-rrf-reranked","0","1","20",,,,
-"Edge Case","future_prediction","bge-m3-hybrid-rrf-reranked","0","1","30",,,,
-"Edge Case","interpretation_bounded_by_evidence","bge-m3-hybrid-rrf-reranked","1","0","5","0","0","0","0"
-"Edge Case","interpretation_bounded_by_evidence","bge-m3-hybrid-rrf-reranked","1","0","10","0","0","0","0"
-"Edge Case","interpretation_bounded_by_evidence","bge-m3-hybrid-rrf-reranked","1","0","20","0","0","0","0"
-"Edge Case","interpretation_bounded_by_evidence","bge-m3-hybrid-rrf-reranked","1","0","30","0","0","0","0"
-"Edge Case","missing_context","bge-m3-hybrid-rrf-reranked","0","1","5",,,,
-"Edge Case","missing_context","bge-m3-hybrid-rrf-reranked","0","1","10",,,,
-"Edge Case","missing_context","bge-m3-hybrid-rrf-reranked","0","1","20",,,,
-"Edge Case","missing_context","bge-m3-hybrid-rrf-reranked","0","1","30",,,,
-"Edge Case","original_vs_amendment","bge-m3-hybrid-rrf-reranked","1","0","5","0","0","0","0"
-"Edge Case","original_vs_amendment","bge-m3-hybrid-rrf-reranked","1","0","10","0","0","0","0"
-"Edge Case","original_vs_amendment","bge-m3-hybrid-rrf-reranked","1","0","20","0","0","0","0"
-"Edge Case","original_vs_amendment","bge-m3-hybrid-rrf-reranked","1","0","30","0","0","0","0"
-"Edge Case","out_of_domain_entity","bge-m3-hybrid-rrf-reranked","0","1","5",,,,
-"Edge Case","out_of_domain_entity","bge-m3-hybrid-rrf-reranked","0","1","10",,,,
-"Edge Case","out_of_domain_entity","bge-m3-hybrid-rrf-reranked","0","1","20",,,,
-"Edge Case","out_of_domain_entity","bge-m3-hybrid-rrf-reranked","0","1","30",,,,
-"Edge Case","partial_out_of_domain_comparison","bge-m3-hybrid-rrf-reranked","0","1","5",,,,
-"Edge Case","partial_out_of_domain_comparison","bge-m3-hybrid-rrf-reranked","0","1","10",,,,
-"Edge Case","partial_out_of_domain_comparison","bge-m3-hybrid-rrf-reranked","0","1","20",,,,
-"Edge Case","partial_out_of_domain_comparison","bge-m3-hybrid-rrf-reranked","0","1","30",,,,
-"Edge Case","pii_request","bge-m3-hybrid-rrf-reranked","0","1","5",,,,
-"Edge Case","pii_request","bge-m3-hybrid-rrf-reranked","0","1","10",,,,
-"Edge Case","pii_request","bge-m3-hybrid-rrf-reranked","0","1","20",,,,
-"Edge Case","pii_request","bge-m3-hybrid-rrf-reranked","0","1","30",,,,
-"Edge Case","precision_constraint","bge-m3-hybrid-rrf-reranked","16","0","5","0.1","0.5","0.3375","0.5"
-"Edge Case","precision_constraint","bge-m3-hybrid-rrf-reranked","16","0","10","0.06875","0.6875","0.361806","0.6875"
-"Edge Case","precision_constraint","bge-m3-hybrid-rrf-reranked","16","0","20","0.040625","0.8125","0.371394","0.8125"
-"Edge Case","precision_constraint","bge-m3-hybrid-rrf-reranked","16","0","30","0.027083","0.8125","0.371394","0.8125"
-"Edge Case","private_information","bge-m3-hybrid-rrf-reranked","0","1","5",,,,
-"Edge Case","private_information","bge-m3-hybrid-rrf-reranked","0","1","10",,,,
-"Edge Case","private_information","bge-m3-hybrid-rrf-reranked","0","1","20",,,,
-"Edge Case","private_information","bge-m3-hybrid-rrf-reranked","0","1","30",,,,
-"Edge Case","prompt_injection","bge-m3-hybrid-rrf-reranked","0","1","5",,,,
-"Edge Case","prompt_injection","bge-m3-hybrid-rrf-reranked","0","1","10",,,,
-"Edge Case","prompt_injection","bge-m3-hybrid-rrf-reranked","0","1","20",,,,
-"Edge Case","prompt_injection","bge-m3-hybrid-rrf-reranked","0","1","30",,,,
-"Edge Case","punctuation_noise","bge-m3-hybrid-rrf-reranked","16","0","5","0.15","0.75","0.588542","0.75"
-"Edge Case","punctuation_noise","bge-m3-hybrid-rrf-reranked","16","0","10","0.08125","0.8125","0.596354","0.8125"
-"Edge Case","punctuation_noise","bge-m3-hybrid-rrf-reranked","16","0","20","0.04375","0.875","0.601562","0.875"
-"Edge Case","punctuation_noise","bge-m3-hybrid-rrf-reranked","16","0","30","0.029167","0.875","0.601562","0.875"
-"Edge Case","required_sample","bge-m3-hybrid-rrf-reranked","2","0","5","0.1","0.5","0.1","0.5"
-"Edge Case","required_sample","bge-m3-hybrid-rrf-reranked","2","0","10","0.05","0.5","0.1","0.5"
-"Edge Case","required_sample","bge-m3-hybrid-rrf-reranked","2","0","20","0.025","0.5","0.1","0.5"
-"Edge Case","required_sample","bge-m3-hybrid-rrf-reranked","2","0","30","0.016667","0.5","0.1","0.5"
-"Edge Case","source_qualified","bge-m3-hybrid-rrf-reranked","16","0","5","0.125","0.625","0.48125","0.625"
-"Edge Case","source_qualified","bge-m3-hybrid-rrf-reranked","16","0","10","0.06875","0.6875","0.489063","0.6875"
-"Edge Case","source_qualified","bge-m3-hybrid-rrf-reranked","16","0","20","0.040625","0.8125","0.496875","0.8125"
-"Edge Case","source_qualified","bge-m3-hybrid-rrf-reranked","16","0","30","0.027083","0.8125","0.496875","0.8125"
-"Edge Case","standard","bge-m3-hybrid-rrf-reranked","100","0","5","0.124","0.62","0.499667","0.62"
-"Edge Case","standard","bge-m3-hybrid-rrf-reranked","100","0","10","0.072","0.72","0.513246","0.72"
-"Edge Case","standard","bge-m3-hybrid-rrf-reranked","100","0","20","0.041","0.82","0.519533","0.82"
-"Edge Case","standard","bge-m3-hybrid-rrf-reranked","100","0","30","0.028","0.84","0.520266","0.84"
-"Edge Case","unsupported_external_fact","bge-m3-hybrid-rrf-reranked","0","1","5",,,,
-"Edge Case","unsupported_external_fact","bge-m3-hybrid-rrf-reranked","0","1","10",,,,
-"Edge Case","unsupported_external_fact","bge-m3-hybrid-rrf-reranked","0","1","20",,,,
-"Edge Case","unsupported_external_fact","bge-m3-hybrid-rrf-reranked","0","1","30",,,,
-"Edge Case","unsupported_personal_fact","bge-m3-hybrid-rrf-reranked","0","1","5",,,,
-"Edge Case","unsupported_personal_fact","bge-m3-hybrid-rrf-reranked","0","1","10",,,,
-"Edge Case","unsupported_personal_fact","bge-m3-hybrid-rrf-reranked","0","1","20",,,,
-"Edge Case","unsupported_personal_fact","bge-m3-hybrid-rrf-reranked","0","1","30",,,,
+Facet,Group,Method,Answerable,ExcludedEmptyGold,K,Precision,EvidenceGroupRecall,MRR,HitRate,ExactChunkRecall,RelevantResultRedundancy
+Split,all,bge-m3-dense,189,11,5,0.169312,0.544974,0.444974,0.544974,0.513228,0.102822
+Split,all,bge-m3-dense,189,11,10,0.103704,0.599647,0.452824,0.603175,0.594356,0.107989
+Split,all,bge-m3-dense,189,11,20,0.059259,0.663139,0.456948,0.666667,0.657848,0.117524
+Split,all,bge-m3-dense,189,11,30,0.041446,0.689594,0.458097,0.693122,0.689594,0.128106
+Split,development,bge-m3-dense,152,8,5,0.165789,0.552632,0.446711,0.552632,0.526316,0.095175
+Split,development,bge-m3-dense,152,8,10,0.098684,0.605263,0.453496,0.605263,0.598684,0.098666
+Split,development,bge-m3-dense,152,8,20,0.055263,0.664474,0.457491,0.664474,0.664474,0.106758
+Split,development,bge-m3-dense,152,8,30,0.038596,0.697368,0.458919,0.697368,0.697368,0.114434
+Split,test,bge-m3-dense,37,3,5,0.183784,0.513514,0.437838,0.513514,0.459459,0.134234
+Split,test,bge-m3-dense,37,3,10,0.124324,0.576577,0.450064,0.594595,0.576577,0.146289
+Split,test,bge-m3-dense,37,3,20,0.075676,0.657658,0.454719,0.675676,0.630631,0.161753
+Split,test,bge-m3-dense,37,3,30,0.053153,0.657658,0.454719,0.675676,0.657658,0.184275
+query_type,ambiguous,bge-m3-dense,1,1,5,0.0,0.0,0.0,0.0,0.0,0.0
+query_type,ambiguous,bge-m3-dense,1,1,10,0.0,0.0,0.0,0.0,0.0,0.0
+query_type,ambiguous,bge-m3-dense,1,1,20,0.0,0.0,0.0,0.0,0.0,0.0
+query_type,ambiguous,bge-m3-dense,1,1,30,0.0,0.0,0.0,0.0,0.0,0.0
+query_type,factual,bge-m3-dense,22,0,5,0.190909,0.545455,0.418182,0.545455,0.545455,0.143939
+query_type,factual,bge-m3-dense,22,0,10,0.095455,0.545455,0.418182,0.545455,0.545455,0.143939
+query_type,factual,bge-m3-dense,22,0,20,0.056818,0.636364,0.423548,0.636364,0.636364,0.189394
+query_type,factual,bge-m3-dense,22,0,30,0.042424,0.681818,0.425442,0.681818,0.681818,0.204545
+query_type,list,bge-m3-dense,1,0,5,0.0,0.0,0.0,0.0,0.0,0.0
+query_type,list,bge-m3-dense,1,0,10,0.0,0.0,0.0,0.0,0.0,0.0
+query_type,list,bge-m3-dense,1,0,20,0.0,0.0,0.0,0.0,0.0,0.0
+query_type,list,bge-m3-dense,1,0,30,0.0,0.0,0.0,0.0,0.0,0.0
+query_type,multi_chunk_synthesis,bge-m3-dense,1,0,5,0.0,0.0,0.0,0.0,0.0,0.0
+query_type,multi_chunk_synthesis,bge-m3-dense,1,0,10,0.1,0.333333,0.142857,1.0,0.333333,0.0
+query_type,multi_chunk_synthesis,bge-m3-dense,1,0,20,0.05,0.333333,0.142857,1.0,0.333333,0.0
+query_type,multi_chunk_synthesis,bge-m3-dense,1,0,30,0.033333,0.333333,0.142857,1.0,0.333333,0.0
+query_type,multi_document_comparison,bge-m3-dense,1,0,5,0.0,0.0,0.0,0.0,0.0,0.0
+query_type,multi_document_comparison,bge-m3-dense,1,0,10,0.0,0.0,0.0,0.0,0.0,0.0
+query_type,multi_document_comparison,bge-m3-dense,1,0,20,0.0,0.0,0.0,0.0,0.0,0.0
+query_type,multi_document_comparison,bge-m3-dense,1,0,30,0.0,0.0,0.0,0.0,0.0,0.0
+query_type,multi_document_reconciliation,bge-m3-dense,1,0,5,0.4,1.0,1.0,1.0,1.0,0.0
+query_type,multi_document_reconciliation,bge-m3-dense,1,0,10,0.2,1.0,1.0,1.0,1.0,0.0
+query_type,multi_document_reconciliation,bge-m3-dense,1,0,20,0.1,1.0,1.0,1.0,1.0,0.0
+query_type,multi_document_reconciliation,bge-m3-dense,1,0,30,0.066667,1.0,1.0,1.0,1.0,0.0
+query_type,paraphrase,bge-m3-dense,80,0,5,0.1675,0.55,0.451458,0.55,0.525,0.105208
+query_type,paraphrase,bge-m3-dense,80,0,10,0.10375,0.6375,0.462788,0.6375,0.6375,0.111235
+query_type,paraphrase,bge-m3-dense,80,0,20,0.058125,0.675,0.464975,0.675,0.6625,0.112311
+query_type,paraphrase,bge-m3-dense,80,0,30,0.040417,0.6875,0.46557,0.6875,0.6875,0.126894
+query_type,premise_check,bge-m3-dense,1,0,5,0.0,0.0,0.0,0.0,0.0,0.0
+query_type,premise_check,bge-m3-dense,1,0,10,0.0,0.0,0.0,0.0,0.0,0.0
+query_type,premise_check,bge-m3-dense,1,0,20,0.0,0.0,0.0,0.0,0.0,0.0
+query_type,premise_check,bge-m3-dense,1,0,30,0.0,0.0,0.0,0.0,0.0,0.0
+query_type,regulatory_filing,bge-m3-dense,1,0,5,0.0,0.0,0.0,0.0,0.0,0.0
+query_type,regulatory_filing,bge-m3-dense,1,0,10,0.2,1.0,0.142857,1.0,1.0,0.0
+query_type,regulatory_filing,bge-m3-dense,1,0,20,0.1,1.0,0.142857,1.0,1.0,0.0
+query_type,regulatory_filing,bge-m3-dense,1,0,30,0.066667,1.0,0.142857,1.0,1.0,0.0
+query_type,table_lookup,bge-m3-dense,79,0,5,0.177215,0.582278,0.47827,0.582278,0.531646,0.099367
+query_type,table_lookup,bge-m3-dense,79,0,10,0.110127,0.607595,0.481962,0.607595,0.594937,0.105626
+query_type,table_lookup,bge-m3-dense,79,0,20,0.063924,0.696203,0.48812,0.696203,0.696203,0.114691
+query_type,table_lookup,bge-m3-dense,79,0,30,0.044304,0.734177,0.489737,0.734177,0.734177,0.12102
+query_type,temporal_reconciliation,bge-m3-dense,1,0,5,0.0,0.0,0.0,0.0,0.0,0.0
+query_type,temporal_reconciliation,bge-m3-dense,1,0,10,0.0,0.0,0.0,0.0,0.0,0.0
+query_type,temporal_reconciliation,bge-m3-dense,1,0,20,0.0,0.0,0.0,0.0,0.0,0.0
+query_type,temporal_reconciliation,bge-m3-dense,1,0,30,0.0,0.0,0.0,0.0,0.0,0.0
+difficulty,easy,bge-m3-dense,2,8,5,0.0,0.0,0.0,0.0,0.0,0.0
+difficulty,easy,bge-m3-dense,2,8,10,0.0,0.0,0.0,0.0,0.0,0.0
+difficulty,easy,bge-m3-dense,2,8,20,0.0,0.0,0.0,0.0,0.0,0.0
+difficulty,easy,bge-m3-dense,2,8,30,0.0,0.0,0.0,0.0,0.0,0.0
+difficulty,hard,bge-m3-dense,5,1,5,0.08,0.2,0.2,0.2,0.2,0.0
+difficulty,hard,bge-m3-dense,5,1,10,0.06,0.266667,0.228571,0.4,0.266667,0.0
+difficulty,hard,bge-m3-dense,5,1,20,0.03,0.266667,0.228571,0.4,0.266667,0.0
+difficulty,hard,bge-m3-dense,5,1,30,0.02,0.266667,0.228571,0.4,0.266667,0.0
+difficulty,medium,bge-m3-dense,182,2,5,0.173626,0.56044,0.456593,0.56044,0.527473,0.106777
+difficulty,medium,bge-m3-dense,182,2,10,0.106044,0.615385,0.463961,0.615385,0.60989,0.112142
+difficulty,medium,bge-m3-dense,182,2,20,0.060714,0.681319,0.468244,0.681319,0.675824,0.122045
+difficulty,medium,bge-m3-dense,182,2,30,0.042491,0.708791,0.469436,0.708791,0.708791,0.133034
+edge_case,arbitrary_selection_rule,bge-m3-dense,1,0,5,0.0,0.0,0.0,0.0,0.0,0.0
+edge_case,arbitrary_selection_rule,bge-m3-dense,1,0,10,0.0,0.0,0.0,0.0,0.0,0.0
+edge_case,arbitrary_selection_rule,bge-m3-dense,1,0,20,0.0,0.0,0.0,0.0,0.0,0.0
+edge_case,arbitrary_selection_rule,bge-m3-dense,1,0,30,0.0,0.0,0.0,0.0,0.0,0.0
+edge_case,citation_required,bge-m3-dense,16,0,5,0.175,0.625,0.59375,0.625,0.625,0.104167
+edge_case,citation_required,bge-m3-dense,16,0,10,0.09375,0.6875,0.604167,0.6875,0.6875,0.104167
+edge_case,citation_required,bge-m3-dense,16,0,20,0.05,0.75,0.608073,0.75,0.75,0.104167
+edge_case,citation_required,bge-m3-dense,16,0,30,0.0375,0.8125,0.611049,0.8125,0.8125,0.135417
+edge_case,conflicting_dated_sources,bge-m3-dense,1,0,5,0.4,1.0,1.0,1.0,1.0,0.0
+edge_case,conflicting_dated_sources,bge-m3-dense,1,0,10,0.2,1.0,1.0,1.0,1.0,0.0
+edge_case,conflicting_dated_sources,bge-m3-dense,1,0,20,0.1,1.0,1.0,1.0,1.0,0.0
+edge_case,conflicting_dated_sources,bge-m3-dense,1,0,30,0.066667,1.0,1.0,1.0,1.0,0.0
+edge_case,corpus_qualified,bge-m3-dense,16,0,5,0.175,0.5,0.408333,0.5,0.4375,0.145833
+edge_case,corpus_qualified,bge-m3-dense,16,0,10,0.125,0.5625,0.417262,0.5625,0.5625,0.168155
+edge_case,corpus_qualified,bge-m3-dense,16,0,20,0.078125,0.625,0.420387,0.625,0.5625,0.171402
+edge_case,corpus_qualified,bge-m3-dense,16,0,30,0.05625,0.625,0.420387,0.625,0.625,0.213068
+edge_case,date_premise_mismatch,bge-m3-dense,1,0,5,0.0,0.0,0.0,0.0,0.0,0.0
+edge_case,date_premise_mismatch,bge-m3-dense,1,0,10,0.0,0.0,0.0,0.0,0.0,0.0
+edge_case,date_premise_mismatch,bge-m3-dense,1,0,20,0.0,0.0,0.0,0.0,0.0,0.0
+edge_case,date_premise_mismatch,bge-m3-dense,1,0,30,0.0,0.0,0.0,0.0,0.0,0.0
+edge_case,distributed_evidence,bge-m3-dense,1,0,5,0.0,0.0,0.0,0.0,0.0,0.0
+edge_case,distributed_evidence,bge-m3-dense,1,0,10,0.1,0.333333,0.142857,1.0,0.333333,0.0
+edge_case,distributed_evidence,bge-m3-dense,1,0,20,0.05,0.333333,0.142857,1.0,0.333333,0.0
+edge_case,distributed_evidence,bge-m3-dense,1,0,30,0.033333,0.333333,0.142857,1.0,0.333333,0.0
+edge_case,false_premise,bge-m3-dense,1,0,5,0.0,0.0,0.0,0.0,0.0,0.0
+edge_case,false_premise,bge-m3-dense,1,0,10,0.0,0.0,0.0,0.0,0.0,0.0
+edge_case,false_premise,bge-m3-dense,1,0,20,0.0,0.0,0.0,0.0,0.0,0.0
+edge_case,false_premise,bge-m3-dense,1,0,30,0.0,0.0,0.0,0.0,0.0,0.0
+edge_case,interpretation_bounded_by_evidence,bge-m3-dense,1,0,5,0.0,0.0,0.0,0.0,0.0,0.0
+edge_case,interpretation_bounded_by_evidence,bge-m3-dense,1,0,10,0.0,0.0,0.0,0.0,0.0,0.0
+edge_case,interpretation_bounded_by_evidence,bge-m3-dense,1,0,20,0.0,0.0,0.0,0.0,0.0,0.0
+edge_case,interpretation_bounded_by_evidence,bge-m3-dense,1,0,30,0.0,0.0,0.0,0.0,0.0,0.0
+edge_case,original_vs_amendment,bge-m3-dense,1,0,5,0.0,0.0,0.0,0.0,0.0,0.0
+edge_case,original_vs_amendment,bge-m3-dense,1,0,10,0.2,1.0,0.142857,1.0,1.0,0.0
+edge_case,original_vs_amendment,bge-m3-dense,1,0,20,0.1,1.0,0.142857,1.0,1.0,0.0
+edge_case,original_vs_amendment,bge-m3-dense,1,0,30,0.066667,1.0,0.142857,1.0,1.0,0.0
+edge_case,precision_constraint,bge-m3-dense,16,0,5,0.15,0.4375,0.333333,0.4375,0.375,0.088542
+edge_case,precision_constraint,bge-m3-dense,16,0,10,0.10625,0.5,0.342262,0.5,0.5,0.096354
+edge_case,precision_constraint,bge-m3-dense,16,0,20,0.065625,0.5625,0.346168,0.5625,0.5625,0.098485
+edge_case,precision_constraint,bge-m3-dense,16,0,30,0.04375,0.5625,0.346168,0.5625,0.5625,0.098485
+edge_case,punctuation_noise,bge-m3-dense,16,0,5,0.225,0.6875,0.484375,0.6875,0.6875,0.15625
+edge_case,punctuation_noise,bge-m3-dense,16,0,10,0.125,0.8125,0.497569,0.8125,0.8125,0.15625
+edge_case,punctuation_noise,bge-m3-dense,16,0,20,0.0625,0.8125,0.497569,0.8125,0.8125,0.15625
+edge_case,punctuation_noise,bge-m3-dense,16,0,30,0.041667,0.8125,0.497569,0.8125,0.8125,0.15625
+edge_case,required_sample,bge-m3-dense,2,0,5,0.0,0.0,0.0,0.0,0.0,0.0
+edge_case,required_sample,bge-m3-dense,2,0,10,0.0,0.0,0.0,0.0,0.0,0.0
+edge_case,required_sample,bge-m3-dense,2,0,20,0.0,0.0,0.0,0.0,0.0,0.0
+edge_case,required_sample,bge-m3-dense,2,0,30,0.0,0.0,0.0,0.0,0.0,0.0
+edge_case,source_qualified,bge-m3-dense,16,0,5,0.1125,0.5,0.4375,0.5,0.5,0.03125
+edge_case,source_qualified,bge-m3-dense,16,0,10,0.06875,0.625,0.452679,0.625,0.625,0.03125
+edge_case,source_qualified,bge-m3-dense,16,0,20,0.034375,0.625,0.452679,0.625,0.625,0.03125
+edge_case,source_qualified,bge-m3-dense,16,0,30,0.022917,0.625,0.452679,0.625,0.625,0.03125
+edge_case,standard,bge-m3-dense,100,0,5,0.182,0.58,0.469833,0.58,0.54,0.110167
+edge_case,standard,bge-m3-dense,100,0,10,0.108,0.6,0.47275,0.6,0.59,0.115111
+edge_case,standard,bge-m3-dense,100,0,20,0.063,0.69,0.478795,0.69,0.69,0.132273
+edge_case,standard,bge-m3-dense,100,0,30,0.044333,0.73,0.480489,0.73,0.73,0.140606
+Split,all,bge-m3-hybrid-rrf,189,11,5,0.185185,0.634039,0.493739,0.640212,0.591711,0.096649
+Split,all,bge-m3-hybrid-rrf,189,11,10,0.117989,0.694885,0.501589,0.698413,0.689594,0.129212
+Split,all,bge-m3-hybrid-rrf,189,11,20,0.068254,0.763668,0.506774,0.767196,0.763668,0.151916
+Split,all,bge-m3-hybrid-rrf,189,11,30,0.047266,0.805996,0.508409,0.809524,0.805996,0.155443
+Split,development,bge-m3-hybrid-rrf,152,8,5,0.177632,0.634868,0.5,0.638158,0.601974,0.086404
+Split,development,bge-m3-hybrid-rrf,152,8,10,0.110526,0.697368,0.507882,0.697368,0.690789,0.111824
+Split,development,bge-m3-hybrid-rrf,152,8,20,0.0625,0.756579,0.512575,0.756579,0.756579,0.130881
+Split,development,bge-m3-hybrid-rrf,152,8,30,0.04364,0.802632,0.514372,0.802632,0.802632,0.135267
+Split,test,bge-m3-hybrid-rrf,37,3,5,0.216216,0.630631,0.468018,0.648649,0.54955,0.138739
+Split,test,bge-m3-hybrid-rrf,37,3,10,0.148649,0.684685,0.47574,0.702703,0.684685,0.200644
+Split,test,bge-m3-hybrid-rrf,37,3,20,0.091892,0.792793,0.482947,0.810811,0.792793,0.238329
+Split,test,bge-m3-hybrid-rrf,37,3,30,0.062162,0.81982,0.483912,0.837838,0.81982,0.238329
+query_type,ambiguous,bge-m3-hybrid-rrf,1,1,5,0.0,0.0,0.0,0.0,0.0,0.0
+query_type,ambiguous,bge-m3-hybrid-rrf,1,1,10,0.0,0.0,0.0,0.0,0.0,0.0
+query_type,ambiguous,bge-m3-hybrid-rrf,1,1,20,0.0,0.0,0.0,0.0,0.0,0.0
+query_type,ambiguous,bge-m3-hybrid-rrf,1,1,30,0.0,0.0,0.0,0.0,0.0,0.0
+query_type,factual,bge-m3-hybrid-rrf,22,0,5,0.190909,0.545455,0.469697,0.545455,0.545455,0.143939
+query_type,factual,bge-m3-hybrid-rrf,22,0,10,0.127273,0.772727,0.499856,0.772727,0.772727,0.189394
+query_type,factual,bge-m3-hybrid-rrf,22,0,20,0.072727,0.818182,0.502886,0.818182,0.818182,0.227273
+query_type,factual,bge-m3-hybrid-rrf,22,0,30,0.048485,0.818182,0.502886,0.818182,0.818182,0.227273
+query_type,list,bge-m3-hybrid-rrf,1,0,5,0.0,0.0,0.0,0.0,0.0,0.0
+query_type,list,bge-m3-hybrid-rrf,1,0,10,0.0,0.0,0.0,0.0,0.0,0.0
+query_type,list,bge-m3-hybrid-rrf,1,0,20,0.0,0.0,0.0,0.0,0.0,0.0
+query_type,list,bge-m3-hybrid-rrf,1,0,30,0.0,0.0,0.0,0.0,0.0,0.0
+query_type,multi_chunk_synthesis,bge-m3-hybrid-rrf,1,0,5,0.2,0.333333,0.2,1.0,0.333333,0.0
+query_type,multi_chunk_synthesis,bge-m3-hybrid-rrf,1,0,10,0.1,0.333333,0.2,1.0,0.333333,0.0
+query_type,multi_chunk_synthesis,bge-m3-hybrid-rrf,1,0,20,0.05,0.333333,0.2,1.0,0.333333,0.0
+query_type,multi_chunk_synthesis,bge-m3-hybrid-rrf,1,0,30,0.033333,0.333333,0.2,1.0,0.333333,0.0
+query_type,multi_document_comparison,bge-m3-hybrid-rrf,1,0,5,0.0,0.0,0.0,0.0,0.0,0.0
+query_type,multi_document_comparison,bge-m3-hybrid-rrf,1,0,10,0.0,0.0,0.0,0.0,0.0,0.0
+query_type,multi_document_comparison,bge-m3-hybrid-rrf,1,0,20,0.0,0.0,0.0,0.0,0.0,0.0
+query_type,multi_document_comparison,bge-m3-hybrid-rrf,1,0,30,0.0,0.0,0.0,0.0,0.0,0.0
+query_type,multi_document_reconciliation,bge-m3-hybrid-rrf,1,0,5,0.4,1.0,1.0,1.0,1.0,0.0
+query_type,multi_document_reconciliation,bge-m3-hybrid-rrf,1,0,10,0.2,1.0,1.0,1.0,1.0,0.0
+query_type,multi_document_reconciliation,bge-m3-hybrid-rrf,1,0,20,0.1,1.0,1.0,1.0,1.0,0.0
+query_type,multi_document_reconciliation,bge-m3-hybrid-rrf,1,0,30,0.066667,1.0,1.0,1.0,1.0,0.0
+query_type,paraphrase,bge-m3-hybrid-rrf,80,0,5,0.1925,0.6875,0.522083,0.6875,0.65,0.103125
+query_type,paraphrase,bge-m3-hybrid-rrf,80,0,10,0.11375,0.7,0.523869,0.7,0.7,0.129985
+query_type,paraphrase,bge-m3-hybrid-rrf,80,0,20,0.06625,0.7625,0.528595,0.7625,0.7625,0.145644
+query_type,paraphrase,bge-m3-hybrid-rrf,80,0,30,0.047083,0.825,0.531085,0.825,0.825,0.153977
+query_type,premise_check,bge-m3-hybrid-rrf,1,0,5,0.0,0.0,0.0,0.0,0.0,0.0
+query_type,premise_check,bge-m3-hybrid-rrf,1,0,10,0.0,0.0,0.0,0.0,0.0,0.0
+query_type,premise_check,bge-m3-hybrid-rrf,1,0,20,0.0,0.0,0.0,0.0,0.0,0.0
+query_type,premise_check,bge-m3-hybrid-rrf,1,0,30,0.0,0.0,0.0,0.0,0.0,0.0
+query_type,regulatory_filing,bge-m3-hybrid-rrf,1,0,5,0.2,0.5,0.5,1.0,0.5,0.0
+query_type,regulatory_filing,bge-m3-hybrid-rrf,1,0,10,0.2,1.0,0.5,1.0,1.0,0.0
+query_type,regulatory_filing,bge-m3-hybrid-rrf,1,0,20,0.1,1.0,0.5,1.0,1.0,0.0
+query_type,regulatory_filing,bge-m3-hybrid-rrf,1,0,30,0.066667,1.0,0.5,1.0,1.0,0.0
+query_type,table_lookup,bge-m3-hybrid-rrf,79,0,5,0.18481,0.64557,0.500211,0.64557,0.582278,0.086709
+query_type,table_lookup,bge-m3-hybrid-rrf,79,0,10,0.125316,0.708861,0.508785,0.708861,0.696203,0.124754
+query_type,table_lookup,bge-m3-hybrid-rrf,79,0,20,0.072785,0.797468,0.51556,0.797468,0.797468,0.152666
+query_type,table_lookup,bge-m3-hybrid-rrf,79,0,30,0.049789,0.835443,0.51695,0.835443,0.835443,0.152666
+query_type,temporal_reconciliation,bge-m3-hybrid-rrf,1,0,5,0.0,0.0,0.0,0.0,0.0,0.0
+query_type,temporal_reconciliation,bge-m3-hybrid-rrf,1,0,10,0.0,0.0,0.0,0.0,0.0,0.0
+query_type,temporal_reconciliation,bge-m3-hybrid-rrf,1,0,20,0.0,0.0,0.0,0.0,0.0,0.0
+query_type,temporal_reconciliation,bge-m3-hybrid-rrf,1,0,30,0.0,0.0,0.0,0.0,0.0,0.0
+difficulty,easy,bge-m3-hybrid-rrf,2,8,5,0.0,0.0,0.0,0.0,0.0,0.0
+difficulty,easy,bge-m3-hybrid-rrf,2,8,10,0.05,0.5,0.055556,0.5,0.5,0.0
+difficulty,easy,bge-m3-hybrid-rrf,2,8,20,0.025,0.5,0.055556,0.5,0.5,0.0
+difficulty,easy,bge-m3-hybrid-rrf,2,8,30,0.016667,0.5,0.055556,0.5,0.5,0.0
+difficulty,hard,bge-m3-hybrid-rrf,5,1,5,0.12,0.266667,0.24,0.4,0.266667,0.0
+difficulty,hard,bge-m3-hybrid-rrf,5,1,10,0.06,0.266667,0.24,0.4,0.266667,0.0
+difficulty,hard,bge-m3-hybrid-rrf,5,1,20,0.03,0.266667,0.24,0.4,0.266667,0.0
+difficulty,hard,bge-m3-hybrid-rrf,5,1,30,0.02,0.266667,0.24,0.4,0.266667,0.0
+difficulty,medium,bge-m3-hybrid-rrf,182,2,5,0.189011,0.651099,0.506136,0.653846,0.607143,0.100366
+difficulty,medium,bge-m3-hybrid-rrf,182,2,10,0.12033,0.708791,0.513677,0.708791,0.703297,0.134181
+difficulty,medium,bge-m3-hybrid-rrf,182,2,20,0.06978,0.78022,0.519062,0.78022,0.78022,0.157759
+difficulty,medium,bge-m3-hybrid-rrf,182,2,30,0.048352,0.824176,0.52076,0.824176,0.824176,0.161422
+edge_case,arbitrary_selection_rule,bge-m3-hybrid-rrf,1,0,5,0.0,0.0,0.0,0.0,0.0,0.0
+edge_case,arbitrary_selection_rule,bge-m3-hybrid-rrf,1,0,10,0.0,0.0,0.0,0.0,0.0,0.0
+edge_case,arbitrary_selection_rule,bge-m3-hybrid-rrf,1,0,20,0.0,0.0,0.0,0.0,0.0,0.0
+edge_case,arbitrary_selection_rule,bge-m3-hybrid-rrf,1,0,30,0.0,0.0,0.0,0.0,0.0,0.0
+edge_case,citation_required,bge-m3-hybrid-rrf,16,0,5,0.2,0.8125,0.627083,0.8125,0.75,0.09375
+edge_case,citation_required,bge-m3-hybrid-rrf,16,0,10,0.1125,0.8125,0.627083,0.8125,0.8125,0.135417
+edge_case,citation_required,bge-m3-hybrid-rrf,16,0,20,0.05625,0.8125,0.627083,0.8125,0.8125,0.135417
+edge_case,citation_required,bge-m3-hybrid-rrf,16,0,30,0.0375,0.8125,0.627083,0.8125,0.8125,0.135417
+edge_case,conflicting_dated_sources,bge-m3-hybrid-rrf,1,0,5,0.4,1.0,1.0,1.0,1.0,0.0
+edge_case,conflicting_dated_sources,bge-m3-hybrid-rrf,1,0,10,0.2,1.0,1.0,1.0,1.0,0.0
+edge_case,conflicting_dated_sources,bge-m3-hybrid-rrf,1,0,20,0.1,1.0,1.0,1.0,1.0,0.0
+edge_case,conflicting_dated_sources,bge-m3-hybrid-rrf,1,0,30,0.066667,1.0,1.0,1.0,1.0,0.0
+edge_case,corpus_qualified,bge-m3-hybrid-rrf,16,0,5,0.2125,0.625,0.427083,0.625,0.5625,0.15625
+edge_case,corpus_qualified,bge-m3-hybrid-rrf,16,0,10,0.15,0.6875,0.436012,0.6875,0.6875,0.230655
+edge_case,corpus_qualified,bge-m3-hybrid-rrf,16,0,20,0.1,0.8125,0.444345,0.8125,0.8125,0.275568
+edge_case,corpus_qualified,bge-m3-hybrid-rrf,16,0,30,0.066667,0.8125,0.444345,0.8125,0.8125,0.275568
+edge_case,date_premise_mismatch,bge-m3-hybrid-rrf,1,0,5,0.0,0.0,0.0,0.0,0.0,0.0
+edge_case,date_premise_mismatch,bge-m3-hybrid-rrf,1,0,10,0.0,0.0,0.0,0.0,0.0,0.0
+edge_case,date_premise_mismatch,bge-m3-hybrid-rrf,1,0,20,0.0,0.0,0.0,0.0,0.0,0.0
+edge_case,date_premise_mismatch,bge-m3-hybrid-rrf,1,0,30,0.0,0.0,0.0,0.0,0.0,0.0
+edge_case,distributed_evidence,bge-m3-hybrid-rrf,1,0,5,0.2,0.333333,0.2,1.0,0.333333,0.0
+edge_case,distributed_evidence,bge-m3-hybrid-rrf,1,0,10,0.1,0.333333,0.2,1.0,0.333333,0.0
+edge_case,distributed_evidence,bge-m3-hybrid-rrf,1,0,20,0.05,0.333333,0.2,1.0,0.333333,0.0
+edge_case,distributed_evidence,bge-m3-hybrid-rrf,1,0,30,0.033333,0.333333,0.2,1.0,0.333333,0.0
+edge_case,false_premise,bge-m3-hybrid-rrf,1,0,5,0.0,0.0,0.0,0.0,0.0,0.0
+edge_case,false_premise,bge-m3-hybrid-rrf,1,0,10,0.0,0.0,0.0,0.0,0.0,0.0
+edge_case,false_premise,bge-m3-hybrid-rrf,1,0,20,0.0,0.0,0.0,0.0,0.0,0.0
+edge_case,false_premise,bge-m3-hybrid-rrf,1,0,30,0.0,0.0,0.0,0.0,0.0,0.0
+edge_case,interpretation_bounded_by_evidence,bge-m3-hybrid-rrf,1,0,5,0.0,0.0,0.0,0.0,0.0,0.0
+edge_case,interpretation_bounded_by_evidence,bge-m3-hybrid-rrf,1,0,10,0.0,0.0,0.0,0.0,0.0,0.0
+edge_case,interpretation_bounded_by_evidence,bge-m3-hybrid-rrf,1,0,20,0.0,0.0,0.0,0.0,0.0,0.0
+edge_case,interpretation_bounded_by_evidence,bge-m3-hybrid-rrf,1,0,30,0.0,0.0,0.0,0.0,0.0,0.0
+edge_case,original_vs_amendment,bge-m3-hybrid-rrf,1,0,5,0.2,0.5,0.5,1.0,0.5,0.0
+edge_case,original_vs_amendment,bge-m3-hybrid-rrf,1,0,10,0.2,1.0,0.5,1.0,1.0,0.0
+edge_case,original_vs_amendment,bge-m3-hybrid-rrf,1,0,20,0.1,1.0,0.5,1.0,1.0,0.0
+edge_case,original_vs_amendment,bge-m3-hybrid-rrf,1,0,30,0.066667,1.0,0.5,1.0,1.0,0.0
+edge_case,precision_constraint,bge-m3-hybrid-rrf,16,0,5,0.1625,0.5,0.427083,0.5,0.5,0.088542
+edge_case,precision_constraint,bge-m3-hybrid-rrf,16,0,10,0.10625,0.5,0.427083,0.5,0.5,0.096354
+edge_case,precision_constraint,bge-m3-hybrid-rrf,16,0,20,0.06875,0.5625,0.431891,0.5625,0.5625,0.129735
+edge_case,precision_constraint,bge-m3-hybrid-rrf,16,0,30,0.058333,0.8125,0.441499,0.8125,0.8125,0.171402
+edge_case,punctuation_noise,bge-m3-hybrid-rrf,16,0,5,0.2375,0.8125,0.661458,0.8125,0.75,0.145833
+edge_case,punctuation_noise,bge-m3-hybrid-rrf,16,0,10,0.125,0.8125,0.661458,0.8125,0.8125,0.15625
+edge_case,punctuation_noise,bge-m3-hybrid-rrf,16,0,20,0.0625,0.8125,0.661458,0.8125,0.8125,0.15625
+edge_case,punctuation_noise,bge-m3-hybrid-rrf,16,0,30,0.04375,0.875,0.664299,0.875,0.875,0.15625
+edge_case,required_sample,bge-m3-hybrid-rrf,2,0,5,0.0,0.0,0.0,0.0,0.0,0.0
+edge_case,required_sample,bge-m3-hybrid-rrf,2,0,10,0.05,0.5,0.055556,0.5,0.5,0.0
+edge_case,required_sample,bge-m3-hybrid-rrf,2,0,20,0.025,0.5,0.055556,0.5,0.5,0.0
+edge_case,required_sample,bge-m3-hybrid-rrf,2,0,30,0.016667,0.5,0.055556,0.5,0.5,0.0
+edge_case,source_qualified,bge-m3-hybrid-rrf,16,0,5,0.15,0.6875,0.467708,0.6875,0.6875,0.03125
+edge_case,source_qualified,bge-m3-hybrid-rrf,16,0,10,0.075,0.6875,0.467708,0.6875,0.6875,0.03125
+edge_case,source_qualified,bge-m3-hybrid-rrf,16,0,20,0.04375,0.8125,0.478198,0.8125,0.8125,0.03125
+edge_case,source_qualified,bge-m3-hybrid-rrf,16,0,30,0.029167,0.8125,0.478198,0.8125,0.8125,0.03125
+edge_case,standard,bge-m3-hybrid-rrf,100,0,5,0.188,0.63,0.4985,0.63,0.58,0.100167
+edge_case,standard,bge-m3-hybrid-rrf,100,0,10,0.126,0.72,0.510798,0.72,0.71,0.140222
+edge_case,standard,bge-m3-hybrid-rrf,100,0,20,0.073,0.8,0.516817,0.8,0.8,0.170606
+edge_case,standard,bge-m3-hybrid-rrf,100,0,30,0.049667,0.83,0.517914,0.83,0.83,0.170606
+Split,all,bge-m3-hybrid-rrf-reranked,189,11,5,0.195767,0.657848,0.566138,0.661376,0.652557,0.100529
+Split,all,bge-m3-hybrid-rrf-reranked,189,11,10,0.127513,0.737213,0.577133,0.740741,0.737213,0.133157
+Split,all,bge-m3-hybrid-rrf-reranked,189,11,20,0.070106,0.795414,0.581024,0.798942,0.790123,0.152798
+Split,all,bge-m3-hybrid-rrf-reranked,189,11,30,0.047266,0.805996,0.581528,0.809524,0.805996,0.155443
+Split,development,bge-m3-hybrid-rrf-reranked,152,8,5,0.181579,0.657895,0.559868,0.657895,0.651316,0.081579
+Split,development,bge-m3-hybrid-rrf-reranked,152,8,10,0.119737,0.743421,0.571896,0.743421,0.743421,0.120833
+Split,development,bge-m3-hybrid-rrf-reranked,152,8,20,0.064803,0.789474,0.575219,0.789474,0.789474,0.135267
+Split,development,bge-m3-hybrid-rrf-reranked,152,8,30,0.04364,0.802632,0.575845,0.802632,0.802632,0.135267
+Split,test,bge-m3-hybrid-rrf-reranked,37,3,5,0.254054,0.657658,0.591892,0.675676,0.657658,0.178378
+Split,test,bge-m3-hybrid-rrf-reranked,37,3,10,0.159459,0.711712,0.598649,0.72973,0.711712,0.183784
+Split,test,bge-m3-hybrid-rrf-reranked,37,3,20,0.091892,0.81982,0.604872,0.837838,0.792793,0.224816
+Split,test,bge-m3-hybrid-rrf-reranked,37,3,30,0.062162,0.81982,0.604872,0.837838,0.81982,0.238329
+query_type,ambiguous,bge-m3-hybrid-rrf-reranked,1,1,5,0.0,0.0,0.0,0.0,0.0,0.0
+query_type,ambiguous,bge-m3-hybrid-rrf-reranked,1,1,10,0.0,0.0,0.0,0.0,0.0,0.0
+query_type,ambiguous,bge-m3-hybrid-rrf-reranked,1,1,20,0.0,0.0,0.0,0.0,0.0,0.0
+query_type,ambiguous,bge-m3-hybrid-rrf-reranked,1,1,30,0.0,0.0,0.0,0.0,0.0,0.0
+query_type,factual,bge-m3-hybrid-rrf-reranked,22,0,5,0.272727,0.727273,0.651515,0.727273,0.727273,0.227273
+query_type,factual,bge-m3-hybrid-rrf-reranked,22,0,10,0.140909,0.772727,0.656061,0.772727,0.772727,0.227273
+query_type,factual,bge-m3-hybrid-rrf-reranked,22,0,20,0.072727,0.818182,0.659848,0.818182,0.818182,0.227273
+query_type,factual,bge-m3-hybrid-rrf-reranked,22,0,30,0.048485,0.818182,0.659848,0.818182,0.818182,0.227273
+query_type,list,bge-m3-hybrid-rrf-reranked,1,0,5,0.0,0.0,0.0,0.0,0.0,0.0
+query_type,list,bge-m3-hybrid-rrf-reranked,1,0,10,0.0,0.0,0.0,0.0,0.0,0.0
+query_type,list,bge-m3-hybrid-rrf-reranked,1,0,20,0.0,0.0,0.0,0.0,0.0,0.0
+query_type,list,bge-m3-hybrid-rrf-reranked,1,0,30,0.0,0.0,0.0,0.0,0.0,0.0
+query_type,multi_chunk_synthesis,bge-m3-hybrid-rrf-reranked,1,0,5,0.2,0.333333,0.5,1.0,0.333333,0.0
+query_type,multi_chunk_synthesis,bge-m3-hybrid-rrf-reranked,1,0,10,0.1,0.333333,0.5,1.0,0.333333,0.0
+query_type,multi_chunk_synthesis,bge-m3-hybrid-rrf-reranked,1,0,20,0.05,0.333333,0.5,1.0,0.333333,0.0
+query_type,multi_chunk_synthesis,bge-m3-hybrid-rrf-reranked,1,0,30,0.033333,0.333333,0.5,1.0,0.333333,0.0
+query_type,multi_document_comparison,bge-m3-hybrid-rrf-reranked,1,0,5,0.0,0.0,0.0,0.0,0.0,0.0
+query_type,multi_document_comparison,bge-m3-hybrid-rrf-reranked,1,0,10,0.0,0.0,0.0,0.0,0.0,0.0
+query_type,multi_document_comparison,bge-m3-hybrid-rrf-reranked,1,0,20,0.0,0.0,0.0,0.0,0.0,0.0
+query_type,multi_document_comparison,bge-m3-hybrid-rrf-reranked,1,0,30,0.0,0.0,0.0,0.0,0.0,0.0
+query_type,multi_document_reconciliation,bge-m3-hybrid-rrf-reranked,1,0,5,0.4,1.0,1.0,1.0,1.0,0.0
+query_type,multi_document_reconciliation,bge-m3-hybrid-rrf-reranked,1,0,10,0.2,1.0,1.0,1.0,1.0,0.0
+query_type,multi_document_reconciliation,bge-m3-hybrid-rrf-reranked,1,0,20,0.1,1.0,1.0,1.0,1.0,0.0
+query_type,multi_document_reconciliation,bge-m3-hybrid-rrf-reranked,1,0,30,0.066667,1.0,1.0,1.0,1.0,0.0
+query_type,paraphrase,bge-m3-hybrid-rrf-reranked,80,0,5,0.2,0.7,0.592917,0.7,0.7,0.099167
+query_type,paraphrase,bge-m3-hybrid-rrf-reranked,80,0,10,0.13,0.7875,0.605169,0.7875,0.7875,0.132917
+query_type,paraphrase,bge-m3-hybrid-rrf-reranked,80,0,20,0.069375,0.8125,0.606608,0.8125,0.8,0.147727
+query_type,paraphrase,bge-m3-hybrid-rrf-reranked,80,0,30,0.047083,0.825,0.607203,0.825,0.825,0.153977
+query_type,premise_check,bge-m3-hybrid-rrf-reranked,1,0,5,0.0,0.0,0.0,0.0,0.0,0.0
+query_type,premise_check,bge-m3-hybrid-rrf-reranked,1,0,10,0.0,0.0,0.0,0.0,0.0,0.0
+query_type,premise_check,bge-m3-hybrid-rrf-reranked,1,0,20,0.0,0.0,0.0,0.0,0.0,0.0
+query_type,premise_check,bge-m3-hybrid-rrf-reranked,1,0,30,0.0,0.0,0.0,0.0,0.0,0.0
+query_type,regulatory_filing,bge-m3-hybrid-rrf-reranked,1,0,5,0.4,1.0,1.0,1.0,1.0,0.0
+query_type,regulatory_filing,bge-m3-hybrid-rrf-reranked,1,0,10,0.2,1.0,1.0,1.0,1.0,0.0
+query_type,regulatory_filing,bge-m3-hybrid-rrf-reranked,1,0,20,0.1,1.0,1.0,1.0,1.0,0.0
+query_type,regulatory_filing,bge-m3-hybrid-rrf-reranked,1,0,30,0.066667,1.0,1.0,1.0,1.0,0.0
+query_type,table_lookup,bge-m3-hybrid-rrf-reranked,79,0,5,0.177215,0.632911,0.540928,0.632911,0.620253,0.076793
+query_type,table_lookup,bge-m3-hybrid-rrf-reranked,79,0,10,0.127848,0.721519,0.553561,0.721519,0.721519,0.120675
+query_type,table_lookup,bge-m3-hybrid-rrf-reranked,79,0,20,0.074051,0.822785,0.560357,0.822785,0.822785,0.152666
+query_type,table_lookup,bge-m3-hybrid-rrf-reranked,79,0,30,0.049789,0.835443,0.56096,0.835443,0.835443,0.152666
+query_type,temporal_reconciliation,bge-m3-hybrid-rrf-reranked,1,0,5,0.0,0.0,0.0,0.0,0.0,0.0
+query_type,temporal_reconciliation,bge-m3-hybrid-rrf-reranked,1,0,10,0.0,0.0,0.0,0.0,0.0,0.0
+query_type,temporal_reconciliation,bge-m3-hybrid-rrf-reranked,1,0,20,0.0,0.0,0.0,0.0,0.0,0.0
+query_type,temporal_reconciliation,bge-m3-hybrid-rrf-reranked,1,0,30,0.0,0.0,0.0,0.0,0.0,0.0
+difficulty,easy,bge-m3-hybrid-rrf-reranked,2,8,5,0.0,0.0,0.0,0.0,0.0,0.0
+difficulty,easy,bge-m3-hybrid-rrf-reranked,2,8,10,0.05,0.5,0.05,0.5,0.5,0.0
+difficulty,easy,bge-m3-hybrid-rrf-reranked,2,8,20,0.025,0.5,0.05,0.5,0.5,0.0
+difficulty,easy,bge-m3-hybrid-rrf-reranked,2,8,30,0.016667,0.5,0.05,0.5,0.5,0.0
+difficulty,hard,bge-m3-hybrid-rrf-reranked,5,1,5,0.12,0.266667,0.3,0.4,0.266667,0.0
+difficulty,hard,bge-m3-hybrid-rrf-reranked,5,1,10,0.06,0.266667,0.3,0.4,0.266667,0.0
+difficulty,hard,bge-m3-hybrid-rrf-reranked,5,1,20,0.03,0.266667,0.3,0.4,0.266667,0.0
+difficulty,hard,bge-m3-hybrid-rrf-reranked,5,1,30,0.02,0.266667,0.3,0.4,0.266667,0.0
+difficulty,medium,bge-m3-hybrid-rrf-reranked,182,2,5,0.2,0.675824,0.57967,0.675824,0.67033,0.104396
+difficulty,medium,bge-m3-hybrid-rrf-reranked,182,2,10,0.13022,0.752747,0.590539,0.752747,0.752747,0.138278
+difficulty,medium,bge-m3-hybrid-rrf-reranked,182,2,20,0.071703,0.813187,0.59458,0.813187,0.807692,0.158675
+difficulty,medium,bge-m3-hybrid-rrf-reranked,182,2,30,0.048352,0.824176,0.595103,0.824176,0.824176,0.161422
+edge_case,arbitrary_selection_rule,bge-m3-hybrid-rrf-reranked,1,0,5,0.0,0.0,0.0,0.0,0.0,0.0
+edge_case,arbitrary_selection_rule,bge-m3-hybrid-rrf-reranked,1,0,10,0.0,0.0,0.0,0.0,0.0,0.0
+edge_case,arbitrary_selection_rule,bge-m3-hybrid-rrf-reranked,1,0,20,0.0,0.0,0.0,0.0,0.0,0.0
+edge_case,arbitrary_selection_rule,bge-m3-hybrid-rrf-reranked,1,0,30,0.0,0.0,0.0,0.0,0.0,0.0
+edge_case,citation_required,bge-m3-hybrid-rrf-reranked,16,0,5,0.175,0.75,0.66875,0.75,0.75,0.0625
+edge_case,citation_required,bge-m3-hybrid-rrf-reranked,16,0,10,0.1125,0.8125,0.677679,0.8125,0.8125,0.135417
+edge_case,citation_required,bge-m3-hybrid-rrf-reranked,16,0,20,0.05625,0.8125,0.677679,0.8125,0.8125,0.135417
+edge_case,citation_required,bge-m3-hybrid-rrf-reranked,16,0,30,0.0375,0.8125,0.677679,0.8125,0.8125,0.135417
+edge_case,conflicting_dated_sources,bge-m3-hybrid-rrf-reranked,1,0,5,0.4,1.0,1.0,1.0,1.0,0.0
+edge_case,conflicting_dated_sources,bge-m3-hybrid-rrf-reranked,1,0,10,0.2,1.0,1.0,1.0,1.0,0.0
+edge_case,conflicting_dated_sources,bge-m3-hybrid-rrf-reranked,1,0,20,0.1,1.0,1.0,1.0,1.0,0.0
+edge_case,conflicting_dated_sources,bge-m3-hybrid-rrf-reranked,1,0,30,0.066667,1.0,1.0,1.0,1.0,0.0
+edge_case,corpus_qualified,bge-m3-hybrid-rrf-reranked,16,0,5,0.2625,0.625,0.54375,0.625,0.625,0.20625
+edge_case,corpus_qualified,bge-m3-hybrid-rrf-reranked,16,0,10,0.16875,0.6875,0.551562,0.6875,0.6875,0.2125
+edge_case,corpus_qualified,bge-m3-hybrid-rrf-reranked,16,0,20,0.096875,0.8125,0.558758,0.8125,0.75,0.244318
+edge_case,corpus_qualified,bge-m3-hybrid-rrf-reranked,16,0,30,0.066667,0.8125,0.558758,0.8125,0.8125,0.275568
+edge_case,date_premise_mismatch,bge-m3-hybrid-rrf-reranked,1,0,5,0.0,0.0,0.0,0.0,0.0,0.0
+edge_case,date_premise_mismatch,bge-m3-hybrid-rrf-reranked,1,0,10,0.0,0.0,0.0,0.0,0.0,0.0
+edge_case,date_premise_mismatch,bge-m3-hybrid-rrf-reranked,1,0,20,0.0,0.0,0.0,0.0,0.0,0.0
+edge_case,date_premise_mismatch,bge-m3-hybrid-rrf-reranked,1,0,30,0.0,0.0,0.0,0.0,0.0,0.0
+edge_case,distributed_evidence,bge-m3-hybrid-rrf-reranked,1,0,5,0.2,0.333333,0.5,1.0,0.333333,0.0
+edge_case,distributed_evidence,bge-m3-hybrid-rrf-reranked,1,0,10,0.1,0.333333,0.5,1.0,0.333333,0.0
+edge_case,distributed_evidence,bge-m3-hybrid-rrf-reranked,1,0,20,0.05,0.333333,0.5,1.0,0.333333,0.0
+edge_case,distributed_evidence,bge-m3-hybrid-rrf-reranked,1,0,30,0.033333,0.333333,0.5,1.0,0.333333,0.0
+edge_case,false_premise,bge-m3-hybrid-rrf-reranked,1,0,5,0.0,0.0,0.0,0.0,0.0,0.0
+edge_case,false_premise,bge-m3-hybrid-rrf-reranked,1,0,10,0.0,0.0,0.0,0.0,0.0,0.0
+edge_case,false_premise,bge-m3-hybrid-rrf-reranked,1,0,20,0.0,0.0,0.0,0.0,0.0,0.0
+edge_case,false_premise,bge-m3-hybrid-rrf-reranked,1,0,30,0.0,0.0,0.0,0.0,0.0,0.0
+edge_case,interpretation_bounded_by_evidence,bge-m3-hybrid-rrf-reranked,1,0,5,0.0,0.0,0.0,0.0,0.0,0.0
+edge_case,interpretation_bounded_by_evidence,bge-m3-hybrid-rrf-reranked,1,0,10,0.0,0.0,0.0,0.0,0.0,0.0
+edge_case,interpretation_bounded_by_evidence,bge-m3-hybrid-rrf-reranked,1,0,20,0.0,0.0,0.0,0.0,0.0,0.0
+edge_case,interpretation_bounded_by_evidence,bge-m3-hybrid-rrf-reranked,1,0,30,0.0,0.0,0.0,0.0,0.0,0.0
+edge_case,original_vs_amendment,bge-m3-hybrid-rrf-reranked,1,0,5,0.4,1.0,1.0,1.0,1.0,0.0
+edge_case,original_vs_amendment,bge-m3-hybrid-rrf-reranked,1,0,10,0.2,1.0,1.0,1.0,1.0,0.0
+edge_case,original_vs_amendment,bge-m3-hybrid-rrf-reranked,1,0,20,0.1,1.0,1.0,1.0,1.0,0.0
+edge_case,original_vs_amendment,bge-m3-hybrid-rrf-reranked,1,0,30,0.066667,1.0,1.0,1.0,1.0,0.0
+edge_case,precision_constraint,bge-m3-hybrid-rrf-reranked,16,0,5,0.1875,0.625,0.5625,0.625,0.625,0.08125
+edge_case,precision_constraint,bge-m3-hybrid-rrf-reranked,16,0,10,0.1625,0.8125,0.590278,0.8125,0.8125,0.139583
+edge_case,precision_constraint,bge-m3-hybrid-rrf-reranked,16,0,20,0.0875,0.8125,0.590278,0.8125,0.8125,0.171402
+edge_case,precision_constraint,bge-m3-hybrid-rrf-reranked,16,0,30,0.058333,0.8125,0.590278,0.8125,0.8125,0.171402
+edge_case,punctuation_noise,bge-m3-hybrid-rrf-reranked,16,0,5,0.2125,0.75,0.598958,0.75,0.75,0.114583
+edge_case,punctuation_noise,bge-m3-hybrid-rrf-reranked,16,0,10,0.11875,0.8125,0.607887,0.8125,0.8125,0.145833
+edge_case,punctuation_noise,bge-m3-hybrid-rrf-reranked,16,0,20,0.0625,0.8125,0.607887,0.8125,0.8125,0.15625
+edge_case,punctuation_noise,bge-m3-hybrid-rrf-reranked,16,0,30,0.04375,0.875,0.610863,0.875,0.875,0.15625
+edge_case,required_sample,bge-m3-hybrid-rrf-reranked,2,0,5,0.0,0.0,0.0,0.0,0.0,0.0
+edge_case,required_sample,bge-m3-hybrid-rrf-reranked,2,0,10,0.05,0.5,0.05,0.5,0.5,0.0
+edge_case,required_sample,bge-m3-hybrid-rrf-reranked,2,0,20,0.025,0.5,0.05,0.5,0.5,0.0
+edge_case,required_sample,bge-m3-hybrid-rrf-reranked,2,0,30,0.016667,0.5,0.05,0.5,0.5,0.0
+edge_case,source_qualified,bge-m3-hybrid-rrf-reranked,16,0,5,0.1625,0.75,0.590625,0.75,0.75,0.03125
+edge_case,source_qualified,bge-m3-hybrid-rrf-reranked,16,0,10,0.0875,0.8125,0.598437,0.8125,0.8125,0.03125
+edge_case,source_qualified,bge-m3-hybrid-rrf-reranked,16,0,20,0.04375,0.8125,0.598437,0.8125,0.8125,0.03125
+edge_case,source_qualified,bge-m3-hybrid-rrf-reranked,16,0,30,0.029167,0.8125,0.598437,0.8125,0.8125,0.03125
+edge_case,standard,bge-m3-hybrid-rrf-reranked,100,0,5,0.2,0.66,0.570667,0.66,0.65,0.110667
+edge_case,standard,bge-m3-hybrid-rrf-reranked,100,0,10,0.131,0.73,0.580647,0.73,0.73,0.145333
+edge_case,standard,bge-m3-hybrid-rrf-reranked,100,0,20,0.074,0.82,0.586849,0.82,0.82,0.170606
+edge_case,standard,bge-m3-hybrid-rrf-reranked,100,0,30,0.049667,0.83,0.587325,0.83,0.83,0.170606
+Split,all,bge-m3-hybrid-rrf-reranked-diversified,189,11,5,0.157672,0.700176,0.576984,0.703704,0.647266,0.037037
+Split,all,bge-m3-hybrid-rrf-reranked-diversified,189,11,10,0.08254,0.737213,0.58208,0.740741,0.684303,0.037037
+Split,all,bge-m3-hybrid-rrf-reranked-diversified,189,11,20,0.043915,0.790123,0.586327,0.793651,0.716049,0.037037
+Split,all,bge-m3-hybrid-rrf-reranked-diversified,189,11,30,0.02963,0.800705,0.586831,0.804233,0.726631,0.037037
+Split,development,bge-m3-hybrid-rrf-reranked-diversified,152,8,5,0.157895,0.710526,0.571601,0.710526,0.651316,0.032895
+Split,development,bge-m3-hybrid-rrf-reranked-diversified,152,8,10,0.082237,0.743421,0.576057,0.743421,0.684211,0.032895
+Split,development,bge-m3-hybrid-rrf-reranked-diversified,152,8,20,0.043092,0.782895,0.579387,0.782895,0.710526,0.032895
+Split,development,bge-m3-hybrid-rrf-reranked-diversified,152,8,30,0.029167,0.796053,0.580013,0.796053,0.723684,0.032895
+Split,test,bge-m3-hybrid-rrf-reranked-diversified,37,3,5,0.156757,0.657658,0.599099,0.675676,0.630631,0.054054
+Split,test,bge-m3-hybrid-rrf-reranked-diversified,37,3,10,0.083784,0.711712,0.606821,0.72973,0.684685,0.054054
+Split,test,bge-m3-hybrid-rrf-reranked-diversified,37,3,20,0.047297,0.81982,0.61484,0.837838,0.738739,0.054054
+Split,test,bge-m3-hybrid-rrf-reranked-diversified,37,3,30,0.031532,0.81982,0.61484,0.837838,0.738739,0.054054
+query_type,ambiguous,bge-m3-hybrid-rrf-reranked-diversified,1,1,5,0.0,0.0,0.0,0.0,0.0,0.0
+query_type,ambiguous,bge-m3-hybrid-rrf-reranked-diversified,1,1,10,0.0,0.0,0.0,0.0,0.0,0.0
+query_type,ambiguous,bge-m3-hybrid-rrf-reranked-diversified,1,1,20,0.0,0.0,0.0,0.0,0.0,0.0
+query_type,ambiguous,bge-m3-hybrid-rrf-reranked-diversified,1,1,30,0.0,0.0,0.0,0.0,0.0,0.0
+query_type,factual,bge-m3-hybrid-rrf-reranked-diversified,22,0,5,0.2,0.727273,0.651515,0.727273,0.727273,0.136364
+query_type,factual,bge-m3-hybrid-rrf-reranked-diversified,22,0,10,0.104545,0.772727,0.656061,0.772727,0.772727,0.136364
+query_type,factual,bge-m3-hybrid-rrf-reranked-diversified,22,0,20,0.054545,0.818182,0.659848,0.818182,0.818182,0.136364
+query_type,factual,bge-m3-hybrid-rrf-reranked-diversified,22,0,30,0.036364,0.818182,0.659848,0.818182,0.818182,0.136364
+query_type,list,bge-m3-hybrid-rrf-reranked-diversified,1,0,5,0.0,0.0,0.0,0.0,0.0,0.0
+query_type,list,bge-m3-hybrid-rrf-reranked-diversified,1,0,10,0.0,0.0,0.0,0.0,0.0,0.0
+query_type,list,bge-m3-hybrid-rrf-reranked-diversified,1,0,20,0.0,0.0,0.0,0.0,0.0,0.0
+query_type,list,bge-m3-hybrid-rrf-reranked-diversified,1,0,30,0.0,0.0,0.0,0.0,0.0,0.0
+query_type,multi_chunk_synthesis,bge-m3-hybrid-rrf-reranked-diversified,1,0,5,0.2,0.333333,0.5,1.0,0.333333,0.0
+query_type,multi_chunk_synthesis,bge-m3-hybrid-rrf-reranked-diversified,1,0,10,0.1,0.333333,0.5,1.0,0.333333,0.0
+query_type,multi_chunk_synthesis,bge-m3-hybrid-rrf-reranked-diversified,1,0,20,0.05,0.333333,0.5,1.0,0.333333,0.0
+query_type,multi_chunk_synthesis,bge-m3-hybrid-rrf-reranked-diversified,1,0,30,0.033333,0.333333,0.5,1.0,0.333333,0.0
+query_type,multi_document_comparison,bge-m3-hybrid-rrf-reranked-diversified,1,0,5,0.0,0.0,0.0,0.0,0.0,0.0
+query_type,multi_document_comparison,bge-m3-hybrid-rrf-reranked-diversified,1,0,10,0.0,0.0,0.0,0.0,0.0,0.0
+query_type,multi_document_comparison,bge-m3-hybrid-rrf-reranked-diversified,1,0,20,0.0,0.0,0.0,0.0,0.0,0.0
+query_type,multi_document_comparison,bge-m3-hybrid-rrf-reranked-diversified,1,0,30,0.0,0.0,0.0,0.0,0.0,0.0
+query_type,multi_document_reconciliation,bge-m3-hybrid-rrf-reranked-diversified,1,0,5,0.4,1.0,1.0,1.0,1.0,0.0
+query_type,multi_document_reconciliation,bge-m3-hybrid-rrf-reranked-diversified,1,0,10,0.2,1.0,1.0,1.0,1.0,0.0
+query_type,multi_document_reconciliation,bge-m3-hybrid-rrf-reranked-diversified,1,0,20,0.1,1.0,1.0,1.0,1.0,0.0
+query_type,multi_document_reconciliation,bge-m3-hybrid-rrf-reranked-diversified,1,0,30,0.066667,1.0,1.0,1.0,1.0,0.0
+query_type,paraphrase,bge-m3-hybrid-rrf-reranked-diversified,80,0,5,0.1625,0.7375,0.602083,0.7375,0.6875,0.0375
+query_type,paraphrase,bge-m3-hybrid-rrf-reranked-diversified,80,0,10,0.085,0.775,0.607738,0.775,0.725,0.0375
+query_type,paraphrase,bge-m3-hybrid-rrf-reranked-diversified,80,0,20,0.04375,0.8,0.609592,0.8,0.7375,0.0375
+query_type,paraphrase,bge-m3-hybrid-rrf-reranked-diversified,80,0,30,0.029583,0.8125,0.610188,0.8125,0.75,0.0375
+query_type,premise_check,bge-m3-hybrid-rrf-reranked-diversified,1,0,5,0.0,0.0,0.0,0.0,0.0,0.0
+query_type,premise_check,bge-m3-hybrid-rrf-reranked-diversified,1,0,10,0.0,0.0,0.0,0.0,0.0,0.0
+query_type,premise_check,bge-m3-hybrid-rrf-reranked-diversified,1,0,20,0.0,0.0,0.0,0.0,0.0,0.0
+query_type,premise_check,bge-m3-hybrid-rrf-reranked-diversified,1,0,30,0.0,0.0,0.0,0.0,0.0,0.0
+query_type,regulatory_filing,bge-m3-hybrid-rrf-reranked-diversified,1,0,5,0.4,1.0,1.0,1.0,1.0,0.0
+query_type,regulatory_filing,bge-m3-hybrid-rrf-reranked-diversified,1,0,10,0.2,1.0,1.0,1.0,1.0,0.0
+query_type,regulatory_filing,bge-m3-hybrid-rrf-reranked-diversified,1,0,20,0.1,1.0,1.0,1.0,1.0,0.0
+query_type,regulatory_filing,bge-m3-hybrid-rrf-reranked-diversified,1,0,30,0.066667,1.0,1.0,1.0,1.0,0.0
+query_type,table_lookup,bge-m3-hybrid-rrf-reranked-diversified,79,0,5,0.144304,0.696203,0.557595,0.696203,0.620253,0.012658
+query_type,table_lookup,bge-m3-hybrid-rrf-reranked-diversified,79,0,10,0.075949,0.734177,0.562794,0.734177,0.658228,0.012658
+query_type,table_lookup,bge-m3-hybrid-rrf-reranked-diversified,79,0,20,0.042405,0.822785,0.570023,0.822785,0.708861,0.012658
+query_type,table_lookup,bge-m3-hybrid-rrf-reranked-diversified,79,0,30,0.028692,0.835443,0.570625,0.835443,0.721519,0.012658
+query_type,temporal_reconciliation,bge-m3-hybrid-rrf-reranked-diversified,1,0,5,0.0,0.0,0.0,0.0,0.0,0.0
+query_type,temporal_reconciliation,bge-m3-hybrid-rrf-reranked-diversified,1,0,10,0.0,0.0,0.0,0.0,0.0,0.0
+query_type,temporal_reconciliation,bge-m3-hybrid-rrf-reranked-diversified,1,0,20,0.0,0.0,0.0,0.0,0.0,0.0
+query_type,temporal_reconciliation,bge-m3-hybrid-rrf-reranked-diversified,1,0,30,0.0,0.0,0.0,0.0,0.0,0.0
+difficulty,easy,bge-m3-hybrid-rrf-reranked-diversified,2,8,5,0.0,0.0,0.0,0.0,0.0,0.0
+difficulty,easy,bge-m3-hybrid-rrf-reranked-diversified,2,8,10,0.05,0.5,0.05,0.5,0.5,0.0
+difficulty,easy,bge-m3-hybrid-rrf-reranked-diversified,2,8,20,0.025,0.5,0.05,0.5,0.5,0.0
+difficulty,easy,bge-m3-hybrid-rrf-reranked-diversified,2,8,30,0.016667,0.5,0.05,0.5,0.5,0.0
+difficulty,hard,bge-m3-hybrid-rrf-reranked-diversified,5,1,5,0.12,0.266667,0.3,0.4,0.266667,0.0
+difficulty,hard,bge-m3-hybrid-rrf-reranked-diversified,5,1,10,0.06,0.266667,0.3,0.4,0.266667,0.0
+difficulty,hard,bge-m3-hybrid-rrf-reranked-diversified,5,1,20,0.03,0.266667,0.3,0.4,0.266667,0.0
+difficulty,hard,bge-m3-hybrid-rrf-reranked-diversified,5,1,30,0.02,0.266667,0.3,0.4,0.266667,0.0
+difficulty,medium,bge-m3-hybrid-rrf-reranked-diversified,182,2,5,0.16044,0.71978,0.590934,0.71978,0.664835,0.038462
+difficulty,medium,bge-m3-hybrid-rrf-reranked-diversified,182,2,10,0.083516,0.752747,0.595676,0.752747,0.697802,0.038462
+difficulty,medium,bge-m3-hybrid-rrf-reranked-diversified,182,2,20,0.044505,0.807692,0.600087,0.807692,0.730769,0.038462
+difficulty,medium,bge-m3-hybrid-rrf-reranked-diversified,182,2,30,0.030037,0.818681,0.60061,0.818681,0.741758,0.038462
+edge_case,arbitrary_selection_rule,bge-m3-hybrid-rrf-reranked-diversified,1,0,5,0.0,0.0,0.0,0.0,0.0,0.0
+edge_case,arbitrary_selection_rule,bge-m3-hybrid-rrf-reranked-diversified,1,0,10,0.0,0.0,0.0,0.0,0.0,0.0
+edge_case,arbitrary_selection_rule,bge-m3-hybrid-rrf-reranked-diversified,1,0,20,0.0,0.0,0.0,0.0,0.0,0.0
+edge_case,arbitrary_selection_rule,bge-m3-hybrid-rrf-reranked-diversified,1,0,30,0.0,0.0,0.0,0.0,0.0,0.0
+edge_case,citation_required,bge-m3-hybrid-rrf-reranked-diversified,16,0,5,0.1625,0.8125,0.684375,0.8125,0.75,0.0
+edge_case,citation_required,bge-m3-hybrid-rrf-reranked-diversified,16,0,10,0.08125,0.8125,0.684375,0.8125,0.75,0.0
+edge_case,citation_required,bge-m3-hybrid-rrf-reranked-diversified,16,0,20,0.040625,0.8125,0.684375,0.8125,0.75,0.0
+edge_case,citation_required,bge-m3-hybrid-rrf-reranked-diversified,16,0,30,0.027083,0.8125,0.684375,0.8125,0.75,0.0
+edge_case,conflicting_dated_sources,bge-m3-hybrid-rrf-reranked-diversified,1,0,5,0.4,1.0,1.0,1.0,1.0,0.0
+edge_case,conflicting_dated_sources,bge-m3-hybrid-rrf-reranked-diversified,1,0,10,0.2,1.0,1.0,1.0,1.0,0.0
+edge_case,conflicting_dated_sources,bge-m3-hybrid-rrf-reranked-diversified,1,0,20,0.1,1.0,1.0,1.0,1.0,0.0
+edge_case,conflicting_dated_sources,bge-m3-hybrid-rrf-reranked-diversified,1,0,30,0.066667,1.0,1.0,1.0,1.0,0.0
+edge_case,corpus_qualified,bge-m3-hybrid-rrf-reranked-diversified,16,0,5,0.15,0.625,0.552083,0.625,0.5625,0.0625
+edge_case,corpus_qualified,bge-m3-hybrid-rrf-reranked-diversified,16,0,10,0.08125,0.6875,0.561012,0.6875,0.625,0.0625
+edge_case,corpus_qualified,bge-m3-hybrid-rrf-reranked-diversified,16,0,20,0.046875,0.8125,0.570284,0.8125,0.6875,0.0625
+edge_case,corpus_qualified,bge-m3-hybrid-rrf-reranked-diversified,16,0,30,0.03125,0.8125,0.570284,0.8125,0.6875,0.0625
+edge_case,date_premise_mismatch,bge-m3-hybrid-rrf-reranked-diversified,1,0,5,0.0,0.0,0.0,0.0,0.0,0.0
+edge_case,date_premise_mismatch,bge-m3-hybrid-rrf-reranked-diversified,1,0,10,0.0,0.0,0.0,0.0,0.0,0.0
+edge_case,date_premise_mismatch,bge-m3-hybrid-rrf-reranked-diversified,1,0,20,0.0,0.0,0.0,0.0,0.0,0.0
+edge_case,date_premise_mismatch,bge-m3-hybrid-rrf-reranked-diversified,1,0,30,0.0,0.0,0.0,0.0,0.0,0.0
+edge_case,distributed_evidence,bge-m3-hybrid-rrf-reranked-diversified,1,0,5,0.2,0.333333,0.5,1.0,0.333333,0.0
+edge_case,distributed_evidence,bge-m3-hybrid-rrf-reranked-diversified,1,0,10,0.1,0.333333,0.5,1.0,0.333333,0.0
+edge_case,distributed_evidence,bge-m3-hybrid-rrf-reranked-diversified,1,0,20,0.05,0.333333,0.5,1.0,0.333333,0.0
+edge_case,distributed_evidence,bge-m3-hybrid-rrf-reranked-diversified,1,0,30,0.033333,0.333333,0.5,1.0,0.333333,0.0
+edge_case,false_premise,bge-m3-hybrid-rrf-reranked-diversified,1,0,5,0.0,0.0,0.0,0.0,0.0,0.0
+edge_case,false_premise,bge-m3-hybrid-rrf-reranked-diversified,1,0,10,0.0,0.0,0.0,0.0,0.0,0.0
+edge_case,false_premise,bge-m3-hybrid-rrf-reranked-diversified,1,0,20,0.0,0.0,0.0,0.0,0.0,0.0
+edge_case,false_premise,bge-m3-hybrid-rrf-reranked-diversified,1,0,30,0.0,0.0,0.0,0.0,0.0,0.0
+edge_case,interpretation_bounded_by_evidence,bge-m3-hybrid-rrf-reranked-diversified,1,0,5,0.0,0.0,0.0,0.0,0.0,0.0
+edge_case,interpretation_bounded_by_evidence,bge-m3-hybrid-rrf-reranked-diversified,1,0,10,0.0,0.0,0.0,0.0,0.0,0.0
+edge_case,interpretation_bounded_by_evidence,bge-m3-hybrid-rrf-reranked-diversified,1,0,20,0.0,0.0,0.0,0.0,0.0,0.0
+edge_case,interpretation_bounded_by_evidence,bge-m3-hybrid-rrf-reranked-diversified,1,0,30,0.0,0.0,0.0,0.0,0.0,0.0
+edge_case,original_vs_amendment,bge-m3-hybrid-rrf-reranked-diversified,1,0,5,0.4,1.0,1.0,1.0,1.0,0.0
+edge_case,original_vs_amendment,bge-m3-hybrid-rrf-reranked-diversified,1,0,10,0.2,1.0,1.0,1.0,1.0,0.0
+edge_case,original_vs_amendment,bge-m3-hybrid-rrf-reranked-diversified,1,0,20,0.1,1.0,1.0,1.0,1.0,0.0
+edge_case,original_vs_amendment,bge-m3-hybrid-rrf-reranked-diversified,1,0,30,0.066667,1.0,1.0,1.0,1.0,0.0
+edge_case,precision_constraint,bge-m3-hybrid-rrf-reranked-diversified,16,0,5,0.15,0.6875,0.575,0.6875,0.625,0.03125
+edge_case,precision_constraint,bge-m3-hybrid-rrf-reranked-diversified,16,0,10,0.0875,0.8125,0.594345,0.8125,0.75,0.03125
+edge_case,precision_constraint,bge-m3-hybrid-rrf-reranked-diversified,16,0,20,0.04375,0.8125,0.594345,0.8125,0.75,0.03125
+edge_case,precision_constraint,bge-m3-hybrid-rrf-reranked-diversified,16,0,30,0.029167,0.8125,0.594345,0.8125,0.75,0.03125
+edge_case,punctuation_noise,bge-m3-hybrid-rrf-reranked-diversified,16,0,5,0.1875,0.8125,0.611458,0.8125,0.75,0.0625
+edge_case,punctuation_noise,bge-m3-hybrid-rrf-reranked-diversified,16,0,10,0.09375,0.8125,0.611458,0.8125,0.75,0.0625
+edge_case,punctuation_noise,bge-m3-hybrid-rrf-reranked-diversified,16,0,20,0.046875,0.8125,0.611458,0.8125,0.75,0.0625
+edge_case,punctuation_noise,bge-m3-hybrid-rrf-reranked-diversified,16,0,30,0.033333,0.875,0.614435,0.875,0.8125,0.0625
+edge_case,required_sample,bge-m3-hybrid-rrf-reranked-diversified,2,0,5,0.0,0.0,0.0,0.0,0.0,0.0
+edge_case,required_sample,bge-m3-hybrid-rrf-reranked-diversified,2,0,10,0.05,0.5,0.05,0.5,0.5,0.0
+edge_case,required_sample,bge-m3-hybrid-rrf-reranked-diversified,2,0,20,0.025,0.5,0.05,0.5,0.5,0.0
+edge_case,required_sample,bge-m3-hybrid-rrf-reranked-diversified,2,0,30,0.016667,0.5,0.05,0.5,0.5,0.0
+edge_case,source_qualified,bge-m3-hybrid-rrf-reranked-diversified,16,0,5,0.1625,0.75,0.5875,0.75,0.75,0.03125
+edge_case,source_qualified,bge-m3-hybrid-rrf-reranked-diversified,16,0,10,0.08125,0.75,0.5875,0.75,0.75,0.03125
+edge_case,source_qualified,bge-m3-hybrid-rrf-reranked-diversified,16,0,20,0.040625,0.75,0.5875,0.75,0.75,0.03125
+edge_case,source_qualified,bge-m3-hybrid-rrf-reranked-diversified,16,0,30,0.027083,0.75,0.5875,0.75,0.75,0.03125
+edge_case,standard,bge-m3-hybrid-rrf-reranked-diversified,100,0,5,0.158,0.71,0.583833,0.71,0.65,0.04
+edge_case,standard,bge-m3-hybrid-rrf-reranked-diversified,100,0,10,0.082,0.74,0.58794,0.74,0.68,0.04
+edge_case,standard,bge-m3-hybrid-rrf-reranked-diversified,100,0,20,0.045,0.82,0.594485,0.82,0.73,0.04
+edge_case,standard,bge-m3-hybrid-rrf-reranked-diversified,100,0,30,0.030333,0.83,0.594961,0.83,0.74,0.04

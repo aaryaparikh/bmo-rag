@@ -2,6 +2,8 @@
 
 from __future__ import annotations
 
+import re
+import unicodedata
 from contextlib import nullcontext
 from typing import TYPE_CHECKING, Any
 
@@ -77,10 +79,11 @@ def retrieve_hybrid_chunks(
         exact=exact,
     )
     if not rerank:
-        return candidates[:top_k]
-    return VllmReranker(model=reranker_model, base_url=reranker_url).rerank(
-        question, candidates, top_k=top_k
+        return deduplicate_retrieved_points(candidates)[:top_k]
+    reranked = VllmReranker(model=reranker_model, base_url=reranker_url).rerank(
+        question, candidates, top_k=len(candidates)
     )
+    return deduplicate_retrieved_points(reranked)[:top_k]
 
 
 def retrieve_source_aware_hybrid_chunks(
@@ -146,6 +149,14 @@ def retrieve_source_aware_hybrid_chunks(
         reranked = VllmReranker(model=reranker_model, base_url=reranker_url).rerank(
             question, list(by_id.values()), top_k=len(by_id)
         )
+        reranked = deduplicate_retrieved_points(
+            reranked,
+            preserve_source_ids={
+                source_id
+                for constraint in source_constraints
+                for source_id in constraint.source_ids
+            },
+        )
     if trace:
         trace.record_chunks("reranked", reranked, lane="merged")
     if not source_constraints:
@@ -179,3 +190,57 @@ def retrieve_source_aware_hybrid_chunks(
 def _point_key(point: dict[str, Any]) -> str:
     payload = point.get("payload") or {}
     return str(payload.get("chunk_id") or point.get("id"))
+
+
+def deduplicate_retrieved_points(
+    points: list[dict[str, Any]],
+    *,
+    preserve_source_ids: set[str] | None = None,
+) -> list[dict[str, Any]]:
+    """Collapse exact/contained passage copies while preserving rank and provenance metadata.
+
+    Copies from explicitly requested sources receive a source-specific key so source
+    constraints and cross-document comparisons retain their requested provenance.
+    """
+    protected = preserve_source_ids or set()
+    retained: list[dict[str, Any]] = []
+    by_key: dict[tuple[str, str | None], dict[str, Any]] = {}
+    retained_texts: list[tuple[str, str | None, dict[str, Any]]] = []
+    for point in points:
+        payload = point.get("payload") or {}
+        text = unicodedata.normalize("NFKC", str(payload.get("text") or "")).casefold()
+        text_key = re.sub(r"\s+", " ", text).strip()
+        source_id = str(payload.get("source_id") or "")
+        scope = source_id if source_id in protected else None
+        key = (text_key, scope)
+        existing = by_key.get(key)
+        if existing is None and text_key:
+            existing = next(
+                (
+                    retained_point
+                    for retained_text, retained_scope, retained_point in retained_texts
+                    if retained_scope == scope
+                    and min(len(text_key), len(retained_text)) >= 120
+                    and min(len(text_key), len(retained_text))
+                    / max(len(text_key), len(retained_text))
+                    >= 0.35
+                    and (
+                        text_key in retained_text
+                        or retained_text in text_key
+                    )
+                ),
+                None,
+            )
+        if not text_key or existing is None:
+            copy = {**point}
+            by_key[key] = copy
+            retained.append(copy)
+            if text_key:
+                retained_texts.append((text_key, scope, copy))
+            continue
+        duplicate_ids = existing.setdefault("duplicate_chunk_ids", [])
+        duplicate_ids.append(str(payload.get("chunk_id") or point.get("id") or "unknown"))
+        duplicate_sources = existing.setdefault("duplicate_sources", [])
+        if source_id and source_id not in duplicate_sources:
+            duplicate_sources.append(source_id)
+    return retained
